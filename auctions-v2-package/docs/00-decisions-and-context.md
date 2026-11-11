@@ -123,3 +123,15 @@ Auction item listings use server-side pagination and a selectable page size. Thi
 ## Confirmed single-line item table layout
 
 Use one line per record with no stacked cell content. Keep Tags and Notice buttons together in the rightmost Actions column. This supersedes the earlier compact multiline mobile proposal; narrow viewports use horizontal table scrolling.
+
+## Confirmed frontend foundation — 11 November 2026
+
+Approved by the user: Next.js App Router, React, TypeScript and Tailwind; source-owned shadcn/ui components using Radix, styled to Studio and Studio Warm Blue; Geist/Geist Mono through next/font; clsx, tailwind-merge and class-variance-authority; next-themes; next-intl; react-hook-form, Zod and @hookform/resolvers; Sonner; @tailwindcss/typography and tw-animate-css; lucide-react; Clerk's Next.js integration, UI themes and Spanish/English localizations; ESLint/Next configuration and appropriate type packages. Typography is build-served; animations must respect reduced motion. Theme mode and palette remain independent preferences.
+
+Build NEW custom data-grid and field components. Do not reuse the v1 grid or field implementations. Use the approved UI primitives and current requirements: grouped filters, user-owned saved filters and columns, server pagination with selectable sizes, multi-sort and shared single-line grid styling. Tags retain fixed columns and no filtering, pagination or column selector; editing/deletion occur only from the list. Validate locale/timezone and exact monetary values; backend validation and organization authorization remain authoritative.
+
+Retain Leaflet/react-leaflet, with a client boundary for browser APIs and tile URL/attribution configurable per deployment. No country selection is introduced. The specific tile service remains open.
+
+Recommended implementation details, not further confirmed choices: standardize Radix imports, coordinate Clerk and next-intl routing, verify compatible versions and pin a lockfile at application initialization rather than automatically copying v1 versions. Image lightbox implementation and plain img versus next/image remain open.
+
+This decision governs the future frontend. The current editable HTML/CSS/JS prototype remains offline; no full Next.js foundation has been installed by this documentation update.

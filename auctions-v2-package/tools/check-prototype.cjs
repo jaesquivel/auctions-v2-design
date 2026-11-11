@@ -248,9 +248,12 @@ state.workspace='solo';check(!state.propertyResearch['soloDEMO-A01']&&!state.not
 check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'stale organization save denied');
 state.workspace='org';check(!savePropertyResearch('DEMO-V01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'property fields reject vehicle');
 for(const amount of ['-1','1.234','NaN','1e3'])check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:amount,appraisalCurrency:'CRC'}).ok,'invalid appraisal '+amount);
-check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='properties')).includes('data-screen="property-edit"'),'property edit action');
+check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='properties')).includes('data-screen="asset"'),'property edit action opens shared detail');
 check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='vehicles')).includes('data-screen="asset"'),'vehicle action retained');
 state.role='UNKNOWN';check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'nonmember property edits denied');state.role='MANAGER';
+state.selected='DEMO-A01';state.workspace='org';state.role='USER';state.itemTab='overview';
+check(asset().includes('property-research-form')&&asset().includes('item-tabs')&&asset().includes(t('events')),'one property detail includes editing, tabs and schedule');
+navigate('property-edit','DEMO-A01');check(state.screen==='asset','legacy property edit link resolves to detail');
 check(DEMO_LISTINGS.length===150,'full catalog has 150 fixtures');
 check(new Set(DEMO_LISTINGS.map(item=>item.id)).size===150,'fixture IDs unique');
 for(const category of ['properties','vehicles','other']) {

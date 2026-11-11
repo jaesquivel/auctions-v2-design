@@ -204,3 +204,17 @@ Removed the Tags column selector, visibility storage helper and event handlers. 
 ## Organization property editing
 
 Added property editor for organization-owned notes and appraisal money, and Pencil action in property rows. Browser saved notes/appraisal, returned to listing and reopened using Edit property; both values retained within the demonstration session. 1,194 automated checks passed, including cross-organization isolation, stale workspace denial, invalid appraisal values and source immutability. Screenshot property-organization-edit.jpg. Persistence is prototype memory only; mobile review and backend implementation remain pending.
+
+## Unified property screen
+
+Removed separate property editor. Title and Pencil actions open asset detail; Overview includes notes/appraisal editing alongside original information, schedule and Images tab. Browser saved appraisal and notes on the same screen; confirmed one edit form and retained tabs. 1,196 behavior checks passed. Screenshot property-unified-detail.jpg. Separate-editor screenshots are historical.
+
+## Direct colored tag picker
+
+Replaced tags-and-notes dialog with a native popover of colored checkbox labels, opened by clicking labels in the grid or detail screen. Browser deselected/reselected a tag and verified the row updated immediately. Badge-only refresh avoids resetting property edit inputs. Screenshot colored-tag-picker.jpg. Existing 1,196 behavior checks passed; offline assignments remain session state.
+
+## Tag buttons and large catalog
+
+Removed separate Assign Tags controls and row tag-action icons; clickable labels are the assignment entry point. Replaced checkboxes with aria-pressed colored toggle buttons and selected borders/backgrounds. Browser confirmed zero checkbox inputs and immediate selection toggling. Added 25 fictional test definitions to the demo organization (27 total) for long-list behavior, varied colors and long names.
+
+Large-catalog browser check: 27 tag options rendered in a scrollable popup; the final test tag (Prueba 25) was reached and selected successfully. Screenshot tag-picker-large.jpg shows the no-checkmark selector with label-only assignment entry points.

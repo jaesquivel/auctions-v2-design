@@ -148,3 +148,31 @@ Confirmed: property records include user-editable notes and appraisal amount own
 The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel discards unsaved edits and returns to the listing, preserving item pagination. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
 
 Proposed permissions follow existing research-edit access: ADMIN, MANAGER and USER; membership must be validated server-side. Prototype state resets on reload. Annotation input/response now allow optional nullable `appraisal: Money`; production must restrict appraisal to Properties, reject invalid currencies/amounts and use expected-version checks. SQL design adds nullable appraisal_amount/appraisal_currency to asset_annotation with paired-null and non-negative checks. No database migration or production service has been executed.
+
+### Property row actions
+
+Confirmed: remove the Notice button from Properties listing rows. The rightmost untitled action column contains Edit property (Pencil) and Tags only. Other category rows retain their current actions.
+
+## Transparent field ownership
+
+Confirmed: organization ownership of editable fields, notes, appraisal, tags and attachments is implicit. User-facing headings, helper text, empty states and save feedback do not explain or label that ownership. Use plain labels such as Notes, Appraisal amount, Additional information and Changes saved. Organization configuration and the global context switcher remain organization controls; this does not expose field ownership labels. Internal documentation, API ownership, authorization, data isolation and audit requirements remain explicit and unchanged.
+
+## Unified property detail and editing
+
+Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the Overview tab alongside the published information, auction schedule and tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
+
+## Direct tag-label selection
+
+Confirmed: click the displayed tag labels to open a popup containing colored clickable tag buttons. The list cell and property-detail labels are interactive; empty tag cells also open the picker. Multiple tags may be selected or cleared. Changes apply immediately; there is no separate Apply step. Escape, outside click or Close dismisses the popup. Existing tag action buttons open the same picker. The picker only changes item assignments, not tag definitions or notes. Assignment permission and organization boundaries remain enforced internally. Popup updates refresh tag badges only, preserving unsaved property-form values. This replaces the earlier combined tags-and-notes modal. The offline prototype stores assignments for the current session.
+
+### Tag selection without checkmarks
+
+Confirmed: the tag picker contains clickable colored labels, not checkboxes or checkmarks. Click a tag to toggle its assignment immediately. Selected options use a highlighted background and border; aria-pressed communicates selection to assistive technology. Native buttons support keyboard activation. Colors remain visible in both states.
+
+### Labels-only tag interaction
+
+Confirmed: no separate Assign Tags button or tag action icon. Open the selector by clicking the displayed labels (or empty tag area) in the listing/detail/card. The selector uses colored clickable toggle buttons, without checkboxes/checkmarks; highlighted background/border and aria-pressed indicate selection.
+
+### Large test tag catalog
+
+The demo organization now has 25 additional fictional tags (27 total), prefixed Prueba 01–25 and cycling all six colors. Several have long labels to exercise truncation. They are initially unassigned. The tag picker scrolls and applies selection through colored toggle buttons without checkmarks. Tags maintenance continues to show the full list without pagination/filter/column controls. The solo organization retains its separate original catalog.

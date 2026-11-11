@@ -121,3 +121,17 @@ Tags grid exception: NO filtering or pagination controls. Display all non-delete
 Tags grid also has NO column selector or column preferences. Always show name, assigned-item count, and untitled Edit/Delete controls. Keep sorting and shared grid styling; no filters/pagination.
 
 Properties have organization-owned user-editable research fields: notes and appraisal amount/currency, extensible to other fields not yet specified. The Properties row uses a Pencil/edit action instead of Eye/view. Keep source notice data immutable and organization scope separate; other categories retain open action.
+
+Confirmed frontend foundation: shadcn/ui with Radix, Geist fonts, next-themes, next-intl, react-hook-form/Zod/resolvers, Sonner, Tailwind helpers/typography/motion, Clerk UI/localizations and lucide-react, styled as Studio. Build NEW custom grids and fields; do not reuse v1 implementations. Retain Leaflet/react-leaflet with deployment-configurable tiles. Verify and pin compatible versions when initializing the real application; the current prototype remains offline HTML/CSS/JS.
+
+Properties list rows have Edit and Tags actions only; no Notice button in the property grid.
+
+Editable data ownership must be transparent in the UI: do not label fields/notes/tags/images as organization-owned or explain member sharing. Use simple field names and neutral save feedback. Enforce organization isolation internally; keep explicit scope in technical docs and API, and keep actual organization-settings/context controls.
+
+Properties use ONE detail/view/edit screen. Title and Pencil actions open asset detail with editable notes/appraisal in Overview and the existing information/tabs. No separate edit window. Save stays there; Cancel restores saved values. Legacy property-edit links resolve to asset.
+
+Clicking displayed tag labels opens a colored multi-select popup for direct item assignment. Checkbox changes apply immediately; no separate Apply or notes editor in the popup. Empty labels are clickable too. Keep property-form drafts intact when changing tags.
+
+Tag picker uses clickable colored buttons with aria-pressed and highlighted selected styling. No checkboxes or checkmarks for tag selection.
+
+Remove separate Assign Tags buttons and tag action icons. Click displayed labels or the empty tag area to select colored tags. No checkboxes/checkmarks in that selector.

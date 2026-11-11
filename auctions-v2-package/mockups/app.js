@@ -373,7 +373,7 @@ const COPY = {
     organizationTags: "Etiquetas",
     allOrganizationTags: "Todas las etiquetas",
     noAssignedTags: "Sin etiquetas asignadas",
-    organizationResearch: "Etiquetas y notas de la organización",
+    organizationResearch: "Etiquetas y notas",
     taggedCount: "Remates con etiquetas",
     searchContext: "Contexto de ejecución",
     contextUnavailable: "Contexto no disponible",
@@ -382,21 +382,21 @@ const COPY = {
     imagesTab: "Imágenes",
     imagesTitle: "Imágenes del remate",
     imagesHelp:
-      "Adjuntos de integrantes de la organización. No son evidencia oficial del aviso.",
+      "Imágenes adjuntas. No son evidencia oficial del aviso.",
     attachImages: "Adjuntar imágenes",
     imageFiles: "Seleccione archivos de imagen",
     imageLimits:
-      "JPEG, PNG o WebP · máximo propuesto 10 MB por archivo y 20 adjuntos por remate y organización",
+      "JPEG, PNG o WebP · máximo propuesto 10 MB por archivo y 20 adjuntos por remate",
     imagesEmpty: "Todavía no hay imágenes adjuntas",
     imagesEmptyHelp:
-      "Un integrante de la organización puede adjuntar imágenes aquí.",
+      "Puede adjuntar imágenes aquí.",
     imageError:
       "Revise el formato, el tamaño de 10 MB y el límite de 20 imágenes.",
     imageAdded: "Imágenes agregadas a la demostración local",
     imageLocalOnly:
       "Demostración local: los archivos seleccionados se previsualizan en este navegador; no se suben a un servidor.",
     uploadedBy: "Adjuntado por",
-    noNotes: "Sin notas de la organización.",
+    noNotes: "Sin notas.",
     systemDemo:
       "Simulación local. No se cambia ningún servicio ni se ejecuta una ingesta real.",
     systemControls: "Controles de ingesta",
@@ -445,10 +445,10 @@ const COPY = {
     permissionDenied: "Su rol no permite cambiar esta configuración.",
     tagDuplicate: "Ya existe una etiqueta con ese nombre.",
     invalidTag:
-      "Use un nombre de 1 a 40 caracteres y etiquetas de esta organización.",
+      "Use un nombre de 1 a 40 caracteres.",
     tagUpdated: "Lista de etiquetas actualizada",
     settingsSaved: "Configuración de ejemplo guardada",
-    tagSelectionHelp: "Seleccione etiquetas de la lista de su organización.",
+    tagSelectionHelp: "Seleccione etiquetas de la lista.",
     noTags:
       "No hay etiquetas disponibles. Un ADMIN o MANAGER puede agregarlas.",
     tagArchivedHelp:
@@ -639,7 +639,7 @@ const COPY = {
       "Elija una moneda y use un rango válido. El mínimo no puede superar el máximo.",
     filterSummary: "Filtros guardados",
     allAssets: "Todos los remates",
-    notes: "Notas privadas",
+    notes: "Notas",
     change: "Cambiar",
     tagPrompt: "Separe las etiquetas con comas",
     notePrompt: "Agregue una nota privada de ejemplo",
@@ -733,19 +733,19 @@ const COPY = {
     imagesTab: "Images",
     imagesTitle: "Auction item images",
     imagesHelp:
-      "Attachments from organization members. These are not official notice evidence.",
+      "Attached images. These are not official notice evidence.",
     attachImages: "Attach images",
     imageFiles: "Choose image files",
     imageLimits:
-      "JPEG, PNG or WebP · proposed limits of 10 MB per file and 20 attachments per auction item and organization",
+      "JPEG, PNG or WebP · proposed limits of 10 MB per file and 20 attachments per auction item",
     imagesEmpty: "No images attached yet",
-    imagesEmptyHelp: "An organization member can attach images here.",
+    imagesEmptyHelp: "You can attach images here.",
     imageError: "Check the allowed format, 10 MB size and 20-image limit.",
     imageAdded: "Images added to the local demonstration",
     imageLocalOnly:
       "Local demonstration: selected files are previewed in this browser and are not uploaded to a server.",
     uploadedBy: "Attached by",
-    noNotes: "No organization notes.",
+    noNotes: "No notes yet.",
     systemDemo:
       "Local simulation. No service is changed and no real ingestion is run.",
     systemControls: "Ingestion controls",
@@ -792,10 +792,10 @@ const COPY = {
     permissionDenied: "Your role cannot change these settings.",
     tagDuplicate: "A tag with this name already exists.",
     invalidTag:
-      "Use a name of 1 to 40 characters and tags from this organization.",
+      "Use a name of 1 to 40 characters.",
     tagUpdated: "Tag list updated",
     settingsSaved: "Example settings saved",
-    tagSelectionHelp: "Choose tags from your organization’s available list.",
+    tagSelectionHelp: "Choose tags from the available list.",
     noTags: "No tags are available. An ADMIN or MANAGER can add them.",
     tagArchivedHelp: "Deleted tags retain their previous assignments.",
     researchProposal:
@@ -981,7 +981,7 @@ const COPY = {
       "Choose a currency and use a valid range. Minimum cannot exceed maximum.",
     filterSummary: "Saved filters",
     allAssets: "All auction items",
-    notes: "Private notes",
+    notes: "Notes",
     change: "Change",
     tagPrompt: "Separate tags with commas",
     notePrompt: "Add a private example note",
@@ -1119,6 +1119,12 @@ const state = {
   reviewAmount: "65000000.00",
   reviewReason: "",
 };
+// Additional fictional labels for testing the long tag catalog and picker.
+state.tagDefinitions.org.push(...Array.from({length:25},(_,index)=>({
+  id:`DEMO-TAG-TEST-${String(index+1).padStart(2,"0")}`,
+  label:`Prueba ${String(index+1).padStart(2,"0")}${index%5===0?" · Seguimiento de documentación pendiente":index%3===0?" · Revisión adicional":""}`,
+  color:["gray","blue","green","amber","red","purple"][index%6],
+})));
 const app = document.getElementById("app");
 const t = (k) => COPY[state.lang][k] || k;
 const esc = (v) =>
@@ -1382,6 +1388,7 @@ function selectCategory(category) {
   return true;
 }
 function navigate(screen, id) {
+  if(screen === "property-edit") screen = "asset";
   if (
     state.screen === "filters" &&
     screen !== "filters" &&
@@ -1412,7 +1419,7 @@ function badge(a) {
   return `<span class="badge ${a.quality === "reviewed" ? "" : "warning"}">${t(a.quality === "reviewed" ? "reviewed" : "needsReview")}</span>`;
 }
 function card(a) {
-  return `<article class="auction-row"><div><div class="card-meta">${t(a.type)} · ${a.id}</div><button class="title-link" data-screen="asset" data-id="${a.id}">${esc(title(a))}</button><div class="location">⌖ ${esc(a.locality)}</div></div><div><div class="price-label">${t("base")}</div><div class="price">${money(a)}</div></div><div class="row-facts">${a.category === "properties" ? `<span>${t("area")}: ${a.area ? a.area + " m²" : t("notReported")}</span>` : ""}<span>${t("nextEvent")}: ${nextAuctionDisplay(a)}</span>${badge(a)}</div><div class="row-tags"><div class="auction-tags" aria-label="${t("organizationTags")}">${tagBadges(a.id) || `<span class="muted">${t("noAssignedTags")}</span>`}</div><div class="actions"><button data-tags="${a.id}" ${canEdit() ? "" : "disabled"}>${t("assignTags")}</button><button class="ghost" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button></div></div></article>`;
+  return `<article class="auction-row"><div><div class="card-meta">${t(a.type)} · ${a.id}</div><button class="title-link" data-screen="asset" data-id="${a.id}">${esc(title(a))}</button><div class="location">⌖ ${esc(a.locality)}</div></div><div><div class="price-label">${t("base")}</div><div class="price">${money(a)}</div></div><div class="row-facts">${a.category === "properties" ? `<span>${t("area")}: ${a.area ? a.area + " m²" : t("notReported")}</span>` : ""}<span>${t("nextEvent")}: ${nextAuctionDisplay(a)}</span>${badge(a)}</div><div class="row-tags">${tagLabelsButton(a.id)}<div class="actions"><button class="ghost" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button></div></div></article>`;
 }
 function heading(key, sub, tools = "") {
   return `<div class="heading"><div><div class="eyebrow">${t("research")}</div><h1>${t(key)}</h1><p class="muted">${t(sub)}</p></div>${tools ? `<div class="heading-tools">${tools}</div>` : ""}</div>`;
@@ -1714,16 +1721,46 @@ function rowActionIcon(kind) {
   return icon({open:"Eye",tags:"Tag",notice:"FileText"}[kind]);
 }
 function itemActionButtons(item) {
-  return ["open", "tags", "notice"]
+  return (item.category === "properties" ? ["open"] : ["open", "notice"])
     .map((kind) => {
       const labels =
           state.lang === "es"
             ? { open: "Abrir bien", tags: "Etiquetas", notice: "Ver aviso" }
             : { open: "Open item", tags: "Tags", notice: "View notice" },
         label = kind === "open" && item.category === "properties" ? (state.lang === "es" ? "Editar propiedad" : "Edit property") : labels[kind];
-      return `<button class="icon-action" title="${label}" aria-label="${label}: ${esc(item.id)}" ${kind === "tags" ? `data-tags="${item.id}"` : `data-screen="${kind === "open" ? (item.category === "properties" ? "property-edit" : "asset") : "notice"}" data-id="${item.id}"`}>${kind === "open" && item.category === "properties" ? icon("Pencil") : rowActionIcon(kind)}</button>`;
+      return `<button class="icon-action" title="${label}" aria-label="${label}: ${esc(item.id)}" ${kind === "tags" ? `data-tags="${item.id}"` : `data-screen="${kind === "open" ? "asset" : "notice"}" data-id="${item.id}"`}>${kind === "open" && item.category === "properties" ? icon("Pencil") : rowActionIcon(kind)}</button>`;
     })
     .join("");
+}
+function tagLabelsButton(id, compact = false) {
+  const labels=assignedTagLabels(id);
+  return `<button type="button" class="tag-label-trigger ${compact?"row-tag-badges":"auction-tags"}" data-tags="${id}" data-tag-labels="${id}" data-compact="${compact}" aria-label="${t("assignTags")}: ${esc(id)}" aria-haspopup="dialog" aria-controls="tag-picker" title="${esc(labels||t("assignTags"))}" ${canEdit()?"":"disabled"}>${(compact?listTagBadges(id):tagBadges(id))||t("noAssignedTags")}</button>`;
+}
+function openTagPicker(trigger) {
+  if(!canEdit())return;
+  const id=trigger.dataset.tags,workspace=state.workspace;
+  if(!DEMO_LISTINGS.some(item=>item.id===id))return;
+  const picker=document.getElementById("tag-picker");
+  const selected=state.tags[workspace+id]||[];
+  const choices=orgTags().filter(tag=>!tag.deleted||selected.includes(tag.id));
+  picker.innerHTML=`<div class="tag-picker-heading"><strong>${t("organizationTags")}</strong><button type="button" id="tag-picker-close" aria-label="${state.lang==="es"?"Cerrar":"Close"}">${icon("X")}</button></div><div class="tag-picker-options">${choices.map(tag=>`<button type="button" class="tag-picker-option" data-picker-tag="${tag.id}" aria-pressed="${selected.includes(tag.id)}"><span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color)?tag.color:"gray"}">${esc(tag.label)}</span></button>`).join("")||`<p class="muted">${t("noTags")}</p>`}</div><p id="tag-picker-error" class="danger" role="alert"></p>`;
+  picker.setAttribute("aria-label",t("assignTags"));
+  const bounds=trigger.getBoundingClientRect();
+  picker.style.left=Math.max(8,Math.min(bounds.left,window.innerWidth-310))+"px";
+  picker.style.top=Math.max(8,Math.min(bounds.bottom+6,window.innerHeight-330))+"px";
+  picker.showPopover();
+  document.getElementById("tag-picker-close").onclick=()=>{picker.hidePopover();trigger.focus();};
+  picker.querySelectorAll("[data-picker-tag]").forEach(option=>option.onclick=()=>{
+    if(workspace!==state.workspace){picker.hidePopover();return;}
+    const current=state.tags[workspace+id]||[],tagId=option.dataset.pickerTag;
+    const ids=current.includes(tagId)?current.filter(value=>value!==tagId):[...current,tagId];
+    const result=assignOrganizationTags(id,ids);
+    if(!result.ok){document.getElementById("tag-picker-error").textContent=t(result.error);return;}
+    option.setAttribute("aria-pressed",String(ids.includes(tagId)));
+    document.getElementById("tag-picker-error").textContent="";
+    // Refresh only tag labels: unsaved property-form inputs remain intact.
+    app.querySelectorAll("[data-tag-labels]").forEach(button=>{if(button.dataset.tagLabels!==id)return;button.innerHTML=button.dataset.compact==="true"?listTagBadges(id):(tagBadges(id)||t("noAssignedTags"));button.title=assignedTagLabels(id)||t("assignTags");});
+  });
 }
 function listTagBadges(assetId) {
   const ids = state.tags[state.workspace + assetId] || [],
@@ -1919,7 +1956,7 @@ function itemTable(items) {
     })
     .join(
       "",
-    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.id) : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `<div class="row-tag-badges" title="${esc(assignedTagLabels(item.id))}" aria-label="${t("organizationTags")}: ${esc(assignedTagLabels(item.id))}">${listTagBadges(item.id)}</div>` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.id) : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `${tagLabelsButton(item.id,true)}` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
 function bindSort() {
   const change = (rules) => {
@@ -2360,29 +2397,29 @@ function savePropertyResearch(id, workspace, input) {
   state.propertyResearch[workspace+id]={appraisal:amount?{amount:amount.split(".")[0]+"."+(amount.split(".")[1]||"").padEnd(2,"0"),currency}:null};
   return {ok:true};
 }
-function propertyEditor() {
-  const item=current(),es=state.lang==="es",L=(en,spanish)=>es?spanish:en;
-  const top=heading("assetInfo","fiction");
-  if(item.category!=="properties"||!canEdit())return top+`<div class="notice" role="alert">${t("permissionDenied")}</div>`;
+function propertyResearchForm(item) {
+  if(item.category!=="properties" || !canEdit())return "";
+  const es=state.lang==="es",L=(en,spanish)=>es?spanish:en;
   const data=state.propertyResearch[state.workspace+item.id]||{};
-  return `<div class="breadcrumb"><button class="ghost" data-screen="discover">${icon("ArrowLeft")} ${t("back")}</button></div><div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${L("Edit property","Editar propiedad")}</h1><p>${esc(title(item))} · ${esc(item.registrationNumber||item.id)}</p></div></div><div class="detail-columns"><form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Organization information","Información de la organización")}</h2><p class="muted">${L("Shared with members of this organization.","Compartida con los miembros de esta organización.")}</p><label for="property-notes">${L("Notes","Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace+item.id]||"")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount","Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount||"")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency","Moneda")}</label><select id="property-appraisal-currency">${options([["CRC","CRC"],["USD","USD"]],data.appraisal?.currency||item.currency)}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="discover">${L("Cancel","Cancelar")}</button></div></form><aside class="panel"><h2>${L("Published information","Información publicada")}</h2><p>${esc(item.locality)}</p><p>${t("base")}: ${money(item)}</p><p>${nextAuctionDisplay(item)}</p><p class="muted">${L("Organization edits do not modify the notice or its extracted information.","Los cambios de la organización no modifican el aviso ni sus datos extraídos.")}</p><button data-screen="notice" data-id="${item.id}">${icon("FileText")} ${t("source")}</button></aside></div>`;
+  return `<form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Additional information","Información adicional")}</h2><label for="property-notes">${L("Notes","Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace+item.id]||"")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount","Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount||"")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency","Moneda")}</label><select id="property-appraisal-currency">${options([["CRC","CRC"],["USD","USD"]],data.appraisal?.currency||item.currency)}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-reset-property-research>${L("Cancel","Cancelar")}</button></div></form>`;
 }
 function bindPropertyResearch() {
+  app.querySelectorAll("[data-reset-property-research]").forEach(button=>button.onclick=()=>render());
   const form=document.getElementById("property-research-form");
   if(!form)return;
-  form.onsubmit=event=>{event.preventDefault();const result=savePropertyResearch(form.dataset.id,form.dataset.workspace,{notes:document.getElementById("property-notes").value,appraisalAmount:document.getElementById("property-appraisal").value,appraisalCurrency:document.getElementById("property-appraisal-currency").value});if(!result.ok){document.getElementById("property-research-error").textContent=result.error==="permissionDenied"?t(result.error):(state.lang==="es"?"Verifica las notas y el monto: usa un valor no negativo con hasta dos decimales.":"Check the notes and amount: use a non-negative value with up to two decimal places.");return;}navigate("discover");toast(state.lang==="es"?"Información de la organización guardada":"Organization information saved");};
+  form.onsubmit=event=>{event.preventDefault();const result=savePropertyResearch(form.dataset.id,form.dataset.workspace,{notes:document.getElementById("property-notes").value,appraisalAmount:document.getElementById("property-appraisal").value,appraisalCurrency:document.getElementById("property-appraisal-currency").value});if(!result.ok){document.getElementById("property-research-error").textContent=result.error==="permissionDenied"?t(result.error):(state.lang==="es"?"Verifica las notas y el monto: usa un valor no negativo con hasta dos decimales.":"Check the notes and amount: use a non-negative value with up to two decimal places.");return;}render();toast(state.lang==="es"?"Cambios guardados":"Changes saved");};
 }
 function asset() {
   const a = current();
-  const overview = `<div class="detail-columns"><div><div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[["reference", a.id], ["auctionType", t(a.type)], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality], ["quality", t(a.quality === "reviewed" ? "reviewed" : "needsReview")]].map(([k, v]) => `<div><dt>${t(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></div><div class="panel"><h2>${t("events")}</h2><div class="timeline"><div class="event"><strong>${esc(auctionRoundLabel(a))}</strong><p>${date(a)} · ${a.time}</p><p>${t("timezone")}</p><span class="badge neutral">${t("base")}: ${money(a)}</span></div></div><p class="muted">${t("sourceCaution")}</p></div><div class="panel"><h2>${t("organizationResearch")}</h2><div class="auction-tags">${tagBadges(a.id) || `<span class="muted">${t("noAssignedTags")}</span>`}</div><p class="muted" style="margin-top:16px">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p><button data-tags="${a.id}" ${canEdit() ? "" : "disabled"}>${t("assignTags")}</button></div></div><aside><div class="panel price-panel"><div class="eyebrow">${t("base")}</div><div class="price">${money(a)}</div><span class="badge neutral">${t("nextEvent")}</span><h3 style="margin-top:14px">${nextAuctionDisplay(a)} · ${a.time}</h3><p class="muted">${t("timezone")}</p><button class="primary full" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button><div class="source-line">${t("sourceDate")}<br>${t("checked")}<br>${t("revision")} ${state.revision}</div></div><div class="notice">${t("sourceCaution")}</div></aside></div>`;
+  const overview = `<div class="detail-columns"><div><div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[["reference", a.id], ["auctionType", t(a.type)], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality], ["quality", t(a.quality === "reviewed" ? "reviewed" : "needsReview")]].map(([k, v]) => `<div><dt>${t(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></div><div class="panel"><h2>${t("events")}</h2><div class="timeline"><div class="event"><strong>${esc(auctionRoundLabel(a))}</strong><p>${date(a)} · ${a.time}</p><p>${t("timezone")}</p><span class="badge neutral">${t("base")}: ${money(a)}</span></div></div><p class="muted">${t("sourceCaution")}</p></div>${propertyResearchForm(a)}<div class="panel"><h2>${t("organizationResearch")}</h2>${tagLabelsButton(a.id)}${a.category === "properties" && canEdit() ? "" : `<p class="muted" style="margin-top:16px">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p>`}</div></div><aside><div class="panel price-panel"><div class="eyebrow">${t("base")}</div><div class="price">${money(a)}</div><span class="badge neutral">${t("nextEvent")}</span><h3 style="margin-top:14px">${nextAuctionDisplay(a)} · ${a.time}</h3><p class="muted">${t("timezone")}</p><button class="primary full" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button><div class="source-line">${t("sourceDate")}<br>${t("checked")}<br>${t("revision")} ${state.revision}</div></div><div class="notice">${t("sourceCaution")}</div></aside></div>`;
   const images = state.images[state.workspace + a.id] || [];
-  const imagePanel = `<div class="panel"><h2>${t("imagesTitle")}</h2><p class="muted">${t("imagesHelp")}</p><div class="notice">${t("imageLocalOnly")}</div><form id="image-upload-form"><label for="auction-image-files">${t("imageFiles")}</label><input id="auction-image-files" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple ${canEdit() ? "" : "disabled"}><p class="muted" style="margin-top:10px">${t("imageLimits")}</p><p id="image-error" role="alert" class="danger"></p><button class="primary" ${canEdit() ? "" : "disabled"}>${t("attachImages")}</button></form></div>${images.length ? `<div class="media-grid">${images.map((img) => `<figure class="panel"><img src="${esc(img.url)}" alt="${esc(img.name)}"><figcaption><strong>${esc(img.name)}</strong><p class="muted">${t("uploadedBy")}: ${esc(img.uploaderId)} · ${esc(organizationName())}</p></figcaption></figure>`).join("")}</div>` : `<div class="empty"><h2>${t("imagesEmpty")}</h2><p>${t("imagesEmptyHelp")}</p></div>`}`;
+  const imagePanel = `<div class="panel"><h2>${t("imagesTitle")}</h2><p class="muted">${t("imagesHelp")}</p><div class="notice">${t("imageLocalOnly")}</div><form id="image-upload-form"><label for="auction-image-files">${t("imageFiles")}</label><input id="auction-image-files" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple ${canEdit() ? "" : "disabled"}><p class="muted" style="margin-top:10px">${t("imageLimits")}</p><p id="image-error" role="alert" class="danger"></p><button class="primary" ${canEdit() ? "" : "disabled"}>${t("attachImages")}</button></form></div>${images.length ? `<div class="media-grid">${images.map((img) => `<figure class="panel"><img src="${esc(img.url)}" alt="${esc(img.name)}"><figcaption><strong>${esc(img.name)}</strong><p class="muted">${t("uploadedBy")}: ${esc(img.uploaderId)}</p></figcaption></figure>`).join("")}</div>` : `<div class="empty"><h2>${t("imagesEmpty")}</h2><p>${t("imagesEmptyHelp")}</p></div>`}`;
   return (
     `<div class="breadcrumb"><button class="ghost" data-screen="discover">← ${t("back")}</button><span>/ ${a.id}</span></div>` +
     heading(
       "assetInfo",
       "fiction",
-      `<button class="primary" data-tags="${a.id}" ${canEdit() ? "" : "disabled"}>${t("assignTags")}</button>`,
+      ``,
     ) +
     `<h2 style="font-size:25px;margin-bottom:20px">${esc(title(a))}</h2><div class="item-tabs" role="tablist" aria-label="${t("assetInfo")}">${["overview", "images"].map((tab) => `<button id="item-tab-${tab}" role="tab" aria-selected="${state.itemTab === tab}" aria-controls="item-tab-panel" data-item-tab="${tab}" class="${state.itemTab === tab ? "primary" : ""}">${t(tab === "overview" ? "overviewTab" : "imagesTab")}${tab === "images" ? " (" + images.length + ")" : ""}</button>`).join("")}</div><section id="item-tab-panel" role="tabpanel" aria-labelledby="item-tab-${state.itemTab}">${state.itemTab === "images" ? imagePanel : overview}</section>`
   );
@@ -2514,7 +2551,7 @@ function review() {
 
 function tagManagement() {
   const es=state.lang==="es", L=(en,spanish)=>es?spanish:en;
-  const top=`<div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain your organization's tags and colors.","Administra las etiquetas y colores de tu organización.")}</p></div>${canManageTags()&&state.screen!=="tag-new"?`<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag","Crear etiqueta")}</button>`:""}</div>`;
+  const top=`<div class="heading"><div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain tags and colors.","Administra las etiquetas y colores.")}</p></div>${canManageTags()&&state.screen!=="tag-new"?`<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag","Crear etiqueta")}</button>`:""}</div>`;
   if(!canManageTags()) return top+`<div class="notice" role="alert">${t("permissionDenied")}</div>`;
   const fields=tag=>`<div><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(tag?.label||"")}"></div><div><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(tag?.color||"gray")}</select></div>`;
   if(state.screen==="tag-new") return top+`<form id="tag-editor-form" class="panel tag-editor"><h2>${L("Create tag","Crear etiqueta")}</h2>${fields(null)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="tags">${L("Cancel","Cancelar")}</button></div></form>`;
@@ -2649,7 +2686,6 @@ function render() {
       discover: discovery,
       filters: filterEditor,
       asset,
-      "property-edit": propertyEditor,
       notice,
       alerts,
       team,
@@ -2937,40 +2973,7 @@ function bind() {
         else toast(t(result.error));
       }),
   );
-  app.querySelectorAll("[data-tags]").forEach(
-    (el) =>
-      (el.onclick = () => {
-        if (!canEdit()) return;
-        const assetId = el.dataset.tags,
-          key = state.workspace + assetId,
-          selected = state.tags[key] || [];
-        const choices = orgTags().filter(
-          (x) => !x.deleted || selected.includes(x.id),
-        );
-        showDialog(
-          t("assignTags"),
-          `<p>${t("tagSelectionHelp")}</p><div class="tag-options">${choices.length ? choices.map((tag) => `<label class="check"><input class="tag-choice" type="checkbox" value="${tag.id}" ${selected.includes(tag.id) ? "checked" : ""}>${esc(tag.label)}</label>`).join("") : `<p>${t("noTags")}</p>`}</div><label for="note-edit">${t("notes")}</label><textarea id="note-edit" maxlength="10000">${esc(state.notes[key] || "")}</textarea><p id="assignment-error" role="alert" class="danger"></p><button type="button" id="tags-apply" class="primary">${t("applyTags")}</button>`,
-        );
-        document.getElementById("tags-apply").onclick = () => {
-          const ids = Array.from(
-            document.querySelectorAll(".tag-choice:checked"),
-          ).map((x) => x.value);
-          const result = assignOrganizationTags(
-            assetId,
-            ids,
-            document.getElementById("note-edit").value,
-          );
-          if (!result.ok) {
-            document.getElementById("assignment-error").textContent = t(
-              result.error,
-            );
-            return;
-          }
-          document.getElementById("notice").close();
-          render();
-        };
-      }),
-  );
+  app.querySelectorAll("[data-tags]").forEach(button=>button.onclick=()=>openTagPicker(button));
   const organizationForm = document.getElementById("organization-form");
   if (organizationForm)
     organizationForm.onsubmit = (e) => {
@@ -3090,7 +3093,7 @@ if (
     "auth",
   ].includes(boot.get("screen"))
 )
-  state.screen = boot.get("screen");
+  state.screen = boot.get("screen") === "property-edit" ? "asset" : boot.get("screen");
 if (boot.get("tab") === "images") state.itemTab = "images";
 if (boot.get("view") === "map") state.view = "map";
 if (boot.get("lang") === "en") state.lang = "en";

@@ -50,3 +50,7 @@ Ship the separate filter route and owned save/retrieve integration together. Pre
 ## Pagination delivery gate
 
 Implement server count and bounded page queries with shared authorization/filter compilation, then connect the listing's size and navigation controls. Validate query plans, deep-offset/count cost, stale response handling and list/map independence before release. Keep alert matching independent of the user's current item page. Allowed sizes/default are proposed choices pending product confirmation; server-side paging and selectable size are confirmed.
+
+## Approved frontend initialization
+
+Initialize the approved stack in the decisions document with compatible pinned versions. Implement Studio tokens, Geist typography, Clerk/next-intl routing, next-themes modes, palettes, shared forms and Sonner feedback. Build new custom grids and date/datetime/numeric/currency/percent/unit fields; do not port v1 implementations. Retain Tags exceptions. Integrate Leaflet/react-leaflet with configurable tiles and attribution. Validate accessibility, locale/timezone behavior, server pagination, sorting and organization isolation.
