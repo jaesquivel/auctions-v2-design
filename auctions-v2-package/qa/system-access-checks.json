@@ -1,0 +1,82 @@
+[
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 320,
+    "systemControls": false,
+    "systemRole": "",
+    "width": 320
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 320,
+    "systemControls": true,
+    "systemRole": "SYSADMIN",
+    "width": 320
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 390,
+    "systemControls": false,
+    "systemRole": "",
+    "width": 390
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 390,
+    "systemControls": true,
+    "systemRole": "SYSADMIN",
+    "width": 390
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 768,
+    "systemControls": false,
+    "systemRole": "",
+    "width": 768
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 768,
+    "systemControls": true,
+    "systemRole": "SYSADMIN",
+    "width": 768
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 1024,
+    "systemControls": false,
+    "systemRole": "",
+    "width": 1024
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 1024,
+    "systemControls": true,
+    "systemRole": "SYSADMIN",
+    "width": 1024
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 1440,
+    "systemControls": false,
+    "systemRole": "",
+    "width": 1440
+  },
+  {
+    "countryInputCount": 0,
+    "organizationRole": "USER",
+    "scrollWidth": 1440,
+    "systemControls": true,
+    "systemRole": "SYSADMIN",
+    "width": 1440
+  }
+]

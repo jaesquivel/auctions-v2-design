@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant W as Ingestion worker
+    participant O as Immutable object store
+    participant DB as PostgreSQL
+    participant R as Reviewer
+    participant API as Spring API
+    participant N as Notification worker
+    W->>O: Store bytes by SHA256
+    W->>DB: Draft with evidence and parser version
+    R->>API: Read draft and source evidence
+    API-->>R: Current version and fields
+    R->>API: Publish corrected fields with expectedVersion
+    API->>DB: Transaction lock version and validate evidence
+    DB->>DB: Append revision and audit, update catalog, insert outbox
+    API-->>R: Published revision or 409 conflict
+    N->>DB: Claim outbox work with retry lock
+    N->>DB: Insert unique delivery key
+    N->>N: Deliver approved recipient digest
+    N->>DB: Record result and advance watermark

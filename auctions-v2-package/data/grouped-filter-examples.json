@@ -1,0 +1,158 @@
+[
+  {
+    "schemaVersion": 3,
+    "category": "properties",
+    "expression": {
+      "operator": "AND",
+      "groups": [
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-SJ"
+            },
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-A"
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "type",
+              "operator": "eq",
+              "value": "house"
+            },
+            {
+              "field": "quality",
+              "operator": "eq",
+              "value": "reviewed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "schemaVersion": 3,
+    "category": "properties",
+    "expression": {
+      "operator": "AND",
+      "groups": [
+        {
+          "operator": "OR",
+          "terms": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-SJ"
+            },
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-A"
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "type",
+              "operator": "eq",
+              "value": "house"
+            },
+            {
+              "field": "quality",
+              "operator": "eq",
+              "value": "reviewed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "schemaVersion": 3,
+    "category": "properties",
+    "expression": {
+      "operator": "OR",
+      "groups": [
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-SJ"
+            },
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-A"
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "type",
+              "operator": "eq",
+              "value": "house"
+            },
+            {
+              "field": "quality",
+              "operator": "eq",
+              "value": "reviewed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "schemaVersion": 3,
+    "category": "properties",
+    "expression": {
+      "operator": "OR",
+      "groups": [
+        {
+          "operator": "OR",
+          "terms": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-SJ"
+            },
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "CR-A"
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "terms": [
+            {
+              "field": "type",
+              "operator": "eq",
+              "value": "house"
+            },
+            {
+              "field": "quality",
+              "operator": "eq",
+              "value": "reviewed"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,19 @@
+flowchart LR
+    CFG[Deployment country profile read only] --> N
+    CFG --> API
+    CFG --> W
+    B[Browser ES or EN] --> N[Next.js App Router and Tailwind]
+    C[Clerk identity and organizations] --> N
+    N -->|Verified session token| API[Spring Boot modular API]
+    C -->|Signed webhooks| API
+    API --> PG[(PostgreSQL public catalog and scoped research)]
+    API --> OBJ[(Private immutable source storage)]
+    S[Approved source adapter] --> W[Isolated ingestion worker]
+    W --> OBJ
+    W --> PG
+    R[SYSADMIN review] --> API
+    PG --> O[Transactional outbox]
+    O --> E[Notification worker]
+    E --> M[Selected email provider]
+    BP[Selected billing provider] -->|Signed events| API
+    N --> MAP[Licensed map and geocoder]

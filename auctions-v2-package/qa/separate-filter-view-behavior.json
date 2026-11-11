@@ -1,0 +1,38 @@
+{
+  "savedInEditor": 1,
+  "retrieveControls": 1,
+  "cancelAfterSaveRows": 6,
+  "appliedRetrievedRows": 1,
+  "crossCategoryDraft": {
+    "category": "Secci\u00f3n del borrador: Veh\u00edculosOrganizaci\u00f3n individualBorrador: los resultados anteriores siguen vigentes.",
+    "hasArea": false,
+    "type": "car",
+    "workspace": "solo"
+  },
+  "cancelRestored": {
+    "heading": "Propiedades",
+    "rows": 6,
+    "workspace": "org"
+  },
+  "crossCategoryApplied": {
+    "heading": "Veh\u00edculos",
+    "rows": 1,
+    "workspace": "solo"
+  },
+  "cancelGroupedSaveRows": 6,
+  "retrievedOperators": {
+    "groups": [
+      "OR",
+      "AND"
+    ],
+    "outer": "AND",
+    "terms": 4
+  },
+  "groupedApplyRows": 1,
+  "invalidDraftSave": {
+    "dialogs": 0,
+    "error": "Revise grupos y t\u00e9rminos: valores completos, condiciones compatibles y l\u00edmites de 10 grupos / 20 t\u00e9rminos por grupo / 100 t\u00e9rminos en total."
+  },
+  "cancelClearRows": 1,
+  "retrievedRegionControl": "term-0-0-value"
+}

@@ -1,0 +1,434 @@
+[
+  {
+    "scheme": "forest",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "forest",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "forest",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "ocean",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "ocean",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "ocean",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "slate",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "slate",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "slate",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "scheme": "forest",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "forest",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "forest",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "ocean",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "ocean",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "ocean",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "slate",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "slate",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "slate",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "scheme": "forest",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "forest",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "forest",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "ocean",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "ocean",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "ocean",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "slate",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "slate",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "slate",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "scheme": "forest",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "forest",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "forest",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "light",
+    "effective": "light",
+    "expected": "light",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "dark",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "mode": "system",
+    "effective": "dark",
+    "expected": "dark",
+    "frameless": true,
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

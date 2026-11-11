@@ -1,0 +1,184 @@
+[
+  {
+    "screen": "discover",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "vehicles",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "other",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "asset",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "notice",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "overview",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "alerts",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "team",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "plans",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "review",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "settings",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "system",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "auth",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "screen": "discover",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "vehicles",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "other",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "asset",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "notice",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "overview",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "alerts",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "team",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "plans",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "review",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "settings",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "system",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "screen": "auth",
+    "brokenImages": 0,
+    "listImages": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

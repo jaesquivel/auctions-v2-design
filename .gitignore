@@ -1,0 +1,6 @@
+# IDEs / OS
+.idea/
+*.iml
+.vscode/*
+!.vscode/*.code-workspace
+.DS_Store

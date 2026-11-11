@@ -1,0 +1,130 @@
+[
+  {
+    "scheme": "forest",
+    "screen": "filters",
+    "palette": "forest",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "forest",
+    "screen": "auth",
+    "palette": "forest",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "forest",
+    "screen": "overview",
+    "palette": "forest",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "forest",
+    "screen": "plans",
+    "palette": "forest",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "screen": "filters",
+    "palette": "ocean",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "screen": "auth",
+    "palette": "ocean",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "screen": "overview",
+    "palette": "ocean",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "ocean",
+    "screen": "plans",
+    "palette": "ocean",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "screen": "filters",
+    "palette": "slate",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "screen": "auth",
+    "palette": "slate",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "screen": "overview",
+    "palette": "slate",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "slate",
+    "screen": "plans",
+    "palette": "slate",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "screen": "filters",
+    "palette": "terracotta",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "screen": "auth",
+    "palette": "terracotta",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "screen": "overview",
+    "palette": "terracotta",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "scheme": "terracotta",
+    "screen": "plans",
+    "palette": "terracotta",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  }
+]

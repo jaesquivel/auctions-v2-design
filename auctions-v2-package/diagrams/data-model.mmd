@@ -1,0 +1,45 @@
+erDiagram
+    JURISDICTION ||--o{ SOURCE : approves
+    SOURCE ||--o{ SOURCE_DOCUMENT : yields
+    SOURCE ||--o{ INGESTION_RUN : runs
+    SOURCE_DOCUMENT ||--o{ FETCH_OBSERVATION : observed
+    INGESTION_RUN ||--o{ FETCH_OBSERVATION : records
+    SOURCE_DOCUMENT ||--o{ NOTICE_REVISION : supports
+    NOTICE ||--o{ NOTICE_REVISION : versions
+    NOTICE ||--o{ EXTRACTION : drafts
+    NOTICE_REVISION ||--o{ ASSET_NOTICE : links
+    ASSET ||--o{ ASSET_NOTICE : described
+    ASSET ||--o{ AUCTION_EVENT : schedules
+    NOTICE_REVISION ||--o{ AUCTION_EVENT : evidence
+    NOTICE_REVISION ||--o{ FIELD_EVIDENCE : locates
+    APP_USER ||--|{ MEMBERSHIP : holds
+    WORKSPACE ||--|{ MEMBERSHIP : authorizes
+    WORKSPACE ||--o{ ASSET_ANNOTATION : annotates
+    ASSET ||--o{ ASSET_ANNOTATION : annotated
+    APP_USER ||--o{ SAVED_SEARCH : owns
+    WORKSPACE |o--o{ SAVED_SEARCH : execution_context
+    SAVED_SEARCH ||--o{ ALERT_DELIVERY : generates
+    WORKSPACE ||--o| SUBSCRIPTION : entitles
+    WORKSPACE ||--o{ AUDIT_EVENT : records
+    ASSET ||--o{ ASSET_TAG : classified
+    CATALOG_TAG ||--o{ ASSET_TAG : labels
+    WORKSPACE ||--o{ APP_USER : primary_organization
+    WORKSPACE ||--o{ ORGANIZATION_TAG : defines
+    ORGANIZATION_TAG ||--o{ ASSET_TAG_ASSIGNMENT : assigned
+    ASSET ||--o{ ASSET_TAG_ASSIGNMENT : tagged
+    WORKSPACE ||--o{ ASSET_TAG_ASSIGNMENT : scopes
+    APP_USER ||--o| SYSTEM_ROLE_ASSIGNMENT : system_grant
+    WORKSPACE ||--o{ ASSET_IMAGE : attachments
+    ASSET ||--o{ ASSET_IMAGE : attached_to
+
+    ASSET {
+        uuid id PK
+        string category "properties | vehicles | other"
+        string asset_type "category-compatible subtype"
+    }
+
+    SAVED_SEARCH {
+        uuid id PK
+        string owner_user_id FK
+        jsonb filter "schemaVersion 3: category + Boolean expression"
+    }

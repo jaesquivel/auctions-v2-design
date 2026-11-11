@@ -1,0 +1,257 @@
+[
+  {
+    "category": "properties",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "scrollWidth": 320,
+    "size": "5",
+    "width": 320
+  },
+  {
+    "category": "vehicles",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 320,
+    "size": "5",
+    "width": 320
+  },
+  {
+    "category": "other",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 320,
+    "size": "5",
+    "width": 320
+  },
+  {
+    "category": "properties",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "scrollWidth": 390,
+    "size": "5",
+    "width": 390
+  },
+  {
+    "category": "vehicles",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 390,
+    "size": "5",
+    "width": 390
+  },
+  {
+    "category": "other",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 390,
+    "size": "5",
+    "width": 390
+  },
+  {
+    "category": "properties",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "scrollWidth": 768,
+    "size": "5",
+    "width": 768
+  },
+  {
+    "category": "vehicles",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 768,
+    "size": "5",
+    "width": 768
+  },
+  {
+    "category": "other",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 768,
+    "size": "5",
+    "width": 768
+  },
+  {
+    "category": "properties",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "scrollWidth": 1024,
+    "size": "5",
+    "width": 1024
+  },
+  {
+    "category": "vehicles",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 1024,
+    "size": "5",
+    "width": 1024
+  },
+  {
+    "category": "other",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 1024,
+    "size": "5",
+    "width": 1024
+  },
+  {
+    "category": "properties",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "scrollWidth": 1440,
+    "size": "5",
+    "width": 1440
+  },
+  {
+    "category": "vehicles",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 1440,
+    "size": "5",
+    "width": 1440
+  },
+  {
+    "category": "other",
+    "nextDisabled": true,
+    "options": [
+      "5",
+      "10",
+      "25",
+      "50",
+      "100"
+    ],
+    "previousDisabled": true,
+    "range": "Mostrando 1–2 de 2",
+    "rows": 2,
+    "scrollWidth": 1440,
+    "size": "5",
+    "width": 1440
+  }
+]

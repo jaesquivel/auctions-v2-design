@@ -1,0 +1,1407 @@
+[
+  {
+    "screen": "discover",
+    "activeCategory": "properties",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Propiedades",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 6,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "vehicles",
+    "activeCategory": "vehicles",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Vehículos",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "other",
+    "activeCategory": "other",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Otros",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "filters",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 1,
+    "heading": "Filtros del listado",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 1,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "asset",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Información del bien",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "notice",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Aviso de demostración",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "overview",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Su espacio de investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "alerts",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Mis filtros y alertas",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "team",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Un equipo, una investigación compartida",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "plans",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Elija cómo investigar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "review",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Revise los datos antes de publicar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "settings",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración de la organización",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "system",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración del sistema",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "auth",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates",
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Continúe su investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 320
+  },
+  {
+    "screen": "discover",
+    "activeCategory": "properties",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Propiedades",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 6,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "vehicles",
+    "activeCategory": "vehicles",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Vehículos",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "other",
+    "activeCategory": "other",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Otros",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "filters",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 1,
+    "heading": "Filtros del listado",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 1,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "asset",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Información del bien",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "notice",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Aviso de demostración",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "overview",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Su espacio de investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "alerts",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Mis filtros y alertas",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "team",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Un equipo, una investigación compartida",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "plans",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Elija cómo investigar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "review",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Revise los datos antes de publicar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "settings",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración de la organización",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "system",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración del sistema",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "auth",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates",
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Continúe su investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "screen": "discover",
+    "activeCategory": "properties",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Propiedades",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 6,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "vehicles",
+    "activeCategory": "vehicles",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Vehículos",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "other",
+    "activeCategory": "other",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Otros",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "filters",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 1,
+    "heading": "Filtros del listado",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 1,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "asset",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Información del bien",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "notice",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Aviso de demostración",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "overview",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Su espacio de investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "alerts",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Mis filtros y alertas",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "team",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Un equipo, una investigación compartida",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "plans",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Elija cómo investigar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "review",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Revise los datos antes de publicar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "settings",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración de la organización",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "system",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración del sistema",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "auth",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates",
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Continúe su investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 768
+  },
+  {
+    "screen": "discover",
+    "activeCategory": "properties",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Propiedades",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 6,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "vehicles",
+    "activeCategory": "vehicles",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Vehículos",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "other",
+    "activeCategory": "other",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Otros",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "filters",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 1,
+    "heading": "Filtros del listado",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 1,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "asset",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Información del bien",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "notice",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Aviso de demostración",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "overview",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Su espacio de investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "alerts",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Mis filtros y alertas",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "team",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Un equipo, una investigación compartida",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "plans",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Elija cómo investigar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "review",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Revise los datos antes de publicar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "settings",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración de la organización",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "system",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración del sistema",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "auth",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates",
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Continúe su investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1024
+  },
+  {
+    "screen": "discover",
+    "activeCategory": "properties",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Propiedades",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 6,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "vehicles",
+    "activeCategory": "vehicles",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Vehículos",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "other",
+    "activeCategory": "other",
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Otros",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "filters",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 1,
+    "heading": "Filtros del listado",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 1,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "asset",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Información del bien",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "notice",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Aviso de demostración",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "overview",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Su espacio de investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 2,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "alerts",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Mis filtros y alertas",
+    "listImages": 0,
+    "openFilters": 1,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "team",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Un equipo, una investigación compartida",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "plans",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Elija cómo investigar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "review",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Revise los datos antes de publicar",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "settings",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración de la organización",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "system",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Configuración del sistema",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "screen": "auth",
+    "activeCategory": null,
+    "brandNames": [
+      "Remates",
+      "Remates"
+    ],
+    "filterForms": 0,
+    "heading": "Continúe su investigación",
+    "listImages": 0,
+    "openFilters": 0,
+    "retrieveControls": 0,
+    "rows": 0,
+    "saveControls": 0,
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "standaloneSearchForms": 0,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  }
+]

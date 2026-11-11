@@ -1,0 +1,72 @@
+[
+  {
+    "view": "list",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "view": "map",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "view": "list",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "view": "map",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "view": "list",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "view": "map",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "view": "list",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "view": "map",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "view": "list",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "view": "map",
+    "countryLabel": "Costa Rica · CR",
+    "countrySelectorCount": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

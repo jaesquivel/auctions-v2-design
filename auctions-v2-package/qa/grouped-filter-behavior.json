@@ -1,0 +1,9 @@
+{
+  "andRows": 1,
+  "draftOrRows": 1,
+  "orRows": 3,
+  "summary": "Filtros aplicados\n\nPropiedades · (Provincia Es igual a San José OR Provincia Es igual a Alajuela) OR (Tipo de bien Es igual a Casa AND Estado de extracción Es igual a Extracción revisada)",
+  "invalidGroupPreservesRows": 3,
+  "invalidGroupError": "Revise grupos y términos: valores completos, condiciones compatibles y límites de 10 grupos / 20 términos por grupo / 100 términos en total.",
+  "savedAcrossOrganizations": "Activa\nFiltros con grupos AND / OR\n\nPropiedades · (Provincia Es igual a San José OR Provincia Es igual a Alajuela) OR (Tipo de bien Es igual a Casa AND Estado de extracción Es igual a Extracción revisada)\n\nResumen diario por correo · Solo demostración\n\nFiltros de su cuenta · Contexto de ejecución: Organización de ejemplo\n\nPausar\nEliminar"
+}

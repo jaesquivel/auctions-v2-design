@@ -1,0 +1,107 @@
+[
+  {
+    "role": "ADMIN",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "role": "MANAGER",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "role": "USER",
+    "colorControls": 0,
+    "createColor": 0,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "role": "ADMIN",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "MANAGER",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "USER",
+    "colorControls": 0,
+    "createColor": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "ADMIN",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "role": "MANAGER",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "role": "USER",
+    "colorControls": 0,
+    "createColor": 0,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "role": "ADMIN",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "role": "MANAGER",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "role": "USER",
+    "colorControls": 0,
+    "createColor": 0,
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "role": "ADMIN",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "role": "MANAGER",
+    "colorControls": 2,
+    "createColor": 1,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "role": "USER",
+    "colorControls": 0,
+    "createColor": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

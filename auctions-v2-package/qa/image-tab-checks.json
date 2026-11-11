@@ -1,0 +1,37 @@
+[
+  {
+    "savedControls": 0,
+    "scrollWidth": 320,
+    "selectedTab": "true",
+    "uploadControls": 1,
+    "width": 320
+  },
+  {
+    "savedControls": 0,
+    "scrollWidth": 390,
+    "selectedTab": "true",
+    "uploadControls": 1,
+    "width": 390
+  },
+  {
+    "savedControls": 0,
+    "scrollWidth": 768,
+    "selectedTab": "true",
+    "uploadControls": 1,
+    "width": 768
+  },
+  {
+    "savedControls": 0,
+    "scrollWidth": 1024,
+    "selectedTab": "true",
+    "uploadControls": 1,
+    "width": 1024
+  },
+  {
+    "savedControls": 0,
+    "scrollWidth": 1440,
+    "selectedTab": "true",
+    "uploadControls": 1,
+    "width": 1440
+  }
+]

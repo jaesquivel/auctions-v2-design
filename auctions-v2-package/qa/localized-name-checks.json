@@ -1,0 +1,138 @@
+[
+  {
+    "locale": "es",
+    "screen": "discover",
+    "footer": "Remates · Diseño propuesto · 5 nov 2026Estado de vistaNormalVacíoCargandoError de fuenteVista de rolADMINMANAGERUSERVista de rol de sistemaSin rol de sistemaSYSADMINPackage index ↗SistemaConfiguraciónRevisión",
+    "homeNames": [
+      "Inicio de Remates",
+      "Inicio de Remates"
+    ],
+    "names": [
+      "Remates"
+    ],
+    "scrollWidth": 390,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "locale": "es",
+    "screen": "auth",
+    "footer": "Remates · Diseño propuesto · 5 nov 2026Vista de rolADMINMANAGERUSERVista de rol de sistemaSin rol de sistemaSYSADMINPackage index ↗SistemaConfiguraciónRevisión",
+    "homeNames": [
+      "Inicio de Remates",
+      "Inicio de Remates",
+      "Inicio de Remates"
+    ],
+    "names": [
+      "Remates",
+      "Remates"
+    ],
+    "scrollWidth": 390,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "screen": "discover",
+    "footer": "Auctions · Proposed design · 5 Nov 2026Preview stateNormalEmptyLoadingSource errorRole previewADMINMANAGERUSERSystem role previewNo system roleSYSADMINPackage index ↗SystemSettingsReview",
+    "homeNames": [
+      "Auctions home",
+      "Auctions home"
+    ],
+    "names": [
+      "Auctions"
+    ],
+    "scrollWidth": 390,
+    "title": "Auctions",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "screen": "auth",
+    "footer": "Auctions · Proposed design · 5 Nov 2026Role previewADMINMANAGERUSERSystem role previewNo system roleSYSADMINPackage index ↗SystemSettingsReview",
+    "homeNames": [
+      "Auctions home",
+      "Auctions home",
+      "Auctions home"
+    ],
+    "names": [
+      "Auctions",
+      "Auctions"
+    ],
+    "scrollWidth": 390,
+    "title": "Auctions",
+    "versionBadges": 0,
+    "width": 390
+  },
+  {
+    "locale": "es",
+    "screen": "discover",
+    "footer": "Remates · Diseño propuesto · 5 nov 2026Estado de vistaNormalVacíoCargandoError de fuenteVista de rolADMINMANAGERUSERVista de rol de sistemaSin rol de sistemaSYSADMINPackage index ↗SistemaConfiguraciónRevisión",
+    "homeNames": [
+      "Inicio de Remates",
+      "Inicio de Remates"
+    ],
+    "names": [
+      "Remates"
+    ],
+    "scrollWidth": 1440,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "locale": "es",
+    "screen": "auth",
+    "footer": "Remates · Diseño propuesto · 5 nov 2026Vista de rolADMINMANAGERUSERVista de rol de sistemaSin rol de sistemaSYSADMINPackage index ↗SistemaConfiguraciónRevisión",
+    "homeNames": [
+      "Inicio de Remates",
+      "Inicio de Remates",
+      "Inicio de Remates"
+    ],
+    "names": [
+      "Remates",
+      "Remates"
+    ],
+    "scrollWidth": 1440,
+    "title": "Remates",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "screen": "discover",
+    "footer": "Auctions · Proposed design · 5 Nov 2026Preview stateNormalEmptyLoadingSource errorRole previewADMINMANAGERUSERSystem role previewNo system roleSYSADMINPackage index ↗SystemSettingsReview",
+    "homeNames": [
+      "Auctions home",
+      "Auctions home"
+    ],
+    "names": [
+      "Auctions"
+    ],
+    "scrollWidth": 1440,
+    "title": "Auctions",
+    "versionBadges": 0,
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "screen": "auth",
+    "footer": "Auctions · Proposed design · 5 Nov 2026Role previewADMINMANAGERUSERSystem role previewNo system roleSYSADMINPackage index ↗SystemSettingsReview",
+    "homeNames": [
+      "Auctions home",
+      "Auctions home",
+      "Auctions home"
+    ],
+    "names": [
+      "Auctions",
+      "Auctions"
+    ],
+    "scrollWidth": 1440,
+    "title": "Auctions",
+    "versionBadges": 0,
+    "width": 1440
+  }
+]

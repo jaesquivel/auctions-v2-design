@@ -1,0 +1,29 @@
+{
+  "firstRows": 5,
+  "last": {
+    "nextDisabled": true,
+    "previousDisabled": false,
+    "range": "Mostrando 6–6 de 6",
+    "rows": 1,
+    "size": "5"
+  },
+  "detailReturnRange": "Mostrando 6–6 de 6",
+  "cancelRange": "Mostrando 6–6 de 6",
+  "sizeReset": {
+    "range": "Mostrando 1–6 de 6",
+    "rows": 6
+  },
+  "empty": {
+    "nextDisabled": true,
+    "previousDisabled": true,
+    "range": "Mostrando 0–0 de 0",
+    "rows": 0
+  },
+  "mapIncludesOffPageItem": true,
+  "mapHasNoItemPager": true,
+  "organizationReset": "Mostrando 1–5 de 6",
+  "categoryReset": {
+    "range": "Mostrando 1–2 de 2",
+    "size": "5"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "canEditIdentity": true,
+    "role": "ADMIN",
+    "scrollWidth": 320,
+    "tagControls": true,
+    "userControls": true,
+    "width": 320
+  },
+  {
+    "canEditIdentity": false,
+    "role": "MANAGER",
+    "scrollWidth": 320,
+    "tagControls": true,
+    "userControls": false,
+    "width": 320
+  },
+  {
+    "canEditIdentity": false,
+    "role": "USER",
+    "scrollWidth": 320,
+    "tagControls": false,
+    "userControls": false,
+    "width": 320
+  },
+  {
+    "canEditIdentity": true,
+    "role": "ADMIN",
+    "scrollWidth": 390,
+    "tagControls": true,
+    "userControls": true,
+    "width": 390
+  },
+  {
+    "canEditIdentity": false,
+    "role": "MANAGER",
+    "scrollWidth": 390,
+    "tagControls": true,
+    "userControls": false,
+    "width": 390
+  },
+  {
+    "canEditIdentity": false,
+    "role": "USER",
+    "scrollWidth": 390,
+    "tagControls": false,
+    "userControls": false,
+    "width": 390
+  },
+  {
+    "canEditIdentity": true,
+    "role": "ADMIN",
+    "scrollWidth": 768,
+    "tagControls": true,
+    "userControls": true,
+    "width": 768
+  },
+  {
+    "canEditIdentity": false,
+    "role": "MANAGER",
+    "scrollWidth": 768,
+    "tagControls": true,
+    "userControls": false,
+    "width": 768
+  },
+  {
+    "canEditIdentity": false,
+    "role": "USER",
+    "scrollWidth": 768,
+    "tagControls": false,
+    "userControls": false,
+    "width": 768
+  },
+  {
+    "canEditIdentity": true,
+    "role": "ADMIN",
+    "scrollWidth": 1024,
+    "tagControls": true,
+    "userControls": true,
+    "width": 1024
+  },
+  {
+    "canEditIdentity": false,
+    "role": "MANAGER",
+    "scrollWidth": 1024,
+    "tagControls": true,
+    "userControls": false,
+    "width": 1024
+  },
+  {
+    "canEditIdentity": false,
+    "role": "USER",
+    "scrollWidth": 1024,
+    "tagControls": false,
+    "userControls": false,
+    "width": 1024
+  },
+  {
+    "canEditIdentity": true,
+    "role": "ADMIN",
+    "scrollWidth": 1440,
+    "tagControls": true,
+    "userControls": true,
+    "width": 1440
+  },
+  {
+    "canEditIdentity": false,
+    "role": "MANAGER",
+    "scrollWidth": 1440,
+    "tagControls": true,
+    "userControls": false,
+    "width": 1440
+  },
+  {
+    "canEditIdentity": false,
+    "role": "USER",
+    "scrollWidth": 1440,
+    "tagControls": false,
+    "userControls": false,
+    "width": 1440
+  }
+]
