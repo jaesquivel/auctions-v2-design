@@ -70,32 +70,97 @@
 .single-line-table .col-round1Time,.single-line-table .col-round2Time,.single-line-table .col-round3Time{width:145px}.single-line-table .col-round1Base,.single-line-table .col-round2Base,.single-line-table .col-round3Base{width:145px}
 
 /* Studio: restrained surfaces and table-first spacing. Proposed alternative. */
-[data-scheme=studio]{--brand:#f6f7f9;--green:#315cbb;--pale:#edf2fc;--canvas:#f7f8fa;--surface:#fff;--ink:#202733;--muted:#626c7b;--line:#dce1e8;--nav-active:#e8eefb;--primary-fill:#315cbb;--radius:8px}
-[data-theme=dark][data-scheme=studio]{--brand:#15191f;--canvas:#11151b;--surface:#1b2028;--ink:#e8ecf2;--muted:#aab4c2;--line:#343d49;--pale:#263247;--green:#a3bfff;--nav-active:#263247;--primary-fill:#365fac}
-[data-scheme=studio] body{background:var(--canvas);color:var(--ink)}
-[data-scheme=studio] .rail{background:var(--brand);color:var(--ink);border-right:1px solid var(--line)}
-[data-scheme=studio] .rail .name,[data-scheme=studio] .rail-bottom strong{color:var(--ink)}
-[data-scheme=studio] .rail-caption,[data-scheme=studio] .rail-bottom{color:var(--muted);letter-spacing:.6px}
-[data-scheme=studio] .rail .brand-symbol{filter:brightness(0);opacity:.85}
-[data-theme=dark][data-scheme=studio] .rail .brand-symbol{filter:brightness(0) invert(1)}
-[data-scheme=studio] .nav button{color:var(--muted);font-weight:500;border-radius:6px;background:transparent}
-[data-scheme=studio] .nav button.active,[data-scheme=studio] .nav button:hover{background:var(--nav-active);color:var(--green)}
-[data-scheme=studio] .topbar{background:var(--surface);min-height:64px;padding-top:10px;padding-bottom:10px}
-[data-scheme=studio] .workspace-select{background:transparent;color:var(--ink)}
-[data-scheme=studio] .content{max-width:none;padding:24px}
-[data-scheme=studio] h1{font-size:26px;letter-spacing:-.7px;font-weight:650}
-[data-scheme=studio] .heading{margin-bottom:20px}
-[data-scheme=studio] .eyebrow{color:var(--muted);letter-spacing:1px;margin-bottom:7px}
-[data-scheme=studio] .demo-strip{background:var(--surface);color:var(--muted);border-bottom:1px solid var(--line);padding-top:6px;padding-bottom:6px}
-[data-scheme=studio] .sort-controls,[data-scheme=studio] .item-pagination{border-radius:6px;box-shadow:none;padding:10px 12px;background:var(--surface);gap:10px}
-[data-scheme=studio] .single-line-table{background:var(--surface);font-size:12px}
-[data-scheme=studio] .single-line-table th{height:48px;background:var(--canvas);color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.15px;padding:2px 10px}
-[data-scheme=studio] .single-line-table td{height:48px;padding:2px 10px;border-bottom:1px solid var(--line)}
-[data-scheme=studio] .single-line-table tbody tr:hover,[data-scheme=studio] .single-line-table tbody tr:hover td.col-actions{background:var(--pale)}
-[data-scheme=studio] .single-line-table .title-link{font-weight:550;color:var(--ink)}
-[data-scheme=studio] .single-line-table .col-amount,[data-scheme=studio] td[class$=Base]{text-align:right;font-variant-numeric:tabular-nums}
-[data-scheme=studio] .single-line-table .col-date,[data-scheme=studio] td[class*=round],[data-scheme=studio] .col-registrationNumber,[data-scheme=studio] .col-plate{font-variant-numeric:tabular-nums}
-[data-scheme=studio] button,[data-scheme=studio] select,[data-scheme=studio] input{border-radius:6px}
-[data-scheme=studio] .single-line-table .row-actions button{min-height:44px;min-width:44px}
-[data-scheme=studio] :focus-visible{outline-color:var(--green)}
-@media(max-width:767px){[data-scheme=studio] .content{padding:18px 12px}[data-scheme=studio] .rail{border-right:0;border-bottom:1px solid var(--line)}}
+:is([data-scheme=studio],[data-scheme=harbor]){--brand:#f6f7f9;--green:#315cbb;--pale:#edf2fc;--canvas:#f7f8fa;--surface:#fff;--ink:#202733;--muted:#626c7b;--line:#dce1e8;--nav-active:#e8eefb;--primary-fill:#315cbb;--radius:8px}
+[data-theme=dark]:is([data-scheme=studio],[data-scheme=harbor]){--brand:#15191f;--canvas:#11151b;--surface:#1b2028;--ink:#e8ecf2;--muted:#aab4c2;--line:#343d49;--pale:#263247;--green:#a3bfff;--nav-active:#263247;--primary-fill:#365fac}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) body{background:var(--canvas);color:var(--ink)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail{background:var(--brand);color:var(--ink);border-right:1px solid var(--line)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail .name,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail-bottom strong{color:var(--ink)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail-caption,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail-bottom{color:var(--muted);letter-spacing:.6px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail .brand-symbol{filter:brightness(0);opacity:.85}
+[data-theme=dark]:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail .brand-symbol{filter:brightness(0) invert(1)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button{color:var(--muted);font-weight:500;border-radius:6px;background:transparent}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button.active,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button:hover{background:var(--nav-active);color:var(--green)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .topbar{background:var(--surface);min-height:64px;padding-top:10px;padding-bottom:10px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .workspace-select{background:transparent;color:var(--ink)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .content{max-width:none;padding:24px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) h1{font-size:26px;letter-spacing:-.7px;font-weight:650}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .heading{margin-bottom:20px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .eyebrow{color:var(--muted);letter-spacing:1px;margin-bottom:7px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .demo-strip{background:var(--surface);color:var(--muted);border-bottom:1px solid var(--line);padding-top:6px;padding-bottom:6px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .sort-controls,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .item-pagination{border-radius:6px;box-shadow:none;padding:10px 12px;background:var(--surface);gap:10px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table{background:var(--surface);font-size:12px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table th{height:48px;background:var(--canvas);color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.15px;padding:2px 10px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table td{height:48px;padding:2px 10px;border-bottom:1px solid var(--line)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table tbody tr:hover,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table tbody tr:hover td.col-actions{background:var(--pale)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .title-link{font-weight:550;color:var(--ink)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .col-amount,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) td[class$=Base]{text-align:right;font-variant-numeric:tabular-nums}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .col-date,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) td[class*=round],:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .col-registrationNumber,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .col-plate{font-variant-numeric:tabular-nums}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) button,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) select,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) input{border-radius:6px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .row-actions button{min-height:44px;min-width:44px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) :focus-visible{outline-color:var(--green)}
+@media(max-width:767px){:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .content{padding:18px 12px}:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* Studio refinement inspired by Beautiful UI's records table and sidebar. */
+:is([data-scheme=studio],[data-scheme=harbor]){--brand:#f8f8f9;--canvas:#fafafa;--surface:#fff;--ink:#242428;--muted:#68686f;--line:#e5e5e8;--pale:#f1f3f8;--nav-active:#ededf1;--green:#3d63c7;--primary-fill:#3d63c7;--radius:10px}
+[data-theme=dark]:is([data-scheme=studio],[data-scheme=harbor]){--brand:#171719;--canvas:#141416;--surface:#1d1d20;--ink:#ededf0;--muted:#ababB4;--line:#343438;--pale:#29292f;--nav-active:#2b2b30;--green:#a4bcff;--primary-fill:#4169d0}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .rail{border-right:1px solid var(--line)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav{gap:3px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button{border-radius:8px;transition:background .12s ease,color .12s ease}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button.active{color:var(--ink);font-weight:600}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button.active:before{display:none}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .sort-controls,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .item-pagination,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .panel,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) dialog{border-radius:10px;box-shadow:0 1px 2px #00000006}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .table-scroll{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:auto}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table{border:0;border-spacing:0}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table th{background:var(--surface);height:46px}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table th,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table td{border-right:1px solid var(--line)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table th:last-child,:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table td:last-child{border-right:0}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .col-area{width:110px;overflow:hidden;text-overflow:ellipsis}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .col-actions{box-shadow:-1px 0 0 var(--line);background:var(--surface)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .single-line-table .tag-badge{border-radius:5px;box-shadow:none;font-weight:500}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .column-menu summary{border-radius:8px;background:var(--surface);box-shadow:0 1px 2px #00000008}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .column-menu-panel{border-radius:12px;box-shadow:0 8px 28px #0000001a}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .view-switch{border-radius:9px;background:var(--surface)}
+:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .view-switch button{border-radius:6px}
+@media(prefers-reduced-motion:reduce){:is([data-scheme=studio],[data-scheme=studio-warm-blue],[data-scheme=harbor],[data-scheme=warm-blue]) .nav button{transition:none}}
+
+/* Harbor: teal navigation, aqua table accents and coral actions, from the user reference. */
+[data-scheme=harbor]{--brand:#176273;--green:#176b7c;--pale:#eaf8f7;--canvas:#f3f7f7;--surface:#fff;--ink:#22343a;--muted:#62777d;--line:#dce7e8;--nav-active:#207e90;--primary-fill:#bf493e;--radius:10px}
+[data-theme=dark][data-scheme=harbor]{--brand:#124650;--canvas:#102328;--surface:#192e34;--ink:#e6f3f4;--muted:#afc8cd;--line:#355259;--pale:#25434a;--green:#8bd8df;--nav-active:#216675;--primary-fill:#bf493e}
+[data-scheme=harbor] .rail{background:var(--brand);border-right:0;color:#fff}
+[data-scheme=harbor] .rail .name,[data-scheme=harbor] .rail-bottom strong{color:#fff}
+[data-scheme=harbor] .rail .brand-symbol{filter:brightness(0) invert(1)}
+[data-scheme=harbor] .rail-caption,[data-scheme=harbor] .rail-bottom{color:#c2e1e5}
+[data-scheme=harbor] .nav button{color:#d4e9ec}
+[data-scheme=harbor] .nav button.active,[data-scheme=harbor] .nav button:hover{background:var(--nav-active);color:#fff;border-radius:7px 20px 20px 7px}
+[data-scheme=harbor] .sort-controls{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none}
+[data-scheme=harbor] .item-pagination{border-radius:8px}
+[data-scheme=harbor] .single-line-table th{background:var(--canvas);color:var(--muted)}
+[data-scheme=harbor] .single-line-table td.col-registrationNumber,[data-scheme=harbor] .single-line-table td.col-plate{background:var(--pale)}
+[data-scheme=harbor] .single-line-table tbody tr:hover td{background:var(--pale)}
+[data-scheme=harbor] .primary,[data-theme=dark][data-scheme=harbor] .primary{background:var(--primary-fill);border-color:var(--primary-fill);color:#fff}
+[data-scheme=harbor] .primary:hover{background:#a83c33}
+[data-scheme=harbor] .topbar{border-bottom:1px solid var(--line)}
+[data-scheme=harbor] .table-scroll{box-shadow:0 2px 8px #123e4908}
+
+/* Preferred direction: reference-inspired components with the existing warm-blue tokens. */
+[data-scheme=warm-blue] .rail{background:var(--brand);color:#fff;border-right:0}
+[data-scheme=warm-blue] .rail .name,[data-scheme=warm-blue] .rail-bottom strong{color:#fff}
+[data-scheme=warm-blue] .rail .brand-symbol{filter:brightness(0) invert(1)}
+[data-scheme=warm-blue] .rail-caption,[data-scheme=warm-blue] .rail-bottom{color:#d4d9f0}
+[data-scheme=warm-blue] .nav button{color:#e3e6f5}
+[data-scheme=warm-blue] .nav button.active,[data-scheme=warm-blue] .nav button:hover{background:var(--nav-active);color:#fff;border-radius:7px 20px 20px 7px}
+[data-scheme=warm-blue] .sort-controls{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none}
+[data-scheme=warm-blue] .single-line-table td.col-registrationNumber,[data-scheme=warm-blue] .single-line-table td.col-plate{background:var(--pale)}
+[data-scheme=warm-blue] .single-line-table tbody tr:hover td{background:var(--pale)}
+[data-scheme=warm-blue] .primary,[data-theme=dark][data-scheme=warm-blue] .primary{background:var(--primary-fill);border-color:var(--primary-fill);color:#fff}
+
+/* Studio Warm Blue: Studio components and neutral navigation with warm indigo colors. */
+[data-scheme=studio-warm-blue]{--brand:#f3f2f6;--green:#4d5eac;--pale:#eceefa;--canvas:#f8f6f1;--surface:#fffdfa;--ink:#252b42;--muted:#606478;--line:#d8d9e4;--nav-active:#e5e8f6;--primary-fill:#4d5eac}
+[data-theme=dark][data-scheme=studio-warm-blue]{--brand:#1b1d29;--canvas:#171923;--surface:#222635;--ink:#f0eff7;--muted:#c2bfd2;--line:#46495f;--pale:#30384f;--green:#b7bff1;--nav-active:#30384f;--primary-fill:#5262a6}
+.scheme-select{width:156px}@media(max-width:700px){.scheme-select{width:142px}}
+
+.tag-editor{max-width:640px;margin-top:16px}.tag-editor .field{margin-bottom:20px}.tag-editor .field p{margin-top:6px}.tag-admin-table{min-width:650px}.tag-admin-table td{padding:12px 16px}.tag-admin-table .actions{flex-wrap:nowrap}.tag-admin-table th{text-align:left;padding:14px 16px}.tag-admin-table button{min-height:44px}
+
+.nav .symbol .lucide{width:16px;height:16px;vertical-align:middle}
+
+.ui-icon{display:inline-block;width:18px;height:18px;vertical-align:middle;flex:none;stroke:currentColor}.nav .symbol{display:inline-flex;align-items:center;justify-content:center}.nav .symbol .ui-icon{width:20px;height:20px}.tag-admin-table button .ui-icon{margin-right:4px}

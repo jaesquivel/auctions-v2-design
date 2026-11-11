@@ -222,6 +222,19 @@ for(const category of ['properties','vehicles','other']) {
 check(roundDetail({},'round1Time')===t('notReported')&&roundDetail({},'round3Base')===t('notReported'),'missing round metadata fallback');
 check(roundDetail({auctionRounds:[{round:1,baseOffer:{amount:'0.00',currency:'CRC'}}]},'round1Base')===money({amount:'0.00',currency:'CRC'}),'zero base offer displayed');
 for(const language of ['es','en']) {state.lang=language;check(columnLabel('round2Time').includes(language==='es'?'Hora':'Time')&&columnLabel('round3Base').includes(language==='es'?'Oferta base':'Base offer'),'localized round detail labels');}
+state.workspace='org';state.role='MANAGER';
+const crudTag=createOrganizationTag('CRUD sample','blue');check(crudTag.ok,'manager creates tag for CRUD');
+check(assignOrganizationTags('DEMO-A01',[crudTag.item.id]).ok,'assign CRUD tag');
+check(updateOrganizationTag(crudTag.item.id,{label:'CRUD renamed',color:'purple',active:false}).ok,'edit CRUD fields');
+state.selected=crudTag.item.id;
+for(const language of ['es','en'])for(const screen of ['tags','tag-new','tag-detail','tag-edit']){state.lang=language;state.screen=screen;check(tagManagement().includes('<h1')&&!tagManagement().includes('undefined'),'CRUD screen '+language+' '+screen);}
+state.role='USER';check(!deleteOrganizationTag(crudTag.item.id).ok,'USER cannot delete definition');check(tagManagement().includes(t('permissionDenied')),'USER CRUD screen denied');
+state.role='MANAGER';state.workspace='solo';check(!deleteOrganizationTag(crudTag.item.id).ok,'foreign organization delete denied');state.workspace='org';
+check(deleteOrganizationTag(crudTag.item.id).ok,'manager deletes tag');check(state.tags['orgDEMO-A01'].includes(crudTag.item.id),'delete preserves historic assignment');
+check(!updateOrganizationTag(crudTag.item.id,{active:true}).ok,'deleted definition cannot be reactivated');
+check(!assignOrganizationTags('DEMO-A02',[crudTag.item.id]).ok,'deleted tag cannot be newly assigned');
+state.screen='tags';check(!tagManagement().includes('CRUD renamed'),'deleted definition hidden from maintenance list');
+state.role='ADMIN';const adminCrud=createOrganizationTag('ADMIN CRUD','green');check(adminCrud.ok&&deleteOrganizationTag(adminCrud.item.id).ok,'ADMIN CRUD authority');
 check(DEMO_LISTINGS.length===150,'full catalog has 150 fixtures');
 check(new Set(DEMO_LISTINGS.map(item=>item.id)).size===150,'fixture IDs unique');
 for(const category of ['properties','vehicles','other']) {

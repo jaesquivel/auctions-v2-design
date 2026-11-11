@@ -164,3 +164,27 @@ Added six independently selectable, bilingual columns: time and base offer for e
 ## Studio appearance exploration — 11 November 2026
 
 Added Studio / Estudio as a seventh selectable palette with table density and typography refinements. 1,158 prototype checks passed. Browser previews inspected in light and dark at the default desktop viewport; 25 rows rendered, measured row height 49 px including borders, no page-level horizontal overflow. Screenshots: studio-light.jpg and studio-dark.jpg. A full mobile/contrast audit has not been performed for this new option.
+
+## Beautiful UI inspired Studio refinement
+
+Reviewed the user-selected reference Records Table and adapted Studio with neutral graphite surfaces, quiet navigation, fine grid separators and rounded table containment. Light and dark desktop previews refreshed. 1,158 behavior checks passed; browser inspection showed 25 rendered rows and no page-level horizontal overflow. Mobile and full contrast verification remain pending for the refinement.
+
+## Harbor theme exploration — 11 November 2026
+
+Added Harbor / Puerto based on the supplied teal dashboard image, retaining all earlier themes. 1,159 prototype checks passed. Light and dark desktop previews captured; 25 rows rendered without page-level horizontal overflow. Mobile and full contrast review remain pending. Existing uncommitted Studio changes preserved.
+
+## Warm blue component refinement
+
+Applied the reference-inspired compact grid, rounded containers/navigation, flat sort toolbar and tinted identifiers to the existing Warm blue palette, following user clarification. Light/dark previews refreshed; 1,159 behavior checks passed. This is a desktop visual review; a complete mobile and contrast audit remains pending.
+
+## Studio Warm Blue variant
+
+Added Studio Warm Blue, sharing Studio component styling with warm ivory/indigo tokens and neutral navigation. Light and dark desktop previews captured; 1,160 behavior checks passed. Studio is the current refinement base. Full mobile/contrast review remains pending.
+
+## Organization tag CRUD screens
+
+Added bilingual list/detail/create/edit screens, sidebar and Settings links, and confirmed delete/archive modal. Browser exercised creation with purple color, rename, detail, edit cancellation and confirmed deletion; list returned to two original records. Five screenshots captured in Studio Warm Blue. 1,180 behavior checks passed, including USER denial, foreign-organization rejection, deleted-tag assignment rejection and retained historic assignments. Offline demonstration state resets on reload. Full responsive and production backend checks remain pending.
+
+## Lucide icon standardization
+
+Generated offline SVGs from pinned lucide-react, replaced custom list action paths and legacy glyph decorations, and retained the gavel as brand artwork. Browser Tags screen inspection found no non-Lucide button/navigation SVGs and no legacy glyphs in rendered text. Screenshot lucide-tags.jpg. 1,180 behavior checks and package validation passed. Generator dependencies and upstream license are included.

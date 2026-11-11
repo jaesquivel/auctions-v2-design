@@ -267,19 +267,32 @@ for (const sample of SAMPLE_CATEGORIES) {
 DEMO_LISTINGS.forEach((item, index) => {
   item.nextAuctionRound = (index % 3) + 1;
   // Demonstration spacing only: real schedules come from notice events, never this formula.
-  item.auctionRounds = [1, 2, 3].map(round => ({
+  item.auctionRounds = [1, 2, 3].map((round) => ({
     round,
     time: item.time,
     timezone: INSTANCE_CONFIG.timezone,
     // Illustrative amounts only; no legal reduction schedule is implied.
-    baseOffer: { amount: (Number(item.amount) + (round - item.nextAuctionRound) * (item.currency === "USD" ? 100 : 1000)).toFixed(2), currency: item.currency },
-    date: new Date(Date.parse(item.date + "T12:00:00Z") + (round - item.nextAuctionRound) * 14 * 86400000).toISOString().slice(0, 10),
+    baseOffer: {
+      amount: (
+        Number(item.amount) +
+        (round - item.nextAuctionRound) * (item.currency === "USD" ? 100 : 1000)
+      ).toFixed(2),
+      currency: item.currency,
+    },
+    date: new Date(
+      Date.parse(item.date + "T12:00:00Z") +
+        (round - item.nextAuctionRound) * 14 * 86400000,
+    )
+      .toISOString()
+      .slice(0, 10),
   }));
 });
 // Clearly fictional identifiers; never real registry numbers or license plates.
-DEMO_LISTINGS.forEach(item => {
-  if (item.category === "properties") item.registrationNumber = `DEMO-REG-${item.id.slice(-3)}`;
-  if (item.category === "vehicles") item.plate = `DEMO-PLATE-${item.id.slice(-3)}`;
+DEMO_LISTINGS.forEach((item) => {
+  if (item.category === "properties")
+    item.registrationNumber = `DEMO-REG-${item.id.slice(-3)}`;
+  if (item.category === "vehicles")
+    item.plate = `DEMO-PLATE-${item.id.slice(-3)}`;
 });
 const ORIGINAL_LISTINGS = JSON.parse(JSON.stringify(DEMO_LISTINGS));
 const COPY = {
@@ -416,7 +429,7 @@ const COPY = {
     settingsTitle: "Configuración de la organización",
     settingsSub:
       "ADMIN administra la organización. MANAGER gestiona opciones operativas.",
-    tagCatalog: "Etiquetas disponibles",
+    tagCatalog: "Etiquetas",
     tagHelp:
       "ADMIN y MANAGER administran esta lista. Los usuarios seleccionan etiquetas existentes.",
     tagLabel: "Nombre de la etiqueta",
@@ -764,7 +777,7 @@ const COPY = {
     settingsTitle: "Organization settings",
     settingsSub:
       "ADMIN manages the organization. MANAGER manages operational options.",
-    tagCatalog: "Available tags",
+    tagCatalog: "Tags",
     tagHelp: "ADMIN and MANAGER manage this list. Users select existing tags.",
     tagLabel: "Tag name",
     addTag: "Add tag",
@@ -996,6 +1009,8 @@ const COLOR_SCHEMES = [
   "warm-blue",
   "navy",
   "studio",
+  "studio-warm-blue",
+  "harbor",
 ];
 function storedColorScheme() {
   try {
@@ -1177,7 +1192,7 @@ function createOrganizationTag(label, color = "gray") {
 function updateOrganizationTag(id, patch) {
   if (!canManageTags()) return { ok: false, error: "permissionDenied" };
   const item = orgTags().find((x) => x.id === id);
-  if (!item) return { ok: false, error: "invalidTag" };
+  if (!item || item.deleted) return { ok: false, error: "invalidTag" };
   if (Object.keys(patch).some((k) => !["label", "active", "color"].includes(k)))
     return { ok: false, error: "invalidTag" };
   const label = ("label" in patch ? String(patch.label) : item.label)
@@ -1203,6 +1218,14 @@ function updateOrganizationTag(id, patch) {
   item.label = label;
   if ("active" in patch) item.active = patch.active;
   return { ok: true, item };
+}
+function deleteOrganizationTag(id) {
+  if (!canManageTags()) return { ok: false, error: "permissionDenied" };
+  const tag = orgTags().find((tag) => tag.id === id && !tag.deleted);
+  if (!tag) return { ok: false, error: "invalidTag" };
+  tag.active = false;
+  tag.deleted = true;
+  return { ok: true };
 }
 function updateOrganizationName(name) {
   if (!canAdmin()) return { ok: false, error: "permissionDenied" };
@@ -1638,23 +1661,59 @@ function sortControls() {
           r.field,
         )}</select><select aria-label="${state.lang === "es" ? "Dirección" : "Direction"} ${i + 1}" data-sort-direction="${i}">${options(
           [
-            ["asc", "↑"],
-            ["desc", "↓"],
+            ["asc", state.lang === "es" ? "Ascendente" : "Ascending"],
+            ["desc", state.lang === "es" ? "Descendente" : "Descending"],
           ],
           r.direction,
         )}</select><button data-remove-sort="${i}" aria-label="${state.lang === "es" ? "Eliminar orden" : "Remove sort"} ${i + 1}">×</button></div>`,
     )
     .join(
       "",
-    )}<button data-add-sort ${state.sort.length >= sortFields.filter((f) => (f !== "area" || state.filters.category === "properties") && (f !== "amount" || new Set(filtered().map((a) => a.currency)).size <= 1)).length ? "disabled" : ""}>＋ ${state.lang === "es" ? "Agregar orden" : "Add sort"}</button>${columnMenu()}<p id="sort-error" role="alert"></p></div>`;
+    )}<button data-add-sort ${state.sort.length >= sortFields.filter((f) => (f !== "area" || state.filters.category === "properties") && (f !== "amount" || new Set(filtered().map((a) => a.currency)).size <= 1)).length ? "disabled" : ""}>${icon("Plus")} ${state.lang === "es" ? "Agregar orden" : "Add sort"}</button>${columnMenu()}<p id="sort-error" role="alert"></p></div>`;
+}
+// BEGIN GENERATED LUCIDE ICONS
+const LUCIDE_ICONS = {
+  "Building2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-building-complex lucide-building-2 ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 12h4\"></path><path d=\"M10 8h4\"></path><path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2\"></path><path d=\"M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16\"></path></svg>",
+  "Car": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-car ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2\"></path><circle cx=\"7\" cy=\"17\" r=\"2\"></circle><path d=\"M9 17h6\"></path><circle cx=\"17\" cy=\"17\" r=\"2\"></circle></svg>",
+  "Package": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-package ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\"></path><path d=\"M12 22V12\"></path><polyline points=\"3.29 7 12 12 20.71 7\"></polyline><path d=\"m7.5 4.27 9 5.15\"></path></svg>",
+  "Bell": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bell ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10.268 21a2 2 0 0 0 3.464 0\"></path><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\"></path></svg>",
+  "Users": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-users ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"></path><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle></svg>",
+  "Settings": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-settings ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
+  "Tags": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-tags ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z\"></path><path d=\"M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193\"></path><circle cx=\"10.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"></circle></svg>",
+  "ClipboardCheck": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-clipboard-check ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m9 14 2 2 4-4\"></path></svg>",
+  "Eye": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-eye ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
+  "Tag": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-tag ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z\"></path><circle cx=\"7.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"></circle></svg>",
+  "FileText": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-text ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M10 9H8\"></path><path d=\"M16 13H8\"></path><path d=\"M16 17H8\"></path></svg>",
+  "Plus": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-plus ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14\"></path><path d=\"M12 5v14\"></path></svg>",
+  "Pencil": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pencil ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\"></path><path d=\"m15 5 4 4\"></path></svg>",
+  "Trash2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-trash lucide-trash-2 ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 11v6\"></path><path d=\"M14 11v6\"></path><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"></path><path d=\"M3 6h18\"></path><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"></path></svg>",
+  "Save": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-save ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\"></path><path d=\"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7\"></path><path d=\"M7 3v4a1 1 0 0 0 1 1h7\"></path></svg>",
+  "X": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg>",
+  "ArrowLeft": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg>",
+  "ArrowRight": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg>",
+  "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-external-link ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M15 3h6v6\"></path><path d=\"M10 14 21 3\"></path><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"></path></svg>",
+  "SlidersHorizontal": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sliders-horizontal ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 5H3\"></path><path d=\"M12 19H3\"></path><path d=\"M14 3v4\"></path><path d=\"M16 17v4\"></path><path d=\"M21 12h-9\"></path><path d=\"M21 19h-5\"></path><path d=\"M21 5h-7\"></path><path d=\"M8 10v4\"></path><path d=\"M8 12H3\"></path></svg>",
+  "List": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-list ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 5h.01\"></path><path d=\"M3 12h.01\"></path><path d=\"M3 19h.01\"></path><path d=\"M8 5h13\"></path><path d=\"M8 12h13\"></path><path d=\"M8 19h13\"></path></svg>",
+  "MapPin": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-map-pin ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>",
+  "Columns3": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-columns-3 lucide-panels-left-right ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path></svg>",
+  "LayoutDashboard": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-layout-dashboard ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\"></rect><rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\"></rect></svg>",
+  "CreditCard": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-credit-card ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"></rect><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"></line><path d=\"M6 14h2\"></path></svg>",
+  "ArrowUp": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m5 12 7-7 7 7\"></path><path d=\"M12 19V5\"></path></svg>",
+  "ArrowDown": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-down ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 5v14\"></path><path d=\"m19 12-7 7-7-7\"></path></svg>",
+  "Check": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-check ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"></path></svg>",
+  "TriangleAlert": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-triangle-exclamation-point lucide-alert-triangle lucide-triangle-alert ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"></path><path d=\"M12 9v4\"></path><path d=\"M12 17h.01\"></path></svg>",
+  "Circle": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle></svg>",
+  "Menu": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-menu ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 5h16\"></path><path d=\"M4 12h16\"></path><path d=\"M4 19h16\"></path></svg>"
+};
+// END GENERATED LUCIDE ICONS
+function icon(name) { return LUCIDE_ICONS[name] || ""; }
+// Replace legacy decorative glyphs in text nodes only, preserving labels and HTML attributes.
+function lucideMarkup(markup) {
+  const glyphs = {"←":"ArrowLeft","→":"ArrowRight","↗":"ExternalLink","⌖":"MapPin","×":"X","↑":"ArrowUp","↓":"ArrowDown","✓":"Check","⚠":"TriangleAlert","☰":"Menu","●":"Circle","▧":"ClipboardCheck","▤":"List","◇":"Tags","⚙":"Settings","＋":"Plus","☷":"SlidersHorizontal"};
+  return markup.split(/(<[^>]+>)/g).map(part => part.startsWith("<") ? part : part.replace(/[←→↗⌖×↑↓✓⚠☰●▧▤◇⚙＋☷]/g, glyph=>icon(glyphs[glyph]))).join("");
 }
 function rowActionIcon(kind) {
-  const paths = {
-    open: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
-    tags: '<path d="M20 13 11 22 2 13V2h11l9 9-2 2Z"/><circle cx="7" cy="7" r="1"/>',
-    notice: '<path d="M6 2h9l4 4v16H6Z"/><path d="M14 2v5h5M9 12h7M9 16h7"/>',
-  };
-  return `<svg class="action-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[kind]}</svg>`;
+  return icon({open:"Eye",tags:"Tag",notice:"FileText"}[kind]);
 }
 function itemActionButtons(item) {
   return ["open", "tags", "notice"]
@@ -1694,38 +1753,90 @@ function nextAuctionDisplay(item) {
   return `${date(item)} · ${esc(auctionRoundLabel(item))}`;
 }
 const ROUND_COLUMNS = ["round1", "round2", "round3"];
-const ROUND_DETAIL_COLUMNS = ROUND_COLUMNS.flatMap(key => [key + "Time", key + "Base"]);
+const ROUND_DETAIL_COLUMNS = ROUND_COLUMNS.flatMap((key) => [
+  key + "Time",
+  key + "Base",
+]);
 function roundDetail(item, column) {
   const match = /^round([123])(Time|Base)$/.exec(column);
-  const event = match && (item.auctionRounds || []).find(event => event.round === Number(match[1]));
+  const event =
+    match &&
+    (item.auctionRounds || []).find(
+      (event) => event.round === Number(match[1]),
+    );
   if (!event) return t("notReported");
-  if (match[2] === "Time") return event.time ? esc(event.time) : t("notReported");
+  if (match[2] === "Time")
+    return event.time ? esc(event.time) : t("notReported");
   const offer = event.baseOffer;
-  return offer && offer.amount != null && offer.currency ? money(offer) : t("notReported");
+  return offer && offer.amount != null && offer.currency
+    ? money(offer)
+    : t("notReported");
 }
 function roundDate(item, column) {
-  const event = (item.auctionRounds || []).find(event => event.round === Number(column.slice(-1)));
-  return event?.date ? date({date: event.date}) : t("notReported");
+  const event = (item.auctionRounds || []).find(
+    (event) => event.round === Number(column.slice(-1)),
+  );
+  return event?.date ? date({ date: event.date }) : t("notReported");
 }
 function migrateColumnSelection(value) {
-  return Array.isArray(value) ? [...new Set(value.flatMap(key => key === "otherRounds" ? ROUND_COLUMNS : [key]))] : value;
+  return Array.isArray(value)
+    ? [
+        ...new Set(
+          value.flatMap((key) =>
+            key === "otherRounds" ? ROUND_COLUMNS : [key],
+          ),
+        ),
+      ]
+    : value;
 }
-const COLUMN_KEYS = ["tags", "registrationNumber", "plate", "locality", "item", "reference", "type", "area", "amount", "date", "round1", "round1Time", "round1Base", "round2", "round2Time", "round2Base", "round3", "round3Time", "round3Base", "actions"];
+const COLUMN_KEYS = [
+  "tags",
+  "registrationNumber",
+  "plate",
+  "locality",
+  "item",
+  "reference",
+  "type",
+  "area",
+  "amount",
+  "date",
+  "round1",
+  "round1Time",
+  "round1Base",
+  "round2",
+  "round2Time",
+  "round2Base",
+  "round3",
+  "round3Time",
+  "round3Base",
+  "actions",
+];
 const columnPreferenceCache = new Map();
 function availableColumns(category = state.filters.category) {
-  return COLUMN_KEYS.filter(key =>
-    (key !== "area" && key !== "registrationNumber" || category === "properties") &&
-    (key !== "plate" || category === "vehicles"));
+  return COLUMN_KEYS.filter(
+    (key) =>
+      ((key !== "area" && key !== "registrationNumber") ||
+        category === "properties") &&
+      (key !== "plate" || category === "vehicles"),
+  );
 }
 function defaultColumns(category = state.filters.category) {
-  return availableColumns(category).filter(key => !ROUND_COLUMNS.includes(key) && !ROUND_DETAIL_COLUMNS.includes(key));
+  return availableColumns(category).filter(
+    (key) =>
+      !ROUND_COLUMNS.includes(key) && !ROUND_DETAIL_COLUMNS.includes(key),
+  );
 }
 function columnPreferenceKey() {
   return `auctions-columns:v1:${encodeURIComponent(state.userId)}:${state.filters.category}`;
 }
 function validColumnSelection(value) {
-  return Array.isArray(value) && value.length > 0 && new Set(value).size === value.length &&
-    value.every(key => availableColumns().includes(key)) && value.some(key => key !== "actions");
+  return (
+    Array.isArray(value) &&
+    value.length > 0 &&
+    new Set(value).size === value.length &&
+    value.every((key) => availableColumns().includes(key)) &&
+    value.some((key) => key !== "actions")
+  );
 }
 function visibleColumns() {
   const key = columnPreferenceKey();
@@ -1733,42 +1844,76 @@ function visibleColumns() {
     let saved;
     try {
       saved = migrateColumnSelection(JSON.parse(localStorage.getItem(key)));
-      const identifier = state.filters.category === "properties" ? "registrationNumber" : state.filters.category === "vehicles" ? "plate" : null;
-      if (Array.isArray(saved) && saved.includes("reference") && identifier && !saved.includes(identifier)) saved.push(identifier);
+      const identifier =
+        state.filters.category === "properties"
+          ? "registrationNumber"
+          : state.filters.category === "vehicles"
+            ? "plate"
+            : null;
+      if (
+        Array.isArray(saved) &&
+        saved.includes("reference") &&
+        identifier &&
+        !saved.includes(identifier)
+      )
+        saved.push(identifier);
     } catch (_) {}
-    columnPreferenceCache.set(key, validColumnSelection(saved) ? saved : defaultColumns());
+    columnPreferenceCache.set(
+      key,
+      validColumnSelection(saved) ? saved : defaultColumns(),
+    );
   }
-  return availableColumns().filter(column => columnPreferenceCache.get(key).includes(column));
+  return availableColumns().filter((column) =>
+    columnPreferenceCache.get(key).includes(column),
+  );
 }
 function saveVisibleColumns(columns) {
   if (!validColumnSelection(columns)) return false;
-  const ordered = availableColumns().filter(key => columns.includes(key));
+  const ordered = availableColumns().filter((key) => columns.includes(key));
   columnPreferenceCache.set(columnPreferenceKey(), ordered);
-  try { localStorage.setItem(columnPreferenceKey(), JSON.stringify(ordered)); } catch (_) {}
+  try {
+    localStorage.setItem(columnPreferenceKey(), JSON.stringify(ordered));
+  } catch (_) {}
   return true;
 }
 function columnLabel(key) {
-  if (key === "registrationNumber") return state.lang === "es" ? "Número de finca" : "Registration number";
+  if (key === "registrationNumber")
+    return state.lang === "es" ? "Número de finca" : "Registration number";
   if (key === "plate") return state.lang === "es" ? "Placa" : "Plate";
-  if (key === "reference") return state.lang === "es" ? "Referencia" : "Reference";
+  if (key === "reference")
+    return state.lang === "es" ? "Referencia" : "Reference";
   if (key === "item") return state.lang === "es" ? "Bien" : "Item";
-  if (key === "actions") return state.lang === "es" ? "Controles del bien" : "Item controls";
+  if (key === "actions")
+    return state.lang === "es" ? "Controles del bien" : "Item controls";
   if (key === "tags") return t("organizationTags");
   if (ROUND_COLUMNS.includes(key)) return t(key);
   if (ROUND_DETAIL_COLUMNS.includes(key)) {
-    const label = key.endsWith("Time") ? (state.lang === "es" ? "Hora" : "Time") : (state.lang === "es" ? "Oferta base" : "Base offer");
+    const label = key.endsWith("Time")
+      ? state.lang === "es"
+        ? "Hora"
+        : "Time"
+      : state.lang === "es"
+        ? "Oferta base"
+        : "Base offer";
     return `${t(key.slice(0, 6))} · ${label}`;
   }
   return sortLabel(key);
 }
 function columnMenu() {
   const selected = visibleColumns();
-  return `<details class="column-menu" id="column-menu"><summary>${t("columns")}</summary><div class="column-menu-panel"><fieldset><legend>${t("columns")}</legend>${availableColumns().map(key => `<label><input type="checkbox" data-column="${key}" ${selected.includes(key) ? "checked" : ""} ${key !== "actions" && selected.includes(key) && selected.filter(value => value !== "actions").length === 1 ? "disabled" : ""}>${esc(columnLabel(key))}</label>`).join("")}</fieldset><button type="button" id="reset-columns">${t("resetColumns")}</button><p class="muted">${state.lang === "es" ? "Preferencia de usuario · este navegador" : "User preference · this browser"}</p></div></details>`;
+  return `<details class="column-menu" id="column-menu"><summary>${icon("Columns3")} ${t("columns")}</summary><div class="column-menu-panel"><fieldset><legend>${t("columns")}</legend>${availableColumns()
+    .map(
+      (key) =>
+        `<label><input type="checkbox" data-column="${key}" ${selected.includes(key) ? "checked" : ""} ${key !== "actions" && selected.includes(key) && selected.filter((value) => value !== "actions").length === 1 ? "disabled" : ""}>${esc(columnLabel(key))}</label>`,
+    )
+    .join(
+      "",
+    )}</fieldset><button type="button" id="reset-columns">${t("resetColumns")}</button><p class="muted">${state.lang === "es" ? "Preferencia de usuario · este navegador" : "User preference · this browser"}</p></div></details>`;
 }
 function itemTable(items) {
   const cols = visibleColumns();
-  const label = key => key === "actions" ? "" : columnLabel(key);
-  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table single-line-table" style="min-width:${cols.reduce((width, key) => width + ({registrationNumber:185,plate:175,reference:95,item:190,locality:110,type:90,area:70,amount:115,date:210,tags:170,actions:175}[key] || 145), 0)}px"><thead><tr>${cols
+  const label = (key) => (key === "actions" ? "" : columnLabel(key));
+  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table single-line-table" style="min-width:${cols.reduce((width, key) => width + ({ registrationNumber: 185, plate: 175, reference: 95, item: 190, locality: 110, type: 90, area: 70, amount: 115, date: 210, tags: 170, actions: 175 }[key] || 145), 0)}px"><thead><tr>${cols
     .map((f) => {
       const rule = state.sort.find((r) => r.field === f),
         idx = state.sort.findIndex((r) => r.field === f);
@@ -1976,11 +2121,11 @@ function filterPanel() {
           )
           .join(
             "",
-          )}<button type="button" class="full" data-add-term="${gi}" ${g.terms.length >= 20 || f.expression.groups.reduce((n, x) => n + x.terms.length, 0) >= 100 ? "disabled" : ""}>＋ ${t("addTerm")}</button><button type="button" class="ghost danger full" data-remove-group="${gi}">${t("removeGroup")}</button></fieldset>`,
+          )}<button type="button" class="full" data-add-term="${gi}" ${g.terms.length >= 20 || f.expression.groups.reduce((n, x) => n + x.terms.length, 0) >= 100 ? "disabled" : ""}>${icon("Plus")} ${t("addTerm")}</button><button type="button" class="ghost danger full" data-remove-group="${gi}">${t("removeGroup")}</button></fieldset>`,
     )
     .join(
       "",
-    )}<button type="button" class="full" data-add-group ${f.expression.groups.length >= 10 || f.expression.groups.reduce((n, x) => n + x.terms.length, 0) >= 100 ? "disabled" : ""}>＋ ${t("addGroup")}</button><p id="filter-error" role="alert" class="danger filter-help"></p><button type="submit" class="primary full">${t("applyReturn")}</button><p class="filter-help"><strong>${t("draftSummary")}</strong><br><span id="draft-summary">${esc(summary(f))}</span></p></form></section>`;
+    )}<button type="button" class="full" data-add-group ${f.expression.groups.length >= 10 || f.expression.groups.reduce((n, x) => n + x.terms.length, 0) >= 100 ? "disabled" : ""}>${icon("Plus")} ${t("addGroup")}</button><p id="filter-error" role="alert" class="danger filter-help"></p><button type="submit" class="primary full">${t("applyReturn")}</button><p class="filter-help"><strong>${t("draftSummary")}</strong><br><span id="draft-summary">${esc(summary(f))}</span></p></form></section>`;
 }
 function bindFilterBuilder() {
   const form = document.getElementById("filter-form");
@@ -2138,7 +2283,7 @@ function filterEditor() {
     heading(
       "filterView",
       "filterViewHelp",
-      `<button class="ghost" data-action="cancel-filters">← ${t("cancelFilters")}</button><button data-action="save-search" ${canEdit() ? "" : "disabled"}>＋ ${t("saveSearch")}</button>`,
+      `<button class="ghost" data-action="cancel-filters">← ${t("cancelFilters")}</button><button data-action="save-search" ${canEdit() ? "" : "disabled"}>${icon("Plus")} ${t("saveSearch")}</button>`,
     ) +
     `<div class="editor-context"><span class="badge neutral">${t("draftCategory")}: ${t(draft.category)}</span><span>${esc(organizationName())}</span><span>${t("draftOnly")}</span></div><div class="filter-editor"><div>${filterPanel()}</div><aside class="panel saved-filter-panel"><h2>${t("savedFiltersPanel")}</h2><p class="filter-help">${t("saveDraftHelp")}</p><p class="filter-help">${t("contextLoadHelp")}</p>${!saved.length ? `<p class="muted">${t("noSavedFilters")}</p>` : saved.map((item) => `<article class="saved-filter-card"><h3>${esc(item.title)}</h3><p class="filter-help">${esc(canUseSearchContext(item.contextWorkspace) ? state.organizationNames[item.contextWorkspace] || t(item.contextWorkspace) : t("contextUnavailable"))} · ${t(item.filter.category)}</p><p class="filter-help">${esc(summary(item.filter, item.contextWorkspace))}</p><button data-retrieve-filter="${item.id}" ${canEdit() && canUseSearchContext(item.contextWorkspace) ? "" : "disabled"}>${t("retrieveFilter")}</button></article>`).join("")}</aside></div>`
   );
@@ -2177,9 +2322,9 @@ function discovery() {
     heading(
       state.filters.category,
       "listingIntro",
-      `<span class="badge neutral country-context">${esc(state.lang === "es" ? INSTANCE_CONFIG.nameEs : INSTANCE_CONFIG.nameEn)} · ${INSTANCE_CONFIG.country}</span><button data-action="open-filters">☷ ${t("openFilters")}</button>`,
+      `<span class="badge neutral country-context">${esc(state.lang === "es" ? INSTANCE_CONFIG.nameEs : INSTANCE_CONFIG.nameEn)} · ${INSTANCE_CONFIG.country}</span><button data-action="open-filters">${icon("SlidersHorizontal")} ${t("openFilters")}</button>`,
     ) +
-    `<div class="listing-content"><section aria-label="${t("results")}"><div class="results-top"><div class="result-count" aria-live="polite">${state.preview === "empty" ? 0 : total} ${t((state.preview === "empty" ? 0 : total) === 1 ? "result" : "results")}</div><div class="view-switch"><button data-view="list" class="${state.view === "list" ? "active" : ""}" aria-pressed="${state.view === "list"}">▤ ${t("list")}</button><button data-view="map" class="${state.view === "map" ? "active" : ""}" aria-pressed="${state.view === "map"}">⌖ ${t("map")}</button></div></div>${state.view === "list" ? sortControls() + itemPagination(displayPage) : ""}${state.filters.expression.groups.length ? `<div class="applied-expression" role="status"><strong>${t("expressionPreview")}</strong><p>${esc(summary(state.filters))}</p></div>` : ""}${state.preview === "error" ? `<div class="notice" role="alert">${t("sourceError")}</div>` : ""}${state.preview === "loading" ? `<p role="status" class="muted">${t("loading")}</p><div class="grid" aria-hidden="true"><div class="skeleton"></div><div class="skeleton"></div></div>` : state.preview === "empty" || !items.length ? empty("empty", "emptyBody", "filters") : state.view === "map" ? mapView(items) : `${itemTable(items)}`}</section></div>`
+    `<div class="listing-content"><section aria-label="${t("results")}"><div class="results-top"><div class="result-count" aria-live="polite">${state.preview === "empty" ? 0 : total} ${t((state.preview === "empty" ? 0 : total) === 1 ? "result" : "results")}</div><div class="view-switch"><button data-view="list" class="${state.view === "list" ? "active" : ""}" aria-pressed="${state.view === "list"}">${icon("List")} ${t("list")}</button><button data-view="map" class="${state.view === "map" ? "active" : ""}" aria-pressed="${state.view === "map"}">${icon("MapPin")} ${t("map")}</button></div></div>${state.view === "list" ? sortControls() + itemPagination(displayPage) : ""}${state.filters.expression.groups.length ? `<div class="applied-expression" role="status"><strong>${t("expressionPreview")}</strong><p>${esc(summary(state.filters))}</p></div>` : ""}${state.preview === "error" ? `<div class="notice" role="alert">${t("sourceError")}</div>` : ""}${state.preview === "loading" ? `<p role="status" class="muted">${t("loading")}</p><div class="grid" aria-hidden="true"><div class="skeleton"></div><div class="skeleton"></div></div>` : state.preview === "empty" || !items.length ? empty("empty", "emptyBody", "filters") : state.view === "map" ? mapView(items) : `${itemTable(items)}`}</section></div>`
   );
 }
 function overview() {
@@ -2297,7 +2442,7 @@ function team() {
     heading(
       "teamTitle",
       "teamSub",
-      `<button data-screen="settings">${t("settings")}</button><button class="primary" data-action="invite" ${canAdmin() ? "" : "disabled"}>＋ ${t("invite")}</button>`,
+      `<button data-screen="settings">${t("settings")}</button><button class="primary" data-action="invite" ${canAdmin() ? "" : "disabled"}>${icon("Plus")} ${t("invite")}</button>`,
     ) +
     `<div class="notice">${t("proposal")} · ${t("inviteBoundary")}</div><div class="panel"><h2>${esc(organizationName())}</h2>${(state.workspace ===
     "solo"
@@ -2347,6 +2492,104 @@ function review() {
   );
 }
 
+function tagManagement() {
+  const es = state.lang === "es";
+  const L = (en, spanish) => (es ? spanish : en);
+  const top = `<div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain the labels and colors your organization uses to organize auction items.", "Administra los nombres y colores que tu organización usa para clasificar bienes.")}</p></div>${state.screen === "tags" && canManageTags() ? `<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag", "Crear etiqueta")}</button>` : ""}</div>`;
+  if (!canManageTags())
+    return (
+      top + `<div class="notice" role="alert">${t("permissionDenied")}</div>`
+    );
+  const selected = orgTags().find(
+    (tag) => tag.id === state.selected && !tag.deleted,
+  );
+  const back = `<button class="ghost" data-screen="tags">← ${L("All tags", "Todas las etiquetas")}</button>`;
+  const usage = (id) =>
+    Object.entries(state.tags).filter(
+      ([key, ids]) =>
+        key.startsWith(state.workspace + "DEMO-") && ids.includes(id),
+    ).length;
+  if (state.screen === "tags") {
+    const tags = orgTags().filter((tag) => !tag.deleted);
+    return (
+      top +
+      `<div class="notice">${L("Changes apply to this organization only. ADMIN and MANAGER can maintain tags.", "Los cambios se aplican solo a esta organización. ADMIN y MANAGER pueden administrar etiquetas.")}</div><div class="table-scroll"><table class="items-table tag-admin-table"><thead><tr><th>${t("tagLabel")}</th><th>${L("Status", "Estado")}</th><th>${L("Assigned items", "Bienes asignados")}</th><th>${L("Manage", "Administrar")}</th></tr></thead><tbody>${tags.map((tag) => `<tr><td><span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}">${esc(tag.label)}</span></td><td>${t(tag.active ? "active" : "inactiveTag")}</td><td>${usage(tag.id)}</td><td><div class="actions"><button data-screen="tag-detail" data-id="${tag.id}">${icon("Eye")} ${L("View", "Ver")}</button><button data-screen="tag-edit" data-id="${tag.id}">${icon("Pencil")} ${L("Edit", "Editar")}</button><button class="danger" data-delete-definition="${tag.id}">${icon("Trash2")} ${L("Delete", "Eliminar")}</button></div></td></tr>`).join("") || `<tr><td colspan="4">${L("No tags yet. Create your first tag.", "Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags are archived; existing assignments and saved filter references are preserved.", "Las etiquetas eliminadas se archivan; se conservan las asignaciones y referencias de filtros guardados.")}</p>`
+    );
+  }
+  if (state.screen !== "tag-new" && !selected)
+    return (
+      top +
+      back +
+      `<div class="notice" role="alert">${L("Tag not found in this organization.", "Etiqueta no encontrada en esta organización.")}</div>`
+    );
+  if (state.screen === "tag-detail")
+    return (
+      top +
+      back +
+      `<section class="panel tag-editor"><h2>${L("Tag details", "Detalle de etiqueta")}</h2><span class="badge tag-badge tag-${selected.color || "gray"}">${esc(selected.label)}</span><dl class="fact-grid" style="margin-top:24px"><div><dt>${L("Status", "Estado")}</dt><dd>${t(selected.active ? "active" : "inactiveTag")}</dd></div><div><dt>${L("Assigned items", "Bienes asignados")}</dt><dd>${usage(selected.id)}</dd></div><div><dt>${L("Identifier", "Identificador")}</dt><dd>${esc(selected.id)}</dd></div></dl><div class="actions"><button class="primary" data-screen="tag-edit" data-id="${selected.id}">${L("Edit tag", "Editar etiqueta")}</button><button class="danger" data-delete-definition="${selected.id}">${L("Delete tag", "Eliminar etiqueta")}</button></div></section>`
+    );
+  return (
+    top +
+    back +
+    `<form id="tag-editor-form" class="panel tag-editor"><h2>${state.screen === "tag-new" ? L("Create tag", "Crear etiqueta") : L("Edit tag", "Editar etiqueta")}</h2><div class="field"><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(selected?.label || "")}"><p class="muted">${L("A unique name, up to 40 characters.", "Un nombre único, de hasta 40 caracteres.")}</p></div><div class="field"><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(selected?.color || "gray")}</select></div><label class="check"><input id="definition-active" type="checkbox" name="active" ${!selected || selected.active ? "checked" : ""}>${t("active")}</label><p class="muted">${t("tagArchivedHelp")}</p><p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary" type="submit">${t("save")}</button><button type="button" data-screen="tags">${L("Cancel", "Cancelar")}</button></div></form>`
+  );
+}
+function bindTagManagement() {
+  const form = document.getElementById("tag-editor-form");
+  if (form)
+    form.onsubmit = (event) => {
+      event.preventDefault();
+      const label = document.getElementById("definition-label").value;
+      const color = document.getElementById("definition-color").value;
+      const active = document.getElementById("definition-active").checked;
+      let result;
+      if (state.screen === "tag-new") {
+        result = createOrganizationTag(label, color);
+        if (result.ok)
+          result = updateOrganizationTag(result.item.id, { active });
+      } else
+        result = updateOrganizationTag(state.selected, {
+          label,
+          color,
+          active,
+        });
+      if (!result.ok) {
+        document.getElementById("definition-error").textContent = t(
+          result.error,
+        );
+        return;
+      }
+      navigate("tags");
+      toast(t("tagUpdated"));
+    };
+  app.querySelectorAll("[data-delete-definition]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        const workspace = state.workspace;
+        const tag = orgTags().find(
+          (tag) => tag.id === button.dataset.deleteDefinition && !tag.deleted,
+        );
+        if (!tag || !canManageTags()) return;
+        const es = state.lang === "es";
+        showDialog(
+          es ? "Eliminar etiqueta" : "Delete tag",
+          `<p>${es ? "¿Eliminar" : "Delete"} <strong>${esc(tag.label)}</strong>?</p><p class="muted">${es ? "Se quitará de la lista disponible. Las asignaciones y filtros existentes se conservan para mantener el historial." : "It will be removed from the available list. Existing assignments and saved filters retain their references for history."}</p><div class="actions"><button type="button" class="danger" id="confirm-tag-delete">${es ? "Eliminar etiqueta" : "Delete tag"}</button><button type="button" id="cancel-tag-delete">${es ? "Cancelar" : "Cancel"}</button></div>`,
+        );
+        document.getElementById("cancel-tag-delete").onclick = () =>
+          document.getElementById("notice").close();
+        document.getElementById("confirm-tag-delete").onclick = () => {
+          if (state.workspace !== workspace) return;
+          const result = deleteOrganizationTag(tag.id);
+          if (!result.ok) {
+            toast(t(result.error));
+            return;
+          }
+          document.getElementById("notice").close();
+          navigate("tags");
+        };
+      }),
+  );
+}
 function settings() {
   const top = heading("settingsTitle", "settingsSub");
   if (!canManageTags())
@@ -2356,7 +2599,8 @@ function settings() {
     );
   return (
     top +
-    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><div class="section-title" style="margin-top:0"><h2>${t("tagCatalog")}</h2><span class="badge">ADMIN · MANAGER</span></div><p class="muted">${t("tagHelp")}</p><form id="tag-create-form" class="two"><div><label for="tag-name">${t("tagLabel")}</label><input id="tag-name" name="label" maxlength="40" required></div><div><label for="tag-color">Color</label><select id="tag-color" name="color">${tagColorOptions()}</select></div><div style="align-self:end"><button class="primary">＋ ${t("addTag")}</button></div></form><p id="tag-create-error" role="alert" class="danger"></p>${orgTags()
+    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><div class="section-title" style="margin-top:0"><h2>${t("tagCatalog")}</h2><span class="badge">ADMIN · MANAGER</span></div><p class="muted">${t("tagHelp")}</p><p><button data-screen="tags">${state.lang === "es" ? "Administrar etiquetas →" : "Manage tags →"}</button></p><form id="tag-create-form" class="two"><div><label for="tag-name">${t("tagLabel")}</label><input id="tag-name" name="label" maxlength="40" required></div><div><label for="tag-color">Color</label><select id="tag-color" name="color">${tagColorOptions()}</select></div><div style="align-self:end"><button class="primary">${icon("Plus")} ${t("addTag")}</button></div></form><p id="tag-create-error" role="alert" class="danger"></p>${orgTags()
+      .filter((tag) => !tag.deleted)
       .map(
         (tag) =>
           `<div class="list-row"><div><h3>${esc(tag.label)}</h3><span class="badge ${tag.active ? "" : "neutral"}">${t(tag.active ? "active" : "inactiveTag")}</span></div><div class="actions"><label for="tag-color-${tag.id}">Color</label><select id="tag-color-${tag.id}" data-tag-color="${tag.id}" aria-label="Color: ${esc(tag.label)}">${tagColorOptions(tag.color || "gray")}</select><button data-rename-tag="${tag.id}">${t("renameTag")}</button><button data-toggle-tag="${tag.id}">${t(tag.active ? "deactivateTag" : "reactivateTag")}</button></div></div>`,
@@ -2435,9 +2679,18 @@ function render() {
   document.documentElement.lang = state.lang;
   document.title = t("appName");
   const navs = [
-    ["properties", "⌂"],
-    ["vehicles", "◇"],
-    ["other", "▦"],
+    [
+      "properties",
+      `${icon("Building2")}`,
+    ],
+    [
+      "vehicles",
+      `${icon("Car")}`,
+    ],
+    [
+      "other",
+      `${icon("Package")}`,
+    ],
     ["alerts", "◷"],
     ["team", "♧"],
   ];
@@ -2453,11 +2706,15 @@ function render() {
       plans,
       review,
       settings,
+      tags: tagManagement,
+      "tag-new": tagManagement,
+      "tag-detail": tagManagement,
+      "tag-edit": tagManagement,
       system,
       auth,
     }[state.screen] || discovery
   )();
-  app.innerHTML = `<aside class="rail">${brandLogo("light")}<div class="rail-caption">${t("workspace")}</div><nav class="nav" aria-label="Main">${navs.map(([k, s]) => `<button data-screen="${CATEGORIES.includes(k) ? "discover" : k}" ${CATEGORIES.includes(k) ? `data-category="${k}"` : ""} class="${state.screen === k || (CATEGORIES.includes(k) && ["discover", "asset", "notice", "filters"].includes(state.screen) && (state.screen === "filters" ? draftFilter().category : state.filters.category) === k) ? "active" : ""}" ${state.screen === k || (state.screen === "discover" && state.filters.category === k) ? 'aria-current="page"' : ""}><span class="symbol" aria-hidden="true">${s}</span><span class="nav-label">${t(k)}</span></button>`).join("")}<button class="secondary-nav" data-screen="overview">${t("overview")}</button><button class="secondary-nav" data-screen="plans">${t("plans")}</button><button class="secondary-nav" data-screen="settings"><span class="symbol">⚙</span><span class="nav-label">${t("settings")}</span></button><div class="rail-caption">${t("operations")}</div><button class="secondary-nav" data-screen="system"><span class="symbol">⚙</span><span class="nav-label">${t("system")}</span></button><button class="secondary-nav ${state.screen === "review" ? "active" : ""}" data-screen="review"><span class="symbol">▧</span><span class="nav-label">${t("review")}</span></button></nav><div class="rail-bottom"><strong>${t("session")}</strong><br>${t("demoUser")}<br>CR · es / en</div></aside><div class="shell"><header class="topbar"><div class="top-left"><a class="compact-brand" href="?screen=discover" aria-label="${t("home")}"><img src="../brand/gavel-dark.svg" alt="" width="28" height="28"></a><select id="workspace" class="workspace-select" aria-label="${t("workspace")}">${options(
+  app.innerHTML = `<aside class="rail">${brandLogo("light")}<div class="rail-caption">${t("workspace")}</div><nav class="nav" aria-label="Main">${navs.map(([k, s]) => `<button data-screen="${CATEGORIES.includes(k) ? "discover" : k}" ${CATEGORIES.includes(k) ? `data-category="${k}"` : ""} class="${state.screen === k || (CATEGORIES.includes(k) && ["discover", "asset", "notice", "filters"].includes(state.screen) && (state.screen === "filters" ? draftFilter().category : state.filters.category) === k) ? "active" : ""}" ${state.screen === k || (state.screen === "discover" && state.filters.category === k) ? 'aria-current="page"' : ""}><span class="symbol" aria-hidden="true">${s}</span><span class="nav-label">${t(k)}</span></button>`).join("")}<button class="secondary-nav" data-screen="overview">${icon("LayoutDashboard")} ${t("overview")}</button><button class="secondary-nav" data-screen="plans">${icon("CreditCard")} ${t("plans")}</button><button class="secondary-nav" data-screen="settings"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("settings")}</span></button>${canManageTags() ? `<button class="secondary-nav ${state.screen.startsWith("tag") ? "active" : ""}" data-screen="tags"><span class="symbol" aria-hidden="true">${icon("Tags")}</span><span class="nav-label">${t("tagCatalog")}</span></button>` : ""}<div class="rail-caption">${t("operations")}</div><button class="secondary-nav" data-screen="system"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("system")}</span></button><button class="secondary-nav ${state.screen === "review" ? "active" : ""}" data-screen="review"><span class="symbol" aria-hidden="true">${icon("ClipboardCheck")}</span><span class="nav-label">${t("review")}</span></button></nav><div class="rail-bottom"><strong>${t("session")}</strong><br>${t("demoUser")}<br>CR · es / en</div></aside><div class="shell"><header class="topbar"><div class="top-left"><a class="compact-brand" href="?screen=discover" aria-label="${t("home")}"><img src="../brand/gavel-dark.svg" alt="" width="28" height="28"></a><select id="workspace" class="workspace-select" aria-label="${t("workspace")}">${options(
     [
       ["org", state.organizationNames.org || t("org")],
       ["solo", state.organizationNames.solo || t("solo")],
@@ -2472,6 +2729,11 @@ function render() {
       ["warm-blue", state.lang === "es" ? "Azul cálido" : "Warm blue"],
       ["navy", state.lang === "es" ? "Azul marino" : "Navy"],
       ["studio", state.lang === "es" ? "Estudio" : "Studio"],
+      [
+        "studio-warm-blue",
+        state.lang === "es" ? "Estudio · Azul cálido" : "Studio · Warm Blue",
+      ],
+      ["harbor", state.lang === "es" ? "Puerto" : "Harbor"],
     ],
     state.colorScheme,
   )}</select><select class="theme-select" id="theme-mode" aria-label="${state.lang === "es" ? "Tema" : "Theme"}">${options(
@@ -2503,9 +2765,11 @@ function render() {
     ],
     state.systemRole || "",
   )}</select><a href="../index.html">Package index ↗</a><button class="ghost" data-screen="system">${t("system")}</button><button class="ghost" data-screen="settings">${t("settings")}</button>${state.screen !== "review" ? `<button class="ghost" data-screen="review">${t("review")}</button>` : ""}</div></footer></main></div>`;
+  app.innerHTML = lucideMarkup(app.innerHTML);
   bind();
 }
 function bind() {
+  bindTagManagement();
   document.getElementById("color-scheme").onchange = (e) => {
     if (setColorScheme(e.target.value)) render();
   };
@@ -2513,10 +2777,10 @@ function bind() {
     if (setTheme(e.target.value)) render();
   };
   bindSort();
-  app.querySelectorAll("[data-column]").forEach(input => {
-    input.onchange = event => {
+  app.querySelectorAll("[data-column]").forEach((input) => {
+    input.onchange = (event) => {
       const key = input.getAttribute("data-column");
-      const next = visibleColumns().filter(value => value !== key);
+      const next = visibleColumns().filter((value) => value !== key);
       if (event.target.checked) next.push(key);
       if (saveVisibleColumns(next)) {
         render();
@@ -2526,12 +2790,13 @@ function bind() {
     };
   });
   const resetColumns = document.getElementById("reset-columns");
-  if (resetColumns) resetColumns.onclick = () => {
-    saveVisibleColumns(defaultColumns());
-    render();
-    document.getElementById("column-menu").open = true;
-    document.getElementById("reset-columns")?.focus();
-  };
+  if (resetColumns)
+    resetColumns.onclick = () => {
+      saveVisibleColumns(defaultColumns());
+      render();
+      document.getElementById("column-menu").open = true;
+      document.getElementById("reset-columns")?.focus();
+    };
   const pageSize = document.getElementById("page-size");
   if (pageSize)
     pageSize.onchange = (e) => {
@@ -2935,6 +3200,10 @@ if (
     "plans",
     "review",
     "settings",
+    "tags",
+    "tag-new",
+    "tag-detail",
+    "tag-edit",
     "system",
     "auth",
   ].includes(boot.get("screen"))

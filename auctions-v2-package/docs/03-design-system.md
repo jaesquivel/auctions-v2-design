@@ -192,3 +192,23 @@ Added a sixth exploratory palette anchored on the requested #001B66. The exact a
 Recommendation: neutral navigation, white/light-gray surfaces, graphite text and restrained blue accents. Compact 48 px row cells with 44 px action targets; tabular digits and right-aligned monetary columns; smaller headings, flat toolbars and 6 px control corners. Dark mode uses charcoal surfaces and lighter blue accents. Existing tag colors retain their meaning. This is a selectable alternative, not a confirmed replacement for the existing brand palettes.
 
 Rationale informed by [Carbon data table guidelines](https://www.carbondesignsystem.com/building-blocks/core/components/data-table/guidelines): consistent row sizing and ample table width support dense records. The Studio styling is a local proposal, not a Carbon component integration. Select Studio / Estudio in the color selector or use the light/dark links on the theme comparison page.
+
+### Beautiful UI reference — Studio refinement
+
+User-selected inspiration: [Beautiful UI](https://www.beautifului.dev/), particularly Records Table and Sidebar Nav. Adapted direction: graphite dark surfaces with neutral light equivalents, fine vertical and horizontal table separators, compact colored tags, softly rounded table containers, restrained control shadows and quiet navigation selection. The app retains its own gavel brand, organization permissions and auction workflows. These are locally authored CSS refinements inspired by the reference; no component code or external font dependency was imported. Studio remains the selectable theme for this direction.
+
+### Harbor / Puerto — dashboard reference exploration
+
+Proposed alternative based on the [user-supplied dashboard image](https://cdn.dribbble.com/userupload/4484993/file/original-eea6318ae2bfd3406e57c05ff21eb666.png): deep teal navigation, white tables, pale aqua identifier cells, fine grid separators and coral primary actions. The compact table structure shares Studio's spacing refinements. A coordinated dark appearance uses deep teal surfaces. This adapts the visual direction to the existing auction workflows; the illustration's decorative background and floating contact panel are not part of this proposal. Original local CSS; no external assets or component code imported. Select Harbor / Puerto or use its theme-comparison links.
+
+### Preferred direction: Warm blue with reference-inspired components
+
+User clarification: retain Warm blue / Azul cálido; the dashboard reference guides component appearance rather than a palette replacement. Warm blue now uses the compact table treatment, thin grid separators, softly rounded table and menu containers, small tag badges, flatter sorting toolbar, rounded navigation selection and subtly tinted identifier cells. Existing indigo/ivory light colors and coordinated dark tokens are retained. Teal and coral belong only to the optional Harbor exploration. Studio and Harbor remain comparison alternatives.
+
+### Current focus: Studio and Studio Warm Blue
+
+User decision: concentrate refinement on Studio. Add Studio · Warm Blue / Estudio · Azul cálido as a color variant of Studio. Both use the same compact rows, fine grid, neutral sidebar, rounded containers and control styling. The variant uses warm ivory and indigo in light mode and coordinated indigo-tinted dark surfaces. It does not inherit Harbor's navigation silhouette or the earlier Warm blue exploration's saturated sidebar. Existing options remain for historical comparison. Select `studio-warm-blue` for this variant; theme mode remains an independent Light/Dark/System preference.
+
+## Lucide icons
+
+Confirmed: Lucide replaces previous interface icons throughout navigation, list actions, filters, sorting, pagination and tag CRUD. The gavel logo remains a separate brand asset; schematic map artwork is content, not an interface icon. Use named imports from `lucide-react` in the Next.js frontend. Prototype SVGs are generated with React server rendering from pinned `lucide-react` using `tools/icon-generator/build.cjs`; they are embedded in app.js so the offline prototype needs no CDN or React runtime. Icon size 18–20 px, stroke width 1.75, currentColor, decorative SVGs aria-hidden, and readable button labels retained. Native sort selects use localized direction words. Generator dependencies/lockfile and Lucide license are included. Run npm ci and npm run build inside tools/icon-generator to regenerate.

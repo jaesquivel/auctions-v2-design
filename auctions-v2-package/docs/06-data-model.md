@@ -143,3 +143,7 @@ Confirmed order: Tags first; for Properties, Registration number / Número de fi
 ### Round times and base offers
 
 Confirmed: the Columns menu also offers independent Time / Hora and Base offer / Oferta base columns for each of the First, Second and Third rounds. They sit beside that round's optional date column; each can be selected separately and persists with the user's category preferences. These six optional columns are hidden by default. Time uses the event's configured country timezone (Costa Rica in this prototype), not the viewer's browser timezone. Missing event times or base offers show Not reported. Each fixture event now includes `time`, `timezone` and `baseOffer: {amount, currency}`; base offers retain their currency and do not imply currency conversion. Synthetic amounts are illustrative and do not encode statutory reductions. Production must extract and validate each round's time and base offer from notice evidence, never infer them from another round. Single-line rows and horizontal scrolling remain.
+
+### Tag archive extension for CRUD
+
+The new delete screen proposes soft archival of an organization tag definition. Prototype fields: `deleted=true`, `active=false`. Production proposal: nullable `deleted_at` with actor/audit entry, optimistic version check, organization ownership predicate, and preserved assignment/filter foreign references. Update the baseline schema before implementation; this design update does not execute a migration. Archived labels remain reserved to avoid ambiguous historical identity.

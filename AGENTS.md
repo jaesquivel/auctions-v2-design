@@ -101,3 +101,15 @@ Round-date column update: offer First round, Second round and Third round separa
 Listing order: Tags first, Registration number for Properties or Plate for Vehicles second, followed by Location. Distinguish registry/plate identifiers from internal item reference. Other starts Tags then Location. Keep user column visibility preferences.
 
 Round columns also include separately selectable time and base offer for each of rounds 1–3. Save with per-user/category column preferences. Use actual event currency and configured timezone, unknown fallback, and clearly fictional demonstration values without legal reduction assumptions.
+
+Visual reference: user likes https://www.beautifului.dev/. Refine Studio toward its neutral surfaces, quiet navigation, finely separated data grids and compact colored tags while keeping the auction workflows and brand.
+
+Harbor / Puerto is an additional exploratory theme based on the user's Dribbble dashboard reference: deep teal rail, white surfaces, aqua identifiers and coral primary actions. Retain Studio and other schemes.
+
+Preferred UI direction: user still prefers Warm blue / Azul cálido. Apply the dashboard reference's component styling (compact tables, subtle separators, rounded containers/navigation, quiet toolbars) to Warm blue rather than replacing its colors with teal/coral.
+
+Current UI direction supersedes earlier exploration focus: concentrate on Studio. Studio Warm Blue is a separate color variant sharing Studio components and neutral navigation, with the Warm blue color family. Refine those two going forward.
+
+Organization tag maintenance has list/detail/create/edit screens and confirmed soft-delete/archive. ADMIN/MANAGER only; USER may assign existing active tags. Preserve assigned-item and saved-filter history on deletion. Sidebar and Settings link to maintenance. Offline demonstration is not backend persistence.
+
+Use lucide-react icons for all interface icons. Offline prototype embeds SVGs generated from the pinned official package; preserve the custom gavel logo as brand artwork. Keep accessible labels on icon buttons.
