@@ -28,9 +28,9 @@ check(!updateOrganizationName('Unauthorized').ok,'MANAGER cannot edit organizati
 const created=createOrganizationTag('  QA   Follow up  ');check(created.ok&&created.item.label==='QA Follow up','MANAGER creates normalized tag');
 check(!createOrganizationTag('qa follow UP').ok,'case folded duplicate rejected');check(!createOrganizationTag('x'.repeat(41)).ok,'tag length validated');check(!updateOrganizationTag('DEMO-TAG-S1',{active:false}).ok,'MANAGER cannot change foreign organization tag');
 check(updateOrganizationTag('DEMO-TAG-O1',{label:'Renamed stable tag'}).ok,'MANAGER renames tag');check(state.tags['orgDEMO-A01'][0]==='DEMO-TAG-O1','rename preserves assignment ID');check(assignedTagLabels('DEMO-A01').includes('Renamed stable tag'),'rename reflected in assignment display');
-check(updateOrganizationTag('DEMO-TAG-O1',{active:false}).ok,'MANAGER deactivates tag');state.role='USER';check(!assignOrganizationTags('DEMO-A04',['DEMO-TAG-O1'],'No').ok,'new inactive assignment rejected');check(assignOrganizationTags('DEMO-A01',['DEMO-TAG-O1'],'Retain history').ok,'existing inactive assignment retained');check(assignOrganizationTags('DEMO-A01',[],'Remove').ok,'existing inactive assignment removable');
-check(!settings().includes('tag-create-form'),'USER settings view has no edit controls');
-state.role='MANAGER';check(settings().includes('tag-create-form')&&!settings().includes('data-screen="team"'),'MANAGER gets tags without user management controls');
+check(!updateOrganizationTag('DEMO-TAG-O1',{active:false}).ok,'active field rejected');check(deleteOrganizationTag('DEMO-TAG-O1').ok,'manager deletes tag');state.role='USER';check(!assignOrganizationTags('DEMO-A04',['DEMO-TAG-O1'],'No').ok,'new deleted tag assignment rejected');check(assignOrganizationTags('DEMO-A01',['DEMO-TAG-O1'],'Retain history').ok,'existing inactive assignment retained');check(assignOrganizationTags('DEMO-A01',[],'Remove').ok,'existing inactive assignment removable');
+check(!settings().includes('data-screen="tags"'),'USER settings view has no edit controls');
+state.role='MANAGER';check(settings().includes('data-screen="tags"')&&!settings().includes('data-screen="team"'),'MANAGER gets tags without user management controls');
 state.role='ADMIN';check(canAdmin()&&canManageTags()&&canEdit(),'ADMIN inherits all organization capabilities');check(updateOrganizationName('QA organization').ok,'ADMIN edits identity');check(settings().includes('data-screen="team"')&&settings().includes('data-screen="plans"'),'ADMIN user and billing controls visible');
 for(const legacy of ['owner','admin','analyst','viewer','UNKNOWN']){state.role=legacy;check(!canEdit()&&!canAdmin()&&!canManageTags(),'unknown or legacy role rejected '+legacy);}
 state.workspace='solo';state.role='ADMIN';check(canAdmin()&&canManageTags(),'solo organization uses ADMIN permissions');check((team().match(/class="member"/g)||[]).length===1,'solo organization has one member');state.workspace='org';state.role='MANAGER';check((team().match(/class="member"/g)||[]).length===3,'team has three members');
@@ -225,9 +225,9 @@ for(const language of ['es','en']) {state.lang=language;check(columnLabel('round
 state.workspace='org';state.role='MANAGER';
 const crudTag=createOrganizationTag('CRUD sample','blue');check(crudTag.ok,'manager creates tag for CRUD');
 check(assignOrganizationTags('DEMO-A01',[crudTag.item.id]).ok,'assign CRUD tag');
-check(updateOrganizationTag(crudTag.item.id,{label:'CRUD renamed',color:'purple',active:false}).ok,'edit CRUD fields');
+check(updateOrganizationTag(crudTag.item.id,{label:'CRUD renamed',color:'purple'}).ok,'edit CRUD fields');
 state.selected=crudTag.item.id;
-for(const language of ['es','en'])for(const screen of ['tags','tag-new','tag-detail','tag-edit']){state.lang=language;state.screen=screen;check(tagManagement().includes('<h1')&&!tagManagement().includes('undefined'),'CRUD screen '+language+' '+screen);}
+for(const language of ['es','en'])for(const screen of ['tags','tag-new']){state.lang=language;state.screen=screen;check(tagManagement().includes('<h1')&&!tagManagement().includes('undefined'),'CRUD screen '+language+' '+screen);}
 state.role='USER';check(!deleteOrganizationTag(crudTag.item.id).ok,'USER cannot delete definition');check(tagManagement().includes(t('permissionDenied')),'USER CRUD screen denied');
 state.role='MANAGER';state.workspace='solo';check(!deleteOrganizationTag(crudTag.item.id).ok,'foreign organization delete denied');state.workspace='org';
 check(deleteOrganizationTag(crudTag.item.id).ok,'manager deletes tag');check(state.tags['orgDEMO-A01'].includes(crudTag.item.id),'delete preserves historic assignment');
@@ -235,6 +235,22 @@ check(!updateOrganizationTag(crudTag.item.id,{active:true}).ok,'deleted definiti
 check(!assignOrganizationTags('DEMO-A02',[crudTag.item.id]).ok,'deleted tag cannot be newly assigned');
 state.screen='tags';check(!tagManagement().includes('CRUD renamed'),'deleted definition hidden from maintenance list');
 state.role='ADMIN';const adminCrud=createOrganizationTag('ADMIN CRUD','green');check(adminCrud.ok&&deleteOrganizationTag(adminCrud.item.id).ok,'ADMIN CRUD authority');
+state.workspace='org';state.role='MANAGER';state.screen='tags';
+check(orgTags().every(tag=>!('active' in tag)),'tag definitions have no active field');
+check(!tagManagement().includes('tag-detail')&&!tagManagement().includes('definition-active'),'no detail or active controls');
+check(tagManagement().includes('single-line-table')&&!tagManagement().includes('tag-page-size')&&!tagManagement().includes('data-tag-page')&&tagManagement().includes('data-tag-sort')&&!tagManagement().includes('data-tag-column'),'tag grid uses common display and controls');
+check(!updateOrganizationTag('DEMO-TAG-O2',{active:false}).ok,'active patch rejected');
+state.workspace='org';state.role='USER';const publishedBefore=JSON.stringify(DEMO_LISTINGS.find(item=>item.id==='DEMO-A01'));
+check(savePropertyResearch('DEMO-A01','org',{notes:'Organization note',appraisalAmount:'123456.7',appraisalCurrency:'USD'}).ok,'USER saves organization property fields');
+check(state.propertyResearch['orgDEMO-A01'].appraisal.amount==='123456.70','appraisal decimal normalized');
+check(JSON.stringify(DEMO_LISTINGS.find(item=>item.id==='DEMO-A01'))===publishedBefore,'published property unmodified');
+state.workspace='solo';check(!state.propertyResearch['soloDEMO-A01']&&!state.notes['soloDEMO-A01'],'property research isolated by organization');
+check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'stale organization save denied');
+state.workspace='org';check(!savePropertyResearch('DEMO-V01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'property fields reject vehicle');
+for(const amount of ['-1','1.234','NaN','1e3'])check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:amount,appraisalCurrency:'CRC'}).ok,'invalid appraisal '+amount);
+check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='properties')).includes('data-screen="property-edit"'),'property edit action');
+check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='vehicles')).includes('data-screen="asset"'),'vehicle action retained');
+state.role='UNKNOWN';check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'nonmember property edits denied');state.role='MANAGER';
 check(DEMO_LISTINGS.length===150,'full catalog has 150 fixtures');
 check(new Set(DEMO_LISTINGS.map(item=>item.id)).size===150,'fixture IDs unique');
 for(const category of ['properties','vehicles','other']) {

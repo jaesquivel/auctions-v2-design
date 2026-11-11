@@ -37,7 +37,7 @@ Errors use application/problem+json with type, title, status, code, detail, requ
 | DELETE /workspaces/{workspaceId}/members/{memberId} | Remove membership | No final-ADMIN removal; audit and cache invalidation |
 | GET, PATCH /workspaces/{workspaceId}/settings | Read/update identity settings | Read ADMIN/MANAGER; update ADMIN only |
 | GET, POST /workspaces/{workspaceId}/tags | List/create available organization tags | Read members; create ADMIN/MANAGER |
-| PATCH /workspaces/{workspaceId}/tags/{tagId} | Rename/deactivate definition | ADMIN/MANAGER; version required; preserves assignments |
+| PATCH /workspaces/{workspaceId}/tags/{tagId} | Edit label/color | ADMIN/MANAGER; version required; preserves assignments |
 | GET /workspaces/{workspaceId}/entitlements | Effective feature flags, limits and billing state | No card data; response private/no-store |
 | POST /workspaces/{workspaceId}/billing/portal | Provider portal session | ADMIN with billing capability |
 | POST /workspaces/{workspaceId}/billing/checkout | Provider checkout session | Server allowlist of plan keys; no client prices |
@@ -55,7 +55,7 @@ GET /workspaces/{workspaceId}/assets/{assetId}/images lists authorized organizat
 
 ## Direct tags and user-owned search contract
 
-Saved auction-item endpoints/models are removed. PUT of an existing organization/asset/tag tuple returns the same assignment; DELETE is idempotent after membership checks. Removing the final tag does not delete the asset or optional annotation. A definition rename preserves assignment IDs; new inactive or foreign-organization assignments fail. Catalog public tags remain separate from organization tag assignments.
+Saved auction-item endpoints/models are removed. PUT of an existing organization/asset/tag tuple returns the same assignment; DELETE is idempotent after membership checks. Removing the final tag does not delete the asset or optional annotation. A definition rename preserves assignment IDs; new deleted or foreign-organization assignments fail. Catalog public tags remain separate from organization tag assignments.
 
 Public GET /assets never returns private tag/annotation fields and rejects organizationTagId. Authenticated GET /workspaces/{workspaceId}/assets and /assets/map accept organizationTagId, validate the definition belongs to that context, and return private/no-store results. OrganizationFilter adds that UUID to the public Filter fields. Saved searches use OrganizationFilter with their explicit execution context.
 
@@ -75,9 +75,9 @@ All /operations/* endpoints require SYSADMIN in addition to task-specific valida
 
 Organization request/response membership role fields are exactly ADMIN, MANAGER and USER. SYSADMIN is a separate system role field and is never accepted by organization invitations or membership updates. ADMIN manages users, roles and full organization settings. ADMIN/MANAGER manage the available organization tags list. USER normal research and existing-tag assignment are proposed baseline permissions. The last ADMIN cannot be removed or demoted; there is no Owner level.
 
-GET /workspaces/{workspaceId}/settings is available to ADMIN/MANAGER; PATCH of organization identity is ADMIN-only. GET /workspaces/{workspaceId}/tags lists definitions to organization members. POST creates and PATCH /tags/{tagId} renames or deactivates a definition for ADMIN/MANAGER only. Creation requires Idempotency-Key; updates require version. Duplicate normalized labels return 409 TAG_LABEL_EXISTS. Unknown/foreign tag IDs return 404; assigning a newly inactive tag returns 422 TAG_INACTIVE. Assignment endpoints use a stable tagId, never free-text names that create definitions. Existing inactive assignments may be read, replayed idempotently or removed; new inactive assignments are rejected. Assignment has no dependency on an annotation or saved-item record.
+GET /workspaces/{workspaceId}/settings is available to ADMIN/MANAGER; PATCH of organization identity is ADMIN-only. GET /workspaces/{workspaceId}/tags lists definitions to organization members. POST creates and PATCH /tags/{tagId} edits the label/color of a definition for ADMIN/MANAGER only. Creation requires Idempotency-Key; updates require version. Duplicate normalized labels return 409 TAG_LABEL_EXISTS. Unknown/foreign tag IDs return 404; assigning a deleted tag returns 422 TAG_DELETED. Assignment endpoints use a stable tagId, never free-text names that create definitions. Existing deleted-tag assignments may be read, replayed idempotently or removed; new deleted-tag assignments are rejected. Assignment has no dependency on an annotation or saved-item record.
 
-No hard-delete tag endpoint is proposed. Rename preserves stable IDs/assignments; deactivation preserves history. Public search tag filters use the separate catalog taxonomy. All settings/tag operations are scoped to the active organization and audited. There is no generic settings blob that lets MANAGER alter users, roles, billing or country.
+No hard-delete tag endpoint is proposed. Rename preserves stable IDs/assignments; soft deletion preserves history. Public search tag filters use the separate catalog taxonomy. All settings/tag operations are scoped to the active organization and audited. There is no generic settings blob that lets MANAGER alter users, roles, billing or country.
 
 ## Organization-only ownership and onboarding
 
@@ -177,4 +177,12 @@ Confirmed behavior: visible listing columns are saved per user. Proposed endpoin
 
 ## Tag CRUD screen extension
 
-The UI now includes list, read, create, edit and confirmed delete/archive flows. Existing GET/POST/PATCH tag contracts remain the basis for read/create/update. Proposed deletion is a soft archive, never physical removal of assignments or saved-filter references: add an audited `DELETE /workspaces/{workspaceId}/tags/{tagId}` with expected version and ADMIN/MANAGER authorization; return 204, foreign/unknown IDs 404, stale version 409. Archived definitions are inactive, excluded from the available maintenance list and rejected for new assignments; existing assignments remain readable and removable. This proposed DELETE extension is not yet represented in the baseline OpenAPI/SQL or a live backend; implementation must add the archive marker and version checks. The prototype uses a `deleted` flag plus `active=false` to demonstrate the behavior.
+The UI now includes list, read, create, edit and confirmed delete/archive flows. Existing GET/POST/PATCH tag contracts remain the basis for read/create/update. Proposed deletion is a soft archive, never physical removal of assignments or saved-filter references: add an audited `DELETE /workspaces/{workspaceId}/tags/{tagId}` with expected version and ADMIN/MANAGER authorization; return 204, foreign/unknown IDs 404, stale version 409. Deleted definitions are excluded from the available maintenance list and rejected for new assignments; existing assignments remain readable and removable. This proposed DELETE extension is not yet represented in the baseline OpenAPI/SQL or a live backend; implementation must add the archive marker and version checks. The prototype uses a `deleted` flag without an active field to demonstrate the behavior.
+
+## Organization-owned property fields
+
+Confirmed: property records include user-editable notes and appraisal amount owned by the organization, with scope `(workspaceId, assetId)`. Members of the same organization share these values; another organization has its own values for the same property. Properties use a Lucide Pencil action instead of Eye to open the editor. Vehicles and Other retain their existing open action. Source notice/extracted data remain unchanged.
+
+The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel discards unsaved edits and returns to the listing, preserving item pagination. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
+
+Proposed permissions follow existing research-edit access: ADMIN, MANAGER and USER; membership must be validated server-side. Prototype state resets on reload. Annotation input/response now allow optional nullable `appraisal: Money`; production must restrict appraisal to Properties, reject invalid currencies/amounts and use expected-version checks. SQL design adds nullable appraisal_amount/appraisal_currency to asset_annotation with paired-null and non-negative checks. No database migration or production service has been executed.

@@ -212,3 +212,17 @@ User decision: concentrate refinement on Studio. Add Studio · Warm Blue / Estud
 ## Lucide icons
 
 Confirmed: Lucide replaces previous interface icons throughout navigation, list actions, filters, sorting, pagination and tag CRUD. The gavel logo remains a separate brand asset; schematic map artwork is content, not an interface icon. Use named imports from `lucide-react` in the Next.js frontend. Prototype SVGs are generated with React server rendering from pinned `lucide-react` using `tools/icon-generator/build.cjs`; they are embedded in app.js so the offline prototype needs no CDN or React runtime. Icon size 18–20 px, stroke width 1.75, currentColor, decorative SVGs aria-hidden, and readable button labels retained. Native sort selects use localized direction words. Generator dependencies/lockfile and Lucide license are included. Run npm ci and npm run build inside tools/icon-generator to regenerate.
+
+## Current tag and grid rules
+
+Confirmed: tags always exist as usable definitions until deleted; no `active` field or active/inactive UI. Tag DTO/PATCH and proposed SQL now omit active; SQL uses deleted_at for history-preserving deletion. Creation accepts label/color. Edit and Delete are available only from the list; no View button or detail/edit routes. Inline edits preserve one physical row, with name/color inputs and Save/Cancel. Settings links to the list. Earlier active-status and separate-detail proposals are superseded.
+
+All data grids follow the properties-grid rules and theme styling: single-line records, ellipsis, horizontal scrolling, titled sortable data columns, multi-value sorting, frameless icon actions in an untitled rightmost column, pagination with selectable page size, and user-owned column visibility. Category-specific columns do not change the common rules. The tag grid includes these controls; browser storage simulates saved user column choices. Production grids require server sorting/pagination.
+
+### Tags grid exception
+
+Confirmed clarification: Tags has no filter or pagination controls and displays the complete organization's non-deleted tag list. It retains shared grid appearance, single-line rows, header sorting/multi-sort, per-user column visibility and frameless Edit/Delete icons. This exception supersedes earlier tag-grid pagination guidance; auction item grids retain server pagination and selectable page sizes.
+
+### Fixed tag columns
+
+Confirmed: Tags has fixed columns (Tag name, Assigned items, and untitled Edit/Delete controls), with no column selector or saved column-visibility preference. Existing browser preferences for tag columns are ignored. Tags also has no filters or pagination; sorting and common properties-grid styling remain. This supersedes prior tag column-selection guidance. Auction item grids retain their column selector.

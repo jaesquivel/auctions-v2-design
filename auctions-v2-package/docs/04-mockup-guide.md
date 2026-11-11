@@ -128,6 +128,23 @@ Confirmed: the Columns menu also offers independent Time / Hora and Base offer /
 
 ## Organization tag management
 
-ADMIN and MANAGER can open Available tags / Etiquetas disponibles from the sidebar, or Manage tags from Settings. Routes: `?screen=tags` (list), `?screen=tag-new` (create); View and Edit open `tag-detail` and `tag-edit` for a selected organization definition. The list shows colored labels, active status, assigned-item counts, and View/Edit/Delete menus. Forms validate unique names up to 40 characters, allowlisted colors and active/inactive status. Cancel returns without applying edits. Delete requires confirmation and archives the definition; history and saved-filter references remain. USER receives an access-denied screen and no maintenance menu; assigning available tags to items remains permitted. Empty lists and missing/foreign tag IDs have explicit states.
+ADMIN and MANAGER open Tags from the sidebar or Manage tags from Settings. The `tags` route is the only edit/delete entry point: each row has frameless Lucide Edit and Delete actions, no View button or detail route. Edit changes label/color inline; Save validates and Cancel discards the row draft. `tag-new` creates a tag using label and color only. Tags have no active/inactive lifecycle or status field. Delete confirms soft deletion while preserving historical assignments and filter references. USER is denied management access. All grids follow the properties-grid rules: single-line records, sortable headers and multiple priorities, selectable page sizes (5/10/25/50/100), horizontal scrolling and per-user column visibility. The offline tag grid simulates server sorting/pagination; production must execute these operations on the server. Historical detail/edit screenshots below are superseded by the current tag list.
+
 
 This is editable, offline demonstration CRUD: organization definitions reset on reload; no backend persistence is connected. Screenshots: [list](../qa/tags-list.jpg), [create](../qa/tags-create.jpg), [detail](../qa/tags-detail.jpg), [edit](../qa/tags-edit.jpg), [delete confirmation](../qa/tags-delete.jpg).
+
+### Tags grid exception
+
+Confirmed clarification: Tags has no filter or pagination controls and displays the complete organization's non-deleted tag list. It retains shared grid appearance, single-line rows, header sorting/multi-sort, per-user column visibility and frameless Edit/Delete icons. This exception supersedes earlier tag-grid pagination guidance; auction item grids retain server pagination and selectable page sizes.
+
+### Fixed tag columns
+
+Confirmed: Tags has fixed columns (Tag name, Assigned items, and untitled Edit/Delete controls), with no column selector or saved column-visibility preference. Existing browser preferences for tag columns are ignored. Tags also has no filters or pagination; sorting and common properties-grid styling remain. This supersedes prior tag column-selection guidance. Auction item grids retain their column selector.
+
+## Organization-owned property fields
+
+Confirmed: property records include user-editable notes and appraisal amount owned by the organization, with scope `(workspaceId, assetId)`. Members of the same organization share these values; another organization has its own values for the same property. Properties use a Lucide Pencil action instead of Eye to open the editor. Vehicles and Other retain their existing open action. Source notice/extracted data remain unchanged.
+
+The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel discards unsaved edits and returns to the listing, preserving item pagination. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
+
+Proposed permissions follow existing research-edit access: ADMIN, MANAGER and USER; membership must be validated server-side. Prototype state resets on reload. Annotation input/response now allow optional nullable `appraisal: Money`; production must restrict appraisal to Properties, reject invalid currencies/amounts and use expected-version checks. SQL design adds nullable appraisal_amount/appraisal_currency to asset_annotation with paired-null and non-negative checks. No database migration or production service has been executed.

@@ -4046,7 +4046,7 @@
     "/workspaces/{workspaceId}/tags/{tagId}": {
       "patch": {
         "operationId": "patch_workspaces_workspaceId_tags_tagId",
-        "summary": "Rename or deactivate tag; ADMIN/MANAGER only",
+        "summary": "Edit tag label/color; ADMIN/MANAGER only",
         "security": [
           {
             "ClerkBearer": []
@@ -6917,9 +6917,6 @@
           "color": {
             "$ref": "#/components/schemas/TagColor"
           },
-          "active": {
-            "type": "boolean"
-          },
           "version": {
             "type": "integer",
             "minimum": 1
@@ -6930,7 +6927,6 @@
           "workspaceId",
           "label",
           "color",
-          "active",
           "version"
         ],
         "additionalProperties": false
@@ -6966,9 +6962,6 @@
           },
           "color": {
             "$ref": "#/components/schemas/TagColor"
-          },
-          "active": {
-            "type": "boolean"
           }
         },
         "required": [
@@ -7143,6 +7136,16 @@
       "AnnotationInput": {
         "type": "object",
         "properties": {
+          "appraisal": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Money"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "note": {
             "type": "string",
             "maxLength": 10000
@@ -7161,6 +7164,16 @@
       "Annotation": {
         "type": "object",
         "properties": {
+          "appraisal": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Money"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "workspaceId": {
             "type": "string",
             "format": "uuid"

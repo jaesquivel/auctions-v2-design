@@ -452,7 +452,7 @@ const COPY = {
     noTags:
       "No hay etiquetas disponibles. Un ADMIN o MANAGER puede agregarlas.",
     tagArchivedHelp:
-      "Las etiquetas inactivas conservan sus asignaciones anteriores.",
+      "Las etiquetas eliminadas conservan sus asignaciones anteriores.",
     researchProposal:
       "Los permisos de investigación de USER son una propuesta pendiente de confirmación.",
     overview: "Resumen",
@@ -797,7 +797,7 @@ const COPY = {
     settingsSaved: "Example settings saved",
     tagSelectionHelp: "Choose tags from your organization’s available list.",
     noTags: "No tags are available. An ADMIN or MANAGER can add them.",
-    tagArchivedHelp: "Inactive tags retain their previous assignments.",
+    tagArchivedHelp: "Deleted tags retain their previous assignments.",
     researchProposal:
       "USER research permissions are proposed and await confirmation.",
     overview: "Overview",
@@ -1084,13 +1084,13 @@ const state = {
         id: "DEMO-TAG-O1",
         label: "Pendiente de estudio",
         color: "amber",
-        active: true,
+
       },
       {
         id: "DEMO-TAG-O2",
         label: "Consultar fuente",
         color: "blue",
-        active: true,
+
       },
     ],
     solo: [
@@ -1098,7 +1098,7 @@ const state = {
         id: "DEMO-TAG-S1",
         label: "Revisar documentos",
         color: "purple",
-        active: true,
+
       },
     ],
   },
@@ -1113,6 +1113,7 @@ const state = {
     "orgDEMO-A02": ["DEMO-TAG-O2", "DEMO-TAG-O1"],
   },
   notes: {},
+  propertyResearch: {},
   searches: [],
   revision: 1,
   reviewAmount: "65000000.00",
@@ -1184,7 +1185,7 @@ function createOrganizationTag(label, color = "gray") {
     id: "DEMO-TAG-" + state.workspace + "-" + state.nextTagId++,
     label,
     color,
-    active: true,
+
   };
   orgTags().push(item);
   return { ok: true, item };
@@ -1193,15 +1194,14 @@ function updateOrganizationTag(id, patch) {
   if (!canManageTags()) return { ok: false, error: "permissionDenied" };
   const item = orgTags().find((x) => x.id === id);
   if (!item || item.deleted) return { ok: false, error: "invalidTag" };
-  if (Object.keys(patch).some((k) => !["label", "active", "color"].includes(k)))
+  if (Object.keys(patch).some((k) => !["label", "color"].includes(k)))
     return { ok: false, error: "invalidTag" };
   const label = ("label" in patch ? String(patch.label) : item.label)
     .trim()
     .replace(/\s+/g, " ");
   if (
     !label ||
-    Array.from(label).length > 40 ||
-    ("active" in patch && typeof patch.active !== "boolean")
+    Array.from(label).length > 40
   )
     return { ok: false, error: "invalidTag" };
   if (
@@ -1216,14 +1216,12 @@ function updateOrganizationTag(id, patch) {
     return { ok: false, error: "invalidTag" };
   if ("color" in patch) item.color = patch.color;
   item.label = label;
-  if ("active" in patch) item.active = patch.active;
   return { ok: true, item };
 }
 function deleteOrganizationTag(id) {
   if (!canManageTags()) return { ok: false, error: "permissionDenied" };
   const tag = orgTags().find((tag) => tag.id === id && !tag.deleted);
   if (!tag) return { ok: false, error: "invalidTag" };
-  tag.active = false;
   tag.deleted = true;
   return { ok: true };
 }
@@ -1248,7 +1246,7 @@ function assignOrganizationTags(assetId, ids, note) {
     ids.some(
       (id) =>
         !orgTags().some(
-          (tag) => tag.id === id && (tag.active || previous.includes(id)),
+          (tag) => tag.id === id && (!tag.deleted || previous.includes(id)),
         ),
     )
   )
@@ -1262,7 +1260,7 @@ function assignedTagLabels(assetId) {
     .map((id) => {
       const tag = orgTags().find((x) => x.id === id);
       return tag
-        ? tag.label + (tag.active ? "" : " (" + t("inactiveTag") + ")")
+        ? tag.label
         : "";
     })
     .filter(Boolean)
@@ -1344,7 +1342,7 @@ function tagBadges(assetId) {
     .map((id) => {
       const tag = orgTags().find((x) => x.id === id);
       return tag
-        ? `<span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}" title="${esc(tag.label)}">${esc(tag.label)}${tag.active ? "" : " (" + t("inactiveTag") + ")"}</span>`
+        ? `<span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}" title="${esc(tag.label)}">${esc(tag.label)}</span>`
         : "";
     })
     .join("");
@@ -1722,8 +1720,8 @@ function itemActionButtons(item) {
           state.lang === "es"
             ? { open: "Abrir bien", tags: "Etiquetas", notice: "Ver aviso" }
             : { open: "Open item", tags: "Tags", notice: "View notice" },
-        label = labels[kind];
-      return `<button class="icon-action" title="${label}" aria-label="${label}: ${esc(item.id)}" ${kind === "tags" ? `data-tags="${item.id}"` : `data-screen="${kind === "open" ? "asset" : "notice"}" data-id="${item.id}"`}>${rowActionIcon(kind)}</button>`;
+        label = kind === "open" && item.category === "properties" ? (state.lang === "es" ? "Editar propiedad" : "Edit property") : labels[kind];
+      return `<button class="icon-action" title="${label}" aria-label="${label}: ${esc(item.id)}" ${kind === "tags" ? `data-tags="${item.id}"` : `data-screen="${kind === "open" ? (item.category === "properties" ? "property-edit" : "asset") : "notice"}" data-id="${item.id}"`}>${kind === "open" && item.category === "properties" ? icon("Pencil") : rowActionIcon(kind)}</button>`;
     })
     .join("");
 }
@@ -2352,6 +2350,28 @@ function overview() {
       )}</div><div class="section-title"><h2>${t("recent")}</h2><button class="ghost" data-screen="discover">${t("discover")} →</button></div><div class="auction-list">${DEMO_LISTINGS.slice(0, 2).map(card).join("")}</div>`
   );
 }
+function savePropertyResearch(id, workspace, input) {
+  if(workspace!==state.workspace || !canEdit()) return {ok:false,error:"permissionDenied"};
+  const item=DEMO_LISTINGS.find(item=>item.id===id&&item.category==="properties");
+  if(!item || typeof input.notes!=="string" || input.notes.length>10000) return {ok:false,error:"invalidResearch"};
+  const amount=String(input.appraisalAmount??"").trim(),currency=input.appraisalCurrency;
+  if(amount && (!/^(0|[1-9][0-9]{0,13})(\.[0-9]{1,2})?$/.test(amount)||!["CRC","USD"].includes(currency))) return {ok:false,error:"invalidResearch"};
+  state.notes[workspace+id]=input.notes;
+  state.propertyResearch[workspace+id]={appraisal:amount?{amount:amount.split(".")[0]+"."+(amount.split(".")[1]||"").padEnd(2,"0"),currency}:null};
+  return {ok:true};
+}
+function propertyEditor() {
+  const item=current(),es=state.lang==="es",L=(en,spanish)=>es?spanish:en;
+  const top=heading("assetInfo","fiction");
+  if(item.category!=="properties"||!canEdit())return top+`<div class="notice" role="alert">${t("permissionDenied")}</div>`;
+  const data=state.propertyResearch[state.workspace+item.id]||{};
+  return `<div class="breadcrumb"><button class="ghost" data-screen="discover">${icon("ArrowLeft")} ${t("back")}</button></div><div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${L("Edit property","Editar propiedad")}</h1><p>${esc(title(item))} · ${esc(item.registrationNumber||item.id)}</p></div></div><div class="detail-columns"><form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Organization information","Información de la organización")}</h2><p class="muted">${L("Shared with members of this organization.","Compartida con los miembros de esta organización.")}</p><label for="property-notes">${L("Notes","Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace+item.id]||"")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount","Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount||"")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency","Moneda")}</label><select id="property-appraisal-currency">${options([["CRC","CRC"],["USD","USD"]],data.appraisal?.currency||item.currency)}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="discover">${L("Cancel","Cancelar")}</button></div></form><aside class="panel"><h2>${L("Published information","Información publicada")}</h2><p>${esc(item.locality)}</p><p>${t("base")}: ${money(item)}</p><p>${nextAuctionDisplay(item)}</p><p class="muted">${L("Organization edits do not modify the notice or its extracted information.","Los cambios de la organización no modifican el aviso ni sus datos extraídos.")}</p><button data-screen="notice" data-id="${item.id}">${icon("FileText")} ${t("source")}</button></aside></div>`;
+}
+function bindPropertyResearch() {
+  const form=document.getElementById("property-research-form");
+  if(!form)return;
+  form.onsubmit=event=>{event.preventDefault();const result=savePropertyResearch(form.dataset.id,form.dataset.workspace,{notes:document.getElementById("property-notes").value,appraisalAmount:document.getElementById("property-appraisal").value,appraisalCurrency:document.getElementById("property-appraisal-currency").value});if(!result.ok){document.getElementById("property-research-error").textContent=result.error==="permissionDenied"?t(result.error):(state.lang==="es"?"Verifica las notas y el monto: usa un valor no negativo con hasta dos decimales.":"Check the notes and amount: use a non-negative value with up to two decimal places.");return;}navigate("discover");toast(state.lang==="es"?"Información de la organización guardada":"Organization information saved");};
+}
 function asset() {
   const a = current();
   const overview = `<div class="detail-columns"><div><div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[["reference", a.id], ["auctionType", t(a.type)], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality], ["quality", t(a.quality === "reviewed" ? "reviewed" : "needsReview")]].map(([k, v]) => `<div><dt>${t(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></div><div class="panel"><h2>${t("events")}</h2><div class="timeline"><div class="event"><strong>${esc(auctionRoundLabel(a))}</strong><p>${date(a)} · ${a.time}</p><p>${t("timezone")}</p><span class="badge neutral">${t("base")}: ${money(a)}</span></div></div><p class="muted">${t("sourceCaution")}</p></div><div class="panel"><h2>${t("organizationResearch")}</h2><div class="auction-tags">${tagBadges(a.id) || `<span class="muted">${t("noAssignedTags")}</span>`}</div><p class="muted" style="margin-top:16px">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p><button data-tags="${a.id}" ${canEdit() ? "" : "disabled"}>${t("assignTags")}</button></div></div><aside><div class="panel price-panel"><div class="eyebrow">${t("base")}</div><div class="price">${money(a)}</div><span class="badge neutral">${t("nextEvent")}</span><h3 style="margin-top:14px">${nextAuctionDisplay(a)} · ${a.time}</h3><p class="muted">${t("timezone")}</p><button class="primary full" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button><div class="source-line">${t("sourceDate")}<br>${t("checked")}<br>${t("revision")} ${state.revision}</div></div><div class="notice">${t("sourceCaution")}</div></aside></div>`;
@@ -2493,102 +2513,39 @@ function review() {
 }
 
 function tagManagement() {
-  const es = state.lang === "es";
-  const L = (en, spanish) => (es ? spanish : en);
-  const top = `<div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain the labels and colors your organization uses to organize auction items.", "Administra los nombres y colores que tu organización usa para clasificar bienes.")}</p></div>${state.screen === "tags" && canManageTags() ? `<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag", "Crear etiqueta")}</button>` : ""}</div>`;
-  if (!canManageTags())
-    return (
-      top + `<div class="notice" role="alert">${t("permissionDenied")}</div>`
-    );
-  const selected = orgTags().find(
-    (tag) => tag.id === state.selected && !tag.deleted,
-  );
-  const back = `<button class="ghost" data-screen="tags">← ${L("All tags", "Todas las etiquetas")}</button>`;
-  const usage = (id) =>
-    Object.entries(state.tags).filter(
-      ([key, ids]) =>
-        key.startsWith(state.workspace + "DEMO-") && ids.includes(id),
-    ).length;
-  if (state.screen === "tags") {
-    const tags = orgTags().filter((tag) => !tag.deleted);
-    return (
-      top +
-      `<div class="notice">${L("Changes apply to this organization only. ADMIN and MANAGER can maintain tags.", "Los cambios se aplican solo a esta organización. ADMIN y MANAGER pueden administrar etiquetas.")}</div><div class="table-scroll"><table class="items-table tag-admin-table"><thead><tr><th>${t("tagLabel")}</th><th>${L("Status", "Estado")}</th><th>${L("Assigned items", "Bienes asignados")}</th><th>${L("Manage", "Administrar")}</th></tr></thead><tbody>${tags.map((tag) => `<tr><td><span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}">${esc(tag.label)}</span></td><td>${t(tag.active ? "active" : "inactiveTag")}</td><td>${usage(tag.id)}</td><td><div class="actions"><button data-screen="tag-detail" data-id="${tag.id}">${icon("Eye")} ${L("View", "Ver")}</button><button data-screen="tag-edit" data-id="${tag.id}">${icon("Pencil")} ${L("Edit", "Editar")}</button><button class="danger" data-delete-definition="${tag.id}">${icon("Trash2")} ${L("Delete", "Eliminar")}</button></div></td></tr>`).join("") || `<tr><td colspan="4">${L("No tags yet. Create your first tag.", "Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags are archived; existing assignments and saved filter references are preserved.", "Las etiquetas eliminadas se archivan; se conservan las asignaciones y referencias de filtros guardados.")}</p>`
-    );
-  }
-  if (state.screen !== "tag-new" && !selected)
-    return (
-      top +
-      back +
-      `<div class="notice" role="alert">${L("Tag not found in this organization.", "Etiqueta no encontrada en esta organización.")}</div>`
-    );
-  if (state.screen === "tag-detail")
-    return (
-      top +
-      back +
-      `<section class="panel tag-editor"><h2>${L("Tag details", "Detalle de etiqueta")}</h2><span class="badge tag-badge tag-${selected.color || "gray"}">${esc(selected.label)}</span><dl class="fact-grid" style="margin-top:24px"><div><dt>${L("Status", "Estado")}</dt><dd>${t(selected.active ? "active" : "inactiveTag")}</dd></div><div><dt>${L("Assigned items", "Bienes asignados")}</dt><dd>${usage(selected.id)}</dd></div><div><dt>${L("Identifier", "Identificador")}</dt><dd>${esc(selected.id)}</dd></div></dl><div class="actions"><button class="primary" data-screen="tag-edit" data-id="${selected.id}">${L("Edit tag", "Editar etiqueta")}</button><button class="danger" data-delete-definition="${selected.id}">${L("Delete tag", "Eliminar etiqueta")}</button></div></section>`
-    );
-  return (
-    top +
-    back +
-    `<form id="tag-editor-form" class="panel tag-editor"><h2>${state.screen === "tag-new" ? L("Create tag", "Crear etiqueta") : L("Edit tag", "Editar etiqueta")}</h2><div class="field"><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(selected?.label || "")}"><p class="muted">${L("A unique name, up to 40 characters.", "Un nombre único, de hasta 40 caracteres.")}</p></div><div class="field"><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(selected?.color || "gray")}</select></div><label class="check"><input id="definition-active" type="checkbox" name="active" ${!selected || selected.active ? "checked" : ""}>${t("active")}</label><p class="muted">${t("tagArchivedHelp")}</p><p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary" type="submit">${t("save")}</button><button type="button" data-screen="tags">${L("Cancel", "Cancelar")}</button></div></form>`
-  );
+  const es=state.lang==="es", L=(en,spanish)=>es?spanish:en;
+  const top=`<div class="heading"><div><div class="eyebrow">${esc(organizationName())}</div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain your organization's tags and colors.","Administra las etiquetas y colores de tu organización.")}</p></div>${canManageTags()&&state.screen!=="tag-new"?`<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag","Crear etiqueta")}</button>`:""}</div>`;
+  if(!canManageTags()) return top+`<div class="notice" role="alert">${t("permissionDenied")}</div>`;
+  const fields=tag=>`<div><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(tag?.label||"")}"></div><div><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(tag?.color||"gray")}</select></div>`;
+  if(state.screen==="tag-new") return top+`<form id="tag-editor-form" class="panel tag-editor"><h2>${L("Create tag","Crear etiqueta")}</h2>${fields(null)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="tags">${L("Cancel","Cancelar")}</button></div></form>`;
+  const editing=orgTags().find(tag=>tag.id===state.editingTag&&!tag.deleted);
+  const usage=id=>Object.entries(state.tags).filter(([key,ids])=>key.startsWith(state.workspace+"DEMO-")&&ids.includes(id)).length;
+  state.tagSort ||= [{field:"label",direction:1}];
+  const records=orgTags().filter(tag=>!tag.deleted).sort((a,b)=>{for(const rule of state.tagSort){const diff=rule.field==="label"?a.label.localeCompare(b.label):usage(a.id)-usage(b.id);if(diff)return diff*rule.direction;}return a.id.localeCompare(b.id);});
+  const rows=records;
+  return top+`<p class="muted">${L("Shift-click a heading to add a sort priority.","Mayús + clic en un encabezado para agregar prioridad de orden.")}</p><div class="table-scroll" role="region" tabindex="0" aria-label="${t("tagCatalog")}"><table class="items-table single-line-table tag-admin-table"><thead><tr><th class="col-tag-label"><button data-tag-sort="label">${t("tagLabel")} ${state.tagSort.some(r=>r.field==="label")?icon(state.tagSort.find(r=>r.field==="label").direction===1?"ArrowUp":"ArrowDown"):""}</button></th><th class="col-tag-usage"><button data-tag-sort="usage">${L("Assigned items","Bienes asignados")} ${state.tagSort.some(r=>r.field==="usage")?icon(state.tagSort.find(r=>r.field==="usage").direction===1?"ArrowUp":"ArrowDown"):""}</button></th><th class="col-actions" aria-label="${L("Item controls","Controles")}"></th></tr></thead><tbody>${rows.map(tag=>`<tr class="auction-row"><td class="col-tag-label">${editing?.id===tag.id?`<form id="tag-editor-form" class="tag-inline-editor">${fields(tag)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-cancel-tag-edit>${L("Cancel","Cancelar")}</button></div></form>`:`<span class="badge tag-badge tag-${tag.color||"gray"}">${esc(tag.label)}</span>`}</td><td class="col-tag-usage">${usage(tag.id)}</td><td class="col-actions"><div class="row-actions"><button class="icon-action" title="${L("Edit","Editar")}" aria-label="${L("Edit","Editar")}: ${esc(tag.label)}" data-edit-definition="${tag.id}">${icon("Pencil")}</button><button class="icon-action danger" title="${L("Delete","Eliminar")}" aria-label="${L("Delete","Eliminar")}: ${esc(tag.label)}" data-delete-definition="${tag.id}">${icon("Trash2")}</button></div></td></tr>`).join("")||`<tr><td colspan="3">${L("No tags yet. Create your first tag.","Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags retain existing assignments and filter references for history.","Las etiquetas eliminadas conservan sus asignaciones y referencias de filtros para el historial.")}</p>`;
 }
 function bindTagManagement() {
-  const form = document.getElementById("tag-editor-form");
-  if (form)
-    form.onsubmit = (event) => {
-      event.preventDefault();
-      const label = document.getElementById("definition-label").value;
-      const color = document.getElementById("definition-color").value;
-      const active = document.getElementById("definition-active").checked;
-      let result;
-      if (state.screen === "tag-new") {
-        result = createOrganizationTag(label, color);
-        if (result.ok)
-          result = updateOrganizationTag(result.item.id, { active });
-      } else
-        result = updateOrganizationTag(state.selected, {
-          label,
-          color,
-          active,
-        });
-      if (!result.ok) {
-        document.getElementById("definition-error").textContent = t(
-          result.error,
-        );
-        return;
-      }
-      navigate("tags");
-      toast(t("tagUpdated"));
-    };
-  app.querySelectorAll("[data-delete-definition]").forEach(
-    (button) =>
-      (button.onclick = () => {
-        const workspace = state.workspace;
-        const tag = orgTags().find(
-          (tag) => tag.id === button.dataset.deleteDefinition && !tag.deleted,
-        );
-        if (!tag || !canManageTags()) return;
-        const es = state.lang === "es";
-        showDialog(
-          es ? "Eliminar etiqueta" : "Delete tag",
-          `<p>${es ? "¿Eliminar" : "Delete"} <strong>${esc(tag.label)}</strong>?</p><p class="muted">${es ? "Se quitará de la lista disponible. Las asignaciones y filtros existentes se conservan para mantener el historial." : "It will be removed from the available list. Existing assignments and saved filters retain their references for history."}</p><div class="actions"><button type="button" class="danger" id="confirm-tag-delete">${es ? "Eliminar etiqueta" : "Delete tag"}</button><button type="button" id="cancel-tag-delete">${es ? "Cancelar" : "Cancel"}</button></div>`,
-        );
-        document.getElementById("cancel-tag-delete").onclick = () =>
-          document.getElementById("notice").close();
-        document.getElementById("confirm-tag-delete").onclick = () => {
-          if (state.workspace !== workspace) return;
-          const result = deleteOrganizationTag(tag.id);
-          if (!result.ok) {
-            toast(t(result.error));
-            return;
-          }
-          document.getElementById("notice").close();
-          navigate("tags");
-        };
-      }),
-  );
+  app.querySelectorAll("[data-tag-sort]").forEach(button=>button.onclick=e=>{const field=button.dataset.tagSort,old=state.tagSort.find(rule=>rule.field===field),rule={field,direction:old?-old.direction:1};state.tagSort=e.shiftKey?[...state.tagSort.filter(r=>r.field!==field),rule]:[rule];state.editingTag=null;render();});
+  app.querySelectorAll("[data-edit-definition]").forEach(button=>button.onclick=()=>{state.editingTag=button.dataset.editDefinition;render();document.getElementById("definition-label")?.focus();});
+  const cancel=app.querySelector?.("[data-cancel-tag-edit]");
+  if(cancel) cancel.onclick=()=>{state.editingTag=null;render();};
+  const form=document.getElementById("tag-editor-form");
+  if(form) form.onsubmit=event=>{
+    event.preventDefault();
+    const label=document.getElementById("definition-label").value,color=document.getElementById("definition-color").value;
+    const result=state.screen==="tag-new"?createOrganizationTag(label,color):updateOrganizationTag(state.editingTag,{label,color});
+    if(!result.ok){document.getElementById("definition-error").textContent=t(result.error);return;}
+    state.editingTag=null;navigate("tags");toast(t("tagUpdated"));
+  };
+  app.querySelectorAll("[data-delete-definition]").forEach(button=>button.onclick=()=>{
+    const workspace=state.workspace, tag=orgTags().find(tag=>tag.id===button.dataset.deleteDefinition&&!tag.deleted);
+    if(!tag||!canManageTags())return;
+    const es=state.lang==="es";
+    showDialog(es?"Eliminar etiqueta":"Delete tag",`<p>${es?"¿Eliminar":"Delete"} <strong>${esc(tag.label)}</strong>?</p><p class="muted">${es?"Se conservan las asignaciones y referencias existentes para el historial.":"Existing assignments and references are preserved for history."}</p><div class="actions"><button type="button" class="danger" id="confirm-tag-delete">${icon("Trash2")} ${es?"Eliminar etiqueta":"Delete tag"}</button><button type="button" id="cancel-tag-delete">${es?"Cancelar":"Cancel"}</button></div>`);
+    document.getElementById("cancel-tag-delete").onclick=()=>document.getElementById("notice").close();
+    document.getElementById("confirm-tag-delete").onclick=()=>{if(state.workspace!==workspace)return;const result=deleteOrganizationTag(tag.id);if(!result.ok){toast(t(result.error));return;}document.getElementById("notice").close();state.editingTag=null;navigate("tags");};
+  });
 }
 function settings() {
   const top = heading("settingsTitle", "settingsSub");
@@ -2599,15 +2556,7 @@ function settings() {
     );
   return (
     top +
-    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><div class="section-title" style="margin-top:0"><h2>${t("tagCatalog")}</h2><span class="badge">ADMIN · MANAGER</span></div><p class="muted">${t("tagHelp")}</p><p><button data-screen="tags">${state.lang === "es" ? "Administrar etiquetas →" : "Manage tags →"}</button></p><form id="tag-create-form" class="two"><div><label for="tag-name">${t("tagLabel")}</label><input id="tag-name" name="label" maxlength="40" required></div><div><label for="tag-color">Color</label><select id="tag-color" name="color">${tagColorOptions()}</select></div><div style="align-self:end"><button class="primary">${icon("Plus")} ${t("addTag")}</button></div></form><p id="tag-create-error" role="alert" class="danger"></p>${orgTags()
-      .filter((tag) => !tag.deleted)
-      .map(
-        (tag) =>
-          `<div class="list-row"><div><h3>${esc(tag.label)}</h3><span class="badge ${tag.active ? "" : "neutral"}">${t(tag.active ? "active" : "inactiveTag")}</span></div><div class="actions"><label for="tag-color-${tag.id}">Color</label><select id="tag-color-${tag.id}" data-tag-color="${tag.id}" aria-label="Color: ${esc(tag.label)}">${tagColorOptions(tag.color || "gray")}</select><button data-rename-tag="${tag.id}">${t("renameTag")}</button><button data-toggle-tag="${tag.id}">${t(tag.active ? "deactivateTag" : "reactivateTag")}</button></div></div>`,
-      )
-      .join(
-        "",
-      )}<p class="muted" style="margin-top:18px">${t("tagArchivedHelp")}</p></div>`
+    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><h2>${t("tagCatalog")}</h2><p class="muted">${t("tagHelp")}</p><button data-screen="tags">${icon("Tags")} ${state.lang==="es"?"Administrar etiquetas":"Manage tags"}</button></div>`
   );
 }
 
@@ -2700,6 +2649,7 @@ function render() {
       discover: discovery,
       filters: filterEditor,
       asset,
+      "property-edit": propertyEditor,
       notice,
       alerts,
       team,
@@ -2708,8 +2658,6 @@ function render() {
       settings,
       tags: tagManagement,
       "tag-new": tagManagement,
-      "tag-detail": tagManagement,
-      "tag-edit": tagManagement,
       system,
       auth,
     }[state.screen] || discovery
@@ -2769,6 +2717,7 @@ function render() {
   bind();
 }
 function bind() {
+  bindPropertyResearch();
   bindTagManagement();
   document.getElementById("color-scheme").onchange = (e) => {
     if (setColorScheme(e.target.value)) render();
@@ -2996,11 +2945,11 @@ function bind() {
           key = state.workspace + assetId,
           selected = state.tags[key] || [];
         const choices = orgTags().filter(
-          (x) => x.active || selected.includes(x.id),
+          (x) => !x.deleted || selected.includes(x.id),
         );
         showDialog(
           t("assignTags"),
-          `<p>${t("tagSelectionHelp")}</p><div class="tag-options">${choices.length ? choices.map((tag) => `<label class="check"><input class="tag-choice" type="checkbox" value="${tag.id}" ${selected.includes(tag.id) ? "checked" : ""}>${esc(tag.label)}${tag.active ? "" : " (" + t("inactiveTag") + ")"}</label>`).join("") : `<p>${t("noTags")}</p>`}</div><label for="note-edit">${t("notes")}</label><textarea id="note-edit" maxlength="10000">${esc(state.notes[key] || "")}</textarea><p id="assignment-error" role="alert" class="danger"></p><button type="button" id="tags-apply" class="primary">${t("applyTags")}</button>`,
+          `<p>${t("tagSelectionHelp")}</p><div class="tag-options">${choices.length ? choices.map((tag) => `<label class="check"><input class="tag-choice" type="checkbox" value="${tag.id}" ${selected.includes(tag.id) ? "checked" : ""}>${esc(tag.label)}</label>`).join("") : `<p>${t("noTags")}</p>`}</div><label for="note-edit">${t("notes")}</label><textarea id="note-edit" maxlength="10000">${esc(state.notes[key] || "")}</textarea><p id="assignment-error" role="alert" class="danger"></p><button type="button" id="tags-apply" class="primary">${t("applyTags")}</button>`,
         );
         document.getElementById("tags-apply").onclick = () => {
           const ids = Array.from(
@@ -3038,72 +2987,6 @@ function bind() {
       render();
       toast(t("settingsSaved"));
     };
-  app.querySelectorAll("[data-tag-color]").forEach(
-    (el) =>
-      (el.onchange = (e) => {
-        const result = updateOrganizationTag(el.dataset.tagColor, {
-          color: e.target.value,
-        });
-        if (result.ok) {
-          render();
-          toast(t("tagUpdated"));
-        } else toast(t(result.error));
-      }),
-  );
-  const tagCreate = document.getElementById("tag-create-form");
-  if (tagCreate)
-    tagCreate.onsubmit = (e) => {
-      e.preventDefault();
-      const result = createOrganizationTag(
-        new FormData(tagCreate).get("label"),
-        new FormData(tagCreate).get("color"),
-      );
-      if (!result.ok) {
-        document.getElementById("tag-create-error").textContent = t(
-          result.error,
-        );
-        return;
-      }
-      render();
-      toast(t("tagUpdated"));
-    };
-  app.querySelectorAll("[data-toggle-tag]").forEach(
-    (el) =>
-      (el.onclick = () => {
-        const tag = orgTags().find((x) => x.id === el.dataset.toggleTag);
-        const result = updateOrganizationTag(tag.id, { active: !tag.active });
-        if (result.ok) {
-          render();
-          toast(t("tagUpdated"));
-        } else toast(t(result.error));
-      }),
-  );
-  app.querySelectorAll("[data-rename-tag]").forEach(
-    (el) =>
-      (el.onclick = () => {
-        const tag = orgTags().find((x) => x.id === el.dataset.renameTag);
-        if (!tag || !canManageTags()) return;
-        showDialog(
-          t("renameTag"),
-          `<label for="rename-label">${t("tagLabel")}</label><input id="rename-label" maxlength="40" value="${esc(tag.label)}"><p id="rename-error" role="alert" class="danger"></p><button type="button" id="rename-save" class="primary">${t("save")}</button>`,
-        );
-        document.getElementById("rename-save").onclick = () => {
-          const result = updateOrganizationTag(tag.id, {
-            label: document.getElementById("rename-label").value,
-          });
-          if (!result.ok) {
-            document.getElementById("rename-error").textContent = t(
-              result.error,
-            );
-            return;
-          }
-          document.getElementById("notice").close();
-          render();
-          toast(t("tagUpdated"));
-        };
-      }),
-  );
-
   const systemForm = document.getElementById("system-settings-form");
   if (systemForm)
     systemForm.onsubmit = (e) => {
@@ -3194,6 +3077,7 @@ if (
     "discover",
     "filters",
     "asset",
+    "property-edit",
     "notice",
     "alerts",
     "team",
@@ -3202,8 +3086,6 @@ if (
     "settings",
     "tags",
     "tag-new",
-    "tag-detail",
-    "tag-edit",
     "system",
     "auth",
   ].includes(boot.get("screen"))

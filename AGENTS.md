@@ -113,3 +113,11 @@ Current UI direction supersedes earlier exploration focus: concentrate on Studio
 Organization tag maintenance has list/detail/create/edit screens and confirmed soft-delete/archive. ADMIN/MANAGER only; USER may assign existing active tags. Preserve assigned-item and saved-filter history on deletion. Sidebar and Settings link to maintenance. Offline demonstration is not backend persistence.
 
 Use lucide-react icons for all interface icons. Offline prototype embeds SVGs generated from the pinned official package; preserve the custom gavel logo as brand artwork. Keep accessible labels on icon buttons.
+
+Tags have NO active field or active/inactive status. Edit/delete only from tag list; no View/detail/edit screens. Keep create form, inline list editing and confirmed soft deletion. ALL data grids follow the properties grid's styling and rules (single-line rows, truncation, sortable columns/multi-sort, pagination/selectable size, per-user columns, frameless icons, untitled action column).
+
+Tags grid exception: NO filtering or pagination controls. Display all non-deleted organization tags together; retain common grid styling, sorting, column controls and list-only Edit/Delete. Auction item grids still paginate.
+
+Tags grid also has NO column selector or column preferences. Always show name, assigned-item count, and untitled Edit/Delete controls. Keep sorting and shared grid styling; no filters/pagination.
+
+Properties have organization-owned user-editable research fields: notes and appraisal amount/currency, extensible to other fields not yet specified. The Properties row uses a Pencil/edit action instead of Eye/view. Keep source notice data immutable and organization scope separate; other categories retain open action.

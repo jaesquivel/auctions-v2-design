@@ -52,9 +52,9 @@ for name,item in [('SearchPage','SavedSearch'),('ExtractionPage','Extraction')]:
 S['OrganizationSettings']=obj({'workspaceId':uid,'displayName':{'type':'string','minLength':1,'maxLength':100},'version':{'type':'integer','minimum':1}},['workspaceId','displayName','version'])
 S['SettingsInput']=obj({'displayName':{'type':'string','minLength':1,'maxLength':100},'version':{'type':'integer','minimum':1}},['displayName','version'])
 S['TagColor']={'type':'string','enum':['gray','blue','green','amber','red','purple']}
-S['OrganizationTag']=obj({'id':uid,'workspaceId':uid,'label':{'type':'string','minLength':1,'maxLength':40},'color':ref('TagColor'),'active':{'type':'boolean'},'version':{'type':'integer','minimum':1}},['id','workspaceId','label','color','active','version'])
+S['OrganizationTag']=obj({'id':uid,'workspaceId':uid,'label':{'type':'string','minLength':1,'maxLength':40},'color':ref('TagColor'),'version':{'type':'integer','minimum':1}},['id','workspaceId','label','color','version'])
 S['TagInput']=obj({'label':{'type':'string','minLength':1,'maxLength':40},'color':ref('TagColor')},['label'])
-S['TagPatch']=obj({'version':{'type':'integer','minimum':1},'label':{'type':'string','minLength':1,'maxLength':40},'color':ref('TagColor'),'active':{'type':'boolean'}},['version'])
+S['TagPatch']=obj({'version':{'type':'integer','minimum':1},'label':{'type':'string','minLength':1,'maxLength':40},'color':ref('TagColor')},['version'])
 S['TagList']=obj({'items':arr(ref('OrganizationTag'))},['items'])
 S['SystemRole']={'type':'string','enum':['SYSADMIN']}
 S['AccessContext']=obj({'workspaceId':uid,'organizationRole':{'type':'string','enum':['ADMIN','MANAGER','USER']},'systemRole':{'oneOf':[ref('SystemRole'),{'type':'null'}]},'capabilities':arr(string)},['workspaceId','organizationRole','systemRole','capabilities'])
@@ -62,8 +62,8 @@ S['SystemSettings']=obj({'country':{'type':'string','readOnly':True},'ingestionE
 S['SystemSettingsInput']=obj({'ingestionEnabled':{'type':'boolean'},'sourceCheckIntervalMinutes':{'type':'integer','minimum':15,'maximum':1440},'version':{'type':'integer','minimum':1}},['ingestionEnabled','sourceCheckIntervalMinutes','version'])
 S['TagAssignment']=obj({'workspaceId':uid,'assetId':uid,'tagId':uid,'assignedBy':{'type':['string','null'],'readOnly':True},'assignedAt':{'type':'string','format':'date-time','readOnly':True}},['workspaceId','assetId','tagId','assignedBy','assignedAt'])
 S['TagAssignmentList']=obj({'items':arr(ref('TagAssignment'))},['items'])
-S['AnnotationInput']=obj({'note':{'type':'string','maxLength':10000},'version':{'type':'integer','minimum':0}},['note','version'])
-S['Annotation']=obj({'workspaceId':uid,'assetId':uid,'note':{'type':'string','maxLength':10000},'version':{'type':'integer','minimum':0}},['workspaceId','assetId','note','version'])
+S['AnnotationInput']=obj({'appraisal':{'oneOf':[ref('Money'),{'type':'null'}]},'note':{'type':'string','maxLength':10000},'version':{'type':'integer','minimum':0}},['note','version'])
+S['Annotation']=obj({'appraisal':{'oneOf':[ref('Money'),{'type':'null'}]},'workspaceId':uid,'assetId':uid,'note':{'type':'string','maxLength':10000},'version':{'type':'integer','minimum':0}},['workspaceId','assetId','note','version'])
 S['OrganizationAsset']=obj({**S['Asset']['properties'],'organizationTagIds':arr(uid)},S['Asset']['required']+['organizationTagIds'])
 item_page_meta={'page':{'type':'integer','minimum':1},'pageSize':{'type':'integer','enum':[5,10,25,50,100]},'totalItems':{'type':'integer','minimum':0},'totalPages':{'type':'integer','minimum':0},'hasPrevious':{'type':'boolean'},'hasNext':{'type':'boolean'},'snapshotAt':{'type':'string','format':'date-time'}}
 for name,item in [('AssetPage','Asset'),('OrganizationAssetPage','OrganizationAsset')]:
@@ -125,7 +125,7 @@ op(w+'/assets/{assetId}/annotation','get','Read optional independent annotation'
 op(w+'/assets/{assetId}/annotation','put','Write optional annotation with version','Annotation','AnnotationInput')
 op(w+'/tags','get','List organization tag definitions','TagList')
 op(w+'/tags','post','Create tag; ADMIN/MANAGER only','OrganizationTag','TagInput',201,idem=True)
-op(w+'/tags/{tagId}','patch','Rename or deactivate tag; ADMIN/MANAGER only','OrganizationTag','TagPatch')
+op(w+'/tags/{tagId}','patch','Edit tag label/color; ADMIN/MANAGER only','OrganizationTag','TagPatch')
 op(w+'/entitlements','get','Get effective features and billing status','Entitlements')
 op(w+'/billing/portal','post','Create restricted provider portal session','ProviderSession',idem=True)
 op(w+'/billing/checkout','post','Create checkout for an allowlisted plan','ProviderSession','CheckoutInput',idem=True)

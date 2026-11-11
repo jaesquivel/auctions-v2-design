@@ -164,3 +164,7 @@
 .nav .symbol .lucide{width:16px;height:16px;vertical-align:middle}
 
 .ui-icon{display:inline-block;width:18px;height:18px;vertical-align:middle;flex:none;stroke:currentColor}.nav .symbol{display:inline-flex;align-items:center;justify-content:center}.nav .symbol .ui-icon{width:20px;height:20px}.tag-admin-table button .ui-icon{margin-right:4px}
+
+.tag-admin-table{table-layout:fixed;min-width:760px;width:100%}.tag-admin-table .col-tag-label{width:55%}.tag-admin-table .col-tag-usage{width:25%;font-variant-numeric:tabular-nums}.tag-admin-table .col-actions{width:120px}.tag-inline-editor{display:flex;align-items:center;gap:8px;min-width:500px;margin:0}.tag-inline-editor>div{flex:none}.tag-inline-editor input{width:190px}.tag-inline-editor select{width:105px}.tag-inline-editor label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.tag-inline-editor .actions{flex-wrap:nowrap}.tag-inline-editor p:empty{display:none}.tag-editor input,.tag-editor select{margin-bottom:16px}
+
+.tag-admin-table [hidden]{display:none!important}.tag-admin-table .tag-badge{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tag-inline-editor{flex-wrap:nowrap}.tag-inline-editor .actions{display:flex;gap:6px}

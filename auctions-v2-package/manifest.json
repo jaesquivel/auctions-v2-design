@@ -71,8 +71,8 @@
     },
     {
       "path": "contracts/openapi.json",
-      "bytes": 200937,
-      "sha256": "0d2d2de5bfca51a47dfb0bf3dd4cc5192954b475e3bbf7916822d155656cce45"
+      "bytes": 201231,
+      "sha256": "63b6bcf57f42e139a33b20299c0e1847a908455b73fe697a0319aceb2130957e"
     },
     {
       "path": "data/demo-listings.json",
@@ -91,8 +91,8 @@
     },
     {
       "path": "data/schema.sql",
-      "bytes": 19419,
-      "sha256": "687725f9dd3e6d7a91e8ce3a0e7e9febb2b042f37e995ff63924dba99e7b4da9"
+      "bytes": 19563,
+      "sha256": "2d5f2a2e44a8da5626aa5e392c99728e183fde445d92b66196316ed7b8824d6e"
     },
     {
       "path": "deployment/instance.example.env",
@@ -141,13 +141,13 @@
     },
     {
       "path": "docs/01-product-requirements.html",
-      "bytes": 22387,
-      "sha256": "a49c79f70bc841c6efaf8497876b25b53fc7c4947d16f63978e32fb2e59cfdb4"
+      "bytes": 23946,
+      "sha256": "3742cdec81e114d65b9388fb51989d277413942de2577a84f5a2baa86abe5231"
     },
     {
       "path": "docs/01-product-requirements.md",
-      "bytes": 20758,
-      "sha256": "f2460b3fda802b85e008196e7df77d744472fe5f36032314326850df351c6a29"
+      "bytes": 22272,
+      "sha256": "f7f2b0a1218ef48f8518c71edf9730d6d04e5f413c9a6ab7b5fcf3a7bb036511"
     },
     {
       "path": "docs/02-journeys-and-information-architecture.html",
@@ -161,43 +161,43 @@
     },
     {
       "path": "docs/03-design-system.html",
-      "bytes": 29365,
-      "sha256": "25d0c9f4f2b0b36335efca9393551af3402e2519ca32e300460b71e2314813cf"
+      "bytes": 31319,
+      "sha256": "7d5df613ecbb37010de50fea58679ad7550ae74d95de72f5ea92177c9b1c2f0b"
     },
     {
       "path": "docs/03-design-system.md",
-      "bytes": 27007,
-      "sha256": "2420f2a307082cdacf02fdc08d54647343d3c6cc8a56b83ed334de947bab4062"
+      "bytes": 28908,
+      "sha256": "50f18135d8ace700c8531f5b1149cc1169bfac8dc5ed5216fadff20e86c95c67"
     },
     {
       "path": "docs/04-mockup-guide.html",
-      "bytes": 20664,
-      "sha256": "0b94bcead609602d9be524120ebf1a515ae07ed9dd8ff2204382ad7626f2a76f"
+      "bytes": 23250,
+      "sha256": "31a0fc218139583a8e824cade20e2d540753725387a53815a837c10dba515fef"
     },
     {
       "path": "docs/04-mockup-guide.md",
-      "bytes": 19287,
-      "sha256": "da26f9e3213139e22146cf36606d66f62d3b054e44a48c352942a62af785ec22"
+      "bytes": 21826,
+      "sha256": "548bc80bb733a1b138e9b12ca34adcfad5f9facf1749f25b1cfb14545583efe2"
     },
     {
       "path": "docs/05-api-contract.html",
-      "bytes": 32769,
-      "sha256": "6b9eed3aa8ba2fe725b3bc62fea6a48443e850fa25cada37bab95f0350e9d1a1"
+      "bytes": 34298,
+      "sha256": "bc8a19d581479a935e6f5d33c5e3ba23ee7c8c65504e1d90969b8bf5df7502bc"
     },
     {
       "path": "docs/05-api-contract.md",
-      "bytes": 30597,
-      "sha256": "aced9d0a20bfd125dd7a3d994a881539cdfb4b4be08216a3f8fc8c68e64ea86b"
+      "bytes": 32092,
+      "sha256": "d5fe8c16bcd7e934185592586b5659d1a37860e247e5b6fa156f0a9a00a3bdb2"
     },
     {
       "path": "docs/06-data-model.html",
-      "bytes": 25649,
-      "sha256": "90a699d1ad803e3d45a7bc35e246672fe9370e20e7c32f4fac9e196f06c2f5fe"
+      "bytes": 29162,
+      "sha256": "9aa7ac541a75664d227f20ed5d04a01c159c055f8324762db002855a1ec9bc5d"
     },
     {
       "path": "docs/06-data-model.md",
-      "bytes": 23730,
-      "sha256": "3dba0ed8afeddb6ae6851675d792d36f85989ce0e8f21db4ad95ec19e6ea96d2"
+      "bytes": 27145,
+      "sha256": "e8eae51fbc8ade9947065e041abaa1e88c709c69f7505bc7952950232cfc1f57"
     },
     {
       "path": "docs/07-ingestion-and-normalization.html",
@@ -271,8 +271,8 @@
     },
     {
       "path": "mockups/app.js",
-      "bytes": 152366,
-      "sha256": "1160a00652b2a0105ed50d8eef711e61cae4224f22b6e5f029dec9f0e1c8e8c5"
+      "bytes": 151961,
+      "sha256": "968832b3990f11902ed45cdfba39a779bd317d9b0da6c793212431c01d87d8ee"
     },
     {
       "path": "mockups/design-tokens.json",
@@ -286,8 +286,8 @@
     },
     {
       "path": "mockups/styles.css",
-      "bytes": 50211,
-      "sha256": "8bcee0984703499e46c91079640cff33d9dbc908cf55ac51b77605f0b5ef602b"
+      "bytes": 51107,
+      "sha256": "72c386ca31491a0562a03756cffe20b0110090ed840743d72c27910e5ba6e764"
     },
     {
       "path": "mockups/themes.html",
@@ -677,7 +677,12 @@
     {
       "path": "qa/package-checks.json",
       "bytes": 696,
-      "sha256": "a2cc3fcf9e67e19d3185e1a5da74f2bbc8b6de35a6424da0bbe53ea22b4485fd"
+      "sha256": "81bc1c07695da2e969f027273c962e18e02f84494d823ed5f8d61af48c766447"
+    },
+    {
+      "path": "qa/property-organization-edit.jpg",
+      "bytes": 63984,
+      "sha256": "e5e183cf8b4e5db269fc5df2b84f782f9b65abf772630911a6b1961e0f7641b9"
     },
     {
       "path": "qa/replacement-logo-checks.json",
@@ -771,8 +776,8 @@
     },
     {
       "path": "qa/tags-list.jpg",
-      "bytes": 60858,
-      "sha256": "c53f580432ff4aba31e12893e996bab55ad75fd0bddcd2b627b79eb3c318d805"
+      "bytes": 63253,
+      "sha256": "7585ee28bc70db87a4644934293d91c033a8f6314179e24a60e22fc185e25c75"
     },
     {
       "path": "qa/terracotta-dark.jpg",
@@ -801,13 +806,13 @@
     },
     {
       "path": "qa/validation-report.html",
-      "bytes": 33167,
-      "sha256": "4b1722a96a2ffabf8387ba78855e05f8a98949e3cdece254d05f5d394e9c3285"
+      "bytes": 35028,
+      "sha256": "229368fd46a75a9efca78baf32c7380368e4aa9f9a7f643a2d7234ac6096c8fd"
     },
     {
       "path": "qa/validation-report.md",
-      "bytes": 31567,
-      "sha256": "f3bd0c24f868391d3f8f2bdd345cc66e251a7d40831046dc684e6483074df2da"
+      "bytes": 33384,
+      "sha256": "dbc6fefe23ca52ee7fe25863012f55f9c23796c3682fb5e1bb44ecf3c320a931"
     },
     {
       "path": "qa/warm-blue-checks.json",
@@ -826,8 +831,8 @@
     },
     {
       "path": "tools/build_contract.py",
-      "bytes": 23763,
-      "sha256": "10398f7b4743625a14e85fdd359af595a70fcc72b8ed9067b92ea5fb603a0c40"
+      "bytes": 23800,
+      "sha256": "dbe120fdc11d01466e4b1d6f519a5d008fb124c8444efc53b36ea4eee4aa7b4c"
     },
     {
       "path": "tools/build_package.py",
@@ -836,8 +841,8 @@
     },
     {
       "path": "tools/check-prototype.cjs",
-      "bytes": 38156,
-      "sha256": "86fd42fbd639371bed6edd72cf1fecfb1511d1c65656e2c6e39ce7ce04cd63ba"
+      "bytes": 40471,
+      "sha256": "0e4acc59273e06073490404cdddb375071035a28d57242456880ce57f6537721"
     },
     {
       "path": "tools/check_package.py",

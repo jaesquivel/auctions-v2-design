@@ -150,13 +150,15 @@ CREATE TABLE asset_annotation (
  workspace_id uuid NOT NULL REFERENCES workspace, asset_id uuid NOT NULL REFERENCES asset,
  creator_user_id text REFERENCES app_user, note text NOT NULL DEFAULT '',
  version integer NOT NULL DEFAULT 1 CHECK(version > 0), created_at timestamptz NOT NULL DEFAULT now(),
- updated_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(workspace_id,asset_id)
+ updated_at timestamptz NOT NULL DEFAULT now(), appraisal_amount numeric(16,2) CHECK(appraisal_amount >= 0), appraisal_currency char(3),
+ CHECK((appraisal_amount IS NULL)=(appraisal_currency IS NULL)),
+ PRIMARY KEY(workspace_id,asset_id)
 );
 CREATE TABLE organization_tag (
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), workspace_id uuid NOT NULL REFERENCES workspace,
  label varchar(40) NOT NULL CHECK(length(btrim(label)) > 0), normalized_label varchar(40) NOT NULL,
  color text NOT NULL DEFAULT 'gray' CHECK(color IN ('gray','blue','green','amber','red','purple')),
- active boolean NOT NULL DEFAULT true, version integer NOT NULL DEFAULT 1 CHECK(version > 0),
+ deleted_at timestamptz, version integer NOT NULL DEFAULT 1 CHECK(version > 0),
  created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now(),
  UNIQUE(workspace_id,id), UNIQUE(workspace_id,normalized_label)
 );
@@ -168,8 +170,8 @@ CREATE TABLE asset_tag_assignment (
  FOREIGN KEY(asset_id) REFERENCES asset,
  FOREIGN KEY(workspace_id,tag_id) REFERENCES organization_tag(workspace_id,id)
 );
--- Service validates ADMIN/MANAGER permissions, normalized labels, active state and max 20 assignments.
--- Deactivate definitions instead of hard-deleting them; preserve stable IDs and history.
+-- Service validates ADMIN/MANAGER permissions, normalized labels, deletion state and max 20 assignments.
+-- Soft-delete definitions instead of hard-deleting them; preserve stable IDs and history.
 CREATE TABLE asset_image (
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), workspace_id uuid NOT NULL REFERENCES workspace,
  asset_id uuid NOT NULL REFERENCES asset, uploaded_by text REFERENCES app_user ON DELETE SET NULL,

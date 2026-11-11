@@ -188,3 +188,19 @@ Added bilingual list/detail/create/edit screens, sidebar and Settings links, and
 ## Lucide icon standardization
 
 Generated offline SVGs from pinned lucide-react, replaced custom list action paths and legacy glyph decorations, and retained the gavel as brand artwork. Browser Tags screen inspection found no non-Lucide button/navigation SVGs and no legacy glyphs in rendered text. Screenshot lucide-tags.jpg. 1,180 behavior checks and package validation passed. Generator dependencies and upstream license are included.
+
+## Tag simplification and shared grids
+
+Removed tag active fields/status, detail/edit routes, and View buttons. Edit/delete now originate only from the tag list; Settings links to it. Tag grid uses shared single-line table styling, frameless Lucide actions, header multi-sort, page-size selector, pagination and per-user column visibility. Browser verified inline rename/save and refreshed tags-list.jpg. Previous detail/create/edit screenshots are historical and superseded. Production server persistence/pagination remains specified rather than connected.
+
+## Tags grid without pagination
+
+Removed tag page-size, previous/next and page-range controls, including state slicing and event handlers. All non-deleted definitions render together. No filter controls are present. Shared styling, sorting and column selection remain. Previous paginated tags-list screenshot is historical; use the interactive prototype for the current layout.
+
+## Fixed tag columns
+
+Removed the Tags column selector, visibility storage helper and event handlers. All tag columns always render, ignoring earlier browser visibility preferences. Existing grid regression checks updated; historical screenshots showing the selector are superseded by the interactive prototype.
+
+## Organization property editing
+
+Added property editor for organization-owned notes and appraisal money, and Pencil action in property rows. Browser saved notes/appraisal, returned to listing and reopened using Edit property; both values retained within the demonstration session. 1,194 automated checks passed, including cross-organization isolation, stale workspace denial, invalid appraisal values and source immutability. Screenshot property-organization-edit.jpg. Persistence is prototype memory only; mobile review and backend implementation remain pending.

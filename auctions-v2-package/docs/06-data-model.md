@@ -147,3 +147,25 @@ Confirmed: the Columns menu also offers independent Time / Hora and Base offer /
 ### Tag archive extension for CRUD
 
 The new delete screen proposes soft archival of an organization tag definition. Prototype fields: `deleted=true`, `active=false`. Production proposal: nullable `deleted_at` with actor/audit entry, optimistic version check, organization ownership predicate, and preserved assignment/filter foreign references. Update the baseline schema before implementation; this design update does not execute a migration. Archived labels remain reserved to avoid ambiguous historical identity.
+
+## Current tag and grid rules
+
+Confirmed: tags always exist as usable definitions until deleted; no `active` field or active/inactive UI. Tag DTO/PATCH and proposed SQL now omit active; SQL uses deleted_at for history-preserving deletion. Creation accepts label/color. Edit and Delete are available only from the list; no View button or detail/edit routes. Inline edits preserve one physical row, with name/color inputs and Save/Cancel. Settings links to the list. Earlier active-status and separate-detail proposals are superseded.
+
+All data grids follow the properties-grid rules and theme styling: single-line records, ellipsis, horizontal scrolling, titled sortable data columns, multi-value sorting, frameless icon actions in an untitled rightmost column, pagination with selectable page size, and user-owned column visibility. Category-specific columns do not change the common rules. The tag grid includes these controls; browser storage simulates saved user column choices. Production grids require server sorting/pagination.
+
+### Tags grid exception
+
+Confirmed clarification: Tags has no filter or pagination controls and displays the complete organization's non-deleted tag list. It retains shared grid appearance, single-line rows, header sorting/multi-sort, per-user column visibility and frameless Edit/Delete icons. This exception supersedes earlier tag-grid pagination guidance; auction item grids retain server pagination and selectable page sizes.
+
+### Fixed tag columns
+
+Confirmed: Tags has fixed columns (Tag name, Assigned items, and untitled Edit/Delete controls), with no column selector or saved column-visibility preference. Existing browser preferences for tag columns are ignored. Tags also has no filters or pagination; sorting and common properties-grid styling remain. This supersedes prior tag column-selection guidance. Auction item grids retain their column selector.
+
+## Organization-owned property fields
+
+Confirmed: property records include user-editable notes and appraisal amount owned by the organization, with scope `(workspaceId, assetId)`. Members of the same organization share these values; another organization has its own values for the same property. Properties use a Lucide Pencil action instead of Eye to open the editor. Vehicles and Other retain their existing open action. Source notice/extracted data remain unchanged.
+
+The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel discards unsaved edits and returns to the listing, preserving item pagination. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
+
+Proposed permissions follow existing research-edit access: ADMIN, MANAGER and USER; membership must be validated server-side. Prototype state resets on reload. Annotation input/response now allow optional nullable `appraisal: Money`; production must restrict appraisal to Properties, reject invalid currencies/amounts and use expected-version checks. SQL design adds nullable appraisal_amount/appraisal_currency to asset_annotation with paired-null and non-negative checks. No database migration or production service has been executed.
