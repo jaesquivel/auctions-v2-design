@@ -176,3 +176,47 @@ Confirmed: no separate Assign Tags button or tag action icon. Open the selector 
 ### Large test tag catalog
 
 The demo organization now has 25 additional fictional tags (27 total), prefixed Prueba 01–25 and cycling all six colors. Several have long labels to exercise truncation. They are initially unassigned. The tag picker scrolls and applies selection through colored toggle buttons without checkmarks. Tags maintenance continues to show the full list without pagination/filter/column controls. The solo organization retains its separate original catalog.
+
+## Resizable columns and stronger headers
+
+Confirmed: all data-grid columns can be resized from their default widths. Drag the right edge of any header, including the untitled action column. Keyboard: focus the resize separator and use Left/Right; Shift increases the step; Home or double-click restores the default width. Resizing does not change sort/filter/page state. Proposed bounds: 64–1,000 px. Widths are saved per user and grid in this browser, separately from visible-column preferences. Tags still has fixed column membership and no column selector, filters or pagination; width resizing is available. Header backgrounds are darker than body rows in both light and dark appearances, preserving readable title text.
+
+### Resize using grid lines
+
+Confirmed: column resizing uses the existing header grid lines, without visible handles or grip marks. An invisible hit area at the column boundary provides the resize cursor and pointer interaction. Keyboard focus remains visible for accessibility; saved widths and default reset continue to work.
+
+### Compact grid rows
+
+Shared desktop data grids now use 36 px row cells, 32 px in-row controls and 40 px headers (borders may add a pixel). All categories and Tags use the same density. Single-line truncation, column resizing and keyboard focus remain. Coarse-pointer/touch devices retain 48 px cells and 44 px action targets. This supersedes earlier 48 px desktop density.
+
+Header density refinement: column-title rows now use the same 36 px desktop cell height and 32 px controls as data rows, including sortable headers. Coarse-pointer devices retain 48 px headers and 44 px controls. This supersedes the 40 px header setting.
+
+### Content-sized controls column
+
+The untitled controls column fits its visible action icons plus spacing/padding. It is recalculated for each grid and device target size, including the one-icon property row and two-icon Tags row. Prior saved widths for this column are ignored; it is not manually resizable. Other columns retain grid-line resizing and saved widths.
+
+## Item detail tabs
+
+Confirmed order: General info, Registry info, Notice, Registry (public), Location (map), Images. Spanish: Información general, Información registral, Aviso, Registro (público), Ubicación (mapa), Imágenes. General info contains the unified view/edit information. Registry info shows available normalized identifiers; Registry (public) is a placeholder until a provider is connected, with no invented official results. Notice shows the preserved fictional source text. Location uses the schematic map only where sample mapping exists, otherwise an explicit missing-coordinate state. Images retains existing attachments. Tabs scroll horizontally on narrow screens and support Left/Right keyboard navigation.
+
+### Category-aware tabs
+
+Properties: General info, Registry info, Notice, Registry, Location, Images. Vehicles and Other omit Location and do not display location metadata/columns. Spanish labels are Información general, Información registral, Aviso, Registro, Ubicación, Imágenes. Remove the map/public parenthetical suffixes. Tabs use a shared baseline and selected underline, without filled button backgrounds or rounded button frames. Keyboard navigation follows only the visible category tabs; stale Location links fall back to General info for non-properties.
+
+## Auction tab — second item tab
+
+Confirmed: Auction / Remate is the second tab after General info for every item category. It contains round numbers, base offers with currencies, dates/times and configured timezone; whether this item is sold individually or as part of a lot; and links to the auction's other items. Lot references and links to fellow lot members appear when applicable. General info retains item attributes, editable notes/appraisal and tag labels; schedule and auction base information move into Auction. Remaining tabs follow Auction in their prior category-aware order.
+
+Demonstration fields: auctionId, saleMode (individual/lot), lotId and existing auctionRounds. Five fictional items are grouped per auction example; generated examples 07 and 08 in each category share a lot and its schedule/base. Distinct individually sold items can retain their own schedules/base offers. These synthetic relationships are UI examples, not verified auction data. Open DEMO-A07, DEMO-V07 or DEMO-O07 for a lot example. Missing relationships or schedules must use explicit unknown/not-reported states, not inferred real-world facts.
+
+Proposed production model: Auction groups source-evidenced sale units; a sale unit is individual or a lot and links its member assets. Round dates/times and base money attach to that sale unit, avoiding a duplicated lot price per member. Preserve source evidence, version changes and explicit currency; never sum member prices into a lot base or infer lot membership from proximity in a notice. Existing API/SQL grouping extensions remain implementation work; this prototype adds fixture relationships and UI without executing migrations or connecting a backend. Link resolution must preserve access checks and return an unavailable state for inaccessible items.
+
+## Conditional round participation guarantees and participation fees
+
+Confirmed: the Auction rounds list shows Participation Guarantee and participation fee amounts when calculable from explicit notice terms or verified applicable country law. Missing/ambiguous/conflicting bases must display Not available, never an assumed zero. Show currency and traceable calculation provenance. Treat Participation Guarantee and participation fee as distinct amounts. Values attach to the applicable round and sale unit, so a lot amount is not duplicated per member as a separate obligation.
+
+Production specification: retain the source clause or legal citation, effective dates, jurisdiction, rule version, applicability, calculation basis, currency, rounding rule, result and review status. Resolve notice/law conflicts through review; do not silently choose precedence. Use exact decimal/minor-unit arithmetic; no silent FX conversion. Recompute on relevant source/rule revisions and audit changes. Country rules are deployment-owned, not user-selectable. No real country-law formula is implemented by this update.
+
+Prototype demonstration: only A07/A08 have explicit synthetic notice terms, labeled as fictional in the notice: 10% guarantee, half-up cent rounding, and CRC 5000 fee per round of the shared lot. These are demonstration inputs, not Costa Rican legal guidance. Other examples display Not available. Calculated cells expose notice/rule reference in their title. Backend calculation, legal-rule verification and API/schema extensions remain implementation work.
+
+Terminology: Participation Guarantee / Garantía de participación is the confirmed label for the guarantee amount.

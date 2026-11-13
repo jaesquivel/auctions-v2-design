@@ -51,7 +51,10 @@
         "date": "2027-01-07"
       }
     ],
-    "registrationNumber": "DEMO-REG-A01"
+    "registrationNumber": "DEMO-REG-A01",
+    "auctionId": "DEMO-AUCTION-properties-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A02",
@@ -105,7 +108,10 @@
         "date": "2026-12-28"
       }
     ],
-    "registrationNumber": "DEMO-REG-A02"
+    "registrationNumber": "DEMO-REG-A02",
+    "auctionId": "DEMO-AUCTION-properties-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A03",
@@ -159,7 +165,10 @@
         "date": "2026-12-18"
       }
     ],
-    "registrationNumber": "DEMO-REG-A03"
+    "registrationNumber": "DEMO-REG-A03",
+    "auctionId": "DEMO-AUCTION-properties-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A04",
@@ -213,7 +222,10 @@
         "date": "2027-01-18"
       }
     ],
-    "registrationNumber": "DEMO-REG-A04"
+    "registrationNumber": "DEMO-REG-A04",
+    "auctionId": "DEMO-AUCTION-properties-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A05",
@@ -267,7 +279,10 @@
         "date": "2027-01-21"
       }
     ],
-    "registrationNumber": "DEMO-REG-A05"
+    "registrationNumber": "DEMO-REG-A05",
+    "auctionId": "DEMO-AUCTION-properties-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A06",
@@ -321,7 +336,10 @@
         "date": "2027-01-12"
       }
     ],
-    "registrationNumber": "DEMO-REG-A06"
+    "registrationNumber": "DEMO-REG-A06",
+    "auctionId": "DEMO-AUCTION-properties-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V01",
@@ -373,7 +391,10 @@
         "date": "2027-01-08"
       }
     ],
-    "plate": "DEMO-PLATE-V01"
+    "plate": "DEMO-PLATE-V01",
+    "auctionId": "DEMO-AUCTION-vehicles-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V02",
@@ -425,7 +446,10 @@
         "date": "2026-12-30"
       }
     ],
-    "plate": "DEMO-PLATE-V02"
+    "plate": "DEMO-PLATE-V02",
+    "auctionId": "DEMO-AUCTION-vehicles-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O01",
@@ -476,7 +500,10 @@
         },
         "date": "2026-12-15"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O02",
@@ -527,7 +554,10 @@
         },
         "date": "2027-01-19"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A07",
@@ -579,7 +609,29 @@
         "date": "2027-01-21"
       }
     ],
-    "registrationNumber": "DEMO-REG-A07"
+    "registrationNumber": "DEMO-REG-A07",
+    "auctionId": "DEMO-AUCTION-properties-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-properties-02",
+    "roundCostRules": {
+      "guarantee": {
+        "kind": "percentOfBase",
+        "basisPoints": 1000,
+        "rounding": "halfUp",
+        "currency": "CRC",
+        "source": "notice",
+        "reference": "DEMO-NOTICE-TERMS-A07",
+        "verified": true
+      },
+      "participationFee": {
+        "kind": "fixed",
+        "amount": "5000.00",
+        "currency": "CRC",
+        "source": "notice",
+        "reference": "DEMO-NOTICE-TERMS-A07",
+        "verified": true
+      }
+    }
   },
   {
     "id": "DEMO-A08",
@@ -590,48 +642,70 @@
     "titleEs": "Inmueble de demostración 08",
     "titleEn": "Demonstration property 08",
     "area": "318",
-    "amount": "35800000.00",
+    "amount": "34450000.00",
     "currency": "CRC",
-    "date": "2027-01-08",
-    "time": "10:00",
+    "date": "2027-01-07",
+    "time": "09:00",
     "quality": "reviewed",
     "mapped": false,
     "tags": [],
     "color": 2,
-    "nextAuctionRound": 3,
+    "nextAuctionRound": 2,
     "auctionRounds": [
       {
         "round": 1,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "35798000.00",
+          "amount": "34449000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-11"
+        "date": "2026-12-24"
       },
       {
         "round": 2,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "35799000.00",
+          "amount": "34450000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-25"
+        "date": "2027-01-07"
       },
       {
         "round": 3,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "35800000.00",
+          "amount": "34451000.00",
           "currency": "CRC"
         },
-        "date": "2027-01-08"
+        "date": "2027-01-21"
       }
     ],
-    "registrationNumber": "DEMO-REG-A08"
+    "registrationNumber": "DEMO-REG-A08",
+    "auctionId": "DEMO-AUCTION-properties-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-properties-02",
+    "roundCostRules": {
+      "guarantee": {
+        "kind": "percentOfBase",
+        "basisPoints": 1000,
+        "rounding": "halfUp",
+        "currency": "CRC",
+        "source": "notice",
+        "reference": "DEMO-NOTICE-TERMS-A07",
+        "verified": true
+      },
+      "participationFee": {
+        "kind": "fixed",
+        "amount": "5000.00",
+        "currency": "CRC",
+        "source": "notice",
+        "reference": "DEMO-NOTICE-TERMS-A07",
+        "verified": true
+      }
+    }
   },
   {
     "id": "DEMO-A09",
@@ -683,7 +757,10 @@
         "date": "2027-02-06"
       }
     ],
-    "registrationNumber": "DEMO-REG-A09"
+    "registrationNumber": "DEMO-REG-A09",
+    "auctionId": "DEMO-AUCTION-properties-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A10",
@@ -735,7 +812,10 @@
         "date": "2027-01-24"
       }
     ],
-    "registrationNumber": "DEMO-REG-A10"
+    "registrationNumber": "DEMO-REG-A10",
+    "auctionId": "DEMO-AUCTION-properties-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A11",
@@ -787,7 +867,10 @@
         "date": "2027-01-11"
       }
     ],
-    "registrationNumber": "DEMO-REG-A11"
+    "registrationNumber": "DEMO-REG-A11",
+    "auctionId": "DEMO-AUCTION-properties-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A12",
@@ -839,7 +922,10 @@
         "date": "2027-02-09"
       }
     ],
-    "registrationNumber": "DEMO-REG-A12"
+    "registrationNumber": "DEMO-REG-A12",
+    "auctionId": "DEMO-AUCTION-properties-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A13",
@@ -891,7 +977,10 @@
         "date": "2027-01-27"
       }
     ],
-    "registrationNumber": "DEMO-REG-A13"
+    "registrationNumber": "DEMO-REG-A13",
+    "auctionId": "DEMO-AUCTION-properties-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A14",
@@ -943,7 +1032,10 @@
         "date": "2027-01-14"
       }
     ],
-    "registrationNumber": "DEMO-REG-A14"
+    "registrationNumber": "DEMO-REG-A14",
+    "auctionId": "DEMO-AUCTION-properties-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A15",
@@ -995,7 +1087,10 @@
         "date": "2027-02-12"
       }
     ],
-    "registrationNumber": "DEMO-REG-A15"
+    "registrationNumber": "DEMO-REG-A15",
+    "auctionId": "DEMO-AUCTION-properties-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A16",
@@ -1047,7 +1142,10 @@
         "date": "2027-01-30"
       }
     ],
-    "registrationNumber": "DEMO-REG-A16"
+    "registrationNumber": "DEMO-REG-A16",
+    "auctionId": "DEMO-AUCTION-properties-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A17",
@@ -1099,7 +1197,10 @@
         "date": "2027-01-17"
       }
     ],
-    "registrationNumber": "DEMO-REG-A17"
+    "registrationNumber": "DEMO-REG-A17",
+    "auctionId": "DEMO-AUCTION-properties-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A18",
@@ -1151,7 +1252,10 @@
         "date": "2027-02-15"
       }
     ],
-    "registrationNumber": "DEMO-REG-A18"
+    "registrationNumber": "DEMO-REG-A18",
+    "auctionId": "DEMO-AUCTION-properties-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A19",
@@ -1203,7 +1307,10 @@
         "date": "2027-02-02"
       }
     ],
-    "registrationNumber": "DEMO-REG-A19"
+    "registrationNumber": "DEMO-REG-A19",
+    "auctionId": "DEMO-AUCTION-properties-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A20",
@@ -1255,7 +1362,10 @@
         "date": "2027-01-20"
       }
     ],
-    "registrationNumber": "DEMO-REG-A20"
+    "registrationNumber": "DEMO-REG-A20",
+    "auctionId": "DEMO-AUCTION-properties-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A21",
@@ -1307,7 +1417,10 @@
         "date": "2027-02-18"
       }
     ],
-    "registrationNumber": "DEMO-REG-A21"
+    "registrationNumber": "DEMO-REG-A21",
+    "auctionId": "DEMO-AUCTION-properties-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A22",
@@ -1359,7 +1472,10 @@
         "date": "2027-02-05"
       }
     ],
-    "registrationNumber": "DEMO-REG-A22"
+    "registrationNumber": "DEMO-REG-A22",
+    "auctionId": "DEMO-AUCTION-properties-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A23",
@@ -1411,7 +1527,10 @@
         "date": "2027-01-23"
       }
     ],
-    "registrationNumber": "DEMO-REG-A23"
+    "registrationNumber": "DEMO-REG-A23",
+    "auctionId": "DEMO-AUCTION-properties-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A24",
@@ -1463,7 +1582,10 @@
         "date": "2027-02-21"
       }
     ],
-    "registrationNumber": "DEMO-REG-A24"
+    "registrationNumber": "DEMO-REG-A24",
+    "auctionId": "DEMO-AUCTION-properties-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A25",
@@ -1515,7 +1637,10 @@
         "date": "2027-02-08"
       }
     ],
-    "registrationNumber": "DEMO-REG-A25"
+    "registrationNumber": "DEMO-REG-A25",
+    "auctionId": "DEMO-AUCTION-properties-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A26",
@@ -1567,7 +1692,10 @@
         "date": "2027-01-26"
       }
     ],
-    "registrationNumber": "DEMO-REG-A26"
+    "registrationNumber": "DEMO-REG-A26",
+    "auctionId": "DEMO-AUCTION-properties-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A27",
@@ -1619,7 +1747,10 @@
         "date": "2027-02-24"
       }
     ],
-    "registrationNumber": "DEMO-REG-A27"
+    "registrationNumber": "DEMO-REG-A27",
+    "auctionId": "DEMO-AUCTION-properties-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A28",
@@ -1671,7 +1802,10 @@
         "date": "2027-02-11"
       }
     ],
-    "registrationNumber": "DEMO-REG-A28"
+    "registrationNumber": "DEMO-REG-A28",
+    "auctionId": "DEMO-AUCTION-properties-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A29",
@@ -1723,7 +1857,10 @@
         "date": "2027-01-29"
       }
     ],
-    "registrationNumber": "DEMO-REG-A29"
+    "registrationNumber": "DEMO-REG-A29",
+    "auctionId": "DEMO-AUCTION-properties-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A30",
@@ -1775,7 +1912,10 @@
         "date": "2027-02-27"
       }
     ],
-    "registrationNumber": "DEMO-REG-A30"
+    "registrationNumber": "DEMO-REG-A30",
+    "auctionId": "DEMO-AUCTION-properties-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A31",
@@ -1827,7 +1967,10 @@
         "date": "2027-02-14"
       }
     ],
-    "registrationNumber": "DEMO-REG-A31"
+    "registrationNumber": "DEMO-REG-A31",
+    "auctionId": "DEMO-AUCTION-properties-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A32",
@@ -1879,7 +2022,10 @@
         "date": "2027-02-01"
       }
     ],
-    "registrationNumber": "DEMO-REG-A32"
+    "registrationNumber": "DEMO-REG-A32",
+    "auctionId": "DEMO-AUCTION-properties-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A33",
@@ -1931,7 +2077,10 @@
         "date": "2027-03-02"
       }
     ],
-    "registrationNumber": "DEMO-REG-A33"
+    "registrationNumber": "DEMO-REG-A33",
+    "auctionId": "DEMO-AUCTION-properties-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A34",
@@ -1983,7 +2132,10 @@
         "date": "2027-02-17"
       }
     ],
-    "registrationNumber": "DEMO-REG-A34"
+    "registrationNumber": "DEMO-REG-A34",
+    "auctionId": "DEMO-AUCTION-properties-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A35",
@@ -2035,7 +2187,10 @@
         "date": "2027-02-04"
       }
     ],
-    "registrationNumber": "DEMO-REG-A35"
+    "registrationNumber": "DEMO-REG-A35",
+    "auctionId": "DEMO-AUCTION-properties-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A36",
@@ -2087,7 +2242,10 @@
         "date": "2027-03-05"
       }
     ],
-    "registrationNumber": "DEMO-REG-A36"
+    "registrationNumber": "DEMO-REG-A36",
+    "auctionId": "DEMO-AUCTION-properties-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A37",
@@ -2139,7 +2297,10 @@
         "date": "2027-02-20"
       }
     ],
-    "registrationNumber": "DEMO-REG-A37"
+    "registrationNumber": "DEMO-REG-A37",
+    "auctionId": "DEMO-AUCTION-properties-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A38",
@@ -2191,7 +2352,10 @@
         "date": "2027-02-07"
       }
     ],
-    "registrationNumber": "DEMO-REG-A38"
+    "registrationNumber": "DEMO-REG-A38",
+    "auctionId": "DEMO-AUCTION-properties-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A39",
@@ -2243,7 +2407,10 @@
         "date": "2027-03-08"
       }
     ],
-    "registrationNumber": "DEMO-REG-A39"
+    "registrationNumber": "DEMO-REG-A39",
+    "auctionId": "DEMO-AUCTION-properties-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A40",
@@ -2295,7 +2462,10 @@
         "date": "2027-02-23"
       }
     ],
-    "registrationNumber": "DEMO-REG-A40"
+    "registrationNumber": "DEMO-REG-A40",
+    "auctionId": "DEMO-AUCTION-properties-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A41",
@@ -2347,7 +2517,10 @@
         "date": "2027-02-10"
       }
     ],
-    "registrationNumber": "DEMO-REG-A41"
+    "registrationNumber": "DEMO-REG-A41",
+    "auctionId": "DEMO-AUCTION-properties-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A42",
@@ -2399,7 +2572,10 @@
         "date": "2027-03-11"
       }
     ],
-    "registrationNumber": "DEMO-REG-A42"
+    "registrationNumber": "DEMO-REG-A42",
+    "auctionId": "DEMO-AUCTION-properties-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A43",
@@ -2451,7 +2627,10 @@
         "date": "2027-02-26"
       }
     ],
-    "registrationNumber": "DEMO-REG-A43"
+    "registrationNumber": "DEMO-REG-A43",
+    "auctionId": "DEMO-AUCTION-properties-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A44",
@@ -2503,7 +2682,10 @@
         "date": "2027-02-13"
       }
     ],
-    "registrationNumber": "DEMO-REG-A44"
+    "registrationNumber": "DEMO-REG-A44",
+    "auctionId": "DEMO-AUCTION-properties-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A45",
@@ -2555,7 +2737,10 @@
         "date": "2027-03-14"
       }
     ],
-    "registrationNumber": "DEMO-REG-A45"
+    "registrationNumber": "DEMO-REG-A45",
+    "auctionId": "DEMO-AUCTION-properties-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A46",
@@ -2607,7 +2792,10 @@
         "date": "2027-03-01"
       }
     ],
-    "registrationNumber": "DEMO-REG-A46"
+    "registrationNumber": "DEMO-REG-A46",
+    "auctionId": "DEMO-AUCTION-properties-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A47",
@@ -2659,7 +2847,10 @@
         "date": "2027-02-16"
       }
     ],
-    "registrationNumber": "DEMO-REG-A47"
+    "registrationNumber": "DEMO-REG-A47",
+    "auctionId": "DEMO-AUCTION-properties-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A48",
@@ -2711,7 +2902,10 @@
         "date": "2027-03-17"
       }
     ],
-    "registrationNumber": "DEMO-REG-A48"
+    "registrationNumber": "DEMO-REG-A48",
+    "auctionId": "DEMO-AUCTION-properties-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A49",
@@ -2763,7 +2957,10 @@
         "date": "2027-03-04"
       }
     ],
-    "registrationNumber": "DEMO-REG-A49"
+    "registrationNumber": "DEMO-REG-A49",
+    "auctionId": "DEMO-AUCTION-properties-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-A50",
@@ -2815,7 +3012,10 @@
         "date": "2027-02-19"
       }
     ],
-    "registrationNumber": "DEMO-REG-A50"
+    "registrationNumber": "DEMO-REG-A50",
+    "auctionId": "DEMO-AUCTION-properties-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V03",
@@ -2867,7 +3067,10 @@
         "date": "2027-01-31"
       }
     ],
-    "plate": "DEMO-PLATE-V03"
+    "plate": "DEMO-PLATE-V03",
+    "auctionId": "DEMO-AUCTION-vehicles-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V04",
@@ -2919,7 +3122,10 @@
         "date": "2027-01-18"
       }
     ],
-    "plate": "DEMO-PLATE-V04"
+    "plate": "DEMO-PLATE-V04",
+    "auctionId": "DEMO-AUCTION-vehicles-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V05",
@@ -2971,7 +3177,10 @@
         "date": "2027-01-05"
       }
     ],
-    "plate": "DEMO-PLATE-V05"
+    "plate": "DEMO-PLATE-V05",
+    "auctionId": "DEMO-AUCTION-vehicles-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V06",
@@ -3023,7 +3232,10 @@
         "date": "2027-02-03"
       }
     ],
-    "plate": "DEMO-PLATE-V06"
+    "plate": "DEMO-PLATE-V06",
+    "auctionId": "DEMO-AUCTION-vehicles-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V07",
@@ -3075,7 +3287,10 @@
         "date": "2027-01-21"
       }
     ],
-    "plate": "DEMO-PLATE-V07"
+    "plate": "DEMO-PLATE-V07",
+    "auctionId": "DEMO-AUCTION-vehicles-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-vehicles-02"
   },
   {
     "id": "DEMO-V08",
@@ -3086,48 +3301,51 @@
     "titleEs": "Vehículo de demostración 08",
     "titleEn": "Demonstration vehicle 08",
     "area": null,
-    "amount": "2600000.00",
+    "amount": "2425000.00",
     "currency": "CRC",
-    "date": "2027-01-08",
-    "time": "10:00",
+    "date": "2027-01-07",
+    "time": "09:00",
     "quality": "reviewed",
     "mapped": false,
     "tags": [],
     "color": 2,
-    "nextAuctionRound": 3,
+    "nextAuctionRound": 2,
     "auctionRounds": [
       {
         "round": 1,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "2598000.00",
+          "amount": "2424000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-11"
+        "date": "2026-12-24"
       },
       {
         "round": 2,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "2599000.00",
+          "amount": "2425000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-25"
+        "date": "2027-01-07"
       },
       {
         "round": 3,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "2600000.00",
+          "amount": "2426000.00",
           "currency": "CRC"
         },
-        "date": "2027-01-08"
+        "date": "2027-01-21"
       }
     ],
-    "plate": "DEMO-PLATE-V08"
+    "plate": "DEMO-PLATE-V08",
+    "auctionId": "DEMO-AUCTION-vehicles-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-vehicles-02"
   },
   {
     "id": "DEMO-V09",
@@ -3179,7 +3397,10 @@
         "date": "2027-02-06"
       }
     ],
-    "plate": "DEMO-PLATE-V09"
+    "plate": "DEMO-PLATE-V09",
+    "auctionId": "DEMO-AUCTION-vehicles-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V10",
@@ -3231,7 +3452,10 @@
         "date": "2027-01-24"
       }
     ],
-    "plate": "DEMO-PLATE-V10"
+    "plate": "DEMO-PLATE-V10",
+    "auctionId": "DEMO-AUCTION-vehicles-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V11",
@@ -3283,7 +3507,10 @@
         "date": "2027-01-11"
       }
     ],
-    "plate": "DEMO-PLATE-V11"
+    "plate": "DEMO-PLATE-V11",
+    "auctionId": "DEMO-AUCTION-vehicles-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V12",
@@ -3335,7 +3562,10 @@
         "date": "2027-02-09"
       }
     ],
-    "plate": "DEMO-PLATE-V12"
+    "plate": "DEMO-PLATE-V12",
+    "auctionId": "DEMO-AUCTION-vehicles-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V13",
@@ -3387,7 +3617,10 @@
         "date": "2027-01-27"
       }
     ],
-    "plate": "DEMO-PLATE-V13"
+    "plate": "DEMO-PLATE-V13",
+    "auctionId": "DEMO-AUCTION-vehicles-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V14",
@@ -3439,7 +3672,10 @@
         "date": "2027-01-14"
       }
     ],
-    "plate": "DEMO-PLATE-V14"
+    "plate": "DEMO-PLATE-V14",
+    "auctionId": "DEMO-AUCTION-vehicles-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V15",
@@ -3491,7 +3727,10 @@
         "date": "2027-02-12"
       }
     ],
-    "plate": "DEMO-PLATE-V15"
+    "plate": "DEMO-PLATE-V15",
+    "auctionId": "DEMO-AUCTION-vehicles-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V16",
@@ -3543,7 +3782,10 @@
         "date": "2027-01-30"
       }
     ],
-    "plate": "DEMO-PLATE-V16"
+    "plate": "DEMO-PLATE-V16",
+    "auctionId": "DEMO-AUCTION-vehicles-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V17",
@@ -3595,7 +3837,10 @@
         "date": "2027-01-17"
       }
     ],
-    "plate": "DEMO-PLATE-V17"
+    "plate": "DEMO-PLATE-V17",
+    "auctionId": "DEMO-AUCTION-vehicles-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V18",
@@ -3647,7 +3892,10 @@
         "date": "2027-02-15"
       }
     ],
-    "plate": "DEMO-PLATE-V18"
+    "plate": "DEMO-PLATE-V18",
+    "auctionId": "DEMO-AUCTION-vehicles-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V19",
@@ -3699,7 +3947,10 @@
         "date": "2027-02-02"
       }
     ],
-    "plate": "DEMO-PLATE-V19"
+    "plate": "DEMO-PLATE-V19",
+    "auctionId": "DEMO-AUCTION-vehicles-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V20",
@@ -3751,7 +4002,10 @@
         "date": "2027-01-20"
       }
     ],
-    "plate": "DEMO-PLATE-V20"
+    "plate": "DEMO-PLATE-V20",
+    "auctionId": "DEMO-AUCTION-vehicles-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V21",
@@ -3803,7 +4057,10 @@
         "date": "2027-02-18"
       }
     ],
-    "plate": "DEMO-PLATE-V21"
+    "plate": "DEMO-PLATE-V21",
+    "auctionId": "DEMO-AUCTION-vehicles-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V22",
@@ -3855,7 +4112,10 @@
         "date": "2027-02-05"
       }
     ],
-    "plate": "DEMO-PLATE-V22"
+    "plate": "DEMO-PLATE-V22",
+    "auctionId": "DEMO-AUCTION-vehicles-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V23",
@@ -3907,7 +4167,10 @@
         "date": "2027-01-23"
       }
     ],
-    "plate": "DEMO-PLATE-V23"
+    "plate": "DEMO-PLATE-V23",
+    "auctionId": "DEMO-AUCTION-vehicles-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V24",
@@ -3959,7 +4222,10 @@
         "date": "2027-02-21"
       }
     ],
-    "plate": "DEMO-PLATE-V24"
+    "plate": "DEMO-PLATE-V24",
+    "auctionId": "DEMO-AUCTION-vehicles-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V25",
@@ -4011,7 +4277,10 @@
         "date": "2027-02-08"
       }
     ],
-    "plate": "DEMO-PLATE-V25"
+    "plate": "DEMO-PLATE-V25",
+    "auctionId": "DEMO-AUCTION-vehicles-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V26",
@@ -4063,7 +4332,10 @@
         "date": "2027-01-26"
       }
     ],
-    "plate": "DEMO-PLATE-V26"
+    "plate": "DEMO-PLATE-V26",
+    "auctionId": "DEMO-AUCTION-vehicles-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V27",
@@ -4115,7 +4387,10 @@
         "date": "2027-02-24"
       }
     ],
-    "plate": "DEMO-PLATE-V27"
+    "plate": "DEMO-PLATE-V27",
+    "auctionId": "DEMO-AUCTION-vehicles-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V28",
@@ -4167,7 +4442,10 @@
         "date": "2027-02-11"
       }
     ],
-    "plate": "DEMO-PLATE-V28"
+    "plate": "DEMO-PLATE-V28",
+    "auctionId": "DEMO-AUCTION-vehicles-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V29",
@@ -4219,7 +4497,10 @@
         "date": "2027-01-29"
       }
     ],
-    "plate": "DEMO-PLATE-V29"
+    "plate": "DEMO-PLATE-V29",
+    "auctionId": "DEMO-AUCTION-vehicles-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V30",
@@ -4271,7 +4552,10 @@
         "date": "2027-02-27"
       }
     ],
-    "plate": "DEMO-PLATE-V30"
+    "plate": "DEMO-PLATE-V30",
+    "auctionId": "DEMO-AUCTION-vehicles-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V31",
@@ -4323,7 +4607,10 @@
         "date": "2027-02-14"
       }
     ],
-    "plate": "DEMO-PLATE-V31"
+    "plate": "DEMO-PLATE-V31",
+    "auctionId": "DEMO-AUCTION-vehicles-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V32",
@@ -4375,7 +4662,10 @@
         "date": "2027-02-01"
       }
     ],
-    "plate": "DEMO-PLATE-V32"
+    "plate": "DEMO-PLATE-V32",
+    "auctionId": "DEMO-AUCTION-vehicles-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V33",
@@ -4427,7 +4717,10 @@
         "date": "2027-03-02"
       }
     ],
-    "plate": "DEMO-PLATE-V33"
+    "plate": "DEMO-PLATE-V33",
+    "auctionId": "DEMO-AUCTION-vehicles-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V34",
@@ -4479,7 +4772,10 @@
         "date": "2027-02-17"
       }
     ],
-    "plate": "DEMO-PLATE-V34"
+    "plate": "DEMO-PLATE-V34",
+    "auctionId": "DEMO-AUCTION-vehicles-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V35",
@@ -4531,7 +4827,10 @@
         "date": "2027-02-04"
       }
     ],
-    "plate": "DEMO-PLATE-V35"
+    "plate": "DEMO-PLATE-V35",
+    "auctionId": "DEMO-AUCTION-vehicles-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V36",
@@ -4583,7 +4882,10 @@
         "date": "2027-03-05"
       }
     ],
-    "plate": "DEMO-PLATE-V36"
+    "plate": "DEMO-PLATE-V36",
+    "auctionId": "DEMO-AUCTION-vehicles-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V37",
@@ -4635,7 +4937,10 @@
         "date": "2027-02-20"
       }
     ],
-    "plate": "DEMO-PLATE-V37"
+    "plate": "DEMO-PLATE-V37",
+    "auctionId": "DEMO-AUCTION-vehicles-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V38",
@@ -4687,7 +4992,10 @@
         "date": "2027-02-07"
       }
     ],
-    "plate": "DEMO-PLATE-V38"
+    "plate": "DEMO-PLATE-V38",
+    "auctionId": "DEMO-AUCTION-vehicles-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V39",
@@ -4739,7 +5047,10 @@
         "date": "2027-03-08"
       }
     ],
-    "plate": "DEMO-PLATE-V39"
+    "plate": "DEMO-PLATE-V39",
+    "auctionId": "DEMO-AUCTION-vehicles-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V40",
@@ -4791,7 +5102,10 @@
         "date": "2027-02-23"
       }
     ],
-    "plate": "DEMO-PLATE-V40"
+    "plate": "DEMO-PLATE-V40",
+    "auctionId": "DEMO-AUCTION-vehicles-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V41",
@@ -4843,7 +5157,10 @@
         "date": "2027-02-10"
       }
     ],
-    "plate": "DEMO-PLATE-V41"
+    "plate": "DEMO-PLATE-V41",
+    "auctionId": "DEMO-AUCTION-vehicles-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V42",
@@ -4895,7 +5212,10 @@
         "date": "2027-03-11"
       }
     ],
-    "plate": "DEMO-PLATE-V42"
+    "plate": "DEMO-PLATE-V42",
+    "auctionId": "DEMO-AUCTION-vehicles-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V43",
@@ -4947,7 +5267,10 @@
         "date": "2027-02-26"
       }
     ],
-    "plate": "DEMO-PLATE-V43"
+    "plate": "DEMO-PLATE-V43",
+    "auctionId": "DEMO-AUCTION-vehicles-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V44",
@@ -4999,7 +5322,10 @@
         "date": "2027-02-13"
       }
     ],
-    "plate": "DEMO-PLATE-V44"
+    "plate": "DEMO-PLATE-V44",
+    "auctionId": "DEMO-AUCTION-vehicles-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V45",
@@ -5051,7 +5377,10 @@
         "date": "2027-03-14"
       }
     ],
-    "plate": "DEMO-PLATE-V45"
+    "plate": "DEMO-PLATE-V45",
+    "auctionId": "DEMO-AUCTION-vehicles-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V46",
@@ -5103,7 +5432,10 @@
         "date": "2027-03-01"
       }
     ],
-    "plate": "DEMO-PLATE-V46"
+    "plate": "DEMO-PLATE-V46",
+    "auctionId": "DEMO-AUCTION-vehicles-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V47",
@@ -5155,7 +5487,10 @@
         "date": "2027-02-16"
       }
     ],
-    "plate": "DEMO-PLATE-V47"
+    "plate": "DEMO-PLATE-V47",
+    "auctionId": "DEMO-AUCTION-vehicles-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V48",
@@ -5207,7 +5542,10 @@
         "date": "2027-03-17"
       }
     ],
-    "plate": "DEMO-PLATE-V48"
+    "plate": "DEMO-PLATE-V48",
+    "auctionId": "DEMO-AUCTION-vehicles-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V49",
@@ -5259,7 +5597,10 @@
         "date": "2027-03-04"
       }
     ],
-    "plate": "DEMO-PLATE-V49"
+    "plate": "DEMO-PLATE-V49",
+    "auctionId": "DEMO-AUCTION-vehicles-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-V50",
@@ -5311,7 +5652,10 @@
         "date": "2027-02-19"
       }
     ],
-    "plate": "DEMO-PLATE-V50"
+    "plate": "DEMO-PLATE-V50",
+    "auctionId": "DEMO-AUCTION-vehicles-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O03",
@@ -5362,7 +5706,10 @@
         },
         "date": "2027-01-31"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O04",
@@ -5413,7 +5760,10 @@
         },
         "date": "2027-01-18"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O05",
@@ -5464,7 +5814,10 @@
         },
         "date": "2027-01-05"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-1",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O06",
@@ -5515,7 +5868,10 @@
         },
         "date": "2027-02-03"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O07",
@@ -5566,7 +5922,10 @@
         },
         "date": "2027-01-21"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-other-02"
   },
   {
     "id": "DEMO-O08",
@@ -5577,47 +5936,50 @@
     "titleEs": "Bien de demostración 08",
     "titleEn": "Demonstration asset 08",
     "area": null,
-    "amount": "1700000.00",
+    "amount": "1525000.00",
     "currency": "CRC",
-    "date": "2027-01-08",
-    "time": "10:00",
+    "date": "2027-01-07",
+    "time": "09:00",
     "quality": "reviewed",
     "mapped": false,
     "tags": [],
     "color": 2,
-    "nextAuctionRound": 3,
+    "nextAuctionRound": 2,
     "auctionRounds": [
       {
         "round": 1,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "1698000.00",
+          "amount": "1524000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-11"
+        "date": "2026-12-24"
       },
       {
         "round": 2,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "1699000.00",
+          "amount": "1525000.00",
           "currency": "CRC"
         },
-        "date": "2026-12-25"
+        "date": "2027-01-07"
       },
       {
         "round": 3,
-        "time": "10:00",
+        "time": "09:00",
         "timezone": "America/Costa_Rica",
         "baseOffer": {
-          "amount": "1700000.00",
+          "amount": "1526000.00",
           "currency": "CRC"
         },
-        "date": "2027-01-08"
+        "date": "2027-01-21"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-2",
+    "saleMode": "lot",
+    "lotId": "DEMO-LOT-other-02"
   },
   {
     "id": "DEMO-O09",
@@ -5668,7 +6030,10 @@
         },
         "date": "2027-02-06"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O10",
@@ -5719,7 +6084,10 @@
         },
         "date": "2027-01-24"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-2",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O11",
@@ -5770,7 +6138,10 @@
         },
         "date": "2027-01-11"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O12",
@@ -5821,7 +6192,10 @@
         },
         "date": "2027-02-09"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O13",
@@ -5872,7 +6246,10 @@
         },
         "date": "2027-01-27"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O14",
@@ -5923,7 +6300,10 @@
         },
         "date": "2027-01-14"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O15",
@@ -5974,7 +6354,10 @@
         },
         "date": "2027-02-12"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-3",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O16",
@@ -6025,7 +6408,10 @@
         },
         "date": "2027-01-30"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O17",
@@ -6076,7 +6462,10 @@
         },
         "date": "2027-01-17"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O18",
@@ -6127,7 +6516,10 @@
         },
         "date": "2027-02-15"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O19",
@@ -6178,7 +6570,10 @@
         },
         "date": "2027-02-02"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O20",
@@ -6229,7 +6624,10 @@
         },
         "date": "2027-01-20"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-4",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O21",
@@ -6280,7 +6678,10 @@
         },
         "date": "2027-02-18"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O22",
@@ -6331,7 +6732,10 @@
         },
         "date": "2027-02-05"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O23",
@@ -6382,7 +6786,10 @@
         },
         "date": "2027-01-23"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O24",
@@ -6433,7 +6840,10 @@
         },
         "date": "2027-02-21"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O25",
@@ -6484,7 +6894,10 @@
         },
         "date": "2027-02-08"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-5",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O26",
@@ -6535,7 +6948,10 @@
         },
         "date": "2027-01-26"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O27",
@@ -6586,7 +7002,10 @@
         },
         "date": "2027-02-24"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O28",
@@ -6637,7 +7056,10 @@
         },
         "date": "2027-02-11"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O29",
@@ -6688,7 +7110,10 @@
         },
         "date": "2027-01-29"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O30",
@@ -6739,7 +7164,10 @@
         },
         "date": "2027-02-27"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-6",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O31",
@@ -6790,7 +7218,10 @@
         },
         "date": "2027-02-14"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O32",
@@ -6841,7 +7272,10 @@
         },
         "date": "2027-02-01"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O33",
@@ -6892,7 +7326,10 @@
         },
         "date": "2027-03-02"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O34",
@@ -6943,7 +7380,10 @@
         },
         "date": "2027-02-17"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O35",
@@ -6994,7 +7434,10 @@
         },
         "date": "2027-02-04"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-7",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O36",
@@ -7045,7 +7488,10 @@
         },
         "date": "2027-03-05"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O37",
@@ -7096,7 +7542,10 @@
         },
         "date": "2027-02-20"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O38",
@@ -7147,7 +7596,10 @@
         },
         "date": "2027-02-07"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O39",
@@ -7198,7 +7650,10 @@
         },
         "date": "2027-03-08"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O40",
@@ -7249,7 +7704,10 @@
         },
         "date": "2027-02-23"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-8",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O41",
@@ -7300,7 +7758,10 @@
         },
         "date": "2027-02-10"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O42",
@@ -7351,7 +7812,10 @@
         },
         "date": "2027-03-11"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O43",
@@ -7402,7 +7866,10 @@
         },
         "date": "2027-02-26"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O44",
@@ -7453,7 +7920,10 @@
         },
         "date": "2027-02-13"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O45",
@@ -7504,7 +7974,10 @@
         },
         "date": "2027-03-14"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-9",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O46",
@@ -7555,7 +8028,10 @@
         },
         "date": "2027-03-01"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O47",
@@ -7606,7 +8082,10 @@
         },
         "date": "2027-02-16"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O48",
@@ -7657,7 +8136,10 @@
         },
         "date": "2027-03-17"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O49",
@@ -7708,7 +8190,10 @@
         },
         "date": "2027-03-04"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-10",
+    "saleMode": "individual",
+    "lotId": null
   },
   {
     "id": "DEMO-O50",
@@ -7759,6 +8244,9 @@
         },
         "date": "2027-02-19"
       }
-    ]
+    ],
+    "auctionId": "DEMO-AUCTION-other-10",
+    "saleMode": "individual",
+    "lotId": null
   }
 ]

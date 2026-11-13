@@ -135,3 +135,25 @@ Clicking displayed tag labels opens a colored multi-select popup for direct item
 Tag picker uses clickable colored buttons with aria-pressed and highlighted selected styling. No checkboxes or checkmarks for tag selection.
 
 Remove separate Assign Tags buttons and tag action icons. Click displayed labels or the empty tag area to select colored tags. No checkboxes/checkmarks in that selector.
+
+All data grids support resizing columns from default widths using header edges; keyboard resizing and default reset are available. Use a darker header background in light/dark. Width preferences are separate from visible-column selection, including the fixed-column Tags grid.
+
+Selected tags in the popup have no dark frame/border/side accent. Use a subtle background highlight and aria-pressed; retain accessible keyboard focus styling.
+
+Column resizing uses grid lines only: no visible grip/resize control. Retain invisible boundary hit areas, resize cursor and keyboard focus accessibility.
+
+Shared desktop grid density: 36 px row cells, 32 px controls, 40 px headers. Touch/coarse-pointer devices keep 48 px cells/44 px targets. Apply across listings and Tags.
+
+Grid title/header rows also use 36 px desktop cells with 32 px sorting buttons, matching data-row density. Keep 48/44 px on coarse-pointer devices.
+
+Grid controls/action column auto-fits its actual icon contents and padding. Ignore saved action widths and omit its resize hit area; keep other columns resizable.
+
+Item tabs in order: General info, Registry info, Notice, Registry (public), Location (map), Images, with Spanish equivalents. Retain unified editable General info; public registry integration remains a truthful placeholder until connected.
+
+Vehicles/Other have no Location tab or location information. Properties tab label is Location/Ubicación, without (map). Registry tab label is Registry/Registro without (public/público). Use true underline tab-strip styling, not filled button styling.
+
+Auction / Remate is the SECOND item tab for all categories. Put all round bases/dates/times, sale mode (individual or part of lot), lot membership and links to other auction items there. General info holds item information/editable research. Use explicit unknown states and source-evidenced grouping in production; fixtures are fictional.
+
+Auction round guarantees and participation fees display when calculable from explicit notice terms or verified applicable country rules, with currency/provenance. Unknown is unavailable, not zero. Do not invent legal defaults or silently convert currency. Lot amounts apply to the sale unit; synthetic prototype rules must be explicitly labeled.
+
+Use Participation Guarantee / Garantía de participación as the guarantee column label.

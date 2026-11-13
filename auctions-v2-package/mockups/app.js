@@ -294,6 +294,35 @@ DEMO_LISTINGS.forEach((item) => {
   if (item.category === "vehicles")
     item.plate = `DEMO-PLATE-${item.id.slice(-3)}`;
 });
+// Fictional auction and sale-unit relationships for the Auction tab.
+for (const category of ["properties", "vehicles", "other"]) {
+  const items = DEMO_LISTINGS.filter((item) => item.category === category);
+  items.forEach((item, index) => {
+    item.auctionId = `DEMO-AUCTION-${category}-${Math.floor(index / 5) + 1}`;
+    item.saleMode = "individual";
+    item.lotId = null;
+  });
+  // Two generated examples sold as one lot; keep their shared schedule/base coherent.
+  const members = items.slice(6, 8),
+    lead = members[0];
+  for (const item of members) {
+    item.saleMode = "lot";
+    item.lotId = `DEMO-LOT-${category}-02`;
+    item.auctionRounds = JSON.parse(JSON.stringify(lead.auctionRounds));
+    item.date = lead.date;
+    item.time = lead.time;
+    item.nextAuctionRound = lead.nextAuctionRound;
+    item.amount = lead.amount;
+    item.currency = lead.currency;
+  }
+}
+// Synthetic notice terms only. No Costa Rican statutory formula is configured.
+for(const item of DEMO_LISTINGS.filter(item=>["DEMO-A07","DEMO-A08"].includes(item.id))) {
+  item.roundCostRules={
+    guarantee:{kind:"percentOfBase",basisPoints:1000,rounding:"halfUp",currency:"CRC",source:"notice",reference:"DEMO-NOTICE-TERMS-A07",verified:true},
+    participationFee:{kind:"fixed",amount:"5000.00",currency:"CRC",source:"notice",reference:"DEMO-NOTICE-TERMS-A07",verified:true},
+  };
+}
 const ORIGINAL_LISTINGS = JSON.parse(JSON.stringify(DEMO_LISTINGS));
 const COPY = {
   es: {
@@ -373,7 +402,7 @@ const COPY = {
     organizationTags: "Etiquetas",
     allOrganizationTags: "Todas las etiquetas",
     noAssignedTags: "Sin etiquetas asignadas",
-    organizationResearch: "Etiquetas y notas",
+    organizationResearch: "Etiquetas",
     taggedCount: "Remates con etiquetas",
     searchContext: "Contexto de ejecución",
     contextUnavailable: "Contexto no disponible",
@@ -381,15 +410,13 @@ const COPY = {
     overviewTab: "Información",
     imagesTab: "Imágenes",
     imagesTitle: "Imágenes del remate",
-    imagesHelp:
-      "Imágenes adjuntas. No son evidencia oficial del aviso.",
+    imagesHelp: "Imágenes adjuntas. No son evidencia oficial del aviso.",
     attachImages: "Adjuntar imágenes",
     imageFiles: "Seleccione archivos de imagen",
     imageLimits:
       "JPEG, PNG o WebP · máximo propuesto 10 MB por archivo y 20 adjuntos por remate",
     imagesEmpty: "Todavía no hay imágenes adjuntas",
-    imagesEmptyHelp:
-      "Puede adjuntar imágenes aquí.",
+    imagesEmptyHelp: "Puede adjuntar imágenes aquí.",
     imageError:
       "Revise el formato, el tamaño de 10 MB y el límite de 20 imágenes.",
     imageAdded: "Imágenes agregadas a la demostración local",
@@ -444,8 +471,7 @@ const COPY = {
     manageBilling: "Administrar facturación",
     permissionDenied: "Su rol no permite cambiar esta configuración.",
     tagDuplicate: "Ya existe una etiqueta con ese nombre.",
-    invalidTag:
-      "Use un nombre de 1 a 40 caracteres.",
+    invalidTag: "Use un nombre de 1 a 40 caracteres.",
     tagUpdated: "Lista de etiquetas actualizada",
     settingsSaved: "Configuración de ejemplo guardada",
     tagSelectionHelp: "Seleccione etiquetas de la lista.",
@@ -724,7 +750,7 @@ const COPY = {
     organizationTags: "Tags",
     allOrganizationTags: "All tags",
     noAssignedTags: "No tags assigned",
-    organizationResearch: "Tags and notes",
+    organizationResearch: "Tags",
     taggedCount: "Tagged auction items",
     searchContext: "Execution context",
     contextUnavailable: "Context unavailable",
@@ -732,8 +758,7 @@ const COPY = {
     overviewTab: "Overview",
     imagesTab: "Images",
     imagesTitle: "Auction item images",
-    imagesHelp:
-      "Attached images. These are not official notice evidence.",
+    imagesHelp: "Attached images. These are not official notice evidence.",
     attachImages: "Attach images",
     imageFiles: "Choose image files",
     imageLimits:
@@ -791,8 +816,7 @@ const COPY = {
     manageBilling: "Manage billing",
     permissionDenied: "Your role cannot change these settings.",
     tagDuplicate: "A tag with this name already exists.",
-    invalidTag:
-      "Use a name of 1 to 40 characters.",
+    invalidTag: "Use a name of 1 to 40 characters.",
     tagUpdated: "Tag list updated",
     settingsSaved: "Example settings saved",
     tagSelectionHelp: "Choose tags from the available list.",
@@ -1084,13 +1108,11 @@ const state = {
         id: "DEMO-TAG-O1",
         label: "Pendiente de estudio",
         color: "amber",
-
       },
       {
         id: "DEMO-TAG-O2",
         label: "Consultar fuente",
         color: "blue",
-
       },
     ],
     solo: [
@@ -1098,7 +1120,6 @@ const state = {
         id: "DEMO-TAG-S1",
         label: "Revisar documentos",
         color: "purple",
-
       },
     ],
   },
@@ -1120,11 +1141,13 @@ const state = {
   reviewReason: "",
 };
 // Additional fictional labels for testing the long tag catalog and picker.
-state.tagDefinitions.org.push(...Array.from({length:25},(_,index)=>({
-  id:`DEMO-TAG-TEST-${String(index+1).padStart(2,"0")}`,
-  label:`Prueba ${String(index+1).padStart(2,"0")}${index%5===0?" · Seguimiento de documentación pendiente":index%3===0?" · Revisión adicional":""}`,
-  color:["gray","blue","green","amber","red","purple"][index%6],
-})));
+state.tagDefinitions.org.push(
+  ...Array.from({ length: 25 }, (_, index) => ({
+    id: `DEMO-TAG-TEST-${String(index + 1).padStart(2, "0")}`,
+    label: `Prueba ${String(index + 1).padStart(2, "0")}${index % 5 === 0 ? " · Seguimiento de documentación pendiente" : index % 3 === 0 ? " · Revisión adicional" : ""}`,
+    color: ["gray", "blue", "green", "amber", "red", "purple"][index % 6],
+  })),
+);
 const app = document.getElementById("app");
 const t = (k) => COPY[state.lang][k] || k;
 const esc = (v) =>
@@ -1191,7 +1214,6 @@ function createOrganizationTag(label, color = "gray") {
     id: "DEMO-TAG-" + state.workspace + "-" + state.nextTagId++,
     label,
     color,
-
   };
   orgTags().push(item);
   return { ok: true, item };
@@ -1205,10 +1227,7 @@ function updateOrganizationTag(id, patch) {
   const label = ("label" in patch ? String(patch.label) : item.label)
     .trim()
     .replace(/\s+/g, " ");
-  if (
-    !label ||
-    Array.from(label).length > 40
-  )
+  if (!label || Array.from(label).length > 40)
     return { ok: false, error: "invalidTag" };
   if (
     orgTags().some(
@@ -1265,9 +1284,7 @@ function assignedTagLabels(assetId) {
   return (state.tags[state.workspace + assetId] || [])
     .map((id) => {
       const tag = orgTags().find((x) => x.id === id);
-      return tag
-        ? tag.label
-        : "";
+      return tag ? tag.label : "";
     })
     .filter(Boolean)
     .join(", ");
@@ -1388,7 +1405,7 @@ function selectCategory(category) {
   return true;
 }
 function navigate(screen, id) {
-  if(screen === "property-edit") screen = "asset";
+  if (screen === "property-edit") screen = "asset";
   if (
     state.screen === "filters" &&
     screen !== "filters" &&
@@ -1678,47 +1695,97 @@ function sortControls() {
 }
 // BEGIN GENERATED LUCIDE ICONS
 const LUCIDE_ICONS = {
-  "Building2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-building-complex lucide-building-2 ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 12h4\"></path><path d=\"M10 8h4\"></path><path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2\"></path><path d=\"M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16\"></path></svg>",
-  "Car": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-car ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2\"></path><circle cx=\"7\" cy=\"17\" r=\"2\"></circle><path d=\"M9 17h6\"></path><circle cx=\"17\" cy=\"17\" r=\"2\"></circle></svg>",
-  "Package": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-package ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\"></path><path d=\"M12 22V12\"></path><polyline points=\"3.29 7 12 12 20.71 7\"></polyline><path d=\"m7.5 4.27 9 5.15\"></path></svg>",
-  "Bell": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bell ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10.268 21a2 2 0 0 0 3.464 0\"></path><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\"></path></svg>",
-  "Users": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-users ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"></path><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle></svg>",
-  "Settings": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-settings ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
-  "Tags": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-tags ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z\"></path><path d=\"M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193\"></path><circle cx=\"10.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"></circle></svg>",
-  "ClipboardCheck": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-clipboard-check ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m9 14 2 2 4-4\"></path></svg>",
-  "Eye": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-eye ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
-  "Tag": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-tag ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z\"></path><circle cx=\"7.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"></circle></svg>",
-  "FileText": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-text ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M10 9H8\"></path><path d=\"M16 13H8\"></path><path d=\"M16 17H8\"></path></svg>",
-  "Plus": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-plus ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14\"></path><path d=\"M12 5v14\"></path></svg>",
-  "Pencil": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pencil ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\"></path><path d=\"m15 5 4 4\"></path></svg>",
-  "Trash2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-trash lucide-trash-2 ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 11v6\"></path><path d=\"M14 11v6\"></path><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"></path><path d=\"M3 6h18\"></path><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"></path></svg>",
-  "Save": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-save ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\"></path><path d=\"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7\"></path><path d=\"M7 3v4a1 1 0 0 0 1 1h7\"></path></svg>",
-  "X": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg>",
-  "ArrowLeft": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg>",
-  "ArrowRight": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg>",
-  "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-external-link ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M15 3h6v6\"></path><path d=\"M10 14 21 3\"></path><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"></path></svg>",
-  "SlidersHorizontal": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sliders-horizontal ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 5H3\"></path><path d=\"M12 19H3\"></path><path d=\"M14 3v4\"></path><path d=\"M16 17v4\"></path><path d=\"M21 12h-9\"></path><path d=\"M21 19h-5\"></path><path d=\"M21 5h-7\"></path><path d=\"M8 10v4\"></path><path d=\"M8 12H3\"></path></svg>",
-  "List": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-list ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 5h.01\"></path><path d=\"M3 12h.01\"></path><path d=\"M3 19h.01\"></path><path d=\"M8 5h13\"></path><path d=\"M8 12h13\"></path><path d=\"M8 19h13\"></path></svg>",
-  "MapPin": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-map-pin ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>",
-  "Columns3": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-columns-3 lucide-panels-left-right ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path></svg>",
-  "LayoutDashboard": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-layout-dashboard ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\"></rect><rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\"></rect></svg>",
-  "CreditCard": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-credit-card ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"></rect><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"></line><path d=\"M6 14h2\"></path></svg>",
-  "ArrowUp": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m5 12 7-7 7 7\"></path><path d=\"M12 19V5\"></path></svg>",
-  "ArrowDown": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-down ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 5v14\"></path><path d=\"m19 12-7 7-7-7\"></path></svg>",
-  "Check": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-check ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"></path></svg>",
-  "TriangleAlert": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-triangle-exclamation-point lucide-alert-triangle lucide-triangle-alert ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"></path><path d=\"M12 9v4\"></path><path d=\"M12 17h.01\"></path></svg>",
-  "Circle": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle></svg>",
-  "Menu": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-menu ui-icon action-icon\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 5h16\"></path><path d=\"M4 12h16\"></path><path d=\"M4 19h16\"></path></svg>"
+  Building2:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-complex lucide-building-2 ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M10 12h4"></path><path d="M10 8h4"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path></svg>',
+  Car: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-car ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>',
+  Package:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>',
+  Bell: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>',
+  Users:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>',
+  Settings:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+  Tags: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tags ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z"></path><path d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"></path><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"></circle></svg>',
+  ClipboardCheck:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check ui-icon action-icon" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg>',
+  Eye: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+  Tag: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>',
+  FileText:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>',
+  Plus: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>',
+  Pencil:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>',
+  Trash2:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash lucide-trash-2 ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>',
+  Save: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg>',
+  X: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>',
+  ArrowLeft:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left ui-icon action-icon" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>',
+  ArrowRight:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>',
+  ExternalLink:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>',
+  SlidersHorizontal:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M10 5H3"></path><path d="M12 19H3"></path><path d="M14 3v4"></path><path d="M16 17v4"></path><path d="M21 12h-9"></path><path d="M21 19h-5"></path><path d="M21 5h-7"></path><path d="M8 10v4"></path><path d="M8 12H3"></path></svg>',
+  List: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>',
+  MapPin:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+  ColumnsSettings:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-columns-3-cog lucide-columns-settings lucide-table-config ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M10.6 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.6"></path><path d="m14.305 19.53.923-.382"></path><path d="M15 3v7.6"></path><path d="m15.229 16.852-.924-.383"></path><path d="m16.852 15.228-.383-.923"></path><path d="m16.852 20.772-.383.924"></path><path d="m19.148 15.228.383-.923"></path><path d="m19.53 21.696-.382-.924"></path><path d="m20.773 16.852.922-.383"></path><path d="m20.773 19.148.922.383"></path><path d="M9 3v18"></path><circle cx="18" cy="18" r="3"></circle></svg>',
+  LayoutDashboard:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard ui-icon action-icon" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>',
+  CreditCard:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card ui-icon action-icon" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M6 14h2"></path></svg>',
+  ArrowUp:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up ui-icon action-icon" aria-hidden="true" focusable="false"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>',
+  ArrowDown:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>',
+  Check:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>',
+  TriangleAlert:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-exclamation-point lucide-alert-triangle lucide-triangle-alert ui-icon action-icon" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>',
+  Circle:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle ui-icon action-icon" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle></svg>',
+  Menu: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu ui-icon action-icon" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>',
 };
 // END GENERATED LUCIDE ICONS
-function icon(name) { return LUCIDE_ICONS[name] || ""; }
+function icon(name) {
+  return LUCIDE_ICONS[name] || "";
+}
 // Replace legacy decorative glyphs in text nodes only, preserving labels and HTML attributes.
 function lucideMarkup(markup) {
-  const glyphs = {"←":"ArrowLeft","→":"ArrowRight","↗":"ExternalLink","⌖":"MapPin","×":"X","↑":"ArrowUp","↓":"ArrowDown","✓":"Check","⚠":"TriangleAlert","☰":"Menu","●":"Circle","▧":"ClipboardCheck","▤":"List","◇":"Tags","⚙":"Settings","＋":"Plus","☷":"SlidersHorizontal"};
-  return markup.split(/(<[^>]+>)/g).map(part => part.startsWith("<") ? part : part.replace(/[←→↗⌖×↑↓✓⚠☰●▧▤◇⚙＋☷]/g, glyph=>icon(glyphs[glyph]))).join("");
+  const glyphs = {
+    "←": "ArrowLeft",
+    "→": "ArrowRight",
+    "↗": "ExternalLink",
+    "⌖": "MapPin",
+    "×": "X",
+    "↑": "ArrowUp",
+    "↓": "ArrowDown",
+    "✓": "Check",
+    "⚠": "TriangleAlert",
+    "☰": "Menu",
+    "●": "Circle",
+    "▧": "ClipboardCheck",
+    "▤": "List",
+    "◇": "Tags",
+    "⚙": "Settings",
+    "＋": "Plus",
+    "☷": "SlidersHorizontal",
+  };
+  return markup
+    .split(/(<[^>]+>)/g)
+    .map((part) =>
+      part.startsWith("<")
+        ? part
+        : part.replace(/[←→↗⌖×↑↓✓⚠☰●▧▤◇⚙＋☷]/g, (glyph) =>
+            icon(glyphs[glyph]),
+          ),
+    )
+    .join("");
 }
 function rowActionIcon(kind) {
-  return icon({open:"Eye",tags:"Tag",notice:"FileText"}[kind]);
+  return icon({ open: "Eye", tags: "Tag", notice: "FileText" }[kind]);
 }
 function itemActionButtons(item) {
   return (item.category === "properties" ? ["open"] : ["open", "notice"])
@@ -1727,40 +1794,74 @@ function itemActionButtons(item) {
           state.lang === "es"
             ? { open: "Abrir bien", tags: "Etiquetas", notice: "Ver aviso" }
             : { open: "Open item", tags: "Tags", notice: "View notice" },
-        label = kind === "open" && item.category === "properties" ? (state.lang === "es" ? "Editar propiedad" : "Edit property") : labels[kind];
+        label =
+          kind === "open" && item.category === "properties"
+            ? state.lang === "es"
+              ? "Editar propiedad"
+              : "Edit property"
+            : labels[kind];
       return `<button class="icon-action" title="${label}" aria-label="${label}: ${esc(item.id)}" ${kind === "tags" ? `data-tags="${item.id}"` : `data-screen="${kind === "open" ? "asset" : "notice"}" data-id="${item.id}"`}>${kind === "open" && item.category === "properties" ? icon("Pencil") : rowActionIcon(kind)}</button>`;
     })
     .join("");
 }
 function tagLabelsButton(id, compact = false) {
-  const labels=assignedTagLabels(id);
-  return `<button type="button" class="tag-label-trigger ${compact?"row-tag-badges":"auction-tags"}" data-tags="${id}" data-tag-labels="${id}" data-compact="${compact}" aria-label="${t("assignTags")}: ${esc(id)}" aria-haspopup="dialog" aria-controls="tag-picker" title="${esc(labels||t("assignTags"))}" ${canEdit()?"":"disabled"}>${(compact?listTagBadges(id):tagBadges(id))||t("noAssignedTags")}</button>`;
+  const labels = assignedTagLabels(id);
+  return `<button type="button" class="tag-label-trigger ${compact ? "row-tag-badges" : "auction-tags"}" data-tags="${id}" data-tag-labels="${id}" data-compact="${compact}" aria-label="${t("assignTags")}: ${esc(id)}" aria-haspopup="dialog" aria-controls="tag-picker" title="${esc(labels || t("assignTags"))}" ${canEdit() ? "" : "disabled"}>${(compact ? listTagBadges(id) : tagBadges(id)) || t("noAssignedTags")}</button>`;
 }
 function openTagPicker(trigger) {
-  if(!canEdit())return;
-  const id=trigger.dataset.tags,workspace=state.workspace;
-  if(!DEMO_LISTINGS.some(item=>item.id===id))return;
-  const picker=document.getElementById("tag-picker");
-  const selected=state.tags[workspace+id]||[];
-  const choices=orgTags().filter(tag=>!tag.deleted||selected.includes(tag.id));
-  picker.innerHTML=`<div class="tag-picker-heading"><strong>${t("organizationTags")}</strong><button type="button" id="tag-picker-close" aria-label="${state.lang==="es"?"Cerrar":"Close"}">${icon("X")}</button></div><div class="tag-picker-options">${choices.map(tag=>`<button type="button" class="tag-picker-option" data-picker-tag="${tag.id}" aria-pressed="${selected.includes(tag.id)}"><span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color)?tag.color:"gray"}">${esc(tag.label)}</span></button>`).join("")||`<p class="muted">${t("noTags")}</p>`}</div><p id="tag-picker-error" class="danger" role="alert"></p>`;
-  picker.setAttribute("aria-label",t("assignTags"));
-  const bounds=trigger.getBoundingClientRect();
-  picker.style.left=Math.max(8,Math.min(bounds.left,window.innerWidth-310))+"px";
-  picker.style.top=Math.max(8,Math.min(bounds.bottom+6,window.innerHeight-330))+"px";
+  if (!canEdit()) return;
+  const id = trigger.dataset.tags,
+    workspace = state.workspace;
+  if (!DEMO_LISTINGS.some((item) => item.id === id)) return;
+  const picker = document.getElementById("tag-picker");
+  const selected = state.tags[workspace + id] || [];
+  const choices = orgTags().filter(
+    (tag) => !tag.deleted || selected.includes(tag.id),
+  );
+  picker.innerHTML = `<div class="tag-picker-heading"><strong>${t("organizationTags")}</strong><button type="button" id="tag-picker-close" aria-label="${state.lang === "es" ? "Cerrar" : "Close"}">${icon("X")}</button></div><div class="tag-picker-options">${choices.map((tag) => `<button type="button" class="tag-picker-option" data-picker-tag="${tag.id}" aria-pressed="${selected.includes(tag.id)}"><span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}">${esc(tag.label)}</span></button>`).join("") || `<p class="muted">${t("noTags")}</p>`}</div><p id="tag-picker-error" class="danger" role="alert"></p>`;
+  picker.setAttribute("aria-label", t("assignTags"));
+  const bounds = trigger.getBoundingClientRect();
+  picker.style.left =
+    Math.max(8, Math.min(bounds.left, window.innerWidth - 310)) + "px";
+  picker.style.top =
+    Math.max(8, Math.min(bounds.bottom + 6, window.innerHeight - 330)) + "px";
   picker.showPopover();
-  document.getElementById("tag-picker-close").onclick=()=>{picker.hidePopover();trigger.focus();};
-  picker.querySelectorAll("[data-picker-tag]").forEach(option=>option.onclick=()=>{
-    if(workspace!==state.workspace){picker.hidePopover();return;}
-    const current=state.tags[workspace+id]||[],tagId=option.dataset.pickerTag;
-    const ids=current.includes(tagId)?current.filter(value=>value!==tagId):[...current,tagId];
-    const result=assignOrganizationTags(id,ids);
-    if(!result.ok){document.getElementById("tag-picker-error").textContent=t(result.error);return;}
-    option.setAttribute("aria-pressed",String(ids.includes(tagId)));
-    document.getElementById("tag-picker-error").textContent="";
-    // Refresh only tag labels: unsaved property-form inputs remain intact.
-    app.querySelectorAll("[data-tag-labels]").forEach(button=>{if(button.dataset.tagLabels!==id)return;button.innerHTML=button.dataset.compact==="true"?listTagBadges(id):(tagBadges(id)||t("noAssignedTags"));button.title=assignedTagLabels(id)||t("assignTags");});
-  });
+  document.getElementById("tag-picker-close").onclick = () => {
+    picker.hidePopover();
+    trigger.focus();
+  };
+  picker.querySelectorAll("[data-picker-tag]").forEach(
+    (option) =>
+      (option.onclick = () => {
+        if (workspace !== state.workspace) {
+          picker.hidePopover();
+          return;
+        }
+        const current = state.tags[workspace + id] || [],
+          tagId = option.dataset.pickerTag;
+        const ids = current.includes(tagId)
+          ? current.filter((value) => value !== tagId)
+          : [...current, tagId];
+        const result = assignOrganizationTags(id, ids);
+        if (!result.ok) {
+          document.getElementById("tag-picker-error").textContent = t(
+            result.error,
+          );
+          return;
+        }
+        option.setAttribute("aria-pressed", String(ids.includes(tagId)));
+        document.getElementById("tag-picker-error").textContent = "";
+        // Refresh only tag labels: unsaved property-form inputs remain intact.
+        app.querySelectorAll("[data-tag-labels]").forEach((button) => {
+          if (button.dataset.tagLabels !== id) return;
+          button.innerHTML =
+            button.dataset.compact === "true"
+              ? listTagBadges(id)
+              : tagBadges(id) || t("noAssignedTags");
+          button.title = assignedTagLabels(id) || t("assignTags");
+        });
+      }),
+  );
 }
 function listTagBadges(assetId) {
   const ids = state.tags[state.workspace + assetId] || [],
@@ -1936,7 +2037,7 @@ function columnLabel(key) {
 }
 function columnMenu() {
   const selected = visibleColumns();
-  return `<details class="column-menu" id="column-menu"><summary>${icon("Columns3")} ${t("columns")}</summary><div class="column-menu-panel"><fieldset><legend>${t("columns")}</legend>${availableColumns()
+  return `<details class="column-menu" id="column-menu"><summary>${icon("ColumnsSettings")} ${t("columns")}</summary><div class="column-menu-panel"><fieldset><legend>${t("columns")}</legend>${availableColumns()
     .map(
       (key) =>
         `<label><input type="checkbox" data-column="${key}" ${selected.includes(key) ? "checked" : ""} ${key !== "actions" && selected.includes(key) && selected.filter((value) => value !== "actions").length === 1 ? "disabled" : ""}>${esc(columnLabel(key))}</label>`,
@@ -1956,7 +2057,7 @@ function itemTable(items) {
     })
     .join(
       "",
-    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.id) : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `${tagLabelsButton(item.id,true)}` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.id) : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `${tagLabelsButton(item.id, true)}` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
 function bindSort() {
   const change = (rules) => {
@@ -2388,45 +2489,194 @@ function overview() {
   );
 }
 function savePropertyResearch(id, workspace, input) {
-  if(workspace!==state.workspace || !canEdit()) return {ok:false,error:"permissionDenied"};
-  const item=DEMO_LISTINGS.find(item=>item.id===id&&item.category==="properties");
-  if(!item || typeof input.notes!=="string" || input.notes.length>10000) return {ok:false,error:"invalidResearch"};
-  const amount=String(input.appraisalAmount??"").trim(),currency=input.appraisalCurrency;
-  if(amount && (!/^(0|[1-9][0-9]{0,13})(\.[0-9]{1,2})?$/.test(amount)||!["CRC","USD"].includes(currency))) return {ok:false,error:"invalidResearch"};
-  state.notes[workspace+id]=input.notes;
-  state.propertyResearch[workspace+id]={appraisal:amount?{amount:amount.split(".")[0]+"."+(amount.split(".")[1]||"").padEnd(2,"0"),currency}:null};
-  return {ok:true};
+  if (workspace !== state.workspace || !canEdit())
+    return { ok: false, error: "permissionDenied" };
+  const item = DEMO_LISTINGS.find(
+    (item) => item.id === id && item.category === "properties",
+  );
+  if (!item || typeof input.notes !== "string" || input.notes.length > 10000)
+    return { ok: false, error: "invalidResearch" };
+  const amount = String(input.appraisalAmount ?? "").trim(),
+    currency = input.appraisalCurrency;
+  if (
+    amount &&
+    (!/^(0|[1-9][0-9]{0,13})(\.[0-9]{1,2})?$/.test(amount) ||
+      !["CRC", "USD"].includes(currency))
+  )
+    return { ok: false, error: "invalidResearch" };
+  state.notes[workspace + id] = input.notes;
+  state.propertyResearch[workspace + id] = {
+    appraisal: amount
+      ? {
+          amount:
+            amount.split(".")[0] +
+            "." +
+            (amount.split(".")[1] || "").padEnd(2, "0"),
+          currency,
+        }
+      : null,
+  };
+  return { ok: true };
 }
 function propertyResearchForm(item) {
-  if(item.category!=="properties" || !canEdit())return "";
-  const es=state.lang==="es",L=(en,spanish)=>es?spanish:en;
-  const data=state.propertyResearch[state.workspace+item.id]||{};
-  return `<form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Additional information","Información adicional")}</h2><label for="property-notes">${L("Notes","Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace+item.id]||"")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount","Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount||"")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency","Moneda")}</label><select id="property-appraisal-currency">${options([["CRC","CRC"],["USD","USD"]],data.appraisal?.currency||item.currency)}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-reset-property-research>${L("Cancel","Cancelar")}</button></div></form>`;
+  if (item.category !== "properties" || !canEdit()) return "";
+  const es = state.lang === "es",
+    L = (en, spanish) => (es ? spanish : en);
+  const data = state.propertyResearch[state.workspace + item.id] || {};
+  return `<form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Additional information", "Información adicional")}</h2><label for="property-notes">${L("Notes", "Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace + item.id] || "")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount", "Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount || "")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency", "Moneda")}</label><select id="property-appraisal-currency">${options(
+    [
+      ["CRC", "CRC"],
+      ["USD", "USD"],
+    ],
+    data.appraisal?.currency || item.currency,
+  )}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-reset-property-research>${L("Cancel", "Cancelar")}</button></div></form>`;
 }
 function bindPropertyResearch() {
-  app.querySelectorAll("[data-reset-property-research]").forEach(button=>button.onclick=()=>render());
-  const form=document.getElementById("property-research-form");
-  if(!form)return;
-  form.onsubmit=event=>{event.preventDefault();const result=savePropertyResearch(form.dataset.id,form.dataset.workspace,{notes:document.getElementById("property-notes").value,appraisalAmount:document.getElementById("property-appraisal").value,appraisalCurrency:document.getElementById("property-appraisal-currency").value});if(!result.ok){document.getElementById("property-research-error").textContent=result.error==="permissionDenied"?t(result.error):(state.lang==="es"?"Verifica las notas y el monto: usa un valor no negativo con hasta dos decimales.":"Check the notes and amount: use a non-negative value with up to two decimal places.");return;}render();toast(state.lang==="es"?"Cambios guardados":"Changes saved");};
+  app
+    .querySelectorAll("[data-reset-property-research]")
+    .forEach((button) => (button.onclick = () => render()));
+  const form = document.getElementById("property-research-form");
+  if (!form) return;
+  form.onsubmit = (event) => {
+    event.preventDefault();
+    const result = savePropertyResearch(
+      form.dataset.id,
+      form.dataset.workspace,
+      {
+        notes: document.getElementById("property-notes").value,
+        appraisalAmount: document.getElementById("property-appraisal").value,
+        appraisalCurrency: document.getElementById(
+          "property-appraisal-currency",
+        ).value,
+      },
+    );
+    if (!result.ok) {
+      document.getElementById("property-research-error").textContent =
+        result.error === "permissionDenied"
+          ? t(result.error)
+          : state.lang === "es"
+            ? "Verifica las notas y el monto: usa un valor no negativo con hasta dos decimales."
+            : "Check the notes and amount: use a non-negative value with up to two decimal places.";
+      return;
+    }
+    render();
+    toast(state.lang === "es" ? "Cambios guardados" : "Changes saved");
+  };
+}
+const ITEM_TABS = [
+  "overview",
+  "auction",
+  "registry-info",
+  "notice",
+  "public-registry",
+  "location",
+  "images",
+];
+function availableItemTabs() {
+  return ITEM_TABS.filter(
+    (tab) => tab !== "location" || current().category === "properties",
+  );
+}
+function itemTabLabel(tab) {
+  return (
+    state.lang === "es"
+      ? {
+          overview: "Información general",
+          auction: "Remate",
+          "registry-info": "Información registral",
+          notice: "Aviso",
+          "public-registry": "Registro",
+          location: "Ubicación",
+          images: "Imágenes",
+        }
+      : {
+          overview: "General info",
+          auction: "Auction",
+          "registry-info": "Registry info",
+          notice: "Notice",
+          "public-registry": "Registry",
+          location: "Location",
+          images: "Images",
+        }
+  )[tab];
+}
+function calculateRoundCost(event, rule) {
+  if(!rule?.verified || !["notice","countryRule"].includes(rule.source) || !rule.reference || !rule.currency)return null;
+  const parse=value=>typeof value==="string"&&/^(0|[1-9]\d{0,13})(\.\d{1,2})?$/.test(value)?BigInt(value.split(".")[0])*100n+BigInt((value.split(".")[1]||"").padEnd(2,"0")):null;
+  let minor;
+  if(rule.kind==="fixed")minor=parse(rule.amount);
+  else if(rule.kind==="percentOfBase"&&rule.rounding==="halfUp"&&Number.isInteger(rule.basisPoints)&&rule.basisPoints>=0&&rule.basisPoints<=10000&&event.baseOffer?.currency===rule.currency){
+    const base=parse(event.baseOffer.amount);if(base===null)return null;
+    minor=(base*BigInt(rule.basisPoints)+5000n)/10000n;
+  } else return null;
+  return minor===null?null:{amount:String(minor/100n)+"."+String(minor%100n).padStart(2,"0"),currency:rule.currency,source:rule.source,reference:rule.reference};
+}
+function roundCostCell(item,event,key) {
+  const result=calculateRoundCost(event,item.roundCostRules?.[key]);
+  if(!result)return `<span class="muted">${state.lang==="es"?"No disponible":"Not available"}</span>`;
+  const source=state.lang==="es"?(result.source==="notice"?"Calculado según aviso":"Calculado según regla del país"):(result.source==="notice"?"Calculated from notice":"Calculated from country rule");
+  return `<span title="${esc(source+": "+result.reference)}">${esc(result.currency)} ${new Intl.NumberFormat(state.lang==="es"?"es-CR":"en-US",{minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(result.amount))}</span>`;
+}
+function auctionPanel(item) {
+  const es = state.lang === "es",
+    L = (en, spanish) => (es ? spanish : en);
+  const related = item.auctionId
+    ? DEMO_LISTINGS.filter(
+        (other) => other.auctionId === item.auctionId && other.id !== item.id,
+      )
+    : [];
+  const lotMembers = item.lotId
+    ? related.filter((other) => other.lotId === item.lotId)
+    : [];
+  const itemLinks = (items) =>
+    items.length
+      ? `<ul class="auction-related-items">${items.map((other) => `<li><button class="title-link" data-screen="asset" data-id="${other.id}">${esc(other.registrationNumber || other.plate || other.id)} · ${esc(title(other))} ${icon("ArrowRight")}</button></li>`).join("")}</ul>`
+      : `<p class="muted">${L("No other linked items.", "No hay otros bienes vinculados.")}</p>`;
+  return `<div class="panel"><h2>${L("Auction", "Remate")}</h2><dl class="fact-grid"><div><dt>${L("Auction reference", "Referencia del remate")}</dt><dd>${esc(item.auctionId || t("notReported"))}</dd></div><div><dt>${L("Sale format", "Modalidad de venta")}</dt><dd>${item.saleMode === "lot" ? L("Part of a lot — sold together", "Parte de un lote — venta conjunta") : item.saleMode === "individual" ? L("Sold as one item", "Venta individual") : t("notReported")}</dd></div>${item.lotId ? `<div><dt>${L("Lot reference", "Referencia del lote")}</dt><dd>${esc(item.lotId)}</dd></div>` : ""}</dl></div><section class="panel"><h2>${L("Rounds", "Rondas")}</h2><p class="muted">${item.saleMode === "lot" ? L("Base offers apply to the whole lot.", "Las ofertas base corresponden al lote completo.") : L("Base offers apply to this item.", "Las ofertas base corresponden a este bien.")}</p><div class="table-scroll" tabindex="0" role="region" aria-label="${L("Auction rounds", "Rondas del remate")}"><table class="items-table single-line-table" data-grid-key="auction-rounds"><thead><tr><th>${L("Round", "Ronda")}</th><th>${L("Date", "Fecha")}</th><th>${L("Time", "Hora")}</th><th>${L("Base offer", "Oferta base")}</th><th>${L("Participation Guarantee", "Garantía de participación")}</th><th>${L("Participation fee", "Cuota de participación")}</th></tr></thead><tbody>${(item.auctionRounds || []).map((event) => `<tr><td>${esc(event.round)}${event.round === item.nextAuctionRound ? ` · ${t("nextEvent")}` : ""}</td><td>${event.date ? date({ date: event.date }) : t("notReported")}</td><td>${esc(event.time || t("notReported"))}</td><td>${event.baseOffer ? money(event.baseOffer) : t("notReported")}</td><td>${roundCostCell(item,event,"guarantee")}</td><td>${roundCostCell(item,event,"participationFee")}</td></tr>`).join("") || `<tr><td colspan="6">${t("notReported")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:12px">${t("timezone")}</p></section>${item.lotId ? `<section class="panel"><h2>${L("Other items in this lot", "Otros bienes de este lote")}</h2>${itemLinks(lotMembers)}</section>` : ""}<section class="panel"><h2>${L("Other items in this auction", "Otros bienes de este remate")}</h2>${itemLinks(related)}</section>`;
 }
 function asset() {
   const a = current();
-  const overview = `<div class="detail-columns"><div><div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[["reference", a.id], ["auctionType", t(a.type)], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality], ["quality", t(a.quality === "reviewed" ? "reviewed" : "needsReview")]].map(([k, v]) => `<div><dt>${t(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></div><div class="panel"><h2>${t("events")}</h2><div class="timeline"><div class="event"><strong>${esc(auctionRoundLabel(a))}</strong><p>${date(a)} · ${a.time}</p><p>${t("timezone")}</p><span class="badge neutral">${t("base")}: ${money(a)}</span></div></div><p class="muted">${t("sourceCaution")}</p></div>${propertyResearchForm(a)}<div class="panel"><h2>${t("organizationResearch")}</h2>${tagLabelsButton(a.id)}${a.category === "properties" && canEdit() ? "" : `<p class="muted" style="margin-top:16px">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p>`}</div></div><aside><div class="panel price-panel"><div class="eyebrow">${t("base")}</div><div class="price">${money(a)}</div><span class="badge neutral">${t("nextEvent")}</span><h3 style="margin-top:14px">${nextAuctionDisplay(a)} · ${a.time}</h3><p class="muted">${t("timezone")}</p><button class="primary full" data-screen="notice" data-id="${a.id}">${t("source")} ↗</button><div class="source-line">${t("sourceDate")}<br>${t("checked")}<br>${t("revision")} ${state.revision}</div></div><div class="notice">${t("sourceCaution")}</div></aside></div>`;
+  if (!availableItemTabs().includes(state.itemTab)) state.itemTab = "overview";
+  const overview = `<div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[
+    ["reference", a.registrationNumber || a.plate || a.id],
+    ["auctionType", t(a.type)],
+    ...(a.category === "properties"
+      ? [
+          ["area", a.area ? a.area + " m²" : t("notReported")],
+          ["location", a.locality],
+        ]
+      : []),
+    ["quality", t(a.quality === "reviewed" ? "reviewed" : "needsReview")],
+  ]
+    .map(
+      ([key, value]) => `<div><dt>${t(key)}</dt><dd>${esc(value)}</dd></div>`,
+    )
+    .join(
+      "",
+    )}</dl></div>${propertyResearchForm(a)}<div class="panel"><h2>${t("organizationResearch")}</h2>${tagLabelsButton(a.id)}${a.category === "properties" && canEdit() ? "" : `<p class="muted">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p>`}</div>`;
+  const es = state.lang === "es";
+  const registryPanel = `<div class="panel"><h2>${itemTabLabel("registry-info")}</h2><dl class="fact-grid"><div><dt>${a.category === "vehicles" ? (es ? "Placa" : "Plate") : es ? "Número de finca" : "Registration number"}</dt><dd>${esc(a.registrationNumber || a.plate || t("notReported"))}</dd></div></dl><p class="muted">${es ? "No hay más datos registrales disponibles en este ejemplo." : "No additional registry information is available in this example."}</p></div>`;
+  const publicRegistryPanel = `<div class="panel"><h2>${itemTabLabel("public-registry")}</h2><p class="muted">${es ? "La consulta del registro público aún no está conectada. No se muestran resultados oficiales." : "Public registry lookup is not connected yet. No official results are displayed."}</p></div>`;
+  const noticePanel = `<article class="panel"><h2>${itemTabLabel("notice")}</h2><p class="muted">${t("originalLink")}</p><div class="notice-text" lang="es">${esc(noticeText(a))}</div></article>`;
+  const locationPanel = `<div class="panel"><h2>${itemTabLabel("location")}</h2><p>${esc(a.locality)}</p></div>${a.mapped ? mapView([a]) : `<div class="notice">${es ? "No hay coordenadas disponibles para este bien." : "Coordinates are not available for this item."}</div>`}`;
   const images = state.images[state.workspace + a.id] || [];
   const imagePanel = `<div class="panel"><h2>${t("imagesTitle")}</h2><p class="muted">${t("imagesHelp")}</p><div class="notice">${t("imageLocalOnly")}</div><form id="image-upload-form"><label for="auction-image-files">${t("imageFiles")}</label><input id="auction-image-files" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple ${canEdit() ? "" : "disabled"}><p class="muted" style="margin-top:10px">${t("imageLimits")}</p><p id="image-error" role="alert" class="danger"></p><button class="primary" ${canEdit() ? "" : "disabled"}>${t("attachImages")}</button></form></div>${images.length ? `<div class="media-grid">${images.map((img) => `<figure class="panel"><img src="${esc(img.url)}" alt="${esc(img.name)}"><figcaption><strong>${esc(img.name)}</strong><p class="muted">${t("uploadedBy")}: ${esc(img.uploaderId)}</p></figcaption></figure>`).join("")}</div>` : `<div class="empty"><h2>${t("imagesEmpty")}</h2><p>${t("imagesEmptyHelp")}</p></div>`}`;
   return (
     `<div class="breadcrumb"><button class="ghost" data-screen="discover">← ${t("back")}</button><span>/ ${a.id}</span></div>` +
-    heading(
-      "assetInfo",
-      "fiction",
-      ``,
-    ) +
-    `<h2 style="font-size:25px;margin-bottom:20px">${esc(title(a))}</h2><div class="item-tabs" role="tablist" aria-label="${t("assetInfo")}">${["overview", "images"].map((tab) => `<button id="item-tab-${tab}" role="tab" aria-selected="${state.itemTab === tab}" aria-controls="item-tab-panel" data-item-tab="${tab}" class="${state.itemTab === tab ? "primary" : ""}">${t(tab === "overview" ? "overviewTab" : "imagesTab")}${tab === "images" ? " (" + images.length + ")" : ""}</button>`).join("")}</div><section id="item-tab-panel" role="tabpanel" aria-labelledby="item-tab-${state.itemTab}">${state.itemTab === "images" ? imagePanel : overview}</section>`
+    heading("assetInfo", "fiction", ``) +
+    `<h2 style="font-size:25px;margin-bottom:20px">${esc(title(a))}</h2><div class="item-tabs" role="tablist" aria-label="${t("assetInfo")}">${availableItemTabs()
+      .map(
+        (tab) =>
+          `<button id="item-tab-${tab}" role="tab" aria-selected="${state.itemTab === tab}" aria-controls="item-tab-panel" data-item-tab="${tab}" tabindex="${state.itemTab === tab ? 0 : -1}">${itemTabLabel(tab)}${tab === "images" ? " (" + images.length + ")" : ""}</button>`,
+      )
+      .join(
+        "",
+      )}</div><section id="item-tab-panel" role="tabpanel" aria-labelledby="item-tab-${state.itemTab}">${{ overview, auction: auctionPanel(a), "registry-info": registryPanel, notice: noticePanel, "public-registry": publicRegistryPanel, location: locationPanel, images: imagePanel }[state.itemTab] || overview}</section>`
   );
 }
 function noticeText(a) {
   a = ORIGINAL_LISTINGS.find((x) => x.id === a.id) || a;
-  return `AVISO SINTÉTICO DE DEMOSTRACIÓN\n\nReferencia ficticia ${a.id}. En un juzgado de ejemplo, se anuncia únicamente para fines de diseño un bien de tipo ${COPY.es[a.type].toLowerCase()}, ubicado de forma ilustrativa en ${a.locality}.\n\nLa base de ejemplo es ${a.currency} ${a.amount}. La fecha ficticia de primera subasta es ${a.date}, a las ${a.time}, hora de Costa Rica. ${a.category === "properties" ? (a.area ? "El área de ejemplo es " + a.area + " metros cuadrados." : "La superficie no consta en este ejemplo.") : "No se han aportado atributos adicionales en esta demostración."}\n\nNo se identifica una finca real, un expediente real ni personas reales. Este texto no produce efectos jurídicos, no acredita condiciones de un bien y no constituye una convocatoria a remate.\n\nFIN DEL TEXTO SINTÉTICO.`;
+  return `AVISO SINTÉTICO DE DEMOSTRACIÓN\n\nReferencia ficticia ${a.id}. En un juzgado de ejemplo, se anuncia únicamente para fines de diseño un bien de tipo ${COPY.es[a.type].toLowerCase()}, ubicado de forma ilustrativa en ${a.locality}.\n\nLa base de ejemplo es ${a.currency} ${a.amount}. La fecha ficticia de primera subasta es ${a.date}, a las ${a.time}, hora de Costa Rica. ${a.category === "properties" ? (a.area ? "El área de ejemplo es " + a.area + " metros cuadrados." : "La superficie no consta en este ejemplo.") : "No se han aportado atributos adicionales en esta demostración."}\n\nNo se identifica una finca real, un expediente real ni personas reales. Este texto no produce efectos jurídicos, no acredita condiciones de un bien y no constituye una convocatoria a remate.${a.roundCostRules?"\n\nCláusula de prueba ficticia DEMO-NOTICE-TERMS-A07: para cada ronda del lote, garantía del 10% de la base con redondeo al centavo más cercano (mitades hacia arriba); cuota de participación de CRC 5000.00 por ronda. Solo para demostrar cálculos, no corresponde a una norma ni a un remate real.":""}\n\nFIN DEL TEXTO SINTÉTICO.`;
 }
 function notice() {
   const a = current();
@@ -2550,39 +2800,123 @@ function review() {
 }
 
 function tagManagement() {
-  const es=state.lang==="es", L=(en,spanish)=>es?spanish:en;
-  const top=`<div class="heading"><div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain tags and colors.","Administra las etiquetas y colores.")}</p></div>${canManageTags()&&state.screen!=="tag-new"?`<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag","Crear etiqueta")}</button>`:""}</div>`;
-  if(!canManageTags()) return top+`<div class="notice" role="alert">${t("permissionDenied")}</div>`;
-  const fields=tag=>`<div><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(tag?.label||"")}"></div><div><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(tag?.color||"gray")}</select></div>`;
-  if(state.screen==="tag-new") return top+`<form id="tag-editor-form" class="panel tag-editor"><h2>${L("Create tag","Crear etiqueta")}</h2>${fields(null)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="tags">${L("Cancel","Cancelar")}</button></div></form>`;
-  const editing=orgTags().find(tag=>tag.id===state.editingTag&&!tag.deleted);
-  const usage=id=>Object.entries(state.tags).filter(([key,ids])=>key.startsWith(state.workspace+"DEMO-")&&ids.includes(id)).length;
-  state.tagSort ||= [{field:"label",direction:1}];
-  const records=orgTags().filter(tag=>!tag.deleted).sort((a,b)=>{for(const rule of state.tagSort){const diff=rule.field==="label"?a.label.localeCompare(b.label):usage(a.id)-usage(b.id);if(diff)return diff*rule.direction;}return a.id.localeCompare(b.id);});
-  const rows=records;
-  return top+`<p class="muted">${L("Shift-click a heading to add a sort priority.","Mayús + clic en un encabezado para agregar prioridad de orden.")}</p><div class="table-scroll" role="region" tabindex="0" aria-label="${t("tagCatalog")}"><table class="items-table single-line-table tag-admin-table"><thead><tr><th class="col-tag-label"><button data-tag-sort="label">${t("tagLabel")} ${state.tagSort.some(r=>r.field==="label")?icon(state.tagSort.find(r=>r.field==="label").direction===1?"ArrowUp":"ArrowDown"):""}</button></th><th class="col-tag-usage"><button data-tag-sort="usage">${L("Assigned items","Bienes asignados")} ${state.tagSort.some(r=>r.field==="usage")?icon(state.tagSort.find(r=>r.field==="usage").direction===1?"ArrowUp":"ArrowDown"):""}</button></th><th class="col-actions" aria-label="${L("Item controls","Controles")}"></th></tr></thead><tbody>${rows.map(tag=>`<tr class="auction-row"><td class="col-tag-label">${editing?.id===tag.id?`<form id="tag-editor-form" class="tag-inline-editor">${fields(tag)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-cancel-tag-edit>${L("Cancel","Cancelar")}</button></div></form>`:`<span class="badge tag-badge tag-${tag.color||"gray"}">${esc(tag.label)}</span>`}</td><td class="col-tag-usage">${usage(tag.id)}</td><td class="col-actions"><div class="row-actions"><button class="icon-action" title="${L("Edit","Editar")}" aria-label="${L("Edit","Editar")}: ${esc(tag.label)}" data-edit-definition="${tag.id}">${icon("Pencil")}</button><button class="icon-action danger" title="${L("Delete","Eliminar")}" aria-label="${L("Delete","Eliminar")}: ${esc(tag.label)}" data-delete-definition="${tag.id}">${icon("Trash2")}</button></div></td></tr>`).join("")||`<tr><td colspan="3">${L("No tags yet. Create your first tag.","Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags retain existing assignments and filter references for history.","Las etiquetas eliminadas conservan sus asignaciones y referencias de filtros para el historial.")}</p>`;
+  const es = state.lang === "es",
+    L = (en, spanish) => (es ? spanish : en);
+  const top = `<div class="heading"><div><h1>${t("tagCatalog")}</h1><p class="muted">${L("Maintain tags and colors.", "Administra las etiquetas y colores.")}</p></div>${canManageTags() && state.screen !== "tag-new" ? `<button class="primary" data-screen="tag-new">${icon("Plus")} ${L("Create tag", "Crear etiqueta")}</button>` : ""}</div>`;
+  if (!canManageTags())
+    return (
+      top + `<div class="notice" role="alert">${t("permissionDenied")}</div>`
+    );
+  const fields = (tag) =>
+    `<div><label for="definition-label">${t("tagLabel")}</label><input id="definition-label" name="label" maxlength="40" required value="${esc(tag?.label || "")}"></div><div><label for="definition-color">Color</label><select id="definition-color" name="color">${tagColorOptions(tag?.color || "gray")}</select></div>`;
+  if (state.screen === "tag-new")
+    return (
+      top +
+      `<form id="tag-editor-form" class="panel tag-editor"><h2>${L("Create tag", "Crear etiqueta")}</h2>${fields(null)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-screen="tags">${L("Cancel", "Cancelar")}</button></div></form>`
+    );
+  const editing = orgTags().find(
+    (tag) => tag.id === state.editingTag && !tag.deleted,
+  );
+  const usage = (id) =>
+    Object.entries(state.tags).filter(
+      ([key, ids]) =>
+        key.startsWith(state.workspace + "DEMO-") && ids.includes(id),
+    ).length;
+  state.tagSort ||= [{ field: "label", direction: 1 }];
+  const records = orgTags()
+    .filter((tag) => !tag.deleted)
+    .sort((a, b) => {
+      for (const rule of state.tagSort) {
+        const diff =
+          rule.field === "label"
+            ? a.label.localeCompare(b.label)
+            : usage(a.id) - usage(b.id);
+        if (diff) return diff * rule.direction;
+      }
+      return a.id.localeCompare(b.id);
+    });
+  const rows = records;
+  return (
+    top +
+    `<p class="muted">${L("Shift-click a heading to add a sort priority.", "Mayús + clic en un encabezado para agregar prioridad de orden.")}</p><div class="table-scroll" role="region" tabindex="0" aria-label="${t("tagCatalog")}"><table class="items-table single-line-table tag-admin-table"><thead><tr><th class="col-tag-label"><button data-tag-sort="label">${t("tagLabel")} ${state.tagSort.some((r) => r.field === "label") ? icon(state.tagSort.find((r) => r.field === "label").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-tag-usage"><button data-tag-sort="usage">${L("Assigned items", "Bienes asignados")} ${state.tagSort.some((r) => r.field === "usage") ? icon(state.tagSort.find((r) => r.field === "usage").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-actions" aria-label="${L("Item controls", "Controles")}"></th></tr></thead><tbody>${rows.map((tag) => `<tr class="auction-row"><td class="col-tag-label">${editing?.id === tag.id ? `<form id="tag-editor-form" class="tag-inline-editor">${fields(tag)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-cancel-tag-edit>${L("Cancel", "Cancelar")}</button></div></form>` : `<span class="badge tag-badge tag-${tag.color || "gray"}">${esc(tag.label)}</span>`}</td><td class="col-tag-usage">${usage(tag.id)}</td><td class="col-actions"><div class="row-actions"><button class="icon-action" title="${L("Edit", "Editar")}" aria-label="${L("Edit", "Editar")}: ${esc(tag.label)}" data-edit-definition="${tag.id}">${icon("Pencil")}</button><button class="icon-action danger" title="${L("Delete", "Eliminar")}" aria-label="${L("Delete", "Eliminar")}: ${esc(tag.label)}" data-delete-definition="${tag.id}">${icon("Trash2")}</button></div></td></tr>`).join("") || `<tr><td colspan="3">${L("No tags yet. Create your first tag.", "Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags retain existing assignments and filter references for history.", "Las etiquetas eliminadas conservan sus asignaciones y referencias de filtros para el historial.")}</p>`
+  );
 }
 function bindTagManagement() {
-  app.querySelectorAll("[data-tag-sort]").forEach(button=>button.onclick=e=>{const field=button.dataset.tagSort,old=state.tagSort.find(rule=>rule.field===field),rule={field,direction:old?-old.direction:1};state.tagSort=e.shiftKey?[...state.tagSort.filter(r=>r.field!==field),rule]:[rule];state.editingTag=null;render();});
-  app.querySelectorAll("[data-edit-definition]").forEach(button=>button.onclick=()=>{state.editingTag=button.dataset.editDefinition;render();document.getElementById("definition-label")?.focus();});
-  const cancel=app.querySelector?.("[data-cancel-tag-edit]");
-  if(cancel) cancel.onclick=()=>{state.editingTag=null;render();};
-  const form=document.getElementById("tag-editor-form");
-  if(form) form.onsubmit=event=>{
-    event.preventDefault();
-    const label=document.getElementById("definition-label").value,color=document.getElementById("definition-color").value;
-    const result=state.screen==="tag-new"?createOrganizationTag(label,color):updateOrganizationTag(state.editingTag,{label,color});
-    if(!result.ok){document.getElementById("definition-error").textContent=t(result.error);return;}
-    state.editingTag=null;navigate("tags");toast(t("tagUpdated"));
-  };
-  app.querySelectorAll("[data-delete-definition]").forEach(button=>button.onclick=()=>{
-    const workspace=state.workspace, tag=orgTags().find(tag=>tag.id===button.dataset.deleteDefinition&&!tag.deleted);
-    if(!tag||!canManageTags())return;
-    const es=state.lang==="es";
-    showDialog(es?"Eliminar etiqueta":"Delete tag",`<p>${es?"¿Eliminar":"Delete"} <strong>${esc(tag.label)}</strong>?</p><p class="muted">${es?"Se conservan las asignaciones y referencias existentes para el historial.":"Existing assignments and references are preserved for history."}</p><div class="actions"><button type="button" class="danger" id="confirm-tag-delete">${icon("Trash2")} ${es?"Eliminar etiqueta":"Delete tag"}</button><button type="button" id="cancel-tag-delete">${es?"Cancelar":"Cancel"}</button></div>`);
-    document.getElementById("cancel-tag-delete").onclick=()=>document.getElementById("notice").close();
-    document.getElementById("confirm-tag-delete").onclick=()=>{if(state.workspace!==workspace)return;const result=deleteOrganizationTag(tag.id);if(!result.ok){toast(t(result.error));return;}document.getElementById("notice").close();state.editingTag=null;navigate("tags");};
-  });
+  app.querySelectorAll("[data-tag-sort]").forEach(
+    (button) =>
+      (button.onclick = (e) => {
+        const field = button.dataset.tagSort,
+          old = state.tagSort.find((rule) => rule.field === field),
+          rule = { field, direction: old ? -old.direction : 1 };
+        state.tagSort = e.shiftKey
+          ? [...state.tagSort.filter((r) => r.field !== field), rule]
+          : [rule];
+        state.editingTag = null;
+        render();
+      }),
+  );
+  app.querySelectorAll("[data-edit-definition]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        state.editingTag = button.dataset.editDefinition;
+        render();
+        document.getElementById("definition-label")?.focus();
+      }),
+  );
+  const cancel = app.querySelector?.("[data-cancel-tag-edit]");
+  if (cancel)
+    cancel.onclick = () => {
+      state.editingTag = null;
+      render();
+    };
+  const form = document.getElementById("tag-editor-form");
+  if (form)
+    form.onsubmit = (event) => {
+      event.preventDefault();
+      const label = document.getElementById("definition-label").value,
+        color = document.getElementById("definition-color").value;
+      const result =
+        state.screen === "tag-new"
+          ? createOrganizationTag(label, color)
+          : updateOrganizationTag(state.editingTag, { label, color });
+      if (!result.ok) {
+        document.getElementById("definition-error").textContent = t(
+          result.error,
+        );
+        return;
+      }
+      state.editingTag = null;
+      navigate("tags");
+      toast(t("tagUpdated"));
+    };
+  app.querySelectorAll("[data-delete-definition]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        const workspace = state.workspace,
+          tag = orgTags().find(
+            (tag) => tag.id === button.dataset.deleteDefinition && !tag.deleted,
+          );
+        if (!tag || !canManageTags()) return;
+        const es = state.lang === "es";
+        showDialog(
+          es ? "Eliminar etiqueta" : "Delete tag",
+          `<p>${es ? "¿Eliminar" : "Delete"} <strong>${esc(tag.label)}</strong>?</p><p class="muted">${es ? "Se conservan las asignaciones y referencias existentes para el historial." : "Existing assignments and references are preserved for history."}</p><div class="actions"><button type="button" class="danger" id="confirm-tag-delete">${icon("Trash2")} ${es ? "Eliminar etiqueta" : "Delete tag"}</button><button type="button" id="cancel-tag-delete">${es ? "Cancelar" : "Cancel"}</button></div>`,
+        );
+        document.getElementById("cancel-tag-delete").onclick = () =>
+          document.getElementById("notice").close();
+        document.getElementById("confirm-tag-delete").onclick = () => {
+          if (state.workspace !== workspace) return;
+          const result = deleteOrganizationTag(tag.id);
+          if (!result.ok) {
+            toast(t(result.error));
+            return;
+          }
+          document.getElementById("notice").close();
+          state.editingTag = null;
+          navigate("tags");
+        };
+      }),
+  );
 }
 function settings() {
   const top = heading("settingsTitle", "settingsSub");
@@ -2593,7 +2927,7 @@ function settings() {
     );
   return (
     top +
-    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><h2>${t("tagCatalog")}</h2><p class="muted">${t("tagHelp")}</p><button data-screen="tags">${icon("Tags")} ${state.lang==="es"?"Administrar etiquetas":"Manage tags"}</button></div>`
+    `<div class="panel"><h2>${t("workspace")}</h2><form id="organization-form"><label for="organization-name">${t("orgName")}</label><input id="organization-name" name="displayName" maxlength="100" value="${esc(organizationName())}" ${canAdmin() ? "" : "readonly"}><div class="actions" style="margin-top:16px">${canAdmin() ? `<button class="primary">${t("saveSettings")}</button><button type="button" data-screen="team">${t("manageUsers")}</button><button type="button" data-screen="plans">${t("manageBilling")}</button>` : '<span class="badge neutral">ADMIN</span>'}</div><p id="organization-error" role="alert" class="danger"></p></form></div><div class="panel"><h2>${t("tagCatalog")}</h2><p class="muted">${t("tagHelp")}</p><button data-screen="tags">${icon("Tags")} ${state.lang === "es" ? "Administrar etiquetas" : "Manage tags"}</button></div>`
   );
 }
 
@@ -2665,18 +2999,9 @@ function render() {
   document.documentElement.lang = state.lang;
   document.title = t("appName");
   const navs = [
-    [
-      "properties",
-      `${icon("Building2")}`,
-    ],
-    [
-      "vehicles",
-      `${icon("Car")}`,
-    ],
-    [
-      "other",
-      `${icon("Package")}`,
-    ],
+    ["properties", `${icon("Building2")}`],
+    ["vehicles", `${icon("Car")}`],
+    ["other", `${icon("Package")}`],
     ["alerts", "◷"],
     ["team", "♧"],
   ];
@@ -2752,7 +3077,163 @@ function render() {
   app.innerHTML = lucideMarkup(app.innerHTML);
   bind();
 }
+function bindGridResizing() {
+  app.querySelectorAll("table.items-table").forEach((table) => {
+    const headers = Array.from(table.querySelectorAll("thead th"));
+    if (!headers.length) return;
+    const key =
+      "auctions-grid-widths:v1:" +
+      encodeURIComponent(state.userId) +
+      ":" +
+      (table.dataset.gridKey ||
+        (table.classList.contains("tag-admin-table")
+          ? "tags"
+          : state.filters.category));
+    let saved = {};
+    try {
+      const value = JSON.parse(localStorage.getItem(key));
+      if (value && typeof value === "object" && !Array.isArray(value))
+        saved = value;
+    } catch (_) {}
+    const ids = headers.map(
+      (header, index) =>
+        Array.from(header.classList).find((name) => name.startsWith("col-")) ||
+        String(index),
+    );
+    const defaults = headers.map((header) => {
+      if (!header.classList.contains("col-actions"))
+        return Math.max(64, Math.round(header.getBoundingClientRect().width));
+      return Math.ceil(
+        Math.max(
+          0,
+          ...Array.from(table.querySelectorAll("tbody td.col-actions")).map(
+            (cell) => {
+              const group = cell.querySelector(".row-actions"),
+                buttons = group ? Array.from(group.children) : [];
+              const style = getComputedStyle(cell),
+                gap = group
+                  ? parseFloat(getComputedStyle(group).columnGap) || 0
+                  : 0;
+              return (
+                buttons.reduce(
+                  (sum, button) => sum + button.getBoundingClientRect().width,
+                  0,
+                ) +
+                Math.max(0, buttons.length - 1) * gap +
+                parseFloat(style.paddingLeft) +
+                parseFloat(style.paddingRight) +
+                2
+              );
+            },
+          ),
+        ),
+      );
+    });
+    const widths = defaults.map((width, index) =>
+      ids[index] !== "col-actions" &&
+      Number.isFinite(saved[ids[index]]) &&
+      saved[ids[index]] >= 64 &&
+      saved[ids[index]] <= 1000
+        ? saved[ids[index]]
+        : width,
+    );
+    const group = document.createElement("colgroup");
+    const cols = headers.map(() => {
+      const col = document.createElement("col");
+      group.append(col);
+      return col;
+    });
+    table.prepend(group);
+    table.classList.add("resizable-grid");
+    const persist = () => {
+      ids.forEach((id, index) => {
+        if (id === "col-actions") delete saved[id];
+        else saved[id] = widths[index];
+      });
+      try {
+        localStorage.setItem(key, JSON.stringify(saved));
+      } catch (_) {}
+    };
+    const apply = () => {
+      widths.forEach((width, index) => {
+        cols[index].style.width = width + "px";
+        headers[index]
+          .querySelector(".column-resizer")
+          ?.setAttribute("aria-valuenow", String(width));
+      });
+      const total = widths.reduce((a, b) => a + b, 0);
+      table.style.width = total + "px";
+      table.style.minWidth = total + "px";
+    };
+    headers.forEach((header, index) => {
+      if (header.classList.contains("col-actions")) return;
+      const handle = document.createElement("span");
+      handle.className = "column-resizer";
+      handle.tabIndex = 0;
+      handle.setAttribute("role", "separator");
+      handle.setAttribute("aria-orientation", "vertical");
+      handle.setAttribute("aria-valuemin", "64");
+      handle.setAttribute("aria-valuemax", "1000");
+      const label =
+        header.textContent.trim() ||
+        header.getAttribute("aria-label") ||
+        (state.lang === "es" ? "Controles" : "Controls");
+      handle.setAttribute(
+        "aria-label",
+        (state.lang === "es" ? "Cambiar ancho: " : "Resize column: ") + label,
+      );
+      handle.title =
+        state.lang === "es"
+          ? "Arrastra para ajustar; doble clic para restablecer"
+          : "Drag to resize; double-click to reset";
+      header.append(handle);
+      const resize = (value) => {
+        widths[index] = Math.max(64, Math.min(1000, Math.round(value)));
+        apply();
+      };
+      handle.onclick = (event) => event.stopPropagation();
+      handle.ondblclick = (event) => {
+        event.stopPropagation();
+        resize(defaults[index]);
+        persist();
+      };
+      handle.onkeydown = (event) => {
+        if (!["ArrowLeft", "ArrowRight", "Home"].includes(event.key)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        resize(
+          event.key === "Home"
+            ? defaults[index]
+            : widths[index] +
+                (event.key === "ArrowRight" ? 1 : -1) *
+                  (event.shiftKey ? 40 : 16),
+        );
+        persist();
+      };
+      handle.onpointerdown = (event) => {
+        if (event.button !== 0) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const start = event.clientX,
+          width = widths[index];
+        handle.setPointerCapture(event.pointerId);
+        table.classList.add("is-resizing");
+        handle.onpointermove = (move) => resize(width + move.clientX - start);
+        const finish = () => {
+          handle.onpointermove = null;
+          table.classList.remove("is-resizing");
+          persist();
+        };
+        handle.onpointerup = finish;
+        handle.onpointercancel = finish;
+        handle.onlostpointercapture = finish;
+      };
+    });
+    apply();
+  });
+}
 function bind() {
+  bindGridResizing();
   bindPropertyResearch();
   bindTagManagement();
   document.getElementById("color-scheme").onchange = (e) => {
@@ -2827,7 +3308,13 @@ function bind() {
     el.onkeydown = (e) => {
       if (["ArrowLeft", "ArrowRight"].includes(e.key)) {
         e.preventDefault();
-        state.itemTab = state.itemTab === "images" ? "overview" : "images";
+        const tabs = availableItemTabs();
+        state.itemTab =
+          tabs[
+            (tabs.indexOf(state.itemTab) +
+              (e.key === "ArrowRight" ? 1 : tabs.length - 1)) %
+              tabs.length
+          ];
         render();
         document.getElementById("item-tab-" + state.itemTab)?.focus();
       }
@@ -2973,7 +3460,9 @@ function bind() {
         else toast(t(result.error));
       }),
   );
-  app.querySelectorAll("[data-tags]").forEach(button=>button.onclick=()=>openTagPicker(button));
+  app
+    .querySelectorAll("[data-tags]")
+    .forEach((button) => (button.onclick = () => openTagPicker(button)));
   const organizationForm = document.getElementById("organization-form");
   if (organizationForm)
     organizationForm.onsubmit = (e) => {
@@ -3093,8 +3582,9 @@ if (
     "auth",
   ].includes(boot.get("screen"))
 )
-  state.screen = boot.get("screen") === "property-edit" ? "asset" : boot.get("screen");
-if (boot.get("tab") === "images") state.itemTab = "images";
+  state.screen =
+    boot.get("screen") === "property-edit" ? "asset" : boot.get("screen");
+if (ITEM_TABS.includes(boot.get("tab"))) state.itemTab = boot.get("tab");
 if (boot.get("view") === "map") state.view = "map";
 if (boot.get("lang") === "en") state.lang = "en";
 if (DEMO_LISTINGS.some((x) => x.id === boot.get("id"))) {

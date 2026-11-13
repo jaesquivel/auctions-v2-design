@@ -252,8 +252,24 @@ check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='properties')).
 check(itemActionButtons(DEMO_LISTINGS.find(item=>item.category==='vehicles')).includes('data-screen="asset"'),'vehicle action retained');
 state.role='UNKNOWN';check(!savePropertyResearch('DEMO-A01','org',{notes:'bad',appraisalAmount:'1',appraisalCurrency:'CRC'}).ok,'nonmember property edits denied');state.role='MANAGER';
 state.selected='DEMO-A01';state.workspace='org';state.role='USER';state.itemTab='overview';
-check(asset().includes('property-research-form')&&asset().includes('item-tabs')&&asset().includes(t('events')),'one property detail includes editing, tabs and schedule');
+check(asset().includes('property-research-form')&&asset().includes('item-tabs')&&asset().includes('data-item-tab="auction"'),'one property detail includes editing, tabs and schedule');
 navigate('property-edit','DEMO-A01');check(state.screen==='asset','legacy property edit link resolves to detail');
+check(ITEM_TABS[1]==='auction','Auction is second tab');
+for(const category of ['properties','vehicles','other']) {
+ const examples=DEMO_LISTINGS.filter(item=>item.category===category);
+ const single=examples.find(item=>item.saleMode==='individual'),lot=examples.find(item=>item.saleMode==='lot');
+ check(Boolean(single&&lot),'both sale formats illustrated '+category);
+ check(auctionPanel(single).includes('data-screen="asset"'),'related auction items linked '+category);
+ check(auctionPanel(lot).includes(lot.lotId),'lot reference displayed '+category);
+ const members=examples.filter(item=>item.lotId===lot.lotId);
+ check(members.length===2&&members.every(item=>JSON.stringify(item.auctionRounds)===JSON.stringify(lot.auctionRounds)),'lot shares base and schedule '+category);
+}
+const costExample=DEMO_LISTINGS.find(item=>item.id==='DEMO-A07');
+check(calculateRoundCost(costExample.auctionRounds[0],costExample.roundCostRules.guarantee).amount==='3444900.00','synthetic notice guarantee calculated');
+check(calculateRoundCost(costExample.auctionRounds[0],costExample.roundCostRules.participationFee).amount==='5000.00','synthetic notice fixed fee');
+check(calculateRoundCost({},undefined)===null&&calculateRoundCost({}, {verified:false})===null,'unknown cost is unavailable');
+check(calculateRoundCost({baseOffer:{amount:'0.05',currency:'CRC'}},{...costExample.roundCostRules.guarantee}).amount==='0.01','round cost exact half-up rounding');
+check(calculateRoundCost({baseOffer:{amount:'1.00',currency:'USD'}},costExample.roundCostRules.guarantee)===null,'no silent currency conversion');
 check(DEMO_LISTINGS.length===150,'full catalog has 150 fixtures');
 check(new Set(DEMO_LISTINGS.map(item=>item.id)).size===150,'fixture IDs unique');
 for(const category of ['properties','vehicles','other']) {

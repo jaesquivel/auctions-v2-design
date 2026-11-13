@@ -4,7 +4,7 @@ const dep=process.env.AUCTIONS_ICON_DEPENDENCIES||__dirname;
 const React=require(path.join(dep,'node_modules/react'));
 const {renderToStaticMarkup}=require(path.join(dep,'node_modules/react-dom/server'));
 const lucide=require(path.join(dep,'node_modules/lucide-react'));
-const names=['Building2','Car','Package','Bell','Users','Settings','Tags','ClipboardCheck','Eye','Tag','FileText','Plus','Pencil','Trash2','Save','X','ArrowLeft','ArrowRight','ExternalLink','SlidersHorizontal','List','MapPin','Columns3','LayoutDashboard','CreditCard','ArrowUp','ArrowDown','Check','TriangleAlert','Circle','Menu'];
+const names=['Building2','Car','Package','Bell','Users','Settings','Tags','ClipboardCheck','Eye','Tag','FileText','Plus','Pencil','Trash2','Save','X','ArrowLeft','ArrowRight','ExternalLink','SlidersHorizontal','List','MapPin','ColumnsSettings','LayoutDashboard','CreditCard','ArrowUp','ArrowDown','Check','TriangleAlert','Circle','Menu'];
 const icons=Object.fromEntries(names.map(name=>[name,renderToStaticMarkup(React.createElement(lucide[name],{size:18,strokeWidth:1.75,className:'ui-icon action-icon','aria-hidden':true,focusable:false}))]));
 const target=path.resolve(__dirname,'../../mockups/app.js');
 let source=fs.readFileSync(target,'utf8');

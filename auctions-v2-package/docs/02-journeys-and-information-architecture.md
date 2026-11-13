@@ -117,3 +117,19 @@ Click a sortable column header for a primary ascending/descending sort. Add sort
 GET item listing endpoints accept sort as a JSON array of {field,direction} in priority order. Backend validates allowlisted fields/directions, compatible category and single-currency scope and binds/allowlists ordering rather than interpolating user SQL. Counts are unaffected by sort. Cache/request identity includes sort. The offline adapter demonstrates sorting before slicing; actual server ordering and stable database pagination remain production integration gates.
 
 Acceptance: verify multi-value precedence, both directions, equal values/ID ties, null placement, page reset, currency/category constraints, accessible header controls and mobile labels. Use the mockup Add sort control rather than requiring a keyboard modifier.
+
+## Item detail tabs
+
+Confirmed order: General info, Registry info, Notice, Registry (public), Location (map), Images. Spanish: Información general, Información registral, Aviso, Registro (público), Ubicación (mapa), Imágenes. General info contains the unified view/edit information. Registry info shows available normalized identifiers; Registry (public) is a placeholder until a provider is connected, with no invented official results. Notice shows the preserved fictional source text. Location uses the schematic map only where sample mapping exists, otherwise an explicit missing-coordinate state. Images retains existing attachments. Tabs scroll horizontally on narrow screens and support Left/Right keyboard navigation.
+
+### Category-aware tabs
+
+Properties: General info, Registry info, Notice, Registry, Location, Images. Vehicles and Other omit Location and do not display location metadata/columns. Spanish labels are Información general, Información registral, Aviso, Registro, Ubicación, Imágenes. Remove the map/public parenthetical suffixes. Tabs use a shared baseline and selected underline, without filled button backgrounds or rounded button frames. Keyboard navigation follows only the visible category tabs; stale Location links fall back to General info for non-properties.
+
+## Auction tab — second item tab
+
+Confirmed: Auction / Remate is the second tab after General info for every item category. It contains round numbers, base offers with currencies, dates/times and configured timezone; whether this item is sold individually or as part of a lot; and links to the auction's other items. Lot references and links to fellow lot members appear when applicable. General info retains item attributes, editable notes/appraisal and tag labels; schedule and auction base information move into Auction. Remaining tabs follow Auction in their prior category-aware order.
+
+Demonstration fields: auctionId, saleMode (individual/lot), lotId and existing auctionRounds. Five fictional items are grouped per auction example; generated examples 07 and 08 in each category share a lot and its schedule/base. Distinct individually sold items can retain their own schedules/base offers. These synthetic relationships are UI examples, not verified auction data. Open DEMO-A07, DEMO-V07 or DEMO-O07 for a lot example. Missing relationships or schedules must use explicit unknown/not-reported states, not inferred real-world facts.
+
+Proposed production model: Auction groups source-evidenced sale units; a sale unit is individual or a lot and links its member assets. Round dates/times and base money attach to that sale unit, avoiding a duplicated lot price per member. Preserve source evidence, version changes and explicit currency; never sum member prices into a lot base or infer lot membership from proximity in a notice. Existing API/SQL grouping extensions remain implementation work; this prototype adds fixture relationships and UI without executing migrations or connecting a backend. Link resolution must preserve access checks and return an unavailable state for inaccessible items.

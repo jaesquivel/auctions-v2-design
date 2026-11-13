@@ -218,3 +218,19 @@ Replaced tags-and-notes dialog with a native popover of colored checkbox labels,
 Removed separate Assign Tags controls and row tag-action icons; clickable labels are the assignment entry point. Replaced checkboxes with aria-pressed colored toggle buttons and selected borders/backgrounds. Browser confirmed zero checkbox inputs and immediate selection toggling. Added 25 fictional test definitions to the demo organization (27 total) for long-list behavior, varied colors and long names.
 
 Large-catalog browser check: 27 tag options rendered in a scrollable popup; the final test tag (Prueba 25) was reached and selected successfully. Screenshot tag-picker-large.jpg shows the no-checkmark selector with label-only assignment entry points.
+
+## Grid resizing and header contrast
+
+Added shared header-edge resizing with pointer handlers, keyboard controls, default reset and browser-persisted per-user/grid widths. Browser verified Tags column changed from 170 to 186 px and restored 186 after reload; Home reset it. Grid headers now have a darker background in both theme modes. Screenshot grid-resize-headers.jpg. Existing 1,196 prototype checks passed. Selected popup tags were subsequently refined to use a background highlight without a dark border/frame.
+
+## Compact shared grid rows — 12 November 2026
+
+Reduced desktop cells to 36 px and in-row controls to 32 px, shared across grids. Browser measured 37 px rows including border and 32 px action buttons. Touch/coarse-pointer styling retains larger targets. Screenshot compact-grid.jpg; existing 1,196 behavior checks passed.
+
+## Content-sized controls columns
+
+Controls widths are measured from actual buttons, gaps and padding, ignoring stored manual widths; no resize target is added to this column. Browser verified 54 px for the one-icon Properties column and 90 px for two-icon Tags controls. Screenshot fitted-controls.jpg. Asset versions refreshed to load the current JS/CSS.
+
+## Auction tab and sale relationships — 12 November 2026
+
+Added Auction/Remate as the second tab for every category and moved auction schedules/base information out of General info. It shows all three sample rounds with dates, times and currency-specific bases, individual/lot sale format and linked related items. Browser verified tab ordering, three round rows and successful navigation from a lot member link. Fictional lot members share schedule/base metadata. 1,209 behavior checks passed. Screenshot item-auction-tab.jpg. Production grouping/API/schema integration remains specified, not implemented.

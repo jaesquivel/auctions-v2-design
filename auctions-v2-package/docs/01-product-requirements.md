@@ -140,3 +140,21 @@ Proposed permissions follow existing research-edit access: ADMIN, MANAGER and US
 ## Unified property detail and editing
 
 Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the Overview tab alongside the published information, auction schedule and tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
+
+## Auction tab — second item tab
+
+Confirmed: Auction / Remate is the second tab after General info for every item category. It contains round numbers, base offers with currencies, dates/times and configured timezone; whether this item is sold individually or as part of a lot; and links to the auction's other items. Lot references and links to fellow lot members appear when applicable. General info retains item attributes, editable notes/appraisal and tag labels; schedule and auction base information move into Auction. Remaining tabs follow Auction in their prior category-aware order.
+
+Demonstration fields: auctionId, saleMode (individual/lot), lotId and existing auctionRounds. Five fictional items are grouped per auction example; generated examples 07 and 08 in each category share a lot and its schedule/base. Distinct individually sold items can retain their own schedules/base offers. These synthetic relationships are UI examples, not verified auction data. Open DEMO-A07, DEMO-V07 or DEMO-O07 for a lot example. Missing relationships or schedules must use explicit unknown/not-reported states, not inferred real-world facts.
+
+Proposed production model: Auction groups source-evidenced sale units; a sale unit is individual or a lot and links its member assets. Round dates/times and base money attach to that sale unit, avoiding a duplicated lot price per member. Preserve source evidence, version changes and explicit currency; never sum member prices into a lot base or infer lot membership from proximity in a notice. Existing API/SQL grouping extensions remain implementation work; this prototype adds fixture relationships and UI without executing migrations or connecting a backend. Link resolution must preserve access checks and return an unavailable state for inaccessible items.
+
+## Conditional round participation guarantees and participation fees
+
+Confirmed: the Auction rounds list shows Participation Guarantee and participation fee amounts when calculable from explicit notice terms or verified applicable country law. Missing/ambiguous/conflicting bases must display Not available, never an assumed zero. Show currency and traceable calculation provenance. Treat Participation Guarantee and participation fee as distinct amounts. Values attach to the applicable round and sale unit, so a lot amount is not duplicated per member as a separate obligation.
+
+Production specification: retain the source clause or legal citation, effective dates, jurisdiction, rule version, applicability, calculation basis, currency, rounding rule, result and review status. Resolve notice/law conflicts through review; do not silently choose precedence. Use exact decimal/minor-unit arithmetic; no silent FX conversion. Recompute on relevant source/rule revisions and audit changes. Country rules are deployment-owned, not user-selectable. No real country-law formula is implemented by this update.
+
+Prototype demonstration: only A07/A08 have explicit synthetic notice terms, labeled as fictional in the notice: 10% guarantee, half-up cent rounding, and CRC 5000 fee per round of the shared lot. These are demonstration inputs, not Costa Rican legal guidance. Other examples display Not available. Calculated cells expose notice/rule reference in their title. Backend calculation, legal-rule verification and API/schema extensions remain implementation work.
+
+Terminology: Participation Guarantee / Garantía de participación is the confirmed label for the guarantee amount.

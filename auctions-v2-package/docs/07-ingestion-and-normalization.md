@@ -70,3 +70,13 @@ Ambiguous category or incompatible subtype blocks publication and saved-search m
 ## Filterable facts and unknown values
 
 Ingestion continues publishing evidence-backed normalized facts; user filter groups do not alter source data or classification. Preserve null for missing base/area so isUnknown is explicit. Currency belongs to every normalized money value. A publication/correction re-evaluates the complete saved expression and existing deduplication watermark. A tag-assignment event alone does not fabricate a newly published auction. Classification gates and source evidence requirements remain unchanged.
+
+## Conditional round participation guarantees and participation fees
+
+Confirmed: the Auction rounds list shows Participation Guarantee and participation fee amounts when calculable from explicit notice terms or verified applicable country law. Missing/ambiguous/conflicting bases must display Not available, never an assumed zero. Show currency and traceable calculation provenance. Treat Participation Guarantee and participation fee as distinct amounts. Values attach to the applicable round and sale unit, so a lot amount is not duplicated per member as a separate obligation.
+
+Production specification: retain the source clause or legal citation, effective dates, jurisdiction, rule version, applicability, calculation basis, currency, rounding rule, result and review status. Resolve notice/law conflicts through review; do not silently choose precedence. Use exact decimal/minor-unit arithmetic; no silent FX conversion. Recompute on relevant source/rule revisions and audit changes. Country rules are deployment-owned, not user-selectable. No real country-law formula is implemented by this update.
+
+Prototype demonstration: only A07/A08 have explicit synthetic notice terms, labeled as fictional in the notice: 10% guarantee, half-up cent rounding, and CRC 5000 fee per round of the shared lot. These are demonstration inputs, not Costa Rican legal guidance. Other examples display Not available. Calculated cells expose notice/rule reference in their title. Backend calculation, legal-rule verification and API/schema extensions remain implementation work.
+
+Terminology: Participation Guarantee / Garantía de participación is the confirmed label for the guarantee amount.
