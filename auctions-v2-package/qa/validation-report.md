@@ -234,3 +234,20 @@ Controls widths are measured from actual buttons, gaps and padding, ignoring sto
 ## Auction tab and sale relationships — 12 November 2026
 
 Added Auction/Remate as the second tab for every category and moved auction schedules/base information out of General info. It shows all three sample rounds with dates, times and currency-specific bases, individual/lot sale format and linked related items. Browser verified tab ordering, three round rows and successful navigation from a lot member link. Fictional lot members share schedule/base metadata. 1,209 behavior checks passed. Screenshot item-auction-tab.jpg. Production grouping/API/schema integration remains specified, not implemented.
+
+
+## Stock-style mockup verification — 12 November 2026
+
+Current offline prototype checks: 1,212 passed after replacing nine palette cases with the one stock-neutral scheme and updating grid/tag expectations. Removed palette cases explain the change from 1,220; no domain assertions were removed. Node syntax check passed. Browser review observed light/dark Properties lists and stock-style item tabs. Page-size selection to 5 was verified in the rendered UI. DOM inspection found zero column resizers, transparent table headers and normal cell wrapping. At a 390 × 844 viewport, document width remained 390 px and the 760 px table scrolled within a 356 px container. Viewport override was reset afterward. No production API/auth or React component migration was tested. Existing historical palette/grid screenshot results describe the earlier design only.
+
+[Current desktop screenshot](stock-desktop.png) · [Current mobile dark screenshot](stock-mobile.png).
+
+
+## Nova b2fA visual review — 13 November 2026
+
+See [Nova preset verification and current screenshots](../docs/15-nova-preset.md). 1,212 prototype checks pass. Theme source tokens preserved, Geist font files self-hosted with OFL license. Desktop light/dark, category/settings/team/plans/overview, item tabs, filter editor/dialog and 390 px mobile reviewed. No production auth/API integration or installed shadcn React component testing is implied. Previous stock and palette screenshot results are historical.
+
+
+## React preview — 13 November 2026
+
+See [React preview verification](../docs/16-react-preview.md) for 16 passing domain/live API checks, production build/lint/type validation and actual browser workflows. Historical offline-prototype checks are separate and do not establish React implementation coverage.

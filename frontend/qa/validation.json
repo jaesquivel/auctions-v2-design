@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-13",
+  "build": "Next.js production build passed",
+  "lint": "passed",
+  "typecheck": "passed",
+  "tests": {
+    "domain": 12,
+    "http": 4,
+    "total": 16
+  },
+  "runtimeAudit": {
+    "knownVulnerabilities": 0,
+    "scope": "npm audit --omit=dev"
+  },
+  "browser": [
+    "actual shadcn Table slot",
+    "page-size 5 and next page",
+    "grouped filters save/apply/load",
+    "user-owned saved filters",
+    "per-user column persistence",
+    "multi-sort controls",
+    "organization research separation",
+    "tag assignment preserves form draft",
+    "research survives reload",
+    "tag create/edit/delete",
+    "locale and light/dark changes",
+    "Leaflet container with zero external tiles",
+    "390px viewport no page overflow",
+    "mobile sidebar closes after navigation"
+  ],
+  "limits": [
+    "No live Clerk credentials tested",
+    "No production authorization or tenant security",
+    "No Java/PostgreSQL backend",
+    "No real notice ingestion, billing, emails, registry lookup or uploads",
+    "No complete accessibility audit"
+  ]
+}

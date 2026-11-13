@@ -135,3 +135,36 @@ Retain Leaflet/react-leaflet, with a client boundary for browser APIs and tile U
 Recommended implementation details, not further confirmed choices: standardize Radix imports, coordinate Clerk and next-intl routing, verify compatible versions and pin a lockfile at application initialization rather than automatically copying v1 versions. Image lightbox implementation and plain img versus next/image remain open.
 
 This decision governs the future frontend. The current editable HTML/CSS/JS prototype remains offline; no full Next.js foundation has been installed by this documentation update.
+
+
+## Confirmed shadcn/ui-first policy — 12 November 2026
+
+Use official shadcn/ui components wherever applicable, throughout the application. This supersedes any earlier implication that generic controls or field visuals should be rebuilt independently. Retain the approved Radix foundation. Compose application behavior from these components; do not reuse v1 custom components. Obtain the user's decision before customizing component appearance or interaction to preserve a previously discussed design requirement. Earlier approval of Studio, compact grids or colored tags does not by itself approve a new shadcn component customization under this policy. Do not silently discard those requirements either: document the conflict and request a decision.
+
+See [component coverage and customization decisions](13-shadcn-component-policy.md) for the complete mapping and proposed exceptions. No customizations are approved by that proposal. Standard supported props/variants, translated content and application data binding may be used without treating each use as a component customization; deviations from documented appearance/interaction need approval. An implementation must record component provenance and approved exceptions. The current offline HTML/CSS/JS prototype is a visual/behavior reference, not a shadcn React implementation. This update changes specifications, not the prototype runtime.
+
+
+## User decisions — stock appearance, 12 November 2026
+
+This section supersedes the earlier pending visual proposals.
+
+- C-SH01: use stock shadcn table appearance. Custom compact density and darker headers are not approved. Review the application behaviors separately; choosing stock appearance does not remove server pagination, saved columns or multi-sort by implication. Column resizing remains pending.
+- C-SH02: show a standard tag-selection alternative before choosing. The colored custom Toggle/Popover proposal is not approved. Existing no-checkmark and colored-tag requirements are not silently revoked.
+- C-SH03: use stock shadcn appearance across the app. Studio/Studio Warm Blue styling and a local underline-tabs variant are not the implementation baseline. Use the chosen official default component styles and tabs, with built-in light/dark/system support. Historical palette mockups remain references only.
+
+See [standard component review](14-standard-component-review.md) for live official examples, behavior comparisons and remaining decisions. The current offline prototype still represents the earlier custom design; it is not evidence that stock React components have been installed. Changes to the runtime follow resolution of component conflicts and a separately verifiable frontend implementation.
+
+
+## Confirmed stock-table behavior — 12 November 2026
+
+Retain server-side pagination, selectable page sizes, multi-column sorting and user-saved visible columns using standard shadcn controls. Defer column-edge resizing, persisted widths and enforced single-line truncation for the first implementation. Default table layout may wrap content; do not impose the prior compact heights, darker header or ellipsis rules. These deferred adaptations remain backlog items requiring a later explicit decision, not first-release acceptance conditions. Ignore historical saved width preferences in the new stock frontend; visible-column preferences remain supported. Tags keeps its fixed columns and no filter/pagination/column selector. The existing custom offline prototype remains a historical behavior reference, not the migrated stock frontend. No tag-picker alternative has been approved yet.
+
+
+## Current appearance: Nova b2fA — 13 November 2026
+
+The user selected the exact [shadcn b2fA preset](https://ui.shadcn.com/create?preset=b2fA): Nova, Neutral colors, Geist headings/body, Lucide, default 10 px base radius, default/solid menus and subtle menu accent. This now governs all app screens and supersedes previous generic-stock/Studio appearance guidance. The offline mockups apply the exported light/dark tokens with locally served Geist fonts. See [current visual specification](15-nova-preset.md). Existing approved grid behaviors and deferred resizing/widths/truncation remain unchanged. The check-free colored tag picker remains pending replacement, and Radix remains the specified frontend primitive foundation; no React dependency migration is claimed.
+
+
+## React preview delivered — 13 November 2026
+
+The current preferred preview is the real Next.js app in [frontend](../../frontend/README.md), using official shadcn Radix Nova components and actual Table grids. The original offline HTML remains a reference. See [React implementation, verification and limits](16-react-preview.md). Server-side fixture pagination/filtering/sorting is now implemented in Next Route Handlers; production Spring/PostgreSQL and tenant authorization remain future work. The user approved the stock Popover/Toggle tag-picker composition with colored tags and no checkmarks. Browser persistence is a simulation, not an authorization boundary. Earlier pending tag-picker/vanilla-only statements are superseded.

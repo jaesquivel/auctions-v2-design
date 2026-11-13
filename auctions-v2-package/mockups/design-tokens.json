@@ -1,10 +1,140 @@
 {
- "status":"proposed",
- "color":{"brand900":"#123D34","brand700":"#1D6553","brand050":"#EAF3EF","canvas":"#F5F6F2","surface":"#FFFFFF","ink":"#172C26","muted":"#53665F","border":"#D4DDD7","warningInk":"#7A4500","warningBackground":"#FFF3D9","danger":"#A72E31"},
- "typography":{"family":"system-ui, -apple-system, Segoe UI, sans-serif","scale":[12,14,16,20,24,32,40]},
- "spacing":[4,8,12,16,24,32,48],
- "radius":{"control":8,"panel":14,"feature":24},
- "breakpoints":{"small":360,"mobile":768,"compact":900,"tablet":1150,"wide":1600},
- "layout":{"desktopRail":224,"topbar":77,"desktopPadding":32,"mobilePadding":18},
- "accessibility":{"target":"WCAG 2.2 AA","mobileTouchTarget":44,"auditStatus":"pending implementation review"}
+  "status": "confirmed visual preset; offline approximation",
+  "preset": {
+    "url": "https://ui.shadcn.com/create?preset=b2fA",
+    "inspectedAt": "2026-11-13",
+    "style": "Nova",
+    "baseColor": "Neutral",
+    "theme": "Neutral",
+    "chartColor": "Neutral",
+    "font": "Geist",
+    "headingFont": "Geist",
+    "iconLibrary": "Lucide",
+    "radius": "default (0.625rem)",
+    "menu": "Default / Solid",
+    "menuAccent": "Subtle",
+    "observedPreviewBase": "Base UI",
+    "applicationBase": "Radix retained; visual request does not authorize dependency switch",
+    "measuredDesktopButtonHeight": 32,
+    "measuredCardRadius": 14,
+    "implementation": "offline HTML/CSS visual mockup; not React component installation"
+  },
+  "color": {
+    "light": {
+      "background": "oklch(1 0 0)",
+      "foreground": "oklch(0.145 0 0)",
+      "card": "oklch(1 0 0)",
+      "card-foreground": "oklch(0.145 0 0)",
+      "popover": "oklch(1 0 0)",
+      "popover-foreground": "oklch(0.145 0 0)",
+      "primary": "oklch(0.205 0 0)",
+      "primary-foreground": "oklch(0.985 0 0)",
+      "secondary": "oklch(0.97 0 0)",
+      "secondary-foreground": "oklch(0.205 0 0)",
+      "muted": "oklch(0.97 0 0)",
+      "muted-foreground": "oklch(0.556 0 0)",
+      "accent": "oklch(0.97 0 0)",
+      "accent-foreground": "oklch(0.205 0 0)",
+      "destructive": "oklch(0.577 0.245 27.325)",
+      "border": "oklch(0.922 0 0)",
+      "input": "oklch(0.922 0 0)",
+      "ring": "oklch(0.708 0 0)",
+      "chart-1": "oklch(0.87 0 0)",
+      "chart-2": "oklch(0.556 0 0)",
+      "chart-3": "oklch(0.439 0 0)",
+      "chart-4": "oklch(0.371 0 0)",
+      "chart-5": "oklch(0.269 0 0)",
+      "radius": "0.625rem",
+      "sidebar": "oklch(0.985 0 0)",
+      "sidebar-foreground": "oklch(0.145 0 0)",
+      "sidebar-primary": "oklch(0.205 0 0)",
+      "sidebar-primary-foreground": "oklch(0.985 0 0)",
+      "sidebar-accent": "oklch(0.97 0 0)",
+      "sidebar-accent-foreground": "oklch(0.205 0 0)",
+      "sidebar-border": "oklch(0.922 0 0)",
+      "sidebar-ring": "oklch(0.708 0 0)"
+    },
+    "dark": {
+      "background": "oklch(0.145 0 0)",
+      "foreground": "oklch(0.985 0 0)",
+      "card": "oklch(0.205 0 0)",
+      "card-foreground": "oklch(0.985 0 0)",
+      "popover": "oklch(0.205 0 0)",
+      "popover-foreground": "oklch(0.985 0 0)",
+      "primary": "oklch(0.922 0 0)",
+      "primary-foreground": "oklch(0.205 0 0)",
+      "secondary": "oklch(0.269 0 0)",
+      "secondary-foreground": "oklch(0.985 0 0)",
+      "muted": "oklch(0.269 0 0)",
+      "muted-foreground": "oklch(0.708 0 0)",
+      "accent": "oklch(0.269 0 0)",
+      "accent-foreground": "oklch(0.985 0 0)",
+      "destructive": "oklch(0.704 0.191 22.216)",
+      "border": "oklch(1 0 0 / 10%)",
+      "input": "oklch(1 0 0 / 15%)",
+      "ring": "oklch(0.556 0 0)",
+      "chart-1": "oklch(0.87 0 0)",
+      "chart-2": "oklch(0.556 0 0)",
+      "chart-3": "oklch(0.439 0 0)",
+      "chart-4": "oklch(0.371 0 0)",
+      "chart-5": "oklch(0.269 0 0)",
+      "sidebar": "oklch(0.205 0 0)",
+      "sidebar-foreground": "oklch(0.985 0 0)",
+      "sidebar-primary": "oklch(0.488 0.243 264.376)",
+      "sidebar-primary-foreground": "oklch(0.985 0 0)",
+      "sidebar-accent": "oklch(0.269 0 0)",
+      "sidebar-accent-foreground": "oklch(0.985 0 0)",
+      "sidebar-border": "oklch(1 0 0 / 10%)",
+      "sidebar-ring": "oklch(0.556 0 0)"
+    }
+  },
+  "typography": {
+    "family": "Geist, system-ui, sans-serif",
+    "headingFamily": "Geist",
+    "scale": [
+      12,
+      14,
+      16,
+      18,
+      28
+    ],
+    "fontSource": "Self-hosted Latin and Latin Extended variable WOFF2"
+  },
+  "radius": {
+    "base": 10,
+    "control": 10,
+    "card": 14,
+    "tab": 8
+  },
+  "spacing": [
+    4,
+    8,
+    10,
+    12,
+    16,
+    20,
+    24,
+    32
+  ],
+  "layout": {
+    "desktopRail": 224,
+    "topbar": 64,
+    "desktopPadding": 32,
+    "mobilePadding": 16
+  },
+  "controls": {
+    "desktopDefaultHeight": 32,
+    "touchMinimumTarget": 44
+  },
+  "table": {
+    "resizing": false,
+    "savedWidths": false,
+    "forcedSingleLine": false,
+    "serverPaginationSpecified": true,
+    "offlinePaginationSimulated": true
+  },
+  "accessibility": {
+    "target": "WCAG 2.2 AA",
+    "auditStatus": "not certified; browser review only"
+  }
 }

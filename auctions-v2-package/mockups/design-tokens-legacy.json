@@ -1,0 +1,60 @@
+{
+  "status": "proposed",
+  "color": {
+    "brand900": "#123D34",
+    "brand700": "#1D6553",
+    "brand050": "#EAF3EF",
+    "canvas": "#F5F6F2",
+    "surface": "#FFFFFF",
+    "ink": "#172C26",
+    "muted": "#53665F",
+    "border": "#D4DDD7",
+    "warningInk": "#7A4500",
+    "warningBackground": "#FFF3D9",
+    "danger": "#A72E31"
+  },
+  "typography": {
+    "family": "system-ui, -apple-system, Segoe UI, sans-serif",
+    "scale": [
+      12,
+      14,
+      16,
+      20,
+      24,
+      32,
+      40
+    ]
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "radius": {
+    "control": 8,
+    "panel": 14,
+    "feature": 24
+  },
+  "breakpoints": {
+    "small": 360,
+    "mobile": 768,
+    "compact": 900,
+    "tablet": 1150,
+    "wide": 1600
+  },
+  "layout": {
+    "desktopRail": 224,
+    "topbar": 77,
+    "desktopPadding": 32,
+    "mobilePadding": 18
+  },
+  "accessibility": {
+    "target": "WCAG 2.2 AA",
+    "mobileTouchTarget": 44,
+    "auditStatus": "pending implementation review"
+  }
+}

@@ -1053,25 +1053,8 @@ const initialFilter = (category = "properties") => ({
   category,
   expression: { operator: "AND", groups: [] },
 });
-const COLOR_SCHEMES = [
-  "forest",
-  "ocean",
-  "slate",
-  "terracotta",
-  "warm-blue",
-  "navy",
-  "studio",
-  "studio-warm-blue",
-  "harbor",
-];
-function storedColorScheme() {
-  try {
-    const value = localStorage.getItem("auctions-color-scheme");
-    return COLOR_SCHEMES.includes(value) ? value : "forest";
-  } catch {
-    return "forest";
-  }
-}
+const COLOR_SCHEMES = ["shadcn"];
+function storedColorScheme() { return "shadcn"; }
 function setColorScheme(value) {
   if (!COLOR_SCHEMES.includes(value)) return false;
   state.colorScheme = value;
@@ -1891,25 +1874,7 @@ function openTagPicker(trigger) {
       }),
   );
 }
-function listTagBadges(assetId) {
-  const ids = state.tags[state.workspace + assetId] || [],
-    labels = assignedTagLabels(assetId);
-  if (!ids.length) return "—";
-  return (
-    ids
-      .slice(0, 2)
-      .map((id) => {
-        const tag = orgTags().find((x) => x.id === id);
-        return tag
-          ? `<span class="badge tag-badge tag-${TAG_COLORS.includes(tag.color) ? tag.color : "gray"}" title="${esc(tag.label)}">${esc(tag.label)}</span>`
-          : "";
-      })
-      .join("") +
-    (ids.length > 2
-      ? `<span class="tag-more" title="${esc(labels)}">+${ids.length - 2}</span>`
-      : "")
-  );
-}
+function listTagBadges(assetId) { return tagBadges(assetId) || "—"; }
 function auctionRoundLabel(item) {
   return `${t("auctionRound")} ${Number.isInteger(item.nextAuctionRound) && item.nextAuctionRound > 0 ? item.nextAuctionRound : t("notReported")}`;
 }
@@ -2079,7 +2044,7 @@ function columnMenu() {
 function itemTable(items) {
   const cols = visibleColumns();
   const label = (key) => (key === "actions" ? "" : columnLabel(key));
-  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table single-line-table" style="min-width:${cols.reduce((width, key) => width + ({ registrationNumber: 185, plate: 175, reference: 240, caseNumber: 220, item: 190, locality: 110, type: 90, area: 70, amount: 115, date: 210, tags: 170, actions: 175 }[key] || 145), 0)}px"><thead><tr>${cols
+  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table standard-table"<thead><tr>${cols
     .map((f) => {
       const rule = state.sort.find((r) => r.field === f),
         idx = state.sort.findIndex((r) => r.field === f);
@@ -2678,7 +2643,7 @@ function auctionPanel(item) {
     items.length
       ? `<ul class="auction-related-items">${items.map((other) => `<li><button class="title-link" data-screen="asset" data-id="${other.id}">${esc(other.registrationNumber || other.plate || other.id)} · ${esc(title(other))} ${icon("ArrowRight")}</button></li>`).join("")}</ul>`
       : `<p class="muted">${L("No other linked items.", "No hay otros bienes vinculados.")}</p>`;
-  return `${sourceMetadata(item,"auction")}<div class="panel"><h2>${L("Auction", "Remate")}</h2><dl class="fact-grid"><div><dt>${L("Auction ID", "Identificador del remate")}</dt><dd>${esc(item.auctionId || t("notReported"))}</dd></div><div><dt>${L("Sale format", "Modalidad de venta")}</dt><dd>${item.saleMode === "lot" ? L("Part of a lot — sold together", "Parte de un lote — venta conjunta") : item.saleMode === "individual" ? L("Sold as one item", "Venta individual") : t("notReported")}</dd></div>${item.lotId ? `<div><dt>${L("Lot ID", "Identificador del lote")}</dt><dd>${esc(item.lotId)}</dd></div>` : ""}</dl></div><section class="panel"><h2>${L("Rounds", "Rondas")}</h2><p class="muted">${item.saleMode === "lot" ? L("Auction bases apply to the whole lot.", "Las bases del remate corresponden al lote completo.") : L("Auction bases apply to this item.", "Las bases del remate corresponden a este bien.")}</p><div class="table-scroll" tabindex="0" role="region" aria-label="${L("Auction rounds", "Rondas del remate")}"><table class="items-table single-line-table" data-grid-key="auction-rounds"><thead><tr><th>${L("Round", "Ronda")}</th><th>${L("Date", "Fecha")}</th><th>${L("Time", "Hora")}</th><th>${L("Auction base", "Base del remate")}</th><th>${L("Participation Guarantee", "Garantía de participación")}</th><th>${L("Participation fee", "Cuota de participación")}</th></tr></thead><tbody>${(item.auctionRounds || []).map((event) => `<tr><td>${esc(event.round)}${event.round === item.nextAuctionRound ? ` · ${t("nextEvent")}` : ""}</td><td>${event.date ? date({ date: event.date }) : t("notReported")}</td><td>${esc(event.time || t("notReported"))}</td><td>${event.baseOffer ? money(event.baseOffer) : t("notReported")}</td><td>${roundCostCell(item,event,"guarantee")}</td><td>${roundCostCell(item,event,"participationFee")}</td></tr>`).join("") || `<tr><td colspan="6">${t("notReported")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:12px">${t("timezone")}</p></section>${item.lotId ? `<section class="panel"><h2>${L("Other items in this lot", "Otros bienes de este lote")}</h2>${itemLinks(lotMembers)}</section>` : ""}<section class="panel"><h2>${L("Other items in this auction", "Otros bienes de este remate")}</h2>${itemLinks(related)}</section>`;
+  return `${sourceMetadata(item,"auction")}<div class="panel"><h2>${L("Auction", "Remate")}</h2><dl class="fact-grid"><div><dt>${L("Auction ID", "Identificador del remate")}</dt><dd>${esc(item.auctionId || t("notReported"))}</dd></div><div><dt>${L("Sale format", "Modalidad de venta")}</dt><dd>${item.saleMode === "lot" ? L("Part of a lot — sold together", "Parte de un lote — venta conjunta") : item.saleMode === "individual" ? L("Sold as one item", "Venta individual") : t("notReported")}</dd></div>${item.lotId ? `<div><dt>${L("Lot ID", "Identificador del lote")}</dt><dd>${esc(item.lotId)}</dd></div>` : ""}</dl></div><section class="panel"><h2>${L("Rounds", "Rondas")}</h2><p class="muted">${item.saleMode === "lot" ? L("Auction bases apply to the whole lot.", "Las bases del remate corresponden al lote completo.") : L("Auction bases apply to this item.", "Las bases del remate corresponden a este bien.")}</p><div class="table-scroll" tabindex="0" role="region" aria-label="${L("Auction rounds", "Rondas del remate")}"><table class="items-table standard-table" data-grid-key="auction-rounds"><thead><tr><th>${L("Round", "Ronda")}</th><th>${L("Date", "Fecha")}</th><th>${L("Time", "Hora")}</th><th>${L("Auction base", "Base del remate")}</th><th>${L("Participation Guarantee", "Garantía de participación")}</th><th>${L("Participation fee", "Cuota de participación")}</th></tr></thead><tbody>${(item.auctionRounds || []).map((event) => `<tr><td>${esc(event.round)}${event.round === item.nextAuctionRound ? ` · ${t("nextEvent")}` : ""}</td><td>${event.date ? date({ date: event.date }) : t("notReported")}</td><td>${esc(event.time || t("notReported"))}</td><td>${event.baseOffer ? money(event.baseOffer) : t("notReported")}</td><td>${roundCostCell(item,event,"guarantee")}</td><td>${roundCostCell(item,event,"participationFee")}</td></tr>`).join("") || `<tr><td colspan="6">${t("notReported")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:12px">${t("timezone")}</p></section>${item.lotId ? `<section class="panel"><h2>${L("Other items in this lot", "Otros bienes de este lote")}</h2>${itemLinks(lotMembers)}</section>` : ""}<section class="panel"><h2>${L("Other items in this auction", "Otros bienes de este remate")}</h2>${itemLinks(related)}</section>`;
 }
 function governmentTaxValuePanel(item) {
   if(!["properties","vehicles"].includes(item.category))return "";
@@ -2892,7 +2857,7 @@ function tagManagement() {
   const rows = records;
   return (
     top +
-    `<p class="muted">${L("Shift-click a heading to add a sort priority.", "Mayús + clic en un encabezado para agregar prioridad de orden.")}</p><div class="table-scroll" role="region" tabindex="0" aria-label="${t("tagCatalog")}"><table class="items-table single-line-table tag-admin-table"><thead><tr><th class="col-tag-label"><button data-tag-sort="label">${t("tagLabel")} ${state.tagSort.some((r) => r.field === "label") ? icon(state.tagSort.find((r) => r.field === "label").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-tag-usage"><button data-tag-sort="usage">${L("Assigned items", "Bienes asignados")} ${state.tagSort.some((r) => r.field === "usage") ? icon(state.tagSort.find((r) => r.field === "usage").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-actions" aria-label="${L("Item controls", "Controles")}"></th></tr></thead><tbody>${rows.map((tag) => `<tr class="auction-row"><td class="col-tag-label">${editing?.id === tag.id ? `<form id="tag-editor-form" class="tag-inline-editor">${fields(tag)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-cancel-tag-edit>${L("Cancel", "Cancelar")}</button></div></form>` : `<span class="badge tag-badge tag-${tag.color || "gray"}">${esc(tag.label)}</span>`}</td><td class="col-tag-usage">${usage(tag.id)}</td><td class="col-actions"><div class="row-actions"><button class="icon-action" title="${L("Edit", "Editar")}" aria-label="${L("Edit", "Editar")}: ${esc(tag.label)}" data-edit-definition="${tag.id}">${icon("Pencil")}</button><button class="icon-action danger" title="${L("Delete", "Eliminar")}" aria-label="${L("Delete", "Eliminar")}: ${esc(tag.label)}" data-delete-definition="${tag.id}">${icon("Trash2")}</button></div></td></tr>`).join("") || `<tr><td colspan="3">${L("No tags yet. Create your first tag.", "Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags retain existing assignments and filter references for history.", "Las etiquetas eliminadas conservan sus asignaciones y referencias de filtros para el historial.")}</p>`
+    `<p class="muted">${L("Shift-click a heading to add a sort priority.", "Mayús + clic en un encabezado para agregar prioridad de orden.")}</p><div class="table-scroll" role="region" tabindex="0" aria-label="${t("tagCatalog")}"><table class="items-table standard-table tag-admin-table"><thead><tr><th class="col-tag-label"><button data-tag-sort="label">${t("tagLabel")} ${state.tagSort.some((r) => r.field === "label") ? icon(state.tagSort.find((r) => r.field === "label").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-tag-usage"><button data-tag-sort="usage">${L("Assigned items", "Bienes asignados")} ${state.tagSort.some((r) => r.field === "usage") ? icon(state.tagSort.find((r) => r.field === "usage").direction === 1 ? "ArrowUp" : "ArrowDown") : ""}</button></th><th class="col-actions" aria-label="${L("Item controls", "Controles")}"></th></tr></thead><tbody>${rows.map((tag) => `<tr class="auction-row"><td class="col-tag-label">${editing?.id === tag.id ? `<form id="tag-editor-form" class="tag-inline-editor">${fields(tag)}<p id="definition-error" class="danger" role="alert"></p><div class="actions"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-cancel-tag-edit>${L("Cancel", "Cancelar")}</button></div></form>` : `<span class="badge tag-badge tag-${tag.color || "gray"}">${esc(tag.label)}</span>`}</td><td class="col-tag-usage">${usage(tag.id)}</td><td class="col-actions"><div class="row-actions"><button class="icon-action" title="${L("Edit", "Editar")}" aria-label="${L("Edit", "Editar")}: ${esc(tag.label)}" data-edit-definition="${tag.id}">${icon("Pencil")}</button><button class="icon-action danger" title="${L("Delete", "Eliminar")}" aria-label="${L("Delete", "Eliminar")}: ${esc(tag.label)}" data-delete-definition="${tag.id}">${icon("Trash2")}</button></div></td></tr>`).join("") || `<tr><td colspan="3">${L("No tags yet. Create your first tag.", "Aún no hay etiquetas. Crea la primera.")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:16px">${L("Deleted tags retain existing assignments and filter references for history.", "Las etiquetas eliminadas conservan sus asignaciones y referencias de filtros para el historial.")}</p>`
   );
 }
 function bindTagManagement() {
@@ -3077,36 +3042,20 @@ function render() {
       auth,
     }[state.screen] || discovery
   )();
-  app.innerHTML = `<aside class="rail">${brandLogo("light")}<div class="rail-caption">${t("workspace")}</div><nav class="nav" aria-label="Main">${navs.map(([k, s]) => `<button data-screen="${CATEGORIES.includes(k) ? "discover" : k}" ${CATEGORIES.includes(k) ? `data-category="${k}"` : ""} class="${state.screen === k || (CATEGORIES.includes(k) && ["discover", "asset", "notice", "filters"].includes(state.screen) && (state.screen === "filters" ? draftFilter().category : state.filters.category) === k) ? "active" : ""}" ${state.screen === k || (state.screen === "discover" && state.filters.category === k) ? 'aria-current="page"' : ""}><span class="symbol" aria-hidden="true">${s}</span><span class="nav-label">${t(k)}</span></button>`).join("")}<button class="secondary-nav" data-screen="overview">${icon("LayoutDashboard")} ${t("overview")}</button><button class="secondary-nav" data-screen="plans">${icon("CreditCard")} ${t("plans")}</button><button class="secondary-nav" data-screen="settings"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("settings")}</span></button>${canManageTags() ? `<button class="secondary-nav ${state.screen.startsWith("tag") ? "active" : ""}" data-screen="tags"><span class="symbol" aria-hidden="true">${icon("Tags")}</span><span class="nav-label">${t("tagCatalog")}</span></button>` : ""}<div class="rail-caption">${t("operations")}</div><button class="secondary-nav" data-screen="system"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("system")}</span></button><button class="secondary-nav ${state.screen === "review" ? "active" : ""}" data-screen="review"><span class="symbol" aria-hidden="true">${icon("ClipboardCheck")}</span><span class="nav-label">${t("review")}</span></button></nav><div class="rail-bottom"><strong>${t("session")}</strong><br>${t("demoUser")}<br>CR · es / en</div></aside><div class="shell"><header class="topbar"><div class="top-left"><a class="compact-brand" href="?screen=discover" aria-label="${t("home")}"><img src="../brand/gavel-dark.svg" alt="" width="28" height="28"></a><select id="workspace" class="workspace-select" aria-label="${t("workspace")}">${options(
+  app.innerHTML = `<aside class="rail">${brandLogo(effectiveTheme()==="dark"?"light":"dark")}<div class="rail-caption">${t("workspace")}</div><nav class="nav" aria-label="Main">${navs.map(([k, s]) => `<button data-screen="${CATEGORIES.includes(k) ? "discover" : k}" ${CATEGORIES.includes(k) ? `data-category="${k}"` : ""} class="${state.screen === k || (CATEGORIES.includes(k) && ["discover", "asset", "notice", "filters"].includes(state.screen) && (state.screen === "filters" ? draftFilter().category : state.filters.category) === k) ? "active" : ""}" ${state.screen === k || (state.screen === "discover" && state.filters.category === k) ? 'aria-current="page"' : ""}><span class="symbol" aria-hidden="true">${s}</span><span class="nav-label">${t(k)}</span></button>`).join("")}<button class="secondary-nav" data-screen="overview">${icon("LayoutDashboard")} ${t("overview")}</button><button class="secondary-nav" data-screen="plans">${icon("CreditCard")} ${t("plans")}</button><button class="secondary-nav" data-screen="settings"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("settings")}</span></button>${canManageTags() ? `<button class="secondary-nav ${state.screen.startsWith("tag") ? "active" : ""}" data-screen="tags"><span class="symbol" aria-hidden="true">${icon("Tags")}</span><span class="nav-label">${t("tagCatalog")}</span></button>` : ""}<div class="rail-caption">${t("operations")}</div><button class="secondary-nav" data-screen="system"><span class="symbol" aria-hidden="true">${icon("Settings")}</span><span class="nav-label">${t("system")}</span></button><button class="secondary-nav ${state.screen === "review" ? "active" : ""}" data-screen="review"><span class="symbol" aria-hidden="true">${icon("ClipboardCheck")}</span><span class="nav-label">${t("review")}</span></button></nav><div class="rail-bottom"><strong>${t("session")}</strong><br>${t("demoUser")}<br>CR · es / en</div></aside><div class="shell"><header class="topbar"><div class="top-left"><a class="compact-brand" href="?screen=discover" aria-label="${t("home")}"><img src="../brand/gavel-dark.svg" alt="" width="28" height="28"></a><select id="workspace" class="workspace-select" aria-label="${t("workspace")}">${options(
     [
       ["org", state.organizationNames.org || t("org")],
       ["solo", state.organizationNames.solo || t("solo")],
     ],
     state.workspace,
-  )}</select></div><div class="top-right"><select id="color-scheme" class="scheme-select" aria-label="${state.lang === "es" ? "Paleta de colores" : "Color scheme"}">${options(
-    [
-      ["forest", state.lang === "es" ? "Bosque" : "Forest"],
-      ["ocean", state.lang === "es" ? "Océano" : "Ocean"],
-      ["slate", state.lang === "es" ? "Pizarra" : "Slate"],
-      ["terracotta", state.lang === "es" ? "Terracota" : "Terracotta"],
-      ["warm-blue", state.lang === "es" ? "Azul cálido" : "Warm blue"],
-      ["navy", state.lang === "es" ? "Azul marino" : "Navy"],
-      ["studio", state.lang === "es" ? "Estudio" : "Studio"],
-      [
-        "studio-warm-blue",
-        state.lang === "es" ? "Estudio · Azul cálido" : "Studio · Warm Blue",
-      ],
-      ["harbor", state.lang === "es" ? "Puerto" : "Harbor"],
-    ],
-    state.colorScheme,
-  )}</select><select class="theme-select" id="theme-mode" aria-label="${state.lang === "es" ? "Tema" : "Theme"}">${options(
+  )}</select></div><div class="top-right"><select class="theme-select" id="theme-mode" aria-label="${state.lang === "es" ? "Tema" : "Theme"}">${options(
     [
       ["light", state.lang === "es" ? "Claro" : "Light"],
       ["dark", state.lang === "es" ? "Oscuro" : "Dark"],
       ["system", state.lang === "es" ? "Sistema" : "System"],
     ],
     state.theme,
-  )}</select><div class="locale" aria-label="Language"><button data-lang="es" class="${state.lang === "es" ? "active" : ""}" aria-pressed="${state.lang === "es"}">ES</button><button data-lang="en" class="${state.lang === "en" ? "active" : ""}" aria-pressed="${state.lang === "en"}">EN</button></div><button class="avatar" data-screen="auth" aria-label="${t("auth")}">DE</button></div></header><div class="demo-strip"><span>${t("demo")}</span><a href="../docs/04-mockup-guide.html">${t("guide")} ↗</a></div><main id="main" class="content">${!canEdit() ? `<div class="notice">${t("readOnly")}</div>` : ""}${content}<footer class="footer"><span>${t("footer")}</span><div class="preview-tools">${
+  )}</select><div class="locale" aria-label="Language"><button data-lang="es" class="${state.lang === "es" ? "active" : ""}" aria-pressed="${state.lang === "es"}">ES</button><button data-lang="en" class="${state.lang === "en" ? "active" : ""}" aria-pressed="${state.lang === "en"}">EN</button></div><button class="avatar" data-screen="auth" aria-label="${t("auth")}">DE</button></div></header><div class="demo-strip"><span>${t("demo")} · ${state.lang==="es"?"Nova · preset b2fA":"Nova · preset b2fA"}</span><a href="../docs/04-mockup-guide.html">${t("guide")} ↗</a></div><main id="main" class="content">${!canEdit() ? `<div class="notice">${t("readOnly")}</div>` : ""}${content}<footer class="footer"><span>${t("footer")}</span><div class="preview-tools">${
     state.screen === "discover"
       ? `<label for="preview" style="margin:0;font-weight:400">${t("state")}</label><select id="preview" class="state-select">${options(
           [
@@ -3131,168 +3080,9 @@ function render() {
   app.innerHTML = lucideMarkup(app.innerHTML);
   bind();
 }
-function bindGridResizing() {
-  app.querySelectorAll("table.items-table").forEach((table) => {
-    const headers = Array.from(table.querySelectorAll("thead th"));
-    if (!headers.length) return;
-    const key =
-      "auctions-grid-widths:v1:" +
-      encodeURIComponent(state.userId) +
-      ":" +
-      (table.dataset.gridKey ||
-        (table.classList.contains("tag-admin-table")
-          ? "tags"
-          : state.filters.category));
-    let saved = {};
-    try {
-      const value = JSON.parse(localStorage.getItem(key));
-      if (value && typeof value === "object" && !Array.isArray(value))
-        saved = value;
-    } catch (_) {}
-    const ids = headers.map(
-      (header, index) =>
-        Array.from(header.classList).find((name) => name.startsWith("col-")) ||
-        String(index),
-    );
-    const defaults = headers.map((header) => {
-      if (!header.classList.contains("col-actions"))
-        return Math.max(64, Math.round(header.getBoundingClientRect().width));
-      return Math.ceil(
-        Math.max(
-          0,
-          ...Array.from(table.querySelectorAll("tbody td.col-actions")).map(
-            (cell) => {
-              const group = cell.querySelector(".row-actions"),
-                buttons = group ? Array.from(group.children) : [];
-              const style = getComputedStyle(cell),
-                gap = group
-                  ? parseFloat(getComputedStyle(group).columnGap) || 0
-                  : 0;
-              return (
-                buttons.reduce(
-                  (sum, button) => sum + button.getBoundingClientRect().width,
-                  0,
-                ) +
-                Math.max(0, buttons.length - 1) * gap +
-                parseFloat(style.paddingLeft) +
-                parseFloat(style.paddingRight) +
-                2
-              );
-            },
-          ),
-        ),
-      );
-    });
-    const widths = defaults.map((width, index) =>
-      ids[index] !== "col-actions" &&
-      Number.isFinite(saved[ids[index]]) &&
-      saved[ids[index]] >= 64 &&
-      saved[ids[index]] <= 1000
-        ? saved[ids[index]]
-        : width,
-    );
-    const group = document.createElement("colgroup");
-    const cols = headers.map(() => {
-      const col = document.createElement("col");
-      group.append(col);
-      return col;
-    });
-    table.prepend(group);
-    table.classList.add("resizable-grid");
-    const persist = () => {
-      ids.forEach((id, index) => {
-        if (id === "col-actions") delete saved[id];
-        else saved[id] = widths[index];
-      });
-      try {
-        localStorage.setItem(key, JSON.stringify(saved));
-      } catch (_) {}
-    };
-    const apply = () => {
-      widths.forEach((width, index) => {
-        cols[index].style.width = width + "px";
-        headers[index]
-          .querySelector(".column-resizer")
-          ?.setAttribute("aria-valuenow", String(width));
-      });
-      const total = widths.reduce((a, b) => a + b, 0);
-      table.style.width = total + "px";
-      table.style.minWidth = total + "px";
-    };
-    headers.forEach((header, index) => {
-      if (header.classList.contains("col-actions")) return;
-      const handle = document.createElement("span");
-      handle.className = "column-resizer";
-      handle.tabIndex = 0;
-      handle.setAttribute("role", "separator");
-      handle.setAttribute("aria-orientation", "vertical");
-      handle.setAttribute("aria-valuemin", "64");
-      handle.setAttribute("aria-valuemax", "1000");
-      const label =
-        header.textContent.trim() ||
-        header.getAttribute("aria-label") ||
-        (state.lang === "es" ? "Controles" : "Controls");
-      handle.setAttribute(
-        "aria-label",
-        (state.lang === "es" ? "Cambiar ancho: " : "Resize column: ") + label,
-      );
-      handle.title =
-        state.lang === "es"
-          ? "Arrastra para ajustar; doble clic para restablecer"
-          : "Drag to resize; double-click to reset";
-      header.append(handle);
-      const resize = (value) => {
-        widths[index] = Math.max(64, Math.min(1000, Math.round(value)));
-        apply();
-      };
-      handle.onclick = (event) => event.stopPropagation();
-      handle.ondblclick = (event) => {
-        event.stopPropagation();
-        resize(defaults[index]);
-        persist();
-      };
-      handle.onkeydown = (event) => {
-        if (!["ArrowLeft", "ArrowRight", "Home"].includes(event.key)) return;
-        event.preventDefault();
-        event.stopPropagation();
-        resize(
-          event.key === "Home"
-            ? defaults[index]
-            : widths[index] +
-                (event.key === "ArrowRight" ? 1 : -1) *
-                  (event.shiftKey ? 40 : 16),
-        );
-        persist();
-      };
-      handle.onpointerdown = (event) => {
-        if (event.button !== 0) return;
-        event.preventDefault();
-        event.stopPropagation();
-        const start = event.clientX,
-          width = widths[index];
-        handle.setPointerCapture(event.pointerId);
-        table.classList.add("is-resizing");
-        handle.onpointermove = (move) => resize(width + move.clientX - start);
-        const finish = () => {
-          handle.onpointermove = null;
-          table.classList.remove("is-resizing");
-          persist();
-        };
-        handle.onpointerup = finish;
-        handle.onpointercancel = finish;
-        handle.onlostpointercapture = finish;
-      };
-    });
-    apply();
-  });
-}
 function bind() {
-  bindGridResizing();
   bindPropertyResearch();
   bindTagManagement();
-  document.getElementById("color-scheme").onchange = (e) => {
-    if (setColorScheme(e.target.value)) render();
-  };
   document.getElementById("theme-mode").onchange = (e) => {
     if (setTheme(e.target.value)) render();
   };

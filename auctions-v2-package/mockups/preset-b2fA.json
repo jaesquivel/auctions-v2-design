@@ -1,0 +1,19 @@
+{
+  "url": "https://ui.shadcn.com/create?preset=b2fA",
+  "inspectedAt": "2026-11-13",
+  "style": "Nova",
+  "baseColor": "Neutral",
+  "theme": "Neutral",
+  "chartColor": "Neutral",
+  "font": "Geist",
+  "headingFont": "Geist",
+  "iconLibrary": "Lucide",
+  "radius": "default (0.625rem)",
+  "menu": "Default / Solid",
+  "menuAccent": "Subtle",
+  "observedPreviewBase": "Base UI",
+  "applicationBase": "Radix retained; visual request does not authorize dependency switch",
+  "measuredDesktopButtonHeight": 32,
+  "measuredCardRadius": 14,
+  "implementation": "offline HTML/CSS visual mockup; not React component installation"
+}

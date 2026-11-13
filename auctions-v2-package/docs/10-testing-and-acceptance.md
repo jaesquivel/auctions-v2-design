@@ -107,3 +107,17 @@ The fictional first and second property rows each have two assigned organization
 ## Theme preference
 
 Confirmed choices: Light, Dark and System (default). A global theme selector is available in the app header; System follows the device color scheme, including changes while open. Proposed persistence is browser-local across reloads, independent of organization and saved filters. Dark surfaces, fields, tables, dialogs and text use theme tokens; tag palettes preserve readable label pairs. Focus outlines remain visible and listing icon buttons remain frameless. Verify explicit modes, reload persistence, System fallback, mobile wrapping and separate filter/editor views. Full accessibility/contrast audit remains a production acceptance gate.
+
+
+## shadcn/ui component adoption acceptance
+Every applicable interactive control uses the official shadcn/ui component rather than a parallel generic implementation. Authentication remains Clerk and maps remain Leaflet. Keep a component coverage record and the user's explicit decisions for all customized appearance/behavior. Prior design requirements remain in force until the user resolves a conflict. Pending C-SH01/02/03 are not migration approval. Validate keyboard/focus behavior and domain regression after actual React implementation; existing offline checks do not prove shadcn integration. See [coverage and proposals](13-shadcn-component-policy.md).
+
+
+## Confirmed stock-table behavior — 12 November 2026
+
+Retain server-side pagination, selectable page sizes, multi-column sorting and user-saved visible columns using standard shadcn controls. Defer column-edge resizing, persisted widths and enforced single-line truncation for the first implementation. Default table layout may wrap content; do not impose the prior compact heights, darker header or ellipsis rules. These deferred adaptations remain backlog items requiring a later explicit decision, not first-release acceptance conditions. Ignore historical saved width preferences in the new stock frontend; visible-column preferences remain supported. Tags keeps its fixed columns and no filter/pagination/column selector. The existing custom offline prototype remains a historical behavior reference, not the migrated stock frontend. No tag-picker alternative has been approved yet.
+
+
+## React preview delivered — 13 November 2026
+
+The current preferred preview is the real Next.js app in [frontend](../../frontend/README.md), using official shadcn Radix Nova components and actual Table grids. The original offline HTML remains a reference. See [React implementation, verification and limits](16-react-preview.md). Server-side fixture pagination/filtering/sorting is now implemented in Next Route Handlers; production Spring/PostgreSQL and tenant authorization remain future work. The user approved the stock Popover/Toggle tag-picker composition with colored tags and no checkmarks. Browser persistence is a simulation, not an authorization boundary. Earlier pending tag-picker/vanilla-only statements are superseded.

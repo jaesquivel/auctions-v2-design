@@ -1,0 +1,54 @@
+/* Offline visual mockup of stock neutral shadcn styling, not React components.
+   The legacy tag picker remains pending user selection. */
+:root[data-scheme=shadcn]{--brand:#fafafa;--green:#171717;--pale:#f5f5f5;--canvas:#fff;--surface:#fff;--ink:#0a0a0a;--muted:#737373;--line:#e5e5e5;--radius:12px;--primary-fill:#171717;--nav-active:#f5f5f5;color-scheme:light;font-size:14px}
+:root[data-theme=dark][data-scheme=shadcn]{--brand:#171717;--green:#fafafa;--pale:#262626;--canvas:#0a0a0a;--surface:#0a0a0a;--ink:#fafafa;--muted:#a3a3a3;--line:#303030;--primary-fill:#fafafa;--nav-active:#262626;color-scheme:dark}
+:root body{background:var(--canvas);color:var(--ink)}
+:root button,:root .column-menu summary{border-radius:8px;font-size:14px;font-weight:500;min-height:36px;padding:8px 12px;line-height:20px;background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 2px #0000000d}
+:root button:hover,:root .column-menu summary:hover{background:var(--pale)}
+:root button.primary{background:var(--primary-fill);border-color:transparent;color:var(--surface)}
+:root button.primary:hover{opacity:.9}
+:root button.ghost,:root .row-actions button,:root .title-link{background:transparent;border-color:transparent;box-shadow:none}
+:root button:disabled{opacity:.5}
+:root :focus-visible{outline:2px solid var(--muted);outline-offset:3px}
+:root input,:root select,:root textarea{border:1px solid var(--line);border-radius:8px;min-height:36px;padding:7px 12px;background:var(--surface);color:var(--ink);font-size:14px;box-shadow:0 1px 2px #0000000d}
+:root label{font-size:14px;font-weight:500}
+:root .panel,:root .filter,:root .auth{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 2px #0000000d}
+:root .topbar{background:var(--surface);border-color:var(--line)}
+:root .rail{background:var(--brand);color:var(--ink);border-right:1px solid var(--line);padding:24px 12px}
+:root .rail .name,:root .rail-bottom strong,:root .brand-home{color:var(--ink)}
+:root .rail-caption,:root .rail-bottom{color:var(--muted);letter-spacing:.4px}
+:root .nav button{border:0;box-shadow:none;color:var(--ink);background:transparent;font-weight:400;min-height:36px;padding:8px 12px}
+:root .nav button.active,:root .nav button:hover{background:var(--nav-active);color:var(--ink)}
+:root .avatar,:root .workspace-select,:root .locale .active{background:var(--pale);color:var(--ink)}
+:root .eyebrow{color:var(--muted);letter-spacing:.6px}
+:root h1{font-size:30px;letter-spacing:-.7px}:root h2{font-size:20px;letter-spacing:-.4px}
+:root .demo-strip,:root .notice{background:var(--pale);color:var(--ink);border:1px solid var(--line)}
+:root .table-scroll{border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:auto}
+:root table.items-table{width:100%;min-width:760px!important;table-layout:auto;background:var(--surface);color:var(--ink);font-size:14px;border-collapse:collapse}
+:root table.items-table th,:root table.items-table td{height:auto;min-width:0;width:auto;max-width:none;padding:8px;text-align:left;vertical-align:middle;white-space:normal;overflow:visible;text-overflow:clip;border:0;border-bottom:1px solid var(--line);background:transparent!important;box-shadow:none;position:static;line-height:20px}
+:root table.items-table thead th{height:40px;color:var(--ink)!important;font-weight:500;padding:0 8px;background:transparent!important}
+:root table.items-table tbody tr:hover{background:var(--pale)}
+:root table.items-table tbody tr:last-child td{border-bottom:0}
+:root table.items-table th button,:root table.items-table td button{height:auto;min-height:36px;line-height:20px;white-space:normal;max-width:none;overflow:visible;text-overflow:clip}
+:root table.items-table .col-actions{width:1%;white-space:nowrap;padding:8px}
+:root table.items-table .row-actions{gap:4px}
+:root table.items-table .row-actions button{width:36px;min-width:36px;min-height:36px;padding:8px}
+:root table.items-table .title-link{padding:0;text-align:left}
+:root table.items-table span[title]{white-space:normal;max-width:none;overflow:visible;text-overflow:clip}
+:root table.items-table .row-tag-badges{flex-wrap:wrap;white-space:normal;overflow:visible;min-width:140px;max-width:280px;gap:4px;padding:0}
+:root table.items-table .tag-badge{white-space:normal;max-width:none;overflow:visible;text-overflow:clip}
+:root .tag-inline-editor{min-width:0;flex-wrap:wrap}
+:root .tag-inline-editor input{width:180px}
+:root .column-menu-panel{border-radius:8px;background:var(--surface);box-shadow:0 4px 6px #0000001a;padding:8px}
+:root .column-menu-panel .check{padding:6px 8px;margin:0;font-size:14px}
+:root .item-tabs{display:flex;width:max-content;max-width:100%;gap:0;padding:3px;border:0;border-radius:8px;background:var(--pale);overflow-x:auto;margin-bottom:24px}
+:root .item-tabs [role=tab]{border:0;border-radius:6px;background:transparent;min-height:30px;padding:5px 10px;color:var(--muted);box-shadow:none;font-weight:500;white-space:nowrap}
+:root .item-tabs [role=tab][aria-selected=true]{background:var(--surface);color:var(--ink);border:0;box-shadow:0 1px 3px #0000001a;font-weight:500}
+:root .item-tabs [role=tab]:hover{background:var(--surface);color:var(--ink)}
+:root .column-resizer{display:none}
+@media(pointer:coarse){:root button,:root select,:root input,:root .column-menu summary{min-height:44px}:root table.items-table td button,:root table.items-table th button,:root table.items-table .row-actions button,:root .item-tabs [role=tab]{min-height:44px}:root table.items-table .row-actions button{min-width:44px;width:44px}}
+@media(max-width:700px){:root .content{padding:20px 16px}:root .heading{align-items:flex-start;flex-wrap:wrap}:root .topbar{flex-wrap:wrap}:root .rail{padding:12px}:root .tag-inline-editor input{width:150px}}
+/* Keep the existing tag interaction unchanged while its replacement is pending. */
+:root button.tag-label-trigger{border:0;background:transparent;box-shadow:none;padding:0;min-height:36px}
+:root button.tag-label-trigger:hover{background:var(--pale)}
+:root .items-table th button{border-color:transparent;background:transparent;box-shadow:none;padding:8px}
