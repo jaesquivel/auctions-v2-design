@@ -8,7 +8,7 @@ The audience includes individual property researchers, analysts comparing opport
 
 ## Outcomes and measures
 
-Proposed pilot targets: at least 80% of usability participants can find a matching asset and open its source within three minutes; 100% of published critical values have source evidence and review status; no private workspace access across tenants in authorization tests. Measure saved-search creation, source-open rate and repeat research sessions with consent-aware, minimized analytics. Conversion and revenue targets remain open until pricing and audience are validated.
+Proposed pilot targets: at least 80% of usability participants can find a matching asset and open its source within three minutes; 100% of published critical values have source evidence and review status; no private workspace access across tenants in authorization tests. Measure saved-filter creation, source-open rate and repeat research sessions with consent-aware, minimized analytics. Conversion and revenue targets remain open until pricing and audience are validated.
 
 ## Functional requirements
 
@@ -21,7 +21,7 @@ Proposed pilot targets: at least 80% of usability participants can find a matchi
 | FR05 | MVP | Detail shows asset identity, next event and event history, original amounts and currencies, missing fields, quality flags and notice provenance | AC04 |
 | FR06 | MVP | Notice detail retains original text, source locator, revision and evidence highlights; no unmarked translation | AC05 |
 | FR07 | MVP | Assign/remove available organization tags directly on auction items; optional organization notes are independent; no saved-item state | AC06, AC19 |
-| FR08 | MVP | Users create, edit, pause and delete their own saved searches and notification preferences; organization role never transfers ownership | AC07, AC23 |
+| FR08 | MVP | Users create, edit, pause and delete their own saved filters and notification preferences; organization role never transfers ownership | AC07, AC23 |
 | FR09 | MVP | Clerk sign in, mandatory organization onboarding, organization switching, members and invitation handling | AC08 |
 | FR10 | MVP | Server-side roles and subscription feature checks; billing state displayed accurately | AC09 |
 | FR11 | MVP | Reviewer queue with evidence, correction reason, concurrent-edit protection and audit trail | AC10 |
@@ -37,7 +37,7 @@ Proposed pilot targets: at least 80% of usability participants can find a matchi
 
 The software supports multiple countries, but each instance runs for exactly one deployment-configured country. The reference instance is configured for CR; country is not a search filter, URL option, user preference or administrator setting. Changing UI language does not change country. UI locale defaults to es-CR in the CR instance, and currency is CRC only when an amount bound is entered. A mixed-currency result set may be shown but cannot be ordered by amount until a currency is selected. An absent amount, date, area or district remains null and never becomes zero, today, or an inferred address. Unknown values are excluded by corresponding numeric or date filters unless an explicit include-unknown control is enabled. All scheduled dates are source-derived, not predictions. Event ordinals are separate rows, never separate assets.
 
-Public tags such as “land” describe catalog taxonomy. Private tags such as “review with team” belong to a workspace and are never included in public search or indexing. Public source facts and private researcher notes are visibly distinct. ADMIN and MANAGER edit available organization tag definitions, sanitized and deduplicated within the organization and limited to 40 characters. Proposed USER behavior permits assignment of existing active tags, not creation or renaming of definitions. These tags are separate from the public catalog taxonomy.
+Public tags such as “land” describe catalog taxonomy. Private tags such as “review with team” belong to a workspace and are never included in public search or indexing. Public source facts and private researcher notes are visibly distinct. ADMIN and MANAGER edit available organization tag definitions, sanitized and deduplicated within the organization and limited to 40 characters. Proposed USER behavior permits assignment of existing tags, not creation or renaming of definitions. These tags are separate from the public catalog taxonomy.
 
 ### Status and freshness
 
@@ -47,7 +47,7 @@ Use separate states for ingestion (fetched, extracted, review_required, publishe
 
 Confirmed C15: auction listings contain no images or thumbnails. Detail provides an Images tab for organization members to attach images directly to the auction item, without tagging or saving it first. Proposed visibility is within the active organization; attachments are member-supplied material, not official notice evidence or verified property photography. Proposed constraints are JPEG/PNG/WebP, 10 MB per file and 20 attachments per organization/item. Production processing validates actual bytes, scans/re-encodes approved formats and removes metadata before display. These policy limits and uploader/ADMIN deletion rules require product/privacy review.
 
-## Direct auction tagging and user-owned searches
+## Direct auction tagging and user-owned saved filters
 
 There are no saved, bookmarked or favorite auction items. Users apply available tags directly from discovery cards or asset detail and find items through tag filters in discovery. Assigning the first tag does not create a save; removing the final tag does not remove or hide the auction item. Optional notes remain an independent organization annotation, not a saved-item collection.
 
@@ -65,7 +65,7 @@ SYSADMIN configures and operates the deployed instance. It is a system-level gra
 
 ## Subscriptions and entitlements
 
-Subscription is a paid product concept; saved-search subscription is a notification preference. UI and APIs distinguish the two. Proposed bundles are Explore (public search and source access), Research (direct auction tagging, optional notes and user-owned search notifications), and Team (additional collaboration capabilities within an organization). Subscriptions, billing customers and execution entitlements belong to organizations; saved-search ownership belongs to the user. Proposed quota accounting uses the search’s execution context, not ownership. All billing subscriptions and customers belong to organizations, including solo organizations; no user-owned subscription exists. All plans retain the mandatory organization model and role checks. No price or allocation is approved. Prototype unlocks all screens for review and takes no payment. Commercial configuration owns numeric limits; a downgrade disables creation above the new limit, pauses excess alerts with notice, and preserves user-owned search definitions and organization annotations until an approved retention policy says otherwise.
+Subscription is a paid product concept; saved-filter subscription is a notification preference. UI and APIs distinguish the two. Proposed bundles are Explore (public search and source access), Research (direct auction tagging, optional notes and user-owned search notifications), and Team (additional collaboration capabilities within an organization). Subscriptions, billing customers and execution entitlements belong to organizations; saved-filter ownership belongs to the user. Proposed quota accounting uses the search’s execution context, not ownership. All billing subscriptions and customers belong to organizations, including solo organizations; no user-owned subscription exists. All plans retain the mandatory organization model and role checks. No price or allocation is approved. Prototype unlocks all screens for review and takes no payment. Commercial configuration owns numeric limits; a downgrade disables creation above the new limit, pauses excess alerts with notice, and preserves user-owned search definitions and organization annotations until an approved retention policy says otherwise.
 
 ## Quality requirements
 
@@ -81,7 +81,7 @@ Release requires approved source access and privacy policies, a labeled extracti
 
 ## Auction-first product organization — confirmed C17
 
-The primary experience consists of Properties, Vehicles and Other listings. Each supports a single category-relevant filter workflow, direct organization tagging, item detail, Notice evidence, member Images and user-owned saved searches. No auction list displays images. Country is deployment-fixed across all three sections. Organization permissions and subscriptions apply consistently to each section; no category-specific paywall is confirmed.
+The primary experience consists of Properties, Vehicles and Other listings. Each supports a single category-relevant filter workflow, direct organization tagging, item detail, Notice evidence, member Images and user-owned saved filters. No auction list displays images. Country is deployment-fixed across all three sections. Organization permissions and subscriptions apply consistently to each section; no category-specific paywall is confirmed.
 
 Proposed: shared amount/currency, schedule/status, extraction quality, location and organization-tag filters. Property subtype and land/floor area apply to Properties only. Initial vehicle subtypes are car, motorcycle, truck and other vehicle; initial Other subtypes are equipment, inventory and other. Vehicle make/model/year and detailed equipment attributes are future evidence-backed fields, not fabricated prototype facts. Display only source-supported attributes; do not show area controls or property labels in Vehicles/Other. No bidding or legal certification is implied.
 
@@ -119,7 +119,7 @@ Acceptance: verify multi-value precedence, both directions, equal values/ID ties
 
 ## Single-line item records
 
-Confirmed: each auction record occupies one line. Reference and item title have separate columns; cell text never wraps. Tags and Notice buttons are grouped in the rightmost Actions column. Long titles/locations may ellipsize visually with full text available through the title attribute and item detail. No stacked reference, badges or inline notice links remain in the item cell. This supersedes compact multiline mobile rows: narrow screens scroll the table horizontally, retaining one-line records and a right-aligned action column. Sorting and server pagination behavior stay unchanged.
+Confirmed: each auction record occupies one line. Reference and item title have separate columns; cell text never wraps. Displayed tags open the tag picker directly. The rightmost, untitled controls column contains item actions; Properties has Edit only, with no Notice action. Long titles/locations may ellipsize visually with full text available through the title attribute and item detail. No stacked reference, badges or inline notice links remain in the item cell. This supersedes compact multiline mobile rows: narrow screens scroll the table horizontally, retaining one-line records and a right-aligned action column. Sorting and server pagination behavior stay unchanged.
 
 Verify row/cell heights, no wrapping, rightmost action placement, keyboard access to the scroll region and buttons, accessible column headers and no page-level horizontal overflow at 320–1440 px.
 
@@ -133,19 +133,19 @@ Proposed palette: gray, blue, green, amber, red and purple, with predefined read
 
 Confirmed: property records include user-editable notes and appraisal amount owned by the organization, with scope `(workspaceId, assetId)`. Members of the same organization share these values; another organization has its own values for the same property. Properties use a Lucide Pencil action instead of Eye to open the editor. Vehicles and Other retain their existing open action. Source notice/extracted data remain unchanged.
 
-The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel discards unsaved edits and returns to the listing, preserving item pagination. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
+The prototype property editor includes notes (up to 10,000 characters), optional non-negative appraisal amount (up to two decimal places) and currency (CRC/USD in this instance). Empty amount clears the appraisal. Save validates all fields atomically; Cancel restores saved values on the same item screen. Existing organization notes are reused. Additional editable fields are confirmed as a future need; names/types are unspecified and no extra fields are invented here.
 
 Proposed permissions follow existing research-edit access: ADMIN, MANAGER and USER; membership must be validated server-side. Prototype state resets on reload. Annotation input/response now allow optional nullable `appraisal: Money`; production must restrict appraisal to Properties, reject invalid currencies/amounts and use expected-version checks. SQL design adds nullable appraisal_amount/appraisal_currency to asset_annotation with paired-null and non-negative checks. No database migration or production service has been executed.
 
 ## Unified property detail and editing
 
-Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the Overview tab alongside the published information, auction schedule and tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
+Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the General info tab alongside the published item information; the Auction tab holds the schedule and the item header holds tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
 
 ## Auction tab — second item tab
 
-Confirmed: Auction / Remate is the second tab after General info for every item category. It contains round numbers, base offers with currencies, dates/times and configured timezone; whether this item is sold individually or as part of a lot; and links to the auction's other items. Lot references and links to fellow lot members appear when applicable. General info retains item attributes, editable notes/appraisal and tag labels; schedule and auction base information move into Auction. Remaining tabs follow Auction in their prior category-aware order.
+Confirmed: Auction / Remate is the second tab after General info for every item category. It contains round numbers, auction bases with currencies, dates/times and configured timezone; whether this item is sold individually or as part of a lot; and links to the auction's other items. Lot references and links to fellow lot members appear when applicable. General info retains item attributes and editable notes/appraisal; tags stay in the item header; schedule and auction base information move into Auction. Remaining tabs follow Auction in their prior category-aware order.
 
-Demonstration fields: auctionId, saleMode (individual/lot), lotId and existing auctionRounds. Five fictional items are grouped per auction example; generated examples 07 and 08 in each category share a lot and its schedule/base. Distinct individually sold items can retain their own schedules/base offers. These synthetic relationships are UI examples, not verified auction data. Open DEMO-A07, DEMO-V07 or DEMO-O07 for a lot example. Missing relationships or schedules must use explicit unknown/not-reported states, not inferred real-world facts.
+Demonstration fields: auctionId, saleMode (individual/lot), lotId and existing auctionRounds. Five fictional items are grouped per auction example; generated examples 07 and 08 in each category share a lot and its schedule/base. Distinct individually sold items can retain their own schedules/auction bases. These synthetic relationships are UI examples, not verified auction data. Open DEMO-A07, DEMO-V07 or DEMO-O07 for a lot example. Missing relationships or schedules must use explicit unknown/not-reported states, not inferred real-world facts.
 
 Proposed production model: Auction groups source-evidenced sale units; a sale unit is individual or a lot and links its member assets. Round dates/times and base money attach to that sale unit, avoiding a duplicated lot price per member. Preserve source evidence, version changes and explicit currency; never sum member prices into a lot base or infer lot membership from proximity in a notice. Existing API/SQL grouping extensions remain implementation work; this prototype adds fixture relationships and UI without executing migrations or connecting a backend. Link resolution must preserve access checks and return an unavailable state for inaccessible items.
 
@@ -158,3 +158,33 @@ Production specification: retain the source clause or legal citation, effective 
 Prototype demonstration: only A07/A08 have explicit synthetic notice terms, labeled as fictional in the notice: 10% guarantee, half-up cent rounding, and CRC 5000 fee per round of the shared lot. These are demonstration inputs, not Costa Rican legal guidance. Other examples display Not available. Calculated cells expose notice/rule reference in their title. Backend calculation, legal-rule verification and API/schema extensions remain implementation work.
 
 Terminology: Participation Guarantee / Garantía de participación is the confirmed label for the guarantee amount.
+
+## Government-assessed tax value
+
+Confirmed: Properties and Vehicles can have a government-assessed value for tax purposes (Valor fiscal). It is optional and distinct from the appraisal amount and auction base. General info displays its amount/currency and available tax year/source reference; unknown values show Not reported. Other does not display this field.
+
+Proposed representation: nullable governmentTaxValue with amount, currency, taxYear and sourceReference, extended with authority, assessment/effective dates and evidence when available. Preserve the issuing jurisdiction/source and assessment period; do not infer a tax amount, market value or current valuation from this field. Display is read-only in the prototype; source/integration and maintenance workflow remain unspecified. A07 and V07 contain explicitly fictional sample assessments; no real government valuation service is connected.
+
+## Market Value and Appraisal Value
+
+Confirmed: Market Value / Valor de mercado and Appraisal Value / Valor de avalúo belong to editable user/organization research data, not government/source valuations. Store each as optional amount/currency under the same organization/item scope as notes; do not display ownership labels in the UI. Government-assessed tax value and auction round bases remain separate source fields. The property General info form now supports both values, with non-negative decimal validation, independent currencies, Save/Cancel and blank-to-clear behavior. Annotation contracts and SQL design include separate nullable market money fields. Prototype persistence remains session-only.
+
+## Description and Liens extracted from notices
+
+Confirmed: notices may provide Description / Descripción and Liens / Gravámenes. Preserve them as optional source-derived text, displayed read-only in General info and Notice. They are distinct from editable notes and do not belong to organization research fields. Missing text means Not reported, never “no liens.” Original legal/source wording is preserved in its original language; only UI headings are localized.
+
+Extraction must retain notice revision, page/span evidence, original text, confidence and review status for each field; avoid silently merging contradictory notices. A reported lien is not a verified current registry condition or a legal guarantee. Proposed nullable fields noticeDescription and noticeLiens are included in detail DTO/schema design; no migration is executed. Prototype examples are explicit synthetic text, also included in their original fictional notice snapshot.
+
+## Notice Reference and judicial Case number
+
+Confirmed: Reference belongs to the notice, not the auction item, property registration or vehicle plate. In grids, Reference is the last data column, immediately after Case number for judicial auctions and before the untitled controls column. Non-judicial records have no case number; unknown references remain Not reported. Reference is also an information field in the Notice tab, with Case number when judicial. Existing per-user column visibility choices remain respected.
+
+Model notice reference and judicial case number at the notice/source level, preserving source provenance. Asset grid DTO fields are read-only projections from the relevant linked notice, not globally unique identifiers. A multi-notice selection policy remains a proposed backend decision; never select an arbitrary case/reference when sources conflict. Fictional examples use distinct DEMO-NOTICE-REF and DEMO-CASE prefixes shared by the auction's items. SQL changes are design-only and no migration was run.
+
+
+### Confirmed auction parties and notice source details
+Auctions may identify multiple creditors, debtors, auctioneers and (for judicial auctions) a court, plus a venue or office. The Auction tab displays these optional source facts. Case number remains judicial-only; Reference belongs to the notice. The Notice tab displays case number/reference, publication name, issue, publication date, page/locator, extraction notes, and the full original notice text. Missing values are unreported, never inferred. Extraction notes are read-only processing/review annotations, distinct from editable research notes.
+
+Proposed representation: revision-scoped parties array (role/name), optional venue/office and publication metadata, and extractionNotes array. Each extracted fact must retain evidence and review provenance; a party can occur more than once per role. Preserve source spelling and full original text, without translating or rewriting it. No real identities are included in fixtures. Shared auction facts must stay consistent across linked items. Publication URLs are optional validated source links; do not invent URLs. Internal extraction diagnostics and secrets must not enter user-visible extraction notes. Reconcile conflicting revisions explicitly; do not overwrite published evidence. The existing auction grouping model remains proposed rather than a production integration.
+
+Acceptance: all categories expose Auction parties/venue and Notice source metadata; court/case appear only for judicial auctions; repeated parties are preserved; unknowns stay unreported; source metadata cannot be edited as research; original notice text remains intact. Examples A07/A08 are explicitly fictional and share identical auction metadata.

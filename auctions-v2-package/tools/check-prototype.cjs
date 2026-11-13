@@ -270,6 +270,13 @@ check(calculateRoundCost(costExample.auctionRounds[0],costExample.roundCostRules
 check(calculateRoundCost({},undefined)===null&&calculateRoundCost({}, {verified:false})===null,'unknown cost is unavailable');
 check(calculateRoundCost({baseOffer:{amount:'0.05',currency:'CRC'}},{...costExample.roundCostRules.guarantee}).amount==='0.01','round cost exact half-up rounding');
 check(calculateRoundCost({baseOffer:{amount:'1.00',currency:'USD'}},costExample.roundCostRules.guarantee)===null,'no silent currency conversion');
+check(governmentTaxValuePanel(DEMO_LISTINGS.find(item=>item.id==='DEMO-A07')).includes('31000000')===false,'tax value formatted for display');
+check(governmentTaxValuePanel(DEMO_LISTINGS.find(item=>item.id==='DEMO-V07')).includes('DEMO-TAX-ASSESSMENT'),'vehicle tax source visible');
+check(governmentTaxValuePanel(DEMO_LISTINGS.find(item=>item.category==='other'))==='','Other has no government tax value');
+state.filters=initialFilter('properties');saveVisibleColumns(defaultColumns());
+check(visibleColumns().slice(-3).join()==='caseNumber,reference,actions','case then notice reference last data columns');
+check(itemTable([DEMO_LISTINGS[0]]).includes(DEMO_LISTINGS[0].noticeReference),'grid reference is notice-owned');
+state.selected='DEMO-A01';state.itemTab='notice';check(asset().includes(DEMO_LISTINGS[0].noticeReference),'notice tab shows reference');state.itemTab='overview';
 check(DEMO_LISTINGS.length===150,'full catalog has 150 fixtures');
 check(new Set(DEMO_LISTINGS.map(item=>item.id)).size===150,'fixture IDs unique');
 for(const category of ['properties','vehicles','other']) {

@@ -54,7 +54,18 @@
     "registrationNumber": "DEMO-REG-A01",
     "auctionId": "DEMO-AUCTION-properties-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": "Descripción ficticia: bien de demostración incluido en este aviso sintético, sin identificación de un activo real.",
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A02",
@@ -111,7 +122,18 @@
     "registrationNumber": "DEMO-REG-A02",
     "auctionId": "DEMO-AUCTION-properties-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A03",
@@ -168,7 +190,18 @@
     "registrationNumber": "DEMO-REG-A03",
     "auctionId": "DEMO-AUCTION-properties-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A04",
@@ -225,7 +258,18 @@
     "registrationNumber": "DEMO-REG-A04",
     "auctionId": "DEMO-AUCTION-properties-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A05",
@@ -282,7 +326,18 @@
     "registrationNumber": "DEMO-REG-A05",
     "auctionId": "DEMO-AUCTION-properties-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A06",
@@ -339,7 +394,18 @@
     "registrationNumber": "DEMO-REG-A06",
     "auctionId": "DEMO-AUCTION-properties-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V01",
@@ -394,7 +460,18 @@
     "plate": "DEMO-PLATE-V01",
     "auctionId": "DEMO-AUCTION-vehicles-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V02",
@@ -449,7 +526,18 @@
     "plate": "DEMO-PLATE-V02",
     "auctionId": "DEMO-AUCTION-vehicles-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O01",
@@ -503,7 +591,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O02",
@@ -557,7 +655,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A07",
@@ -631,7 +739,48 @@
         "reference": "DEMO-NOTICE-TERMS-A07",
         "verified": true
       }
-    }
+    },
+    "governmentTaxValue": {
+      "amount": "31000000.00",
+      "currency": "CRC",
+      "taxYear": 2026,
+      "sourceReference": "DEMO-TAX-ASSESSMENT-DEMO-A07"
+    },
+    "noticeDescription": "Descripción ficticia: bien de demostración incluido en este aviso sintético, sin identificación de un activo real.",
+    "noticeLiens": "Gravamen ficticio mencionado únicamente para demostrar la extracción de texto. No representa una carga real ni una verificación registral.",
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-2",
+    "auctionParties": [
+      {
+        "role": "creditor",
+        "name": "DEMO · Acreedor ficticio"
+      },
+      {
+        "role": "debtor",
+        "name": "DEMO · Deudor ficticio"
+      },
+      {
+        "role": "auctioneer",
+        "name": "DEMO · Rematador ficticio"
+      },
+      {
+        "role": "court",
+        "name": "DEMO · Juzgado ficticio"
+      }
+    ],
+    "auctionVenue": "DEMO · Sede ficticia",
+    "auctionOffice": "DEMO · Oficina ficticia",
+    "noticePublication": {
+      "name": "DEMO · Publicación sintética",
+      "issue": "DEMO-001",
+      "publishedAt": "2026-01-15",
+      "locator": "Página ficticia 1",
+      "url": null
+    },
+    "extractionNotes": [
+      "DEMO · Nota de extracción ficticia: verificar la lectura de la sede antes de publicar."
+    ]
   },
   {
     "id": "DEMO-A08",
@@ -705,7 +854,43 @@
         "reference": "DEMO-NOTICE-TERMS-A07",
         "verified": true
       }
-    }
+    },
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-2",
+    "auctionParties": [
+      {
+        "role": "creditor",
+        "name": "DEMO · Acreedor ficticio"
+      },
+      {
+        "role": "debtor",
+        "name": "DEMO · Deudor ficticio"
+      },
+      {
+        "role": "auctioneer",
+        "name": "DEMO · Rematador ficticio"
+      },
+      {
+        "role": "court",
+        "name": "DEMO · Juzgado ficticio"
+      }
+    ],
+    "auctionVenue": "DEMO · Sede ficticia",
+    "auctionOffice": "DEMO · Oficina ficticia",
+    "noticePublication": {
+      "name": "DEMO · Publicación sintética",
+      "issue": "DEMO-001",
+      "publishedAt": "2026-01-15",
+      "locator": "Página ficticia 1",
+      "url": null
+    },
+    "extractionNotes": [
+      "DEMO · Nota de extracción ficticia: verificar la lectura de la sede antes de publicar."
+    ]
   },
   {
     "id": "DEMO-A09",
@@ -760,7 +945,18 @@
     "registrationNumber": "DEMO-REG-A09",
     "auctionId": "DEMO-AUCTION-properties-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A10",
@@ -815,7 +1011,18 @@
     "registrationNumber": "DEMO-REG-A10",
     "auctionId": "DEMO-AUCTION-properties-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A11",
@@ -870,7 +1077,18 @@
     "registrationNumber": "DEMO-REG-A11",
     "auctionId": "DEMO-AUCTION-properties-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A12",
@@ -925,7 +1143,18 @@
     "registrationNumber": "DEMO-REG-A12",
     "auctionId": "DEMO-AUCTION-properties-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A13",
@@ -980,7 +1209,18 @@
     "registrationNumber": "DEMO-REG-A13",
     "auctionId": "DEMO-AUCTION-properties-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A14",
@@ -1035,7 +1275,18 @@
     "registrationNumber": "DEMO-REG-A14",
     "auctionId": "DEMO-AUCTION-properties-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A15",
@@ -1090,7 +1341,18 @@
     "registrationNumber": "DEMO-REG-A15",
     "auctionId": "DEMO-AUCTION-properties-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A16",
@@ -1145,7 +1407,18 @@
     "registrationNumber": "DEMO-REG-A16",
     "auctionId": "DEMO-AUCTION-properties-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A17",
@@ -1200,7 +1473,18 @@
     "registrationNumber": "DEMO-REG-A17",
     "auctionId": "DEMO-AUCTION-properties-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A18",
@@ -1255,7 +1539,18 @@
     "registrationNumber": "DEMO-REG-A18",
     "auctionId": "DEMO-AUCTION-properties-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A19",
@@ -1310,7 +1605,18 @@
     "registrationNumber": "DEMO-REG-A19",
     "auctionId": "DEMO-AUCTION-properties-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A20",
@@ -1365,7 +1671,18 @@
     "registrationNumber": "DEMO-REG-A20",
     "auctionId": "DEMO-AUCTION-properties-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A21",
@@ -1420,7 +1737,18 @@
     "registrationNumber": "DEMO-REG-A21",
     "auctionId": "DEMO-AUCTION-properties-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A22",
@@ -1475,7 +1803,18 @@
     "registrationNumber": "DEMO-REG-A22",
     "auctionId": "DEMO-AUCTION-properties-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A23",
@@ -1530,7 +1869,18 @@
     "registrationNumber": "DEMO-REG-A23",
     "auctionId": "DEMO-AUCTION-properties-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A24",
@@ -1585,7 +1935,18 @@
     "registrationNumber": "DEMO-REG-A24",
     "auctionId": "DEMO-AUCTION-properties-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A25",
@@ -1640,7 +2001,18 @@
     "registrationNumber": "DEMO-REG-A25",
     "auctionId": "DEMO-AUCTION-properties-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A26",
@@ -1695,7 +2067,18 @@
     "registrationNumber": "DEMO-REG-A26",
     "auctionId": "DEMO-AUCTION-properties-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A27",
@@ -1750,7 +2133,18 @@
     "registrationNumber": "DEMO-REG-A27",
     "auctionId": "DEMO-AUCTION-properties-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A28",
@@ -1805,7 +2199,18 @@
     "registrationNumber": "DEMO-REG-A28",
     "auctionId": "DEMO-AUCTION-properties-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A29",
@@ -1860,7 +2265,18 @@
     "registrationNumber": "DEMO-REG-A29",
     "auctionId": "DEMO-AUCTION-properties-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A30",
@@ -1915,7 +2331,18 @@
     "registrationNumber": "DEMO-REG-A30",
     "auctionId": "DEMO-AUCTION-properties-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A31",
@@ -1970,7 +2397,18 @@
     "registrationNumber": "DEMO-REG-A31",
     "auctionId": "DEMO-AUCTION-properties-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A32",
@@ -2025,7 +2463,18 @@
     "registrationNumber": "DEMO-REG-A32",
     "auctionId": "DEMO-AUCTION-properties-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A33",
@@ -2080,7 +2529,18 @@
     "registrationNumber": "DEMO-REG-A33",
     "auctionId": "DEMO-AUCTION-properties-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A34",
@@ -2135,7 +2595,18 @@
     "registrationNumber": "DEMO-REG-A34",
     "auctionId": "DEMO-AUCTION-properties-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A35",
@@ -2190,7 +2661,18 @@
     "registrationNumber": "DEMO-REG-A35",
     "auctionId": "DEMO-AUCTION-properties-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A36",
@@ -2245,7 +2727,18 @@
     "registrationNumber": "DEMO-REG-A36",
     "auctionId": "DEMO-AUCTION-properties-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A37",
@@ -2300,7 +2793,18 @@
     "registrationNumber": "DEMO-REG-A37",
     "auctionId": "DEMO-AUCTION-properties-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A38",
@@ -2355,7 +2859,18 @@
     "registrationNumber": "DEMO-REG-A38",
     "auctionId": "DEMO-AUCTION-properties-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A39",
@@ -2410,7 +2925,18 @@
     "registrationNumber": "DEMO-REG-A39",
     "auctionId": "DEMO-AUCTION-properties-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A40",
@@ -2465,7 +2991,18 @@
     "registrationNumber": "DEMO-REG-A40",
     "auctionId": "DEMO-AUCTION-properties-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A41",
@@ -2520,7 +3057,18 @@
     "registrationNumber": "DEMO-REG-A41",
     "auctionId": "DEMO-AUCTION-properties-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A42",
@@ -2575,7 +3123,18 @@
     "registrationNumber": "DEMO-REG-A42",
     "auctionId": "DEMO-AUCTION-properties-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A43",
@@ -2630,7 +3189,18 @@
     "registrationNumber": "DEMO-REG-A43",
     "auctionId": "DEMO-AUCTION-properties-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A44",
@@ -2685,7 +3255,18 @@
     "registrationNumber": "DEMO-REG-A44",
     "auctionId": "DEMO-AUCTION-properties-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A45",
@@ -2740,7 +3321,18 @@
     "registrationNumber": "DEMO-REG-A45",
     "auctionId": "DEMO-AUCTION-properties-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A46",
@@ -2795,7 +3387,18 @@
     "registrationNumber": "DEMO-REG-A46",
     "auctionId": "DEMO-AUCTION-properties-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A47",
@@ -2850,7 +3453,18 @@
     "registrationNumber": "DEMO-REG-A47",
     "auctionId": "DEMO-AUCTION-properties-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A48",
@@ -2905,7 +3519,18 @@
     "registrationNumber": "DEMO-REG-A48",
     "auctionId": "DEMO-AUCTION-properties-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A49",
@@ -2960,7 +3585,18 @@
     "registrationNumber": "DEMO-REG-A49",
     "auctionId": "DEMO-AUCTION-properties-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-A50",
@@ -3015,7 +3651,18 @@
     "registrationNumber": "DEMO-REG-A50",
     "auctionId": "DEMO-AUCTION-properties-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-properties-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-properties-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V03",
@@ -3070,7 +3717,18 @@
     "plate": "DEMO-PLATE-V03",
     "auctionId": "DEMO-AUCTION-vehicles-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V04",
@@ -3125,7 +3783,18 @@
     "plate": "DEMO-PLATE-V04",
     "auctionId": "DEMO-AUCTION-vehicles-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V05",
@@ -3180,7 +3849,18 @@
     "plate": "DEMO-PLATE-V05",
     "auctionId": "DEMO-AUCTION-vehicles-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V06",
@@ -3235,7 +3915,18 @@
     "plate": "DEMO-PLATE-V06",
     "auctionId": "DEMO-AUCTION-vehicles-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V07",
@@ -3290,7 +3981,23 @@
     "plate": "DEMO-PLATE-V07",
     "auctionId": "DEMO-AUCTION-vehicles-2",
     "saleMode": "lot",
-    "lotId": "DEMO-LOT-vehicles-02"
+    "lotId": "DEMO-LOT-vehicles-02",
+    "governmentTaxValue": {
+      "amount": "1900000.00",
+      "currency": "CRC",
+      "taxYear": 2026,
+      "sourceReference": "DEMO-TAX-ASSESSMENT-DEMO-V07"
+    },
+    "noticeDescription": "Descripción ficticia: bien de demostración incluido en este aviso sintético, sin identificación de un activo real.",
+    "noticeLiens": "Gravamen ficticio mencionado únicamente para demostrar la extracción de texto. No representa una carga real ni una verificación registral.",
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V08",
@@ -3345,7 +4052,18 @@
     "plate": "DEMO-PLATE-V08",
     "auctionId": "DEMO-AUCTION-vehicles-2",
     "saleMode": "lot",
-    "lotId": "DEMO-LOT-vehicles-02"
+    "lotId": "DEMO-LOT-vehicles-02",
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V09",
@@ -3400,7 +4118,18 @@
     "plate": "DEMO-PLATE-V09",
     "auctionId": "DEMO-AUCTION-vehicles-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V10",
@@ -3455,7 +4184,18 @@
     "plate": "DEMO-PLATE-V10",
     "auctionId": "DEMO-AUCTION-vehicles-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V11",
@@ -3510,7 +4250,18 @@
     "plate": "DEMO-PLATE-V11",
     "auctionId": "DEMO-AUCTION-vehicles-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V12",
@@ -3565,7 +4316,18 @@
     "plate": "DEMO-PLATE-V12",
     "auctionId": "DEMO-AUCTION-vehicles-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V13",
@@ -3620,7 +4382,18 @@
     "plate": "DEMO-PLATE-V13",
     "auctionId": "DEMO-AUCTION-vehicles-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V14",
@@ -3675,7 +4448,18 @@
     "plate": "DEMO-PLATE-V14",
     "auctionId": "DEMO-AUCTION-vehicles-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V15",
@@ -3730,7 +4514,18 @@
     "plate": "DEMO-PLATE-V15",
     "auctionId": "DEMO-AUCTION-vehicles-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V16",
@@ -3785,7 +4580,18 @@
     "plate": "DEMO-PLATE-V16",
     "auctionId": "DEMO-AUCTION-vehicles-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V17",
@@ -3840,7 +4646,18 @@
     "plate": "DEMO-PLATE-V17",
     "auctionId": "DEMO-AUCTION-vehicles-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V18",
@@ -3895,7 +4712,18 @@
     "plate": "DEMO-PLATE-V18",
     "auctionId": "DEMO-AUCTION-vehicles-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V19",
@@ -3950,7 +4778,18 @@
     "plate": "DEMO-PLATE-V19",
     "auctionId": "DEMO-AUCTION-vehicles-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V20",
@@ -4005,7 +4844,18 @@
     "plate": "DEMO-PLATE-V20",
     "auctionId": "DEMO-AUCTION-vehicles-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V21",
@@ -4060,7 +4910,18 @@
     "plate": "DEMO-PLATE-V21",
     "auctionId": "DEMO-AUCTION-vehicles-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V22",
@@ -4115,7 +4976,18 @@
     "plate": "DEMO-PLATE-V22",
     "auctionId": "DEMO-AUCTION-vehicles-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V23",
@@ -4170,7 +5042,18 @@
     "plate": "DEMO-PLATE-V23",
     "auctionId": "DEMO-AUCTION-vehicles-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V24",
@@ -4225,7 +5108,18 @@
     "plate": "DEMO-PLATE-V24",
     "auctionId": "DEMO-AUCTION-vehicles-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V25",
@@ -4280,7 +5174,18 @@
     "plate": "DEMO-PLATE-V25",
     "auctionId": "DEMO-AUCTION-vehicles-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V26",
@@ -4335,7 +5240,18 @@
     "plate": "DEMO-PLATE-V26",
     "auctionId": "DEMO-AUCTION-vehicles-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V27",
@@ -4390,7 +5306,18 @@
     "plate": "DEMO-PLATE-V27",
     "auctionId": "DEMO-AUCTION-vehicles-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V28",
@@ -4445,7 +5372,18 @@
     "plate": "DEMO-PLATE-V28",
     "auctionId": "DEMO-AUCTION-vehicles-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V29",
@@ -4500,7 +5438,18 @@
     "plate": "DEMO-PLATE-V29",
     "auctionId": "DEMO-AUCTION-vehicles-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V30",
@@ -4555,7 +5504,18 @@
     "plate": "DEMO-PLATE-V30",
     "auctionId": "DEMO-AUCTION-vehicles-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V31",
@@ -4610,7 +5570,18 @@
     "plate": "DEMO-PLATE-V31",
     "auctionId": "DEMO-AUCTION-vehicles-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V32",
@@ -4665,7 +5636,18 @@
     "plate": "DEMO-PLATE-V32",
     "auctionId": "DEMO-AUCTION-vehicles-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V33",
@@ -4720,7 +5702,18 @@
     "plate": "DEMO-PLATE-V33",
     "auctionId": "DEMO-AUCTION-vehicles-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V34",
@@ -4775,7 +5768,18 @@
     "plate": "DEMO-PLATE-V34",
     "auctionId": "DEMO-AUCTION-vehicles-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V35",
@@ -4830,7 +5834,18 @@
     "plate": "DEMO-PLATE-V35",
     "auctionId": "DEMO-AUCTION-vehicles-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V36",
@@ -4885,7 +5900,18 @@
     "plate": "DEMO-PLATE-V36",
     "auctionId": "DEMO-AUCTION-vehicles-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V37",
@@ -4940,7 +5966,18 @@
     "plate": "DEMO-PLATE-V37",
     "auctionId": "DEMO-AUCTION-vehicles-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V38",
@@ -4995,7 +6032,18 @@
     "plate": "DEMO-PLATE-V38",
     "auctionId": "DEMO-AUCTION-vehicles-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V39",
@@ -5050,7 +6098,18 @@
     "plate": "DEMO-PLATE-V39",
     "auctionId": "DEMO-AUCTION-vehicles-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V40",
@@ -5105,7 +6164,18 @@
     "plate": "DEMO-PLATE-V40",
     "auctionId": "DEMO-AUCTION-vehicles-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V41",
@@ -5160,7 +6230,18 @@
     "plate": "DEMO-PLATE-V41",
     "auctionId": "DEMO-AUCTION-vehicles-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V42",
@@ -5215,7 +6296,18 @@
     "plate": "DEMO-PLATE-V42",
     "auctionId": "DEMO-AUCTION-vehicles-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V43",
@@ -5270,7 +6362,18 @@
     "plate": "DEMO-PLATE-V43",
     "auctionId": "DEMO-AUCTION-vehicles-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V44",
@@ -5325,7 +6428,18 @@
     "plate": "DEMO-PLATE-V44",
     "auctionId": "DEMO-AUCTION-vehicles-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V45",
@@ -5380,7 +6494,18 @@
     "plate": "DEMO-PLATE-V45",
     "auctionId": "DEMO-AUCTION-vehicles-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V46",
@@ -5435,7 +6560,18 @@
     "plate": "DEMO-PLATE-V46",
     "auctionId": "DEMO-AUCTION-vehicles-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V47",
@@ -5490,7 +6626,18 @@
     "plate": "DEMO-PLATE-V47",
     "auctionId": "DEMO-AUCTION-vehicles-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V48",
@@ -5545,7 +6692,18 @@
     "plate": "DEMO-PLATE-V48",
     "auctionId": "DEMO-AUCTION-vehicles-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V49",
@@ -5600,7 +6758,18 @@
     "plate": "DEMO-PLATE-V49",
     "auctionId": "DEMO-AUCTION-vehicles-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-V50",
@@ -5655,7 +6824,18 @@
     "plate": "DEMO-PLATE-V50",
     "auctionId": "DEMO-AUCTION-vehicles-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "governmentTaxValue": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-vehicles-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-vehicles-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O03",
@@ -5709,7 +6889,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O04",
@@ -5763,7 +6953,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O05",
@@ -5817,7 +7017,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-1",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-1",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-1",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O06",
@@ -5871,7 +7081,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O07",
@@ -5925,7 +7145,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-2",
     "saleMode": "lot",
-    "lotId": "DEMO-LOT-other-02"
+    "lotId": "DEMO-LOT-other-02",
+    "noticeDescription": "Descripción ficticia: bien de demostración incluido en este aviso sintético, sin identificación de un activo real.",
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O08",
@@ -5979,7 +7209,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-2",
     "saleMode": "lot",
-    "lotId": "DEMO-LOT-other-02"
+    "lotId": "DEMO-LOT-other-02",
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O09",
@@ -6033,7 +7273,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O10",
@@ -6087,7 +7337,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-2",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-2",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-2",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O11",
@@ -6141,7 +7401,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O12",
@@ -6195,7 +7465,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O13",
@@ -6249,7 +7529,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O14",
@@ -6303,7 +7593,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O15",
@@ -6357,7 +7657,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-3",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-3",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-3",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O16",
@@ -6411,7 +7721,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O17",
@@ -6465,7 +7785,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O18",
@@ -6519,7 +7849,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O19",
@@ -6573,7 +7913,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O20",
@@ -6627,7 +7977,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-4",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-4",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-4",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O21",
@@ -6681,7 +8041,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O22",
@@ -6735,7 +8105,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O23",
@@ -6789,7 +8169,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O24",
@@ -6843,7 +8233,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O25",
@@ -6897,7 +8297,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-5",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-5",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-5",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O26",
@@ -6951,7 +8361,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O27",
@@ -7005,7 +8425,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O28",
@@ -7059,7 +8489,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O29",
@@ -7113,7 +8553,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O30",
@@ -7167,7 +8617,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-6",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-6",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-6",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O31",
@@ -7221,7 +8681,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O32",
@@ -7275,7 +8745,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O33",
@@ -7329,7 +8809,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O34",
@@ -7383,7 +8873,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O35",
@@ -7437,7 +8937,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-7",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-7",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-7",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O36",
@@ -7491,7 +9001,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O37",
@@ -7545,7 +9065,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O38",
@@ -7599,7 +9129,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O39",
@@ -7653,7 +9193,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O40",
@@ -7707,7 +9257,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-8",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-8",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-8",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O41",
@@ -7761,7 +9321,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O42",
@@ -7815,7 +9385,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O43",
@@ -7869,7 +9449,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O44",
@@ -7923,7 +9513,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O45",
@@ -7977,7 +9577,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-9",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-9",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-9",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O46",
@@ -8031,7 +9641,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O47",
@@ -8085,7 +9705,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O48",
@@ -8139,7 +9769,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O49",
@@ -8193,7 +9833,17 @@
     ],
     "auctionId": "DEMO-AUCTION-other-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   },
   {
     "id": "DEMO-O50",
@@ -8247,6 +9897,16 @@
     ],
     "auctionId": "DEMO-AUCTION-other-10",
     "saleMode": "individual",
-    "lotId": null
+    "lotId": null,
+    "noticeDescription": null,
+    "noticeLiens": null,
+    "auctionKind": "judicial",
+    "noticeReference": "DEMO-NOTICE-REF-DEMO-AUCTION-other-10",
+    "caseNumber": "DEMO-CASE-DEMO-AUCTION-other-10",
+    "auctionParties": [],
+    "auctionVenue": null,
+    "auctionOffice": null,
+    "noticePublication": null,
+    "extractionNotes": []
   }
 ]

@@ -323,6 +323,34 @@ for(const item of DEMO_LISTINGS.filter(item=>["DEMO-A07","DEMO-A08"].includes(it
     participationFee:{kind:"fixed",amount:"5000.00",currency:"CRC",source:"notice",reference:"DEMO-NOTICE-TERMS-A07",verified:true},
   };
 }
+// Explicitly fictional assessments for UI examples, not official government data.
+for(const item of DEMO_LISTINGS) {
+  if(["properties","vehicles"].includes(item.category))item.governmentTaxValue=null;
+  if(["DEMO-A07","DEMO-V07"].includes(item.id))item.governmentTaxValue={amount:item.category==="properties"?"31000000.00":"1900000.00",currency:"CRC",taxYear:2026,sourceReference:"DEMO-TAX-ASSESSMENT-"+item.id};
+}
+// Synthetic extracted notice passages; missing text remains unknown.
+for(const item of DEMO_LISTINGS){
+ item.noticeDescription=null;item.noticeLiens=null;
+ if(["DEMO-A01","DEMO-A07","DEMO-V07","DEMO-O07"].includes(item.id))item.noticeDescription="Descripción ficticia: bien de demostración incluido en este aviso sintético, sin identificación de un activo real.";
+ if(["DEMO-A07","DEMO-V07"].includes(item.id))item.noticeLiens="Gravamen ficticio mencionado únicamente para demostrar la extracción de texto. No representa una carga real ni una verificación registral.";
+}
+// Notice references and judicial case references are distinct from item/registry IDs.
+for(const item of DEMO_LISTINGS){
+ item.auctionKind="judicial";
+ item.noticeReference="DEMO-NOTICE-REF-"+item.auctionId;
+ item.caseNumber="DEMO-CASE-"+item.auctionId;
+}
+// Optional source metadata; examples are deliberately synthetic.
+for(const item of DEMO_LISTINGS){
+ item.auctionParties=[];item.auctionVenue=null;item.auctionOffice=null;
+ item.noticePublication=null;item.extractionNotes=[];
+ if(item.id==="DEMO-A07"||item.id==="DEMO-A08"){
+  item.auctionParties=[{role:"creditor",name:"DEMO · Acreedor ficticio"},{role:"debtor",name:"DEMO · Deudor ficticio"},{role:"auctioneer",name:"DEMO · Rematador ficticio"},{role:"court",name:"DEMO · Juzgado ficticio"}];
+  item.auctionVenue="DEMO · Sede ficticia";item.auctionOffice="DEMO · Oficina ficticia";
+  item.noticePublication={name:"DEMO · Publicación sintética",issue:"DEMO-001",publishedAt:"2026-01-15",locator:"Página ficticia 1",url:null};
+  item.extractionNotes=["DEMO · Nota de extracción ficticia: verificar la lectura de la sede antes de publicar."];
+ }
+}
 const ORIGINAL_LISTINGS = JSON.parse(JSON.stringify(DEMO_LISTINGS));
 const COPY = {
   es: {
@@ -342,17 +370,17 @@ const COPY = {
     applyReturn: "Aplicar y ver resultados",
     cancelFilters: "Cancelar y volver",
     savedFiltersPanel: "Mis filtros guardados",
-    retrieveFilter: "Recuperar",
+    retrieveFilter: "Cargar",
     noSavedFilters: "Todavía no tiene filtros guardados.",
     saveDraftHelp:
-      "Guardar conserva este borrador validado como una nueva definición de su cuenta; no cambia los resultados.",
+      "Guarde estos filtros con un nombre. Los resultados cambiarán cuando los aplique.",
     draftSummary: "Borrador de filtros",
     draftCategory: "Sección del borrador",
     contextLoadHelp:
       "Recuperar restaura la sección y la organización indicadas. Revise el borrador antes de aplicar.",
     retrievedFilter: "Filtros recuperados en el borrador",
     retrieveDenied:
-      "No se pueden recuperar estos filtros: revise propiedad, organización y disponibilidad.",
+      "No se pueden cargar estos filtros. Compruebe que sean suyos y que tenga acceso a la organización.",
     manageFilters: "Abrir mis filtros",
     draftOnly: "Borrador: los resultados anteriores siguen vigentes.",
     combineGroups: "Combinar grupos",
@@ -380,7 +408,7 @@ const COPY = {
     isUnknown: "No indicado",
     baseField: "Base publicada (con moneda)",
     areaField: "Área m²",
-    qualityField: "Estado de extracción",
+    qualityField: "Estado de revisión",
     expressionPreview: "Filtros aplicados",
     textFilter: "Texto o referencia",
     home: "Inicio de Remates",
@@ -403,18 +431,18 @@ const COPY = {
     allOrganizationTags: "Todas las etiquetas",
     noAssignedTags: "Sin etiquetas asignadas",
     organizationResearch: "Etiquetas",
-    taggedCount: "Remates con etiquetas",
-    searchContext: "Contexto de ejecución",
+    taggedCount: "Bienes con etiquetas",
+    searchContext: "Organización para aplicar los filtros",
     contextUnavailable: "Contexto no disponible",
-    ownerOnlySearch: "Filtros de su cuenta",
+    ownerOnlySearch: "Mis filtros guardados",
     overviewTab: "Información",
     imagesTab: "Imágenes",
-    imagesTitle: "Imágenes del remate",
+    imagesTitle: "Imágenes del bien",
     imagesHelp: "Imágenes adjuntas. No son evidencia oficial del aviso.",
     attachImages: "Adjuntar imágenes",
     imageFiles: "Seleccione archivos de imagen",
     imageLimits:
-      "JPEG, PNG o WebP · máximo propuesto 10 MB por archivo y 20 adjuntos por remate",
+      "JPEG, PNG o WebP · máximo propuesto 10 MB por archivo y 20 adjuntos por bien",
     imagesEmpty: "Todavía no hay imágenes adjuntas",
     imagesEmptyHelp: "Puede adjuntar imágenes aquí.",
     imageError:
@@ -497,7 +525,7 @@ const COPY = {
     research: "INVESTIGACIÓN DE REMATES",
     title: "Encuentre su próxima oportunidad",
     subtitle:
-      "Explore inmuebles, compare información y consulte la fuente original.",
+      "Explore bienes en remate, compare información y consulte el aviso original.",
     country: "Costa Rica",
     filters: "Filtros",
     clear: "Limpiar",
@@ -515,8 +543,8 @@ const COPY = {
     unknownArea: "Incluir área no indicada",
     reviewedOnly: "Solo extracciones revisadas",
     apply: "Aplicar filtros",
-    result: "remate de ejemplo",
-    results: "remates de ejemplo",
+    result: "bien de ejemplo",
+    results: "bienes de ejemplo",
     list: "Lista",
     map: "Mapa",
     saveSearch: "Guardar filtros",
@@ -528,7 +556,7 @@ const COPY = {
     round3: "Tercera ronda",
     columns: "Columnas",
     resetColumns: "Restablecer columnas",
-    columnsSaved: "Selección guardada para tu usuario",
+    columnsSaved: "Selección de columnas guardada",
     source: "Ver aviso",
     area: "Área",
     notReported: "No indicado",
@@ -545,9 +573,9 @@ const COPY = {
       "Todos los datos de esta ficha son ficticios. Consulte la fuente y el expediente antes de decidir.",
     back: "Volver a explorar",
     assetInfo: "Información del bien",
-    reference: "Referencia de ejemplo",
+    reference: "Referencia del aviso",
     location: "Ubicación",
-    quality: "Estado de extracción",
+    quality: "Estado de revisión",
     events: "Eventos publicados",
     firstEvent: "Primera fecha de ejemplo",
     timezone: "Hora de Costa Rica · UTC−06:00",
@@ -567,7 +595,7 @@ const COPY = {
     approximate: "Ubicación aproximada",
     withoutMap: "sin ubicación representable",
     selectPin: "Seleccione un punto para ver el bien.",
-    openAsset: "Abrir remate",
+    openAsset: "Abrir bien",
     welcome: "Su espacio de investigación",
     overviewSub: "Organice oportunidades y mantenga la fuente a la vista.",
     featureTitle: "Una buena decisión empieza con la fuente.",
@@ -578,10 +606,10 @@ const COPY = {
     activeSearches: "Filtros activos",
     catalog: "Remates de ejemplo",
     private: "Privado para el espacio seleccionado",
-    tags: "Etiquetas privadas",
+    tags: "Etiquetas",
     editTags: "Editar etiquetas",
     alertsTitle: "Mis filtros y alertas",
-    alertsSub: "Filtros de su cuenta y su contexto de ejecución.",
+    alertsSub: "Administre sus filtros guardados y alertas.",
     emptyAlerts: "No hay filtros guardados",
     emptyAlertsBody:
       "Aplique filtros en Explorar y seleccione Guardar filtros.",
@@ -664,7 +692,7 @@ const COPY = {
     moneyError:
       "Elija una moneda y use un rango válido. El mínimo no puede superar el máximo.",
     filterSummary: "Filtros guardados",
-    allAssets: "Todos los remates",
+    allAssets: "Todos los bienes",
     notes: "Notas",
     change: "Cambiar",
     tagPrompt: "Separe las etiquetas con comas",
@@ -690,17 +718,17 @@ const COPY = {
     applyReturn: "Apply and view results",
     cancelFilters: "Cancel and return",
     savedFiltersPanel: "My saved filters",
-    retrieveFilter: "Retrieve",
+    retrieveFilter: "Load",
     noSavedFilters: "You have no saved filters yet.",
     saveDraftHelp:
-      "Save stores this validated draft as a new definition owned by your account; results stay unchanged.",
+      "Save these filters with a name. Results will change when you apply them.",
     draftSummary: "Filter draft",
     draftCategory: "Draft listing",
     contextLoadHelp:
       "Retrieve restores the listing and organization shown. Review the draft before applying.",
     retrievedFilter: "Saved filters loaded into the draft",
     retrieveDenied:
-      "Cannot retrieve these filters: check ownership, organization and availability.",
+      "Cannot load these filters. Check that they are yours and that you have access to the organization.",
     manageFilters: "Open my filters",
     draftOnly: "Draft: previous results remain in effect.",
     combineGroups: "Combine groups",
@@ -728,7 +756,7 @@ const COPY = {
     isUnknown: "Not reported",
     baseField: "Published base (with currency)",
     areaField: "Area m²",
-    qualityField: "Extraction quality",
+    qualityField: "Review status",
     expressionPreview: "Applied filters",
     textFilter: "Text or reference",
     home: "Auctions home",
@@ -752,9 +780,9 @@ const COPY = {
     noAssignedTags: "No tags assigned",
     organizationResearch: "Tags",
     taggedCount: "Tagged auction items",
-    searchContext: "Execution context",
+    searchContext: "Organization for applying filters",
     contextUnavailable: "Context unavailable",
-    ownerOnlySearch: "Filters owned by your account",
+    ownerOnlySearch: "My saved filters",
     overviewTab: "Overview",
     imagesTab: "Images",
     imagesTitle: "Auction item images",
@@ -840,7 +868,7 @@ const COPY = {
     research: "AUCTION RESEARCH",
     title: "Find your next opportunity",
     subtitle:
-      "Explore properties, compare information and consult the original source.",
+      "Explore auction items, compare information and read the original notice.",
     country: "Costa Rica",
     filters: "Filters",
     clear: "Clear",
@@ -871,7 +899,7 @@ const COPY = {
     round3: "Third round",
     columns: "Columns",
     resetColumns: "Reset columns",
-    columnsSaved: "Selection saved for your user",
+    columnsSaved: "Column selection saved",
     source: "View notice",
     area: "Area",
     notReported: "Not reported",
@@ -888,9 +916,9 @@ const COPY = {
       "All details on this page are fictional. Consult the source and case file before deciding.",
     back: "Back to discovery",
     assetInfo: "Item information",
-    reference: "Example reference",
+    reference: "Notice reference",
     location: "Location",
-    quality: "Extraction status",
+    quality: "Review status",
     events: "Published events",
     firstEvent: "First example schedule",
     timezone: "Costa Rica time · UTC−06:00",
@@ -921,7 +949,7 @@ const COPY = {
     activeSearches: "Active filters",
     catalog: "Example auction items",
     private: "Private to the selected workspace",
-    tags: "Private tags",
+    tags: "Tags",
     editTags: "Edit tags",
     alertsTitle: "My filters and alerts",
     alertsSub: "Filters owned by your account and their execution context.",
@@ -1931,7 +1959,6 @@ const COLUMN_KEYS = [
   "plate",
   "locality",
   "item",
-  "reference",
   "type",
   "area",
   "amount",
@@ -1945,6 +1972,8 @@ const COLUMN_KEYS = [
   "round3",
   "round3Time",
   "round3Base",
+  "caseNumber",
+  "reference",
   "actions",
 ];
 const columnPreferenceCache = new Map();
@@ -1953,7 +1982,7 @@ function availableColumns(category = state.filters.category) {
     (key) =>
       ((key !== "area" && key !== "registrationNumber") ||
         category === "properties") &&
-      (key !== "plate" || category === "vehicles"),
+      (key !== "plate" || category === "vehicles") && (key!=="caseNumber" || DEMO_LISTINGS.some(item=>item.category===category&&item.auctionKind==="judicial")),
   );
 }
 function defaultColumns(category = state.filters.category) {
@@ -2013,6 +2042,7 @@ function saveVisibleColumns(columns) {
   return true;
 }
 function columnLabel(key) {
+  if(key==="caseNumber")return state.lang==="es"?"Número de expediente":"Case number";
   if (key === "registrationNumber")
     return state.lang === "es" ? "Número de finca" : "Registration number";
   if (key === "plate") return state.lang === "es" ? "Placa" : "Plate";
@@ -2049,7 +2079,7 @@ function columnMenu() {
 function itemTable(items) {
   const cols = visibleColumns();
   const label = (key) => (key === "actions" ? "" : columnLabel(key));
-  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table single-line-table" style="min-width:${cols.reduce((width, key) => width + ({ registrationNumber: 185, plate: 175, reference: 95, item: 190, locality: 110, type: 90, area: 70, amount: 115, date: 210, tags: 170, actions: 175 }[key] || 145), 0)}px"><thead><tr>${cols
+  return `<div class="table-scroll" tabindex="0" role="region" aria-label="${state.lang === "es" ? "Listado de remates; desplazamiento horizontal" : "Auction list; horizontal scrolling"}"><table class="items-table single-line-table" style="min-width:${cols.reduce((width, key) => width + ({ registrationNumber: 185, plate: 175, reference: 240, caseNumber: 220, item: 190, locality: 110, type: 90, area: 70, amount: 115, date: 210, tags: 170, actions: 175 }[key] || 145), 0)}px"><thead><tr>${cols
     .map((f) => {
       const rule = state.sort.find((r) => r.field === f),
         idx = state.sort.findIndex((r) => r.field === f);
@@ -2057,7 +2087,7 @@ function itemTable(items) {
     })
     .join(
       "",
-    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.id) : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `${tagLabelsButton(item.id, true)}` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    )}</tr></thead><tbody>${items.map((item) => `<tr class="auction-row">${cols.map((f) => `<td class="col-${f}">${f === "registrationNumber" || f === "plate" ? esc(item[f] || t("notReported")) : f === "reference" ? esc(item.noticeReference||t("notReported")) : f === "caseNumber" ? esc(item.auctionKind==="judicial"?(item.caseNumber||t("notReported")):"—") : f === "item" ? `<button class="title-link" title="${esc(title(item))}" data-screen="asset" data-id="${item.id}">${esc(title(item))}</button>` : f === "tags" ? `${tagLabelsButton(item.id, true)}` : f === "actions" ? `<div class="row-actions">${itemActionButtons(item)}</div>` : f === "amount" ? money(item) : f === "date" ? nextAuctionDisplay(item) : ROUND_COLUMNS.includes(f) ? roundDate(item, f) : ROUND_DETAIL_COLUMNS.includes(f) ? roundDetail(item, f) : f === "area" ? (item.area ? item.area + " m²" : t("notReported")) : f === "type" ? t(item.type) : `<span title="${esc(item.locality)}">${esc(item.locality)}</span>`}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
 function bindSort() {
   const change = (rules) => {
@@ -2504,8 +2534,12 @@ function savePropertyResearch(id, workspace, input) {
       !["CRC", "USD"].includes(currency))
   )
     return { ok: false, error: "invalidResearch" };
+  const marketAmount=String(input.marketAmount??"").trim(),marketCurrency=input.marketCurrency;
+  if(marketAmount&&(!/^(0|[1-9][0-9]{0,13})(\.[0-9]{1,2})?$/.test(marketAmount)||!["CRC","USD"].includes(marketCurrency)))return {ok:false,error:"invalidResearch"};
+  const marketValue=marketAmount?{amount:marketAmount.split(".")[0]+"."+(marketAmount.split(".")[1]||"").padEnd(2,"0"),currency:marketCurrency}:null;
   state.notes[workspace + id] = input.notes;
   state.propertyResearch[workspace + id] = {
+    marketValue,
     appraisal: amount
       ? {
           amount:
@@ -2523,13 +2557,13 @@ function propertyResearchForm(item) {
   const es = state.lang === "es",
     L = (en, spanish) => (es ? spanish : en);
   const data = state.propertyResearch[state.workspace + item.id] || {};
-  return `<form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Additional information", "Información adicional")}</h2><label for="property-notes">${L("Notes", "Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace + item.id] || "")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal amount", "Monto del avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount || "")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency", "Moneda")}</label><select id="property-appraisal-currency">${options(
+  return `<form class="panel" id="property-research-form" data-workspace="${state.workspace}" data-id="${item.id}"><h2>${L("Additional information", "Información adicional")}</h2><label for="property-notes">${L("Notes", "Notas")}</label><textarea id="property-notes" maxlength="10000" rows="6">${esc(state.notes[state.workspace + item.id] || "")}</textarea><div class="two" style="margin-top:20px"><div><label for="property-appraisal">${L("Appraisal value", "Valor de avalúo")}</label><input id="property-appraisal" type="text" inputmode="decimal" value="${esc(data.appraisal?.amount || "")}" placeholder="0.00"></div><div><label for="property-appraisal-currency">${L("Currency", "Moneda")}</label><select id="property-appraisal-currency">${options(
     [
       ["CRC", "CRC"],
       ["USD", "USD"],
     ],
     data.appraisal?.currency || item.currency,
-  )}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-reset-property-research>${L("Cancel", "Cancelar")}</button></div></form>`;
+  )}</select></div></div><div class="two" style="margin-top:20px"><div><label for="property-market">${L("Market value","Valor de mercado")}</label><input id="property-market" type="text" inputmode="decimal" value="${esc(data.marketValue?.amount||"")}" placeholder="0.00"></div><div><label for="property-market-currency">${L("Currency","Moneda")}</label><select id="property-market-currency">${options([["CRC","CRC"],["USD","USD"]],data.marketValue?.currency||item.currency)}</select></div></div><p id="property-research-error" class="danger" role="alert"></p><div class="actions" style="margin-top:20px"><button class="primary">${icon("Save")} ${t("save")}</button><button type="button" data-reset-property-research>${L("Cancel", "Cancelar")}</button></div></form>`;
 }
 function bindPropertyResearch() {
   app
@@ -2544,6 +2578,8 @@ function bindPropertyResearch() {
       form.dataset.workspace,
       {
         notes: document.getElementById("property-notes").value,
+        marketAmount: document.getElementById("property-market").value,
+        marketCurrency: document.getElementById("property-market-currency").value,
         appraisalAmount: document.getElementById("property-appraisal").value,
         appraisalCurrency: document.getElementById(
           "property-appraisal-currency",
@@ -2617,6 +2653,16 @@ function roundCostCell(item,event,key) {
   const source=state.lang==="es"?(result.source==="notice"?"Calculado según aviso":"Calculado según regla del país"):(result.source==="notice"?"Calculated from notice":"Calculated from country rule");
   return `<span title="${esc(source+": "+result.reference)}">${esc(result.currency)} ${new Intl.NumberFormat(state.lang==="es"?"es-CR":"en-US",{minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(result.amount))}</span>`;
 }
+function sourceMetadata(item, section){
+ const es=state.lang==="es",L=(en,sp)=>es?sp:en;
+ const fact=(label,value)=>`<div><dt>${esc(label)}</dt><dd>${esc(value||t("notReported"))}</dd></div>`;
+ if(section==="auction"){
+  const labels={creditor:L("Creditor","Acreedor"),debtor:L("Debtor","Deudor"),auctioneer:L("Auctioneer","Rematador"),court:L("Court","Juzgado")};
+  return `<section class="panel"><h2>${L("Parties and venue","Partes y sede")}</h2><dl class="fact-grid">${Object.entries(labels).filter(([role])=>role!=="court"||item.auctionKind==="judicial").map(([role,label])=>fact(label,(item.auctionParties||[]).filter(p=>p.role===role).map(p=>p.name).join("; "))).join("")}${fact(L("Venue","Sede"),item.auctionVenue)}${fact(L("Office","Oficina"),item.auctionOffice)}</dl></section>`;
+ }
+ const publication=item.noticePublication;
+ return `<section class="panel"><h2>${L("Publication","Publicación")}</h2><dl class="fact-grid">${fact(L("Publication","Publicación"),publication?.name)}${fact(L("Issue","Edición"),publication?.issue)}${fact(L("Publication date","Fecha de publicación"),publication?.publishedAt)}${fact(L("Page or locator","Página o localizador"),publication?.locator)}</dl><h2>${L("Extraction notes","Notas de extracción")}</h2><p>${esc((item.extractionNotes||[]).join("\n")||t("notReported"))}</p></section>`;
+}
 function auctionPanel(item) {
   const es = state.lang === "es",
     L = (en, spanish) => (es ? spanish : en);
@@ -2632,13 +2678,21 @@ function auctionPanel(item) {
     items.length
       ? `<ul class="auction-related-items">${items.map((other) => `<li><button class="title-link" data-screen="asset" data-id="${other.id}">${esc(other.registrationNumber || other.plate || other.id)} · ${esc(title(other))} ${icon("ArrowRight")}</button></li>`).join("")}</ul>`
       : `<p class="muted">${L("No other linked items.", "No hay otros bienes vinculados.")}</p>`;
-  return `<div class="panel"><h2>${L("Auction", "Remate")}</h2><dl class="fact-grid"><div><dt>${L("Auction reference", "Referencia del remate")}</dt><dd>${esc(item.auctionId || t("notReported"))}</dd></div><div><dt>${L("Sale format", "Modalidad de venta")}</dt><dd>${item.saleMode === "lot" ? L("Part of a lot — sold together", "Parte de un lote — venta conjunta") : item.saleMode === "individual" ? L("Sold as one item", "Venta individual") : t("notReported")}</dd></div>${item.lotId ? `<div><dt>${L("Lot reference", "Referencia del lote")}</dt><dd>${esc(item.lotId)}</dd></div>` : ""}</dl></div><section class="panel"><h2>${L("Rounds", "Rondas")}</h2><p class="muted">${item.saleMode === "lot" ? L("Base offers apply to the whole lot.", "Las ofertas base corresponden al lote completo.") : L("Base offers apply to this item.", "Las ofertas base corresponden a este bien.")}</p><div class="table-scroll" tabindex="0" role="region" aria-label="${L("Auction rounds", "Rondas del remate")}"><table class="items-table single-line-table" data-grid-key="auction-rounds"><thead><tr><th>${L("Round", "Ronda")}</th><th>${L("Date", "Fecha")}</th><th>${L("Time", "Hora")}</th><th>${L("Base offer", "Oferta base")}</th><th>${L("Participation Guarantee", "Garantía de participación")}</th><th>${L("Participation fee", "Cuota de participación")}</th></tr></thead><tbody>${(item.auctionRounds || []).map((event) => `<tr><td>${esc(event.round)}${event.round === item.nextAuctionRound ? ` · ${t("nextEvent")}` : ""}</td><td>${event.date ? date({ date: event.date }) : t("notReported")}</td><td>${esc(event.time || t("notReported"))}</td><td>${event.baseOffer ? money(event.baseOffer) : t("notReported")}</td><td>${roundCostCell(item,event,"guarantee")}</td><td>${roundCostCell(item,event,"participationFee")}</td></tr>`).join("") || `<tr><td colspan="6">${t("notReported")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:12px">${t("timezone")}</p></section>${item.lotId ? `<section class="panel"><h2>${L("Other items in this lot", "Otros bienes de este lote")}</h2>${itemLinks(lotMembers)}</section>` : ""}<section class="panel"><h2>${L("Other items in this auction", "Otros bienes de este remate")}</h2>${itemLinks(related)}</section>`;
+  return `${sourceMetadata(item,"auction")}<div class="panel"><h2>${L("Auction", "Remate")}</h2><dl class="fact-grid"><div><dt>${L("Auction ID", "Identificador del remate")}</dt><dd>${esc(item.auctionId || t("notReported"))}</dd></div><div><dt>${L("Sale format", "Modalidad de venta")}</dt><dd>${item.saleMode === "lot" ? L("Part of a lot — sold together", "Parte de un lote — venta conjunta") : item.saleMode === "individual" ? L("Sold as one item", "Venta individual") : t("notReported")}</dd></div>${item.lotId ? `<div><dt>${L("Lot ID", "Identificador del lote")}</dt><dd>${esc(item.lotId)}</dd></div>` : ""}</dl></div><section class="panel"><h2>${L("Rounds", "Rondas")}</h2><p class="muted">${item.saleMode === "lot" ? L("Auction bases apply to the whole lot.", "Las bases del remate corresponden al lote completo.") : L("Auction bases apply to this item.", "Las bases del remate corresponden a este bien.")}</p><div class="table-scroll" tabindex="0" role="region" aria-label="${L("Auction rounds", "Rondas del remate")}"><table class="items-table single-line-table" data-grid-key="auction-rounds"><thead><tr><th>${L("Round", "Ronda")}</th><th>${L("Date", "Fecha")}</th><th>${L("Time", "Hora")}</th><th>${L("Auction base", "Base del remate")}</th><th>${L("Participation Guarantee", "Garantía de participación")}</th><th>${L("Participation fee", "Cuota de participación")}</th></tr></thead><tbody>${(item.auctionRounds || []).map((event) => `<tr><td>${esc(event.round)}${event.round === item.nextAuctionRound ? ` · ${t("nextEvent")}` : ""}</td><td>${event.date ? date({ date: event.date }) : t("notReported")}</td><td>${esc(event.time || t("notReported"))}</td><td>${event.baseOffer ? money(event.baseOffer) : t("notReported")}</td><td>${roundCostCell(item,event,"guarantee")}</td><td>${roundCostCell(item,event,"participationFee")}</td></tr>`).join("") || `<tr><td colspan="6">${t("notReported")}</td></tr>`}</tbody></table></div><p class="muted" style="margin-top:12px">${t("timezone")}</p></section>${item.lotId ? `<section class="panel"><h2>${L("Other items in this lot", "Otros bienes de este lote")}</h2>${itemLinks(lotMembers)}</section>` : ""}<section class="panel"><h2>${L("Other items in this auction", "Otros bienes de este remate")}</h2>${itemLinks(related)}</section>`;
+}
+function governmentTaxValuePanel(item) {
+  if(!["properties","vehicles"].includes(item.category))return "";
+  const es=state.lang==="es",value=item.governmentTaxValue;
+  return `<section class="panel"><h2>${es?"Valor fiscal":"Government-assessed tax value"}</h2><dl class="fact-grid"><div><dt>${es?"Valor":"Value"}</dt><dd>${value?money(value):t("notReported")}</dd></div>${value?.taxYear?`<div><dt>${es?"Año fiscal":"Tax year"}</dt><dd>${esc(value.taxYear)}</dd></div>`:""}${value?.sourceReference?`<div><dt>${es?"Referencia de la fuente":"Source reference"}</dt><dd>${esc(value.sourceReference)}</dd></div>`:""}</dl></section>`;
+}
+function extractedNoticeFields(item) {
+ const es=state.lang==="es";
+ return `<section class="panel"><h2>${es?"Descripción":"Description"}</h2><p class="extracted-notice-field">${esc(item.noticeDescription||t("notReported"))}</p><h2>${es?"Gravámenes":"Liens"}</h2><p class="extracted-notice-field">${esc(item.noticeLiens||t("notReported"))}</p></section>`;
 }
 function asset() {
   const a = current();
   if (!availableItemTabs().includes(state.itemTab)) state.itemTab = "overview";
   const overview = `<div class="panel"><h2>${t("assetInfo")}</h2><dl class="fact-grid">${[
-    ["reference", a.registrationNumber || a.plate || a.id],
     ["auctionType", t(a.type)],
     ...(a.category === "properties"
       ? [
@@ -2653,18 +2707,18 @@ function asset() {
     )
     .join(
       "",
-    )}</dl></div>${propertyResearchForm(a)}<div class="panel"><h2>${t("organizationResearch")}</h2>${tagLabelsButton(a.id)}${a.category === "properties" && canEdit() ? "" : `<p class="muted">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p>`}</div>`;
+    )}</dl></div>${extractedNoticeFields(a)}${governmentTaxValuePanel(a)}${propertyResearchForm(a)}${a.category === "properties" && canEdit() ? "" : `<section class="panel"><h2>${t("notes")}</h2><p class="muted">${esc(state.notes[state.workspace + a.id] || t("noNotes"))}</p></section>`}`;
   const es = state.lang === "es";
   const registryPanel = `<div class="panel"><h2>${itemTabLabel("registry-info")}</h2><dl class="fact-grid"><div><dt>${a.category === "vehicles" ? (es ? "Placa" : "Plate") : es ? "Número de finca" : "Registration number"}</dt><dd>${esc(a.registrationNumber || a.plate || t("notReported"))}</dd></div></dl><p class="muted">${es ? "No hay más datos registrales disponibles en este ejemplo." : "No additional registry information is available in this example."}</p></div>`;
   const publicRegistryPanel = `<div class="panel"><h2>${itemTabLabel("public-registry")}</h2><p class="muted">${es ? "La consulta del registro público aún no está conectada. No se muestran resultados oficiales." : "Public registry lookup is not connected yet. No official results are displayed."}</p></div>`;
-  const noticePanel = `<article class="panel"><h2>${itemTabLabel("notice")}</h2><p class="muted">${t("originalLink")}</p><div class="notice-text" lang="es">${esc(noticeText(a))}</div></article>`;
+  const noticePanel = `<section class="panel"><dl class="fact-grid"><div><dt>${state.lang==="es"?"Referencia":"Reference"}</dt><dd>${esc(a.noticeReference||t("notReported"))}</dd></div>${a.auctionKind==="judicial"?`<div><dt>${state.lang==="es"?"Número de expediente":"Case number"}</dt><dd>${esc(a.caseNumber||t("notReported"))}</dd></div>`:""}</dl></section>${sourceMetadata(a,"notice")}${extractedNoticeFields(a)}<article class="panel"><h2>${state.lang==="es"?"Texto completo del aviso original":"Full original notice text"}</h2><p class="muted">${t("originalLink")}</p><div class="notice-text" lang="es">${esc(noticeText(a))}</div></article>`;
   const locationPanel = `<div class="panel"><h2>${itemTabLabel("location")}</h2><p>${esc(a.locality)}</p></div>${a.mapped ? mapView([a]) : `<div class="notice">${es ? "No hay coordenadas disponibles para este bien." : "Coordinates are not available for this item."}</div>`}`;
   const images = state.images[state.workspace + a.id] || [];
   const imagePanel = `<div class="panel"><h2>${t("imagesTitle")}</h2><p class="muted">${t("imagesHelp")}</p><div class="notice">${t("imageLocalOnly")}</div><form id="image-upload-form"><label for="auction-image-files">${t("imageFiles")}</label><input id="auction-image-files" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple ${canEdit() ? "" : "disabled"}><p class="muted" style="margin-top:10px">${t("imageLimits")}</p><p id="image-error" role="alert" class="danger"></p><button class="primary" ${canEdit() ? "" : "disabled"}>${t("attachImages")}</button></form></div>${images.length ? `<div class="media-grid">${images.map((img) => `<figure class="panel"><img src="${esc(img.url)}" alt="${esc(img.name)}"><figcaption><strong>${esc(img.name)}</strong><p class="muted">${t("uploadedBy")}: ${esc(img.uploaderId)}</p></figcaption></figure>`).join("")}</div>` : `<div class="empty"><h2>${t("imagesEmpty")}</h2><p>${t("imagesEmptyHelp")}</p></div>`}`;
   return (
     `<div class="breadcrumb"><button class="ghost" data-screen="discover">← ${t("back")}</button><span>/ ${a.id}</span></div>` +
     heading("assetInfo", "fiction", ``) +
-    `<h2 style="font-size:25px;margin-bottom:20px">${esc(title(a))}</h2><div class="item-tabs" role="tablist" aria-label="${t("assetInfo")}">${availableItemTabs()
+    `<div class="item-form-header"><h2>${esc(title(a))}</h2><div class="item-header-tags"><span class="muted">${t("organizationTags")}</span>${tagLabelsButton(a.id)}</div></div><div class="item-tabs" role="tablist" aria-label="${t("assetInfo")}">${availableItemTabs()
       .map(
         (tab) =>
           `<button id="item-tab-${tab}" role="tab" aria-selected="${state.itemTab === tab}" aria-controls="item-tab-panel" data-item-tab="${tab}" tabindex="${state.itemTab === tab ? 0 : -1}">${itemTabLabel(tab)}${tab === "images" ? " (" + images.length + ")" : ""}</button>`,
@@ -2676,7 +2730,7 @@ function asset() {
 }
 function noticeText(a) {
   a = ORIGINAL_LISTINGS.find((x) => x.id === a.id) || a;
-  return `AVISO SINTÉTICO DE DEMOSTRACIÓN\n\nReferencia ficticia ${a.id}. En un juzgado de ejemplo, se anuncia únicamente para fines de diseño un bien de tipo ${COPY.es[a.type].toLowerCase()}, ubicado de forma ilustrativa en ${a.locality}.\n\nLa base de ejemplo es ${a.currency} ${a.amount}. La fecha ficticia de primera subasta es ${a.date}, a las ${a.time}, hora de Costa Rica. ${a.category === "properties" ? (a.area ? "El área de ejemplo es " + a.area + " metros cuadrados." : "La superficie no consta en este ejemplo.") : "No se han aportado atributos adicionales en esta demostración."}\n\nNo se identifica una finca real, un expediente real ni personas reales. Este texto no produce efectos jurídicos, no acredita condiciones de un bien y no constituye una convocatoria a remate.${a.roundCostRules?"\n\nCláusula de prueba ficticia DEMO-NOTICE-TERMS-A07: para cada ronda del lote, garantía del 10% de la base con redondeo al centavo más cercano (mitades hacia arriba); cuota de participación de CRC 5000.00 por ronda. Solo para demostrar cálculos, no corresponde a una norma ni a un remate real.":""}\n\nFIN DEL TEXTO SINTÉTICO.`;
+  return `AVISO SINTÉTICO DE DEMOSTRACIÓN\n\nReferencia de aviso ficticia ${a.noticeReference||a.id}. ${a.auctionKind==="judicial"?"Expediente ficticio "+a.caseNumber+".":""} En un juzgado de ejemplo, se anuncia únicamente para fines de diseño un bien de tipo ${COPY.es[a.type].toLowerCase()}, ubicado de forma ilustrativa en ${a.locality}.\n\nLa base de ejemplo es ${a.currency} ${a.amount}. La fecha ficticia de primera subasta es ${a.date}, a las ${a.time}, hora de Costa Rica. ${a.category === "properties" ? (a.area ? "El área de ejemplo es " + a.area + " metros cuadrados." : "La superficie no consta en este ejemplo.") : "No se han aportado atributos adicionales en esta demostración."}\n\nNo se identifica una finca real, un expediente real ni personas reales. Este texto no produce efectos jurídicos, no acredita condiciones de un bien y no constituye una convocatoria a remate.${a.roundCostRules?"\n\nCláusula de prueba ficticia DEMO-NOTICE-TERMS-A07: para cada ronda del lote, garantía del 10% de la base con redondeo al centavo más cercano (mitades hacia arriba); cuota de participación de CRC 5000.00 por ronda. Solo para demostrar cálculos, no corresponde a una norma ni a un remate real.":""}${a.noticeDescription?"\n\n"+a.noticeDescription:""}${a.noticeLiens?"\n\n"+a.noticeLiens:""}\n\nFIN DEL TEXTO SINTÉTICO.`;
 }
 function notice() {
   const a = current();
@@ -2687,7 +2741,7 @@ function notice() {
       "original",
       `<span class="badge neutral">${t("revision")} ${state.revision}</span>`,
     ) +
-    `<div class="notice">${t("originalLink")}</div><div class="detail-columns"><article class="panel"><div class="eyebrow">DEMO-NOTICE-${a.id.slice(-2)} · ES</div><h2>${t("sourceTitle")}</h2><p class="muted">${t("raw")}</p><div class="notice-text" lang="es">${esc(noticeText(a)).replace(esc(a.currency + " " + a.amount), `<mark>${esc(a.currency + " " + a.amount)}</mark>`)}</div></article><aside><div class="panel"><h2>${t("extract")}</h2>${[["base", money(a)], ["nextEvent", date(a) + " · " + a.time], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality]].map(([k, v]) => `<div class="evidence-row"><small>${t(k)}</small><strong>${esc(v)}</strong><p>${t("raw")}</p></div>`).join("")}</div><div class="notice">${t("sourceCaution")}</div></aside></div>`
+    `<div class="notice">${t("originalLink")}</div><div class="detail-columns"><article class="panel"><div class="eyebrow">${esc(a.noticeReference||t("notReported"))} · ES</div><h2>${t("sourceTitle")}</h2><p class="muted">${t("raw")}</p><div class="notice-text" lang="es">${esc(noticeText(a)).replace(esc(a.currency + " " + a.amount), `<mark>${esc(a.currency + " " + a.amount)}</mark>`)}</div></article><aside><div class="panel"><h2>${t("extract")}</h2>${[["base", money(a)], ["nextEvent", date(a) + " · " + a.time], ...(a.category === "properties" ? [["area", a.area ? a.area + " m²" : t("notReported")]] : []), ["location", a.locality]].map(([k, v]) => `<div class="evidence-row"><small>${t(k)}</small><strong>${esc(v)}</strong><p>${t("raw")}</p></div>`).join("")}</div><div class="notice">${t("sourceCaution")}</div></aside></div>`
   );
 }
 function summary(f, context = state.workspace) {

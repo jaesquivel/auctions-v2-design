@@ -33,12 +33,16 @@ CREATE TABLE fetch_observation (
 );
 CREATE TABLE notice (
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), country char(2) NOT NULL REFERENCES jurisdiction,
+ notice_reference text, case_number text,
  source_notice_key text, current_revision integer, created_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE TABLE notice_revision (
  notice_id uuid NOT NULL REFERENCES notice, revision integer NOT NULL CHECK(revision > 0),
  document_id uuid NOT NULL REFERENCES source_document, source_locator text NOT NULL,
  original_text text NOT NULL, language text NOT NULL, parser_version text NOT NULL,
+ -- Revision-scoped source facts, never organization research notes.
+ parties jsonb NOT NULL DEFAULT '[]', venue text, office text,
+ publication jsonb, extraction_notes jsonb NOT NULL DEFAULT '[]',
  quality text NOT NULL CHECK(quality IN ('reviewed','needs_review')),
  published_at timestamptz, reviewer_id text, reviewed_at timestamptz,
  PRIMARY KEY(notice_id,revision),
@@ -68,6 +72,7 @@ CREATE TABLE asset (
  location_precision text NOT NULL DEFAULT 'unknown' CHECK(location_precision IN ('parcel','street','district','canton','province','unknown')),
  location_provenance jsonb, quality text NOT NULL CHECK(quality IN ('reviewed','needs_review')),
  reported_status text NOT NULL DEFAULT 'unknown' CHECK(reported_status IN ('scheduled','postponed','cancelled','concluded','unknown')),
+ notice_description text, notice_liens text,
  jurisdiction_fields jsonb NOT NULL DEFAULT '{}', search_vector tsvector,
  last_checked_at timestamptz, version integer NOT NULL DEFAULT 1 CHECK(version > 0),
  created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now(),
@@ -151,6 +156,8 @@ CREATE TABLE asset_annotation (
  creator_user_id text REFERENCES app_user, note text NOT NULL DEFAULT '',
  version integer NOT NULL DEFAULT 1 CHECK(version > 0), created_at timestamptz NOT NULL DEFAULT now(),
  updated_at timestamptz NOT NULL DEFAULT now(), appraisal_amount numeric(16,2) CHECK(appraisal_amount >= 0), appraisal_currency char(3),
+ market_amount numeric(16,2) CHECK(market_amount >= 0), market_currency char(3),
+ CHECK((market_amount IS NULL)=(market_currency IS NULL)),
  CHECK((appraisal_amount IS NULL)=(appraisal_currency IS NULL)),
  PRIMARY KEY(workspace_id,asset_id)
 );

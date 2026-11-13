@@ -8,7 +8,7 @@ The plan is a proposed sequence for a small cross-functional team, not a committ
 | 1 Foundation | 2 weeks | Next.js/Spring repos, CI, PostgreSQL migrations, Clerk integration, locale system, design primitives | Mandatory solo/invited organization onboarding, two-org isolation and single-country boundary tests pass; synthetic catalog searchable |
 | 2 Evidence pipeline | 2–3 weeks | One approved CR connector, immutable storage, extraction drafts, reviewer queue, revision audit | Licensed labeled set available; critical-field review and replay work |
 | 3 Discovery and detail | 2–3 weeks | Shared filter codec, list/map, asset/notice evidence, freshness and empty states | AC01–05 and bilingual mobile review pass |
-| 4 Research workspaces | 2 weeks | Direct auction tags/annotations, member image attachments, user-owned searches and alerts and ADMIN/MANAGER/USER roles | AC06–08 pass with tenant isolation and delivery deduplication |
+| 4 Research workspaces | 2 weeks | Direct auction tags/annotations, member image attachments, user-owned saved filters and alerts and ADMIN/MANAGER/USER roles | AC06–08 pass with tenant isolation and delivery deduplication |
 | 5 Subscriptions and hardening | 2 weeks | Selected billing integration, limits, SYSADMIN settings/operations, monitoring, recovery and accessibility review | AC09–13 pass; source/privacy/commercial gates approved |
 | 6 Limited pilot | 2 weeks | Invited users, measured quality, source operations drill, refinement | Pilot outcome targets assessed, critical defects closed |
 | 7 Expansion | After pilot | Second independently configured country instance and adapter, comparison/exports and richer alerts | AC14/AC15 and jurisdiction onboarding independently approved |
@@ -27,7 +27,7 @@ Some frontend implementation can overlap extraction once shared contracts stabil
 | AV2-006 | Build source fetch, hash storage and draft extraction | AV2-001/003 | Repeat fetch and failure quarantine work |
 | AV2-007 | Build evidence review and revision publication | AV2-006 | Concurrent review and audit cases pass |
 | AV2-008 | Integrate licensed live map/geocoder | O03/AV2-005 | Precision and unknown-location behavior pass |
-| AV2-009 | Implement direct auction tags, user-owned searches and delivery outbox | AV2-004/005/007 | No cross-organization access, personal fallback or duplicate alerts; SYSADMIN grants remain independent of organization roles |
+| AV2-009 | Implement direct auction tags, user-owned saved filters and delivery outbox | AV2-004/005/007 | No cross-organization access, personal fallback or duplicate alerts; SYSADMIN grants remain independent of organization roles |
 | AV2-010 | Implement provider billing and entitlement projection | O02/AV2-004 | Forged/replayed/out-of-order callbacks tested |
 | AV2-011 | Exercise deployment, restore and source outage | Working staging system | Approved recovery and observability targets demonstrated |
 
@@ -37,7 +37,7 @@ Highest risk is extraction correctness and source availability, followed by priv
 
 ## Three-listing delivery adjustment
 
-Make category modeling and mapping review part of the domain foundation. Before releasing discovery, implement Properties, Vehicles and Other routes together, sharing the auction service and research permissions. Verify all three in responsive and bilingual QA. Source onboarding must supply authorized samples for each category; property-only parser coverage is insufficient for a three-listing release. Gate production on classification accuracy and category-scoped saved-search integration tests. The prototype's example subtypes and default Properties landing route remain proposed choices.
+Make category modeling and mapping review part of the domain foundation. Before releasing discovery, implement Properties, Vehicles and Other routes together, sharing the auction service and research permissions. Verify all three in responsive and bilingual QA. Source onboarding must supply authorized samples for each category; property-only parser coverage is insufficient for a three-listing release. Gate production on classification accuracy and category-scoped saved-filter integration tests. The prototype's example subtypes and default Properties landing route remain proposed choices.
 
 ## Grouped-filter delivery gate
 

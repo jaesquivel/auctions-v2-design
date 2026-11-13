@@ -29,7 +29,7 @@ Editable [design tokens](../mockups/design-tokens.json) are the canonical values
 
 ## Organization context
 
-Every workspace belongs to an organization, even for a solo user. Display an organization name and membership role, never a Personal workspace option. Show a switcher only for multiple memberships; one membership uses a read-only organization label. The solo organization uses the same controls and permission rules as a team. Auction tag definitions/assignments, optional annotations and billing use organization context. Saved searches and their alert preferences are user-owned; a context is used only for authorized execution.
+Every workspace belongs to an organization, even for a solo user. Display an organization name and membership role, never a Personal workspace option. Show a switcher only for multiple memberships; one membership uses a read-only organization label. The solo organization uses the same controls and permission rules as a team. Auction tag definitions/assignments, optional annotations and billing use organization context. Saved filters and their alert preferences are user-owned; a context is used only for authorized execution.
 
 ## Notice terminology
 
@@ -145,7 +145,7 @@ Acceptance: verify multi-value precedence, both directions, equal values/ID ties
 
 ## Single-line item records
 
-Confirmed: each auction record occupies one line. Reference and item title have separate columns; cell text never wraps. Tags and Notice buttons are grouped in the rightmost Actions column. Long titles/locations may ellipsize visually with full text available through the title attribute and item detail. No stacked reference, badges or inline notice links remain in the item cell. This supersedes compact multiline mobile rows: narrow screens scroll the table horizontally, retaining one-line records and a right-aligned action column. Sorting and server pagination behavior stay unchanged.
+Confirmed: each auction record occupies one line. Reference and item title have separate columns; cell text never wraps. Displayed tags open the tag picker directly. The rightmost, untitled controls column contains item actions; Properties has Edit only, with no Notice action. Long titles/locations may ellipsize visually with full text available through the title attribute and item detail. No stacked reference, badges or inline notice links remain in the item cell. This supersedes compact multiline mobile rows: narrow screens scroll the table horizontally, retaining one-line records and a right-aligned action column. Sorting and server pagination behavior stay unchanged.
 
 Verify row/cell heights, no wrapping, rightmost action placement, keyboard access to the scroll region and buttons, accessible column headers and no page-level horizontal overflow at 320–1440 px.
 
@@ -245,7 +245,7 @@ Confirmed: organization ownership of editable fields, notes, appraisal, tags and
 
 ## Unified property detail and editing
 
-Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the Overview tab alongside the published information, auction schedule and tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
+Confirmed: property viewing and editing use one screen, with the same information, layout and tabs. The property title and Pencil list action both open asset detail. Notes and appraisal fields are editable directly in the General info tab alongside the published item information; the Auction tab holds the schedule and the item header holds tags; the Images tab remains available. Save stays on that screen; Cancel restores the last saved field values. Organization scope remains implicit in the UI. The previous separate property-edit screen is removed; old links resolve to asset detail. Source notice data remains read-only. Prototype field values persist only in memory during the session. Earlier separate-editor descriptions/screenshots are superseded.
 
 ## Direct tag-label selection
 
@@ -282,3 +282,7 @@ Header density refinement: column-title rows now use the same 36 px desktop cell
 The untitled controls column fits its visible action icons plus spacing/padding. It is recalculated for each grid and device target size, including the one-icon property row and two-icon Tags row. Prior saved widths for this column are ignored; it is not manually resizable. Other columns retain grid-line resizing and saved widths.
 
 Column selector: use Lucide ColumnsSettings with the localized Columns label. Hide the native disclosure marker to avoid a second competing icon.
+
+## Item header tags
+
+Confirmed: item tag labels belong in the item-form header, above the tab strip, for all categories. They remain visible when changing tabs and open the existing colored selection popup. Tags are removed from tab content; notes remain in their appropriate form/content section. The header wraps on narrow screens and supports items without assigned tags.

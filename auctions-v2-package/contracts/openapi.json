@@ -5880,6 +5880,28 @@
       "Asset": {
         "type": "object",
         "properties": {
+          "noticeReference": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "caseNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "auctionKind": {
+            "type": "string",
+            "enum": [
+              "judicial",
+              "non_judicial",
+              "unknown"
+            ]
+          },
           "category": {
             "$ref": "#/components/schemas/AssetCategory"
           },
@@ -6006,6 +6028,42 @@
       "AssetDetailRecord": {
         "type": "object",
         "properties": {
+          "noticeDescription": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "noticeLiens": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "noticeReference": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "caseNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "auctionKind": {
+            "type": "string",
+            "enum": [
+              "judicial",
+              "non_judicial",
+              "unknown"
+            ]
+          },
           "category": {
             "$ref": "#/components/schemas/AssetCategory"
           },
@@ -6204,9 +6262,116 @@
         ],
         "additionalProperties": false
       },
+      "AuctionParty": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "creditor",
+              "debtor",
+              "auctioneer",
+              "court"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "NoticePublication": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issue": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "publishedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
       "Notice": {
         "type": "object",
         "properties": {
+          "parties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuctionParty"
+            }
+          },
+          "venue": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "office": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "publication": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NoticePublication"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "extractionNotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "caseNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -7136,6 +7301,16 @@
       "AnnotationInput": {
         "type": "object",
         "properties": {
+          "marketValue": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Money"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "appraisal": {
             "oneOf": [
               {
@@ -7164,6 +7339,16 @@
       "Annotation": {
         "type": "object",
         "properties": {
+          "marketValue": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Money"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "appraisal": {
             "oneOf": [
               {
@@ -7202,6 +7387,28 @@
       "OrganizationAsset": {
         "type": "object",
         "properties": {
+          "noticeReference": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "caseNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "readOnly": true
+          },
+          "auctionKind": {
+            "type": "string",
+            "enum": [
+              "judicial",
+              "non_judicial",
+              "unknown"
+            ]
+          },
           "category": {
             "$ref": "#/components/schemas/AssetCategory"
           },

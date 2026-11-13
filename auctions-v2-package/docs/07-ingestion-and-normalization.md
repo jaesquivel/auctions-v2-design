@@ -65,7 +65,7 @@ Retry transient transport errors with jitter and a proposed maximum of five atte
 
 The publication pipeline supports Properties, Vehicles and Other in the instance's single configured country. Proposed normalize output includes category, compatible subtype and field evidence. Capture the original category wording, mapping version and reviewer decision. Property identifiers and area apply only to Properties. Vehicle identifiers must be source-derived and privacy-reviewed; do not infer make, model, year or physical location. Other contains positively identified assets outside property/vehicle classes, such as equipment or inventory; it is not an uncertainty bucket.
 
-Ambiguous category or incompatible subtype blocks publication and saved-search matching until reviewed. A notice containing several separable auction items can link to several assets, including different categories; preserve lot/group semantics and do not duplicate a joint lot as separately purchasable items. Category corrections create a reviewed revision, invalidate relevant listing caches and re-evaluate category-scoped saved searches using the existing deduplication rules. Preserve stable asset IDs, source evidence and private research.
+Ambiguous category or incompatible subtype blocks publication and saved-filter matching until reviewed. A notice containing several separable auction items can link to several assets, including different categories; preserve lot/group semantics and do not duplicate a joint lot as separately purchasable items. Category corrections create a reviewed revision, invalidate relevant listing caches and re-evaluate category-scoped saved filters using the existing deduplication rules. Preserve stable asset IDs, source evidence and private research.
 
 ## Filterable facts and unknown values
 
@@ -80,3 +80,17 @@ Production specification: retain the source clause or legal citation, effective 
 Prototype demonstration: only A07/A08 have explicit synthetic notice terms, labeled as fictional in the notice: 10% guarantee, half-up cent rounding, and CRC 5000 fee per round of the shared lot. These are demonstration inputs, not Costa Rican legal guidance. Other examples display Not available. Calculated cells expose notice/rule reference in their title. Backend calculation, legal-rule verification and API/schema extensions remain implementation work.
 
 Terminology: Participation Guarantee / Garantía de participación is the confirmed label for the guarantee amount.
+
+## Description and Liens extracted from notices
+
+Confirmed: notices may provide Description / Descripción and Liens / Gravámenes. Preserve them as optional source-derived text, displayed read-only in General info and Notice. They are distinct from editable notes and do not belong to organization research fields. Missing text means Not reported, never “no liens.” Original legal/source wording is preserved in its original language; only UI headings are localized.
+
+Extraction must retain notice revision, page/span evidence, original text, confidence and review status for each field; avoid silently merging contradictory notices. A reported lien is not a verified current registry condition or a legal guarantee. Proposed nullable fields noticeDescription and noticeLiens are included in detail DTO/schema design; no migration is executed. Prototype examples are explicit synthetic text, also included in their original fictional notice snapshot.
+
+
+### Confirmed auction parties and notice source details
+Auctions may identify multiple creditors, debtors, auctioneers and (for judicial auctions) a court, plus a venue or office. The Auction tab displays these optional source facts. Case number remains judicial-only; Reference belongs to the notice. The Notice tab displays case number/reference, publication name, issue, publication date, page/locator, extraction notes, and the full original notice text. Missing values are unreported, never inferred. Extraction notes are read-only processing/review annotations, distinct from editable research notes.
+
+Proposed representation: revision-scoped parties array (role/name), optional venue/office and publication metadata, and extractionNotes array. Each extracted fact must retain evidence and review provenance; a party can occur more than once per role. Preserve source spelling and full original text, without translating or rewriting it. No real identities are included in fixtures. Shared auction facts must stay consistent across linked items. Publication URLs are optional validated source links; do not invent URLs. Internal extraction diagnostics and secrets must not enter user-visible extraction notes. Reconcile conflicting revisions explicitly; do not overwrite published evidence. The existing auction grouping model remains proposed rather than a production integration.
+
+Acceptance: all categories expose Auction parties/venue and Notice source metadata; court/case appear only for judicial auctions; repeated parties are preserved; unknowns stay unreported; source metadata cannot be edited as research; original notice text remains intact. Examples A07/A08 are explicitly fictional and share identical auction metadata.

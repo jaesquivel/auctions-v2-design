@@ -157,3 +157,17 @@ Auction / Remate is the SECOND item tab for all categories. Put all round bases/
 Auction round guarantees and participation fees display when calculable from explicit notice terms or verified applicable country rules, with currency/provenance. Unknown is unavailable, not zero. Do not invent legal defaults or silently convert currency. Lot amounts apply to the sale unit; synthetic prototype rules must be explicitly labeled.
 
 Use Participation Guarantee / Garantía de participación as the guarantee column label.
+
+Properties and Vehicles may have an optional government-assessed tax value (Valor fiscal), distinct from appraisal and auction base. Display with currency and source/year when available; unknown stays unreported. Other does not have this field. No real government valuation or tax calculation is implied.
+
+Market Value and Appraisal Value are organization/user-editable research money fields, alongside notes. They are distinct from government tax values and auction bases. Do not expose ownership wording in UI.
+
+Notices may contain optional Description and Liens (Descripción/Gravámenes), read-only extracted text with source evidence. Keep separate from editable notes. Missing liens text is unknown/not reported, never evidence of no liens.
+
+Item tags are in the form header above the tabs, never within a tab. Retain clickable colored selection popup and visibility across all item tabs/categories.
+
+Reference belongs to the notice. Grid final data columns are Case number (judicial only), then Reference, then controls. Show Reference in Notice tab; do not use item IDs or registration numbers as notice references.
+
+Optional auction source details: creditors/debtors/auctioneers/court (judicial), venue/office; notice case/reference, publication metadata, extraction notes and full original text. Read-only extracted facts, separate from user notes; repeated parties supported, unknowns explicit.
+
+Language baseline: docs/12-terminology-and-language.md. UI uses saved filters/filtros guardados; auction item/bien versus auction/remate; Auction base/Base del remate; IDs distinct from notice reference; Spanish usted. Preserve original notice language and stable API identifiers.

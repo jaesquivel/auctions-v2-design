@@ -209,3 +209,9 @@
 .auction-related-items{list-style:none;padding:0;margin:0}.auction-related-items li{border-bottom:1px solid var(--line)}.auction-related-items .title-link{min-height:44px;text-align:left;display:flex;align-items:center;gap:8px;width:100%;padding:10px 0}
 
 .items-table[data-grid-key=auction-rounds]{min-width:640px;width:100%}
+
+.extracted-notice-field{white-space:pre-wrap;overflow-wrap:anywhere}
+
+.item-form-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px}.item-form-header h2{font-size:25px;margin:0}.item-header-tags{display:flex;align-items:center;gap:10px;max-width:100%;flex-wrap:wrap}.item-header-tags .tag-label-trigger{flex-wrap:wrap;height:auto;max-width:100%}.item-header-tags .tag-badge{max-width:260px;overflow:hidden;text-overflow:ellipsis}.item-header-tags .muted{font-size:12px}@media(max-width:700px){.item-header-tags{width:100%}}
+
+.single-line-table .col-reference{width:240px}.single-line-table .col-caseNumber{width:220px}

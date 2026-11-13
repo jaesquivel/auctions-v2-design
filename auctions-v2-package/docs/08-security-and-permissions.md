@@ -2,7 +2,7 @@
 
 ## Instance country boundary
 
-Country scope is deployment configuration, not a role capability. No user, organization owner or application administrator may select or override it through UI, query parameters, headers, tokens, saved searches or operations APIs. All catalog lookups, source adapters and publication transactions enforce the configured country. Use a separate database and source-storage namespace per country instance; tenant membership never expands country scope. Deployment provisioning is operational configuration outside the application, not an administrator country-selection feature.
+Country scope is deployment configuration, not a role capability. No user, organization owner or application administrator may select or override it through UI, query parameters, headers, tokens, saved filters or operations APIs. All catalog lookups, source adapters and publication transactions enforce the configured country. Use a separate database and source-storage namespace per country instance; tenant membership never expands country scope. Deployment provisioning is operational configuration outside the application, not an administrator country-selection feature.
 
 ## Trust boundaries
 
@@ -19,8 +19,8 @@ Confirmed C11: organization roles are exactly ADMIN, MANAGER and USER. ADMIN man
 | Edit full organization settings and manage users/roles | Yes | No | No | Confirmed ADMIN/MANAGER boundary; USER exclusion proposed baseline |
 | Edit operational settings and available tag definitions | Yes | Yes | No | ADMIN/MANAGER confirmed; USER exclusion proposed baseline |
 | Read catalog, evidence and own organization research | Yes | Yes | Yes | Proposed baseline |
-| Edit organization annotations and own saved searches | Yes | Yes | Yes | Proposed normal research baseline |
-| Assign/remove existing active tags directly on auction items | Yes | Yes | Yes | Proposed; does not permit definition editing |
+| Edit organization annotations and own saved filters | Yes | Yes | Yes | Proposed normal research baseline |
+| Assign/remove existing tags directly on auction items | Yes | Yes | Yes | Proposed; does not permit definition editing |
 | Manage organization identity, billing and subscription settings | Yes | No | No | ADMIN full settings; exact lifecycle flows proposed |
 | Delete organization through safeguarded closure | Yes | No | No | Proposed; final-membership and final-ADMIN safeguards |
 | Publish global catalog facts, configure system or control ingestion | SYSADMIN required separately | SYSADMIN required separately | SYSADMIN required separately | Organization role alone never grants system powers |
@@ -55,9 +55,9 @@ Only authenticated identity onboarding may run without an established active org
 
 Organization members may attach images to auction items through the Images tab. Proposed default: images are private to the active organization, independently of source evidence. Validate membership, item/instance scope, content-size limits and decoded MIME on initiation and completion; never trust filenames or browser Content-Type alone. Bind upload URLs to a server-selected object key, organization, asset and expiry. Scan/re-encode accepted image formats and remove EXIF metadata before serving; reject SVG/HTML and other unapproved types. Proposed deletion authority is the uploader or organization ADMIN. SYSADMIN does not automatically gain access to private organization images. No image data or signed URLs belong in public listing DTOs or caches.
 
-## User-owned saved-search boundary
+## User-owned saved-filter boundary
 
-Saved searches are user-owned, not organization-owned. Only the verified owner may read/edit/pause/delete one; ADMIN, MANAGER and SYSADMIN do not override this rule. Bind ownership from the session, never a request field. Organization context scopes private tag filters, execution and plan entitlements only. Owner-only RLS uses app.user_id, separately from workspace RLS for tag assignments/annotations. Background deliveries target the verified search owner and revalidate context access. Lost/deleted context suspends execution while preserving user ownership, with private context values withheld until authorized re-scoping.
+Saved filters are user-owned, not organization-owned. Only the verified owner may read/edit/pause/delete one; ADMIN, MANAGER and SYSADMIN do not override this rule. Bind ownership from the session, never a request field. Organization context scopes private tag filters, execution and plan entitlements only. Owner-only RLS uses app.user_id, separately from workspace RLS for tag assignments/annotations. Background deliveries target the verified search owner and revalidate context access. Lost/deleted context suspends execution while preserving user ownership, with private context values withheld until authorized re-scoping.
 
 ## Multi-tenant access controls
 
@@ -87,7 +87,7 @@ Audit membership/role changes, invitations, billing configuration changes, sourc
 
 ## Shared permissions across auction categories
 
-Properties, Vehicles and Other are public catalog classifications, not authorization roles or organization namespaces. Enforce the same organization scoping for tags, notes and member images and the same owner checks for saved searches in every listing. Include category in catalog/search cache and cursor keys; organization/user identity remains required for private responses. No category field may change instance country or bypass tenant checks. SYSADMIN remains independent from ADMIN/MANAGER/USER.
+Properties, Vehicles and Other are public catalog classifications, not authorization roles or organization namespaces. Enforce the same organization scoping for tags, notes and member images and the same owner checks for saved filters in every listing. Include category in catalog/search cache and cursor keys; organization/user identity remains required for private responses. No category field may change instance country or bypass tenant checks. SYSADMIN remains independent from ADMIN/MANAGER/USER.
 
 ## Boolean filter boundary
 

@@ -32,7 +32,7 @@ The project workspace was empty at the beginning of this task. The referenced ch
 | C11 | Exactly ADMIN, MANAGER, USER roles; ADMIN edits all organization settings/users; MANAGER edits operational settings such as available tags | Role matrix, settings, contracts and schema |
 | C12 | SYSADMIN is the system-level role for system configuration and operational tasks; organization roles remain ADMIN, MANAGER and USER | System permissions, settings, operations and contracts |
 | C13 | No saved/favorite auction items; users assign tags directly to auction items | Direct tag assignment, discovery filters, no Saved navigation/state |
-| C14 | Searches can be saved and are owned by the user | User-owned saved-search API, storage, alerts and owner-only access |
+| C14 | Searches can be saved and are owned by the user | User-owned saved-filter API, storage, alerts and owner-only access |
 | C15 | No images in auction list rows; organization members may attach images from an item’s Images tab | Text-first list, member image tab, private attachment contract and model |
 | C16 | Product, domain, API and documentation use Notice terminology | Notice routes, types, source references and bilingual copy |
 
@@ -48,9 +48,9 @@ C11 supersedes the earlier four-role model. The three organization roles are exa
 
 C12 confirms SYSADMIN for system configuration and operations. It is modeled separately from organization membership roles, preserving C11. A user may have an organization role plus SYSADMIN; organization membership remains mandatory. Exact system settings, tasks, role-provisioning process and lack of automatic private-organization access are proposed decisions. The fixed-country requirement still applies: SYSADMIN does not select or change the instance country at runtime.
 
-## Tagging and saved-search clarification
+## Tagging and saved-filter clarification
 
-C13 removes the saved/favorite auction-item concept entirely. A tag assignment links an organization tag directly to an auction asset; no save action, favorite flag or prerequisite collection exists. Organization scope for available tag definitions and shared assignments follows the current proposal. C14 confirms saved searches are user-owned, independently of the active organization. An organization context can constrain private tag filters, execution permissions and entitlements, but it is not the owner of the search. Organization ADMIN and SYSADMIN gain no automatic access to another user’s searches.
+C13 removes the saved/favorite auction-item concept entirely. A tag assignment links an organization tag directly to an auction asset; no save action, favorite flag or prerequisite collection exists. Organization scope for available tag definitions and shared assignments follows the current proposal. C14 confirms saved filters are user-owned, independently of the active organization. An organization context can constrain private tag filters, execution permissions and entitlements, but it is not the owner of the search. Organization ADMIN and SYSADMIN gain no automatic access to another user’s searches.
 
 ## Proposed decision register
 
@@ -62,7 +62,7 @@ C13 removes the saved/favorite auction-item concept entirely. A tag assignment l
 | P04 | Three unpriced feature bundles: Explore, Research, Team | Entitlements can evolve independently of role checks | Commercial owner before billing |
 | P05 | PostgreSQL full text and PostGIS when licensed geocoding is available | Avoid a separate search service at initial scale | Engineering after representative load tests |
 | P06 | Human review before publishing critical extracted fields | Date and money errors can materially mislead users | Operations before public catalog |
-| P07 | Web and email saved-search alerts, daily digest initially | Simple delivery and controlled notification volume | Product before alert pilot |
+| P07 | Web and email saved-filter alerts, daily digest initially | Simple delivery and controlled notification volume | Product before alert pilot |
 | P08 | No automatic currency conversion or inferred legal status | Avoid fabricated comparability and certainty | Product before discovery launch |
 | P09 | Public anonymous catalog browsing; authenticated direct tag assignment | Supports discovery; exposure policy needs approval | Product and privacy before indexing |
 | P10 | Private workspace sharing; public source citations with redaction controls | Balance traceability and unnecessary personal data exposure | Privacy lead before ingestion |
@@ -98,7 +98,7 @@ Use the supplied monochrome split-screen gavel image as the basis for the system
 
 ## Confirmed C19: filter-only discovery
 
-All auction discovery is performed through filters. There is no independent search box, Search button or separate text-search workflow. This applies to Properties, Vehicles and Other, in list and map views. Saved searches remain user-owned saved filter definitions; UI labels now say Save filters / Guardar filtros. Proposed execution retains optional text/reference matching as a criterion inside the same filter form, applied together with structured criteria. This supersedes earlier separate search-box copy.
+All auction discovery is performed through filters. There is no independent search box, Search button or separate text-search workflow. This applies to Properties, Vehicles and Other, in list and map views. Saved filters remain user-owned saved filter definitions; UI labels now say Save filters / Guardar filtros. Proposed execution retains optional text/reference matching as a criterion inside the same filter form, applied together with structured criteria. This supersedes earlier separate search-box copy.
 
 ## Confirmed C20: grouped Boolean filter terms
 
