@@ -442,5 +442,10 @@
   "toggleSidebar": "Mostrar navegación",
   "sourceReference": "Referencia de la fuente",
   "currencyPlain": "Moneda",
-  "previewHelpConnected": "Clerk está conectado; el catálogo y las operaciones de la organización siguen usando datos de demostración."
+  "previewHelpConnected": "Clerk está conectado; el catálogo y las operaciones de la organización siguen usando datos de demostración.",
+  "auctionsSection": "Remates",
+  "extractionSection": "Extracción de datos",
+  "configurationSection": "Configuración",
+  "systemSection": "Sistema",
+  "extractionNotConnected": "La cola de extracción aún no está conectada. Puede consultar los datos publicados mediante los filtros del catálogo. Las operaciones del sistema siguen reservadas a SYSADMIN."
 }

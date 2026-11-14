@@ -130,3 +130,11 @@
 @plugin "@tailwindcss/typography";
 @theme inline { --font-sans: var(--font-geist); --font-heading: var(--font-geist); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+/* Confirmed grid behavior: single-line rows and clipped cell content. */
+.data-grid { table-layout: fixed; }
+.data-grid th, .data-grid td { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.data-grid th > button, .grid-cell-value > a { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.data-grid th > button { justify-content: flex-start; }
+.data-grid td > div:not(.grid-cell-value), .grid-cell-value { min-width: 0; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.data-grid .grid-cell-value > button { max-width: 100%; }

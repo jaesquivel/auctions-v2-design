@@ -11,6 +11,7 @@ import {
   TeamScreen,
   PlansScreen,
   SystemScreen,
+  ExtractionScreen,
   AuthScreen,
 } from "@/components/other-screens"
 import { Category, categories } from "@/lib/domain"
@@ -49,6 +50,7 @@ export default async function Page({
         team: <TeamScreen />,
         plans: <PlansScreen />,
         system: <SystemScreen />,
+        extraction: <ExtractionScreen />,
         auth: (
           <AuthScreen
             enabled={

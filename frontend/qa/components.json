@@ -4,7 +4,7 @@
   "base": "radix",
   "style": "radix-nova",
   "source": "https://ui.shadcn.com",
-  "changes": "Formatted with repository Prettier; stock component classes/behavior retained",
+  "changes": "Registry aliases and Lucide placeholders resolved; formatted with repository Prettier. Sidebar uses the requested Base UI Nova component; other generated components remain Radix Nova.",
   "files": {
     "components/ui/alert-dialog.tsx": "d57a96557b5dc52d245d8f5f53250055ac1b6ca39ec28715ec9e3eb29a223472",
     "components/ui/alert.tsx": "f253568242c1c69b343f12474002fdbe229f603158171c59e21c491ab79f2e6e",
@@ -25,7 +25,7 @@
     "components/ui/select.tsx": "e754a1dc0760844e5051350e336c067d43747cc054497390ec1a9d3f44f33d98",
     "components/ui/separator.tsx": "b5b5460e5337c2d5f361c1512001615b2e5eacb38c7449a4418bb9ddb47c4bba",
     "components/ui/sheet.tsx": "f243878a25e4640e055859aadd55e31ebb3b3f5fab94e5fe25c2ebc36f4c0af4",
-    "components/ui/sidebar.tsx": "a0ebdc2eecc0ac620d56b77b30bc059d5a1f3c77e614586e45a73dfc31b55851",
+    "components/ui/sidebar.tsx": "2587c0b6c2daec7c2c8e741903b688767f2a9ca0aa10a19bf09ad270756e3eaf",
     "components/ui/skeleton.tsx": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc",
     "components/ui/sonner.tsx": "0a620ffc38e8a94668e7009aa3cc36dd98869421db4baa15298606d6e6a33be2",
     "components/ui/switch.tsx": "afd5b6e6b9c2bcd42ee164a39ca18c342b2d7a2dfedd29da3065dc37021090e8",
@@ -35,5 +35,29 @@
     "components/ui/toggle-group.tsx": "f0dcdf5d73ec55d4700d530c86611d12dd9071f5cf04d5f2def16757f1381d37",
     "components/ui/toggle.tsx": "5fb58fc5f5da383322cbad37bfe275eec4a1b035efed9f922b4fb28cd2851040",
     "components/ui/tooltip.tsx": "e94530dd6877132d5eda73f6fb0d217f345477232f140f2ca6e024d790177f6a"
+  },
+  "applicationCompositions": {
+    "description": "Locally implemented shared DataTable following the official shadcn/TanStack v9 guide, preserving stock Nova Table primitives",
+    "source": "https://ui.shadcn.com/docs/components/radix/data-table",
+    "files": {
+      "components/ui/data-table.tsx": "ff8ccee7f20230a7b18457ecb6465b92c539ad3a73528f6348b56064f1b49be5",
+      "components/ui/data-table-features.ts": "73dc7c44682013ec6ef5feb231884c91e5b0039a348d46b0dfcf2ed4dce65c84"
+    }
+  },
+  "baseSidebar": {
+    "source": "https://ui.shadcn.com/docs/components/base/sidebar",
+    "registry": "https://ui.shadcn.com/r/styles/base-nova/sidebar.json",
+    "baseUiVersion": "1.9.0",
+    "adaptations": "Registry alias resolution, Lucide icon resolution and repository formatting; stock Nova classes and behavior retained. AppShell uses Base UI render composition and a dedicated TooltipProvider.",
+    "files": {
+      "components/ui/base/button.tsx": "313353436d0fcc8e44ab470adb614b9fd013d28626f624328ea0d66d41a6c81b",
+      "components/ui/base/input.tsx": "dab990dfefa0ba78854ab6602ad074270dba9d7d1262184d9bfbb62bd990903b",
+      "components/ui/base/separator.tsx": "9a80ff8c110e0c55489509f4f82ebcc929c0174b59544047147b7134f86a54e7",
+      "components/ui/base/sheet.tsx": "f27b1897325b516ee37c087493d7b657ff5d01e6e37a3fef97c8760040a597c9",
+      "components/ui/base/skeleton.tsx": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc",
+      "components/ui/base/tooltip.tsx": "f83d5f511812573f4ac98b866d397a46fda0f27eeb0af0ea89af01969eefbc5a",
+      "components/ui/base/collapsible.tsx": "ead4349ff7b01d696ef89294a81d18ee1d3f732321398896462c834ab9b9e065"
+    },
+    "composition": "Reference demo composition: nested expandable navigation sections, organization header, account footer, icon collapse and SidebarRail."
   }
 }

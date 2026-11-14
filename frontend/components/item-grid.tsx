@@ -18,14 +18,8 @@ import {
   ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableHead,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table"
+import { FieldTitle } from "@/components/ui/field"
+import { DataTable, type DataTableColumn } from "@/components/ui/data-table"
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
@@ -49,6 +43,7 @@ import {
   ItemPage,
   Sort,
   Query,
+  defaultQuery,
   title,
   formatMoney,
   formatDate,
@@ -88,12 +83,27 @@ export const columnKeys = (category: Category) => [
 ]
 export const defaultColumns = (category: Category) =>
   columnKeys(category).filter((k) => !/(first|second|third)Round/.test(k))
+const columnWidth = (key: string) =>
+  ({
+    tags: 220,
+    item: 240,
+    registrationNumber: 170,
+    plate: 160,
+    locality: 170,
+    type: 130,
+    area: 100,
+    amount: 180,
+    date: 220,
+    caseNumber: 240,
+    reference: 260,
+  })[key] ?? 180
 export function ItemGrid({ category }: { category: Category }) {
   const t = useTranslations()
   const locale = useLocale()
   const router = useRouter()
   const { state, update } = usePreview()
-  const query = storedQuery(state, category)
+  const fallbackQuery = useMemo(() => defaultQuery(category), [category])
+  const query = state.queries[queryKey(state.user, category)] ?? fallbackQuery
   const assignments = state.assignments[state.organization]
   const [response, setResponse] = useState<{
     key: string
@@ -103,7 +113,14 @@ export function ItemGrid({ category }: { category: Category }) {
   const [retry, setRetry] = useState(0)
   const [view, setView] = useState("list")
   const payload = useMemo(
-    () => ({ ...query, tagAssignments: assignments }),
+    () => ({
+      ...query,
+      tagAssignments: query.expression.groups.some((group) =>
+        group.terms.some((term) => term.field === "tag")
+      )
+        ? assignments
+        : undefined,
+    }),
     [query, assignments]
   )
   const requestKey = JSON.stringify(payload)
@@ -201,11 +218,13 @@ export function ItemGrid({ category }: { category: Category }) {
   const data = response.key === requestKey ? response.data : undefined
   const error = response.key === requestKey ? response.error : undefined
   const cell = (item: Item, key: string) => {
-    if (key === "tags") return <TagPicker id={item.id} />
+    if (key === "tags") return <TagPicker id={item.id} compact />
     if (key === "item")
       return (
         <Button variant="link" asChild>
-          <Link href={`/${category}/${item.id}`}>{title(item, locale)}</Link>
+          <Link href={`/${category}/${item.id}`} title={title(item, locale)}>
+            <span className="truncate">{title(item, locale)}</span>
+          </Link>
         </Button>
       )
     if (key === "amount") return formatMoney(item, locale)
@@ -238,6 +257,67 @@ export function ItemGrid({ category }: { category: Category }) {
     }
     return String(item[key as keyof Item] ?? t("notReported"))
   }
+  // Keep TanStack cell component identities stable when tag assignments change;
+  // otherwise a tag selection would remount its cell and close the Popover.
+  const columns = useMemo<DataTableColumn<Item>[]>(
+    () => [
+      ...available.map((key): DataTableColumn<Item> => ({
+        id: key,
+        accessorFn: (item) =>
+          key === "reference" ? item.noticeReference : item[key as keyof Item],
+        header: () =>
+          sortOptions.includes(key) ? (
+            <Button
+              variant="ghost"
+              onClick={(event) => sortColumn(key, event.shiftKey)}
+              aria-label={`${label(key)} · ${t("sortBy")}`}
+            >
+              <span className="truncate">{label(key)}</span>
+              {query.sorts.find((s) => s.field === key)?.direction === "asc" ? (
+                <ArrowUp />
+              ) : query.sorts.find((s) => s.field === key)?.direction ===
+                "desc" ? (
+                <ArrowDown />
+              ) : (
+                <ArrowUpDown />
+              )}
+            </Button>
+          ) : (
+            label(key)
+          ),
+        cell: ({ row }) => cell(row.original, key),
+      })),
+      {
+        id: "actions",
+        header: () => <span className="sr-only">{t("viewItem")}</span>,
+        cell: ({ row }) => (
+          <div className="flex gap-1">
+            <IconAction
+              label={`${t(category === "properties" ? "editItem" : "viewItem")}: ${row.original.id}`}
+              onClick={() => router.push(`/${category}/${row.original.id}`)}
+            >
+              {category === "properties" ? <Pencil /> : <Eye />}
+            </IconAction>
+            {category !== "properties" && (
+              <IconAction
+                label={`${t("noticeTab")}: ${row.original.id}`}
+                onClick={() =>
+                  router.push(`/${category}/${row.original.id}?tab=notice`)
+                }
+              >
+                <FileText />
+              </IconAction>
+            )}
+          </div>
+        ),
+      },
+    ],
+    // The render closures depend only on these values; derived label/column
+    // arrays and callbacks are intentionally not used as identity dependencies.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [category, locale, t, router, query.sorts, query.currency, change]
+  )
+
   return (
     <>
       <PageHeading title={t(category)} description={t("listingIntro")}>
@@ -276,7 +356,7 @@ export function ItemGrid({ category }: { category: Category }) {
       <Card>
         <CardContent>
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-sm font-medium">{t("sortBy")}</span>
+            <FieldTitle>{t("sortBy")}</FieldTitle>
             {query.sorts.map((sort, index) => (
               <div key={index} className="flex items-center gap-1">
                 <span className="text-xs text-muted-foreground">
@@ -470,70 +550,30 @@ export function ItemGrid({ category }: { category: Category }) {
       ) : view === "map" && category === "properties" ? (
         <PropertyMap items={data.items} />
       ) : (
-        <div className="rounded-lg border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                {visible.map((key) => (
-                  <TableHead key={key}>
-                    {sortOptions.includes(key) ? (
-                      <Button
-                        variant="ghost"
-                        onClick={(event) => sortColumn(key, event.shiftKey)}
-                        aria-label={`${label(key)} · ${t("sortBy")}`}
-                      >
-                        {label(key)}
-                        {query.sorts.find((s) => s.field === key)?.direction ===
-                        "asc" ? (
-                          <ArrowUp />
-                        ) : query.sorts.find((s) => s.field === key)
-                            ?.direction === "desc" ? (
-                          <ArrowDown />
-                        ) : (
-                          <ArrowUpDown />
-                        )}
-                      </Button>
-                    ) : (
-                      label(key)
-                    )}
-                  </TableHead>
-                ))}
-                <TableHead>
-                  <span className="sr-only">{t("viewItem")}</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.items.map((item) => (
-                <TableRow key={item.id}>
-                  {visible.map((key) => (
-                    <TableCell key={key}>{cell(item, key)}</TableCell>
-                  ))}
-                  <TableCell>
-                    <div className="flex gap-1">
-                      <IconAction
-                        label={`${t(category === "properties" ? "editItem" : "viewItem")}: ${item.id}`}
-                        onClick={() => router.push(`/${category}/${item.id}`)}
-                      >
-                        {category === "properties" ? <Pencil /> : <Eye />}
-                      </IconAction>
-                      {category !== "properties" && (
-                        <IconAction
-                          label={`${t("noticeTab")}: ${item.id}`}
-                          onClick={() =>
-                            router.push(`/${category}/${item.id}?tab=notice`)
-                          }
-                        >
-                          <FileText />
-                        </IconAction>
-                      )}
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <DataTable<Item>
+          data={data.items}
+          columns={columns}
+          getRowId={(item) => item.id}
+          columnVisibility={Object.fromEntries(
+            available.map((key) => [key, selected.includes(key)])
+          )}
+          sorting={query.sorts.map((sort) => ({
+            id: sort.field,
+            desc: sort.direction === "desc",
+          }))}
+          pagination={{ pageIndex: data.page - 1, pageSize: data.pageSize }}
+          rowCount={data.total}
+          columnWidths={{
+            ...Object.fromEntries(
+              available.map((key) => [key, columnWidth(key)])
+            ),
+            actions: category === "properties" ? 56 : 88,
+          }}
+          minWidth={visible.reduce(
+            (total, key) => total + columnWidth(key),
+            category === "properties" ? 56 : 88
+          )}
+        />
       )}
     </>
   )

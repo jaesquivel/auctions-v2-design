@@ -5,8 +5,10 @@
   "typecheck": "passed",
   "tests": {
     "domain": 12,
+    "dataTable": 3,
+    "navigation": 2,
     "http": 4,
-    "total": 16
+    "total": 21
   },
   "runtimeAudit": {
     "knownVulnerabilities": 0,
@@ -26,7 +28,15 @@
     "locale and light/dark changes",
     "Leaflet container with zero external tiles",
     "390px viewport no page overflow",
-    "mobile sidebar closes after navigation"
+    "mobile sidebar closes after navigation",
+    "Base UI Sidebar desktop collapse/expand",
+    "Base UI mobile Sheet opens and closes on navigation at 390px",
+    "System link shown only with simulated SYSADMIN after Sidebar replacement",
+    "No browser errors during Base Sidebar review",
+    "Reference Sidebar layout: expandable sections hide/reveal links",
+    "Icon collapse retains a 48px rail; clicking section icon expands navigation",
+    "Organization header and account footer retained; mobile route selection closes drawer",
+    "SYSADMIN-only System section verified after reference-layout update"
   ],
   "limits": [
     "No live Clerk credentials tested",
@@ -34,5 +44,32 @@
     "No Java/PostgreSQL backend",
     "No real notice ingestion, billing, emails, registry lookup or uploads",
     "No complete accessibility audit"
-  ]
+  ],
+  "fieldStyleReview": {
+    "date": "2026-11-13",
+    "labels": "Official shadcn FieldLabel / FieldTitle, 14px, weight 500",
+    "values": "Regular 14px text, weight 400, matching stock input values",
+    "verification": "Browser computed styles match detail and form label/value pairs; tag name/color labels resolve to their respective controls",
+    "checks": [
+      "ESLint passed",
+      "Next.js production build and TypeScript passed"
+    ],
+    "screenshot": "react-field-styles.png"
+  },
+  "dataTableAndSidebarReview": {
+    "date": "2026-11-13",
+    "package": "@tanstack/react-table@9.3.1",
+    "sourcePattern": "https://ui.shadcn.com/docs/components/radix/data-table",
+    "verified": [
+      "Shared DataTable in item/Tags/round/team grids",
+      "Five returned rows on server page 2; no client repagination",
+      "Tags renders all 27 undeleted labels without pagination",
+      "Tag popup stays open across selection changes",
+      "Inline tag-name editing retains keyboard focus",
+      "Three auction-round rows render through DataTable",
+      "Non-SYSADMIN sees three sections; SYSADMIN sees all four",
+      "System link removed and direct page guarded after SYSADMIN revocation"
+    ],
+    "screenshot": "react-data-table-sections.png"
+  }
 }

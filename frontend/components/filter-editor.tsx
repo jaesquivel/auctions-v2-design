@@ -18,7 +18,7 @@ import { usePreview, storedQuery, queryKey } from "@/lib/preview-store"
 import { useRouter } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Field, FieldLabel, FieldError } from "@/components/ui/field"
 import {
   Card,
   CardHeader,
@@ -34,7 +34,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Choice, PageHeading, IconAction } from "./shared"
+import { Choice, LabeledChoice, PageHeading, IconAction } from "./shared"
 const nameSchema = z.object({ name: z.string().trim().min(1).max(100) })
 export function FilterView({ category }: { category: Category }) {
   const { state } = usePreview()
@@ -206,45 +206,39 @@ function FilterEditor({ initial }: { initial: Query }) {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex flex-wrap gap-4">
-              <div className="space-y-2">
-                <Label>{t("combineGroups")}</Label>
-                <Choice
-                  label={t("combineGroups")}
-                  value={draft.expression.operator}
-                  onChange={(operator) =>
-                    setDraft((d) => ({
-                      ...d,
-                      expression: {
-                        ...d.expression,
-                        operator: operator as "AND" | "OR",
-                      },
-                    }))
-                  }
-                  options={[
-                    { value: "AND", label: t("allAndReadable") },
-                    { value: "OR", label: t("anyOrReadable") },
-                  ]}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>{t("filterCurrency")}</Label>
-                <Choice
-                  label={t("filterCurrency")}
-                  value={draft.currency ?? "any"}
-                  onChange={(currency) =>
-                    setDraft((d) => ({
-                      ...d,
-                      currency:
-                        currency === "any" ? null : (currency as "CRC" | "USD"),
-                    }))
-                  }
-                  options={[
-                    { value: "any", label: t("anyCurrency") },
-                    { value: "CRC", label: "CRC" },
-                    { value: "USD", label: "USD" },
-                  ]}
-                />
-              </div>
+              <LabeledChoice
+                label={t("combineGroups")}
+                value={draft.expression.operator}
+                onChange={(operator) =>
+                  setDraft((d) => ({
+                    ...d,
+                    expression: {
+                      ...d.expression,
+                      operator: operator as "AND" | "OR",
+                    },
+                  }))
+                }
+                options={[
+                  { value: "AND", label: t("allAndReadable") },
+                  { value: "OR", label: t("anyOrReadable") },
+                ]}
+              />
+              <LabeledChoice
+                label={t("filterCurrency")}
+                value={draft.currency ?? "any"}
+                onChange={(currency) =>
+                  setDraft((d) => ({
+                    ...d,
+                    currency:
+                      currency === "any" ? null : (currency as "CRC" | "USD"),
+                  }))
+                }
+                options={[
+                  { value: "any", label: t("anyCurrency") },
+                  { value: "CRC", label: "CRC" },
+                  { value: "USD", label: "USD" },
+                ]}
+              />
             </div>
             {draft.expression.groups.length === 0 && (
               <p className="text-sm text-muted-foreground">{t("noGroups")}</p>
@@ -534,13 +528,17 @@ function FilterEditor({ initial }: { initial: Query }) {
             <DialogTitle>{t("saveSearch")}</DialogTitle>
           </DialogHeader>
           <form onSubmit={save} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="filter-name">{t("filterName")}</Label>
-              <Input id="filter-name" {...form.register("name")} />
+            <Field data-invalid={!!form.formState.errors.name}>
+              <FieldLabel htmlFor="filter-name">{t("filterName")}</FieldLabel>
+              <Input
+                id="filter-name"
+                aria-invalid={!!form.formState.errors.name}
+                {...form.register("name")}
+              />
               {form.formState.errors.name && (
-                <p className="text-sm text-destructive">{t("nameRequired")}</p>
+                <FieldError>{t("nameRequired")}</FieldError>
               )}
-            </div>
+            </Field>
             <DialogFooter>
               <Button
                 type="button"

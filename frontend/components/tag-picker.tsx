@@ -10,7 +10,13 @@ import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { usePreview } from "@/lib/preview-store"
 import { TagBadge } from "./shared"
-export function TagPicker({ id }: { id: string }) {
+export function TagPicker({
+  id,
+  compact = false,
+}: {
+  id: string
+  compact?: boolean
+}) {
   const t = useTranslations()
   const { state, update } = usePreview()
   const definitions = state.tags[state.organization] ?? []
@@ -20,20 +26,48 @@ export function TagPicker({ id }: { id: string }) {
       <PopoverTrigger asChild>
         <Button
           variant="ghost"
-          className="h-auto justify-start"
+          className={
+            compact
+              ? "w-full min-w-0 justify-start overflow-hidden"
+              : "h-auto justify-start"
+          }
+          title={
+            selected
+              .map(
+                (tagId) => definitions.find((tag) => tag.id === tagId)?.label
+              )
+              .filter(Boolean)
+              .join(", ") || t("noAssignedTags")
+          }
           aria-label={`${t("editTags")}: ${id}`}
         >
-          <span className="flex flex-wrap gap-1">
+          <span
+            className={
+              compact
+                ? "flex min-w-0 flex-nowrap items-center gap-1 overflow-hidden"
+                : "flex flex-wrap gap-1"
+            }
+          >
             {selected.length ? (
-              selected.map((tagId) => {
+              (compact ? selected.slice(0, 2) : selected).map((tagId) => {
                 const tag = definitions.find((x) => x.id === tagId)
                 return tag ? (
-                  <TagBadge key={tag.id} label={tag.label} color={tag.color} />
+                  <TagBadge
+                    key={tag.id}
+                    label={tag.label}
+                    color={tag.color}
+                    compact={compact}
+                  />
                 ) : null
               })
             ) : (
               <span className="text-muted-foreground">
                 {t("noAssignedTags")}
+              </span>
+            )}
+            {compact && selected.length > 2 && (
+              <span className="shrink-0 text-xs text-muted-foreground">
+                +{selected.length - 2}
               </span>
             )}
           </span>

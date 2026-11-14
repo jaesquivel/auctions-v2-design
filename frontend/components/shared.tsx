@@ -1,5 +1,5 @@
 "use client"
-import { type ReactNode } from "react"
+import { type ReactNode, type ComponentProps, useId } from "react"
 import { cn } from "@/lib/utils"
 import { useTranslations } from "next-intl"
 import {
@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Field, FieldLabel, FieldTitle } from "@/components/ui/field"
 import {
   Select,
   SelectTrigger,
@@ -56,6 +57,16 @@ export function Choice({
     </Select>
   )
 }
+export function LabeledChoice(props: ComponentProps<typeof Choice>) {
+  const generatedId = useId()
+  const id = props.id ?? generatedId
+  return (
+    <Field className="w-auto" data-disabled={props.disabled || undefined}>
+      <FieldLabel htmlFor={id}>{props.label}</FieldLabel>
+      <Choice {...props} id={id} />
+    </Field>
+  )
+}
 export function IconAction({
   label,
   children,
@@ -94,10 +105,24 @@ export const tagClass: Record<string, string> = {
   purple:
     "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-200",
 }
-export function TagBadge({ label, color }: { label: string; color: string }) {
+export function TagBadge({
+  label,
+  color,
+  compact = false,
+}: {
+  label: string
+  color: string
+  compact?: boolean
+}) {
   return (
-    <Badge variant="secondary" className={cn(tagClass[color] ?? tagClass.gray)}>
-      {label}
+    <Badge
+      variant="secondary"
+      className={cn(
+        tagClass[color] ?? tagClass.gray,
+        compact && "min-w-0 max-w-full shrink"
+      )}
+    >
+      <span className={compact ? "truncate" : undefined}>{label}</span>
     </Badge>
   )
 }
@@ -105,14 +130,21 @@ export function Facts({ values }: { values: [string, ReactNode][] }) {
   return (
     <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
       {values.map(([label, value], i) => (
-        <div key={`${label}-${i}`}>
-          <dt className="text-sm text-muted-foreground">{label}</dt>
-          <dd className="mt-1 text-sm font-medium">{value || "—"}</dd>
-        </div>
+        <Field key={`${label}-${i}`} role={undefined}>
+          <dt>
+            <FieldTitle>{label}</FieldTitle>
+          </dt>
+          <dd className="text-sm leading-normal font-normal text-foreground">
+            {value === null || value === undefined || value === ""
+              ? "—"
+              : value}
+          </dd>
+        </Field>
       ))}
     </dl>
   )
 }
+
 export function Confirm({
   open,
   onOpenChange,

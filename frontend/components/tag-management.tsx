@@ -6,19 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { toast } from "sonner"
 import { Plus, Pencil, Trash2, Save, X, ArrowUpDown } from "lucide-react"
-import { usePreview, colors } from "@/lib/preview-store"
+import { usePreview, colors, type Tag } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Field, FieldLabel, FieldError } from "@/components/ui/field"
 import {
-  Table,
-  TableHeader,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table"
+  Field,
+  FieldGroup,
+  FieldLabel,
+  FieldError,
+} from "@/components/ui/field"
+import { DataTable } from "@/components/ui/data-table"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Choice, Confirm, PageHeading, TagBadge, IconAction } from "./shared"
@@ -104,36 +102,46 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
     toast.success(t("changesSaved"))
     if (create) router.push("/tags")
   })
+  const nameInput = (
+    <Input
+      id="tag-name"
+      aria-invalid={!!form.formState.errors.label}
+      aria-label={t("tagLabel")}
+      {...form.register("label")}
+      maxLength={40}
+    />
+  )
+  const colorInput = (
+    <Choice
+      id="tag-color"
+      value={selectedColor}
+      onChange={(color) =>
+        form.setValue("color", color as (typeof colors)[number])
+      }
+      label={t("color")}
+      options={colors.map((value) => ({
+        value,
+        label:
+          locale === "es"
+            ? {
+                gray: "Gris",
+                blue: "Azul",
+                green: "Verde",
+                amber: "Ámbar",
+                red: "Rojo",
+                purple: "Morado",
+              }[value]
+            : value,
+      }))}
+    />
+  )
   const fields = (
     <>
-      <Input
-        aria-label={t("tagLabel")}
-        {...form.register("label")}
-        maxLength={40}
-      />
-      <Choice
-        value={selectedColor}
-        onChange={(color) =>
-          form.setValue("color", color as (typeof colors)[number])
-        }
-        label={t("color")}
-        options={colors.map((value) => ({
-          value,
-          label:
-            locale === "es"
-              ? {
-                  gray: "Gris",
-                  blue: "Azul",
-                  green: "Verde",
-                  amber: "Ámbar",
-                  red: "Rojo",
-                  purple: "Morado",
-                }[value]
-              : value,
-        }))}
-      />
+      {nameInput}
+      {colorInput}
     </>
   )
+
   if (create)
     return (
       <>
@@ -149,15 +157,22 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
             </CardHeader>
             <CardContent>
               <form onSubmit={save} className="space-y-5">
-                <Field>
-                  <FieldLabel>{t("tagLabel")}</FieldLabel>
-                  {fields}
-                  {form.formState.errors.label && (
-                    <FieldError>
-                      {form.formState.errors.label.message ?? t("tagNameError")}
-                    </FieldError>
-                  )}
-                </Field>
+                <FieldGroup>
+                  <Field data-invalid={!!form.formState.errors.label}>
+                    <FieldLabel htmlFor="tag-name">{t("tagLabel")}</FieldLabel>
+                    {nameInput}
+                    {form.formState.errors.label && (
+                      <FieldError>
+                        {form.formState.errors.label.message ??
+                          t("tagNameError")}
+                      </FieldError>
+                    )}
+                  </Field>
+                  <Field>
+                    <FieldLabel htmlFor="tag-color">{t("color")}</FieldLabel>
+                    {colorInput}
+                  </Field>
+                </FieldGroup>
                 <div className="flex gap-2">
                   <Button type="submit">{t("save")}</Button>
                   <Button variant="outline" asChild>
@@ -187,11 +202,14 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
           <AlertDescription>{t("roleReadOnly")}</AlertDescription>
         </Alert>
       )}
-      <div className="rounded-lg border">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>
+      <DataTable<Tag>
+        data={sorted}
+        getRowId={(tag) => tag.id}
+        columns={[
+          {
+            id: "label",
+            header: () => (
+              <>
                 <Button
                   variant="ghost"
                   onClick={(e) => sort("label", e.shiftKey)}
@@ -199,30 +217,17 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                   {t("tagLabel")}
                   <ArrowUpDown />
                 </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={(e) => sort("count", e.shiftKey)}
-                >
-                  {t("assignedItems")}
-                  <ArrowUpDown />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <span className="sr-only">{t("edit")}</span>
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sorted.map((tag) => (
-              <TableRow key={tag.id}>
-                <TableCell>
+              </>
+            ),
+            cell: ({ row }) => {
+              const tag = row.original
+              return (
+                <>
                   {editing === tag.id ? (
                     <form
                       id="tag-inline"
                       onSubmit={save}
-                      className="flex flex-wrap gap-2"
+                      className="flex flex-nowrap gap-2"
                     >
                       {fields}
                       {form.formState.errors.label && (
@@ -233,11 +238,43 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                       )}
                     </form>
                   ) : (
-                    <TagBadge label={tag.label} color={tag.color} />
+                    <span className="block truncate" title={tag.label}>
+                      <TagBadge label={tag.label} color={tag.color} compact />
+                    </span>
                   )}
-                </TableCell>
-                <TableCell>{count(tag.id)}</TableCell>
-                <TableCell>
+                </>
+              )
+            },
+          },
+          {
+            id: "count",
+            header: () => (
+              <>
+                <Button
+                  variant="ghost"
+                  onClick={(e) => sort("count", e.shiftKey)}
+                >
+                  {t("assignedItems")}
+                  <ArrowUpDown />
+                </Button>
+              </>
+            ),
+            cell: ({ row }) => {
+              const tag = row.original
+              return <>{count(tag.id)}</>
+            },
+          },
+          {
+            id: "actions",
+            header: () => (
+              <>
+                <span className="sr-only">{t("edit")}</span>
+              </>
+            ),
+            cell: ({ row }) => {
+              const tag = row.original
+              return (
+                <>
                   {canManage && (
                     <div className="flex gap-1">
                       {editing === tag.id ? (
@@ -282,12 +319,15 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                       )}
                     </div>
                   )}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+                </>
+              )
+            },
+          },
+        ]}
+        columnWidths={{ label: 520, count: 170, actions: 100 }}
+        minWidth={790}
+        sorting={sorts.map((sort) => ({ id: sort.field, desc: sort.desc }))}
+      />
       <Confirm
         open={!!pending}
         onOpenChange={(open) => !open && setPending(null)}

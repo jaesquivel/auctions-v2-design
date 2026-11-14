@@ -24,18 +24,11 @@ import {
   CardFooter,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Field, FieldLabel, FieldDescription } from "@/components/ui/field"
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import {
-  Table,
-  TableHeader,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table"
+import { DataTable } from "@/components/ui/data-table"
 import {
   Dialog,
   DialogContent,
@@ -46,6 +39,7 @@ import {
 import { usePreview } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Role } from "@/lib/domain"
+import type { PreviewState } from "@/lib/preview-store"
 import { Choice, Confirm, PageHeading } from "./shared"
 export function Overview() {
   const t = useTranslations()
@@ -252,15 +246,19 @@ function SettingsBody() {
               toast.success(t("changesSaved"))
             }}
           >
-            <Label htmlFor="organization-name">{t("orgName")}</Label>
-            <Input
-              id="organization-name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              disabled={role !== "ADMIN"}
-              required
-              maxLength={100}
-            />
+            <Field data-disabled={role !== "ADMIN" || undefined}>
+              <FieldLabel htmlFor="organization-name">
+                {t("orgName")}
+              </FieldLabel>
+              <Input
+                id="organization-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={role !== "ADMIN"}
+                required
+                maxLength={100}
+              />
+            </Field>
             <Button disabled={role !== "ADMIN"}>{t("saveSettings")}</Button>
           </form>
         </CardContent>
@@ -308,63 +306,69 @@ export function TeamScreen() {
           {t("invite")}
         </Button>
       </PageHeading>
-      <div className="rounded-lg border">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>{t("name")}</TableHead>
-              <TableHead>{t("roles")}</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {state.members
-              .filter((m) => m.organization === state.organization)
-              .map((member) => (
-                <TableRow key={member.id}>
-                  <TableCell>{member.name}</TableCell>
-                  <TableCell>
-                    <Choice
-                      label={`${t("roles")}: ${member.name}`}
-                      disabled={role !== "ADMIN" || member.id === state.user}
-                      value={member.id === state.user ? role : member.role}
-                      options={["ADMIN", "MANAGER", "USER"].map((value) => ({
-                        value,
-                        label: value,
-                      }))}
-                      onChange={(newRole) => {
-                        const orgMembers = state.members.filter(
-                          (m) => m.organization === state.organization
-                        )
-                        if (
-                          member.role === "ADMIN" &&
-                          newRole !== "ADMIN" &&
-                          orgMembers.filter((m) => m.role === "ADMIN")
-                            .length === 1
-                        ) {
-                          toast.error(t("permissionDenied"))
-                          return
-                        }
-                        update((s) => ({
-                          ...s,
-                          members: s.members.map((m) =>
-                            m.id === member.id &&
-                            m.organization === s.organization
-                              ? { ...m, role: newRole as Role }
-                              : m
-                          ),
-                          roles: {
-                            ...s.roles,
-                            [`${member.id}:${s.organization}`]: newRole as Role,
-                          },
-                        }))
-                      }}
-                    />
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
-      </div>
+      <DataTable<PreviewState["members"][number]>
+        data={state.members.filter(
+          (member) => member.organization === state.organization
+        )}
+        getRowId={(member) => member.id}
+        columns={[
+          {
+            id: "name",
+            header: () => <>{t("name")}</>,
+            cell: ({ row }) => {
+              const member = row.original
+              return <>{member.name}</>
+            },
+          },
+          {
+            id: "role",
+            header: () => <>{t("roles")}</>,
+            cell: ({ row }) => {
+              const member = row.original
+              return (
+                <>
+                  <Choice
+                    label={`${t("roles")}: ${member.name}`}
+                    disabled={role !== "ADMIN" || member.id === state.user}
+                    value={member.id === state.user ? role : member.role}
+                    options={["ADMIN", "MANAGER", "USER"].map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                    onChange={(newRole) => {
+                      const orgMembers = state.members.filter(
+                        (m) => m.organization === state.organization
+                      )
+                      if (
+                        member.role === "ADMIN" &&
+                        newRole !== "ADMIN" &&
+                        orgMembers.filter((m) => m.role === "ADMIN").length ===
+                          1
+                      ) {
+                        toast.error(t("permissionDenied"))
+                        return
+                      }
+                      update((s) => ({
+                        ...s,
+                        members: s.members.map((m) =>
+                          m.id === member.id &&
+                          m.organization === s.organization
+                            ? { ...m, role: newRole as Role }
+                            : m
+                        ),
+                        roles: {
+                          ...s.roles,
+                          [`${member.id}:${s.organization}`]: newRole as Role,
+                        },
+                      }))
+                    }}
+                  />
+                </>
+              )
+            },
+          },
+        ]}
+      />
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>
@@ -380,17 +384,17 @@ export function TeamScreen() {
               setEmail("")
             }}
           >
-            <Label htmlFor="invite-email">{t("email")}</Label>
-            <Input
-              id="invite-email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <p className="text-sm text-muted-foreground">
-              {t("invitePreview")}
-            </p>
+            <Field>
+              <FieldLabel htmlFor="invite-email">{t("email")}</FieldLabel>
+              <Input
+                id="invite-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Field>
+            <FieldDescription>{t("invitePreview")}</FieldDescription>
             <DialogFooter>
               <Button
                 variant="outline"
@@ -501,8 +505,10 @@ function SystemBody() {
               toast.success(t("changesSaved"))
             }}
           >
-            <div className="flex items-center justify-between gap-4">
-              <Label htmlFor="ingestion-enabled">{t("ingestionEnabled")}</Label>
+            <Field orientation="horizontal">
+              <FieldLabel htmlFor="ingestion-enabled">
+                {t("ingestionEnabled")}
+              </FieldLabel>
               <Switch
                 id="ingestion-enabled"
                 checked={state.system.enabled}
@@ -510,16 +516,20 @@ function SystemBody() {
                   update((s) => ({ ...s, system: { ...s.system, enabled } }))
                 }
               />
-            </div>
-            <Label htmlFor="run-interval">{t("sourceCheckInterval")}</Label>
-            <Input
-              id="run-interval"
-              type="number"
-              min={15}
-              max={1440}
-              value={interval}
-              onChange={(e) => setInterval(e.target.value)}
-            />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="run-interval">
+                {t("sourceCheckInterval")}
+              </FieldLabel>
+              <Input
+                id="run-interval"
+                type="number"
+                min={15}
+                max={1440}
+                value={interval}
+                onChange={(e) => setInterval(e.target.value)}
+              />
+            </Field>
             <Button>{t("save")}</Button>
           </form>
         </CardContent>
@@ -565,6 +575,32 @@ export function AuthScreen({ enabled = false }: { enabled?: boolean }) {
         <CardFooter>
           <Button asChild>
             <Link href="/properties">{t("explore")}</Link>
+          </Button>
+        </CardFooter>
+      </Card>
+    </>
+  )
+}
+
+export function ExtractionScreen() {
+  const t = useTranslations()
+  return (
+    <>
+      <PageHeading
+        title={t("extractionSection")}
+        description={t("reviewSub")}
+      />
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("queue")}</CardTitle>
+          <CardDescription>{t("extractionNotConnected")}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">{t("sourceCaution")}</p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" asChild>
+            <Link href="/properties/filters">{t("openFilters")}</Link>
           </Button>
         </CardFooter>
       </Card>

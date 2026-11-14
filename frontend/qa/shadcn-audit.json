@@ -1,0 +1,1717 @@
+{
+  "date": "2026-11-13",
+  "scope": "Active frontend only; no legacy mockup modifications; static source audit, not new runtime validation",
+  "sourceFiles": [
+    {
+      "file": "components/app-shell.tsx",
+      "sha256": "796e780cec1d20cb1a81bde2732e099150a1061831f3c5c8b010d9595ea88cea"
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "sha256": "a3435ca73cc4827c651aa06d78f241f31c7e549409d2abaf8ee07719bfe08d30"
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "sha256": "7bc9d2b5461e125d2a35e399d7e78763814b1c5c6953dfc43640077ee6793220"
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "sha256": "3d09c0ab736067e38d5750ad101361c4f738ea1e1f741b3c2da45f9ea892a6be"
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "sha256": "d5a646d2cffd8eb1f60f95c82c565b0114183d132cbfeaddd296d9c61a29e964"
+    },
+    {
+      "file": "components/property-map.tsx",
+      "sha256": "5c6e993de7003640f11f0f74319fbb38d55e3cdbe2bb84a8400f4765a28fff6f"
+    },
+    {
+      "file": "components/shared.tsx",
+      "sha256": "99ca8c9f6437f1ec21d268f82edb7b778e54aab8766f69cd6138ac80e1540485"
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "sha256": "5562842827fdaff04dd120e703d94daa912715fe1ebd827738446c8c6239e12d"
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "sha256": "5f4211973efd45996abdc37dd01ae0982ff1372eb759d24baddd80058198649b"
+    },
+    {
+      "file": "components/theme-provider.tsx",
+      "sha256": "86d9517da24b16ceb107fb922582baba5e4b6ee04f1b6f751dfe6c9fe023d854"
+    },
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "sha256": "d57a96557b5dc52d245d8f5f53250055ac1b6ca39ec28715ec9e3eb29a223472"
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "sha256": "f253568242c1c69b343f12474002fdbe229f603158171c59e21c491ab79f2e6e"
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "sha256": "59953420d01d23d172b4e32583426db153ff09226e2d460d53526b9f25282801"
+    },
+    {
+      "file": "components/ui/base/button.tsx",
+      "sha256": "313353436d0fcc8e44ab470adb614b9fd013d28626f624328ea0d66d41a6c81b"
+    },
+    {
+      "file": "components/ui/base/collapsible.tsx",
+      "sha256": "ead4349ff7b01d696ef89294a81d18ee1d3f732321398896462c834ab9b9e065"
+    },
+    {
+      "file": "components/ui/base/input.tsx",
+      "sha256": "dab990dfefa0ba78854ab6602ad074270dba9d7d1262184d9bfbb62bd990903b"
+    },
+    {
+      "file": "components/ui/base/separator.tsx",
+      "sha256": "9a80ff8c110e0c55489509f4f82ebcc929c0174b59544047147b7134f86a54e7"
+    },
+    {
+      "file": "components/ui/base/sheet.tsx",
+      "sha256": "f27b1897325b516ee37c087493d7b657ff5d01e6e37a3fef97c8760040a597c9"
+    },
+    {
+      "file": "components/ui/base/skeleton.tsx",
+      "sha256": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc"
+    },
+    {
+      "file": "components/ui/base/tooltip.tsx",
+      "sha256": "f83d5f511812573f4ac98b866d397a46fda0f27eeb0af0ea89af01969eefbc5a"
+    },
+    {
+      "file": "components/ui/button-group.tsx",
+      "sha256": "663e269d160856c7f0911d81fcfa9aba6faeab131eaa3ac7668192b53db10613"
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "sha256": "08e5f87833c5db8436e89337ebde0f776bcdbf649d3de69fb89be6441ca2e366"
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "sha256": "8ad3a18d36bda0598dc0e9aa96ea22854944d5443ee4946f1d173815e115375f"
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "sha256": "ae70023a73fb55e89fd788de8d7d1547b6a23f2b4479a47a0fd70195c3002ba6"
+    },
+    {
+      "file": "components/ui/data-table-features.ts",
+      "sha256": "73dc7c44682013ec6ef5feb231884c91e5b0039a348d46b0dfcf2ed4dce65c84"
+    },
+    {
+      "file": "components/ui/data-table.tsx",
+      "sha256": "ff8ccee7f20230a7b18457ecb6465b92c539ad3a73528f6348b56064f1b49be5"
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "sha256": "c1913a4b55ff31ae1151c32482bca8c4bcdb644c11a58454a73c0a962b6f7ce8"
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "sha256": "2747af00b1f52b604aaa87697d627071855831867031ffe27c17acc2430f63e2"
+    },
+    {
+      "file": "components/ui/empty.tsx",
+      "sha256": "1280f9207787f9e7c219f7181459387b5e103606b6d91872de33a7a9752ee7a7"
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "sha256": "8e54d2838051eeb741f6925863b690c98928b25bbb26f3cd26a5b75121d06acb"
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "sha256": "75418e030b2a54dd017ac0f4588db4bbdbabca7525e88bbc9d84cb3e18bcb905"
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "sha256": "344bde38b8531615dbf8e14af3895517c24d8ef6ce56ddeda7e2e6fe4b5d0c00"
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "sha256": "364be96b37f321670bd73b625a47df33a76418900c0e31eec0e3a84efa0c8b08"
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "sha256": "61be62a441fb6b90e26ceaf93353f57411a4d114f305e0417b8f1122750b9018"
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "sha256": "436777583f300e9fb0ca9df97ce9d1ca45443b7513273f39d27c6183b99db396"
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "sha256": "e754a1dc0760844e5051350e336c067d43747cc054497390ec1a9d3f44f33d98"
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "sha256": "b5b5460e5337c2d5f361c1512001615b2e5eacb38c7449a4418bb9ddb47c4bba"
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "sha256": "f243878a25e4640e055859aadd55e31ebb3b3f5fab94e5fe25c2ebc36f4c0af4"
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "sha256": "2587c0b6c2daec7c2c8e741903b688767f2a9ca0aa10a19bf09ad270756e3eaf"
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "sha256": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc"
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "sha256": "0a620ffc38e8a94668e7009aa3cc36dd98869421db4baa15298606d6e6a33be2"
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "sha256": "afd5b6e6b9c2bcd42ee164a39ca18c342b2d7a2dfedd29da3065dc37021090e8"
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "sha256": "749b0501e97591f8d7c9ef81366d636e4b47857a15a28e6cf3b87841232e74bf"
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "sha256": "b977274550595594055d850a16775c75761765e1cd76b4827e101c2f432762df"
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "sha256": "82601c91ffc6c727d924162c78d7cb853114bcced4e2eb922a68ca12d4239c0f"
+    },
+    {
+      "file": "components/ui/toggle-group.tsx",
+      "sha256": "f0dcdf5d73ec55d4700d530c86611d12dd9071f5cf04d5f2def16757f1381d37"
+    },
+    {
+      "file": "components/ui/toggle.tsx",
+      "sha256": "5fb58fc5f5da383322cbad37bfe275eec4a1b035efed9f922b4fb28cd2851040"
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "sha256": "e94530dd6877132d5eda73f6fb0d217f345477232f140f2ca6e024d790177f6a"
+    },
+    {
+      "file": "app/[locale]/[[...path]]/page.tsx",
+      "sha256": "ed678134ead4a3e1dbd9d412238ba875d5ceb370104f92b77d075a4daee08d5b"
+    },
+    {
+      "file": "app/[locale]/layout.tsx",
+      "sha256": "20a5329a449c99852a97fd3b776d8b0112a7dc8bbe61f3f1a745d87767900bd1"
+    },
+    {
+      "file": "app/api/items/[id]/route.ts",
+      "sha256": "b8e240890f301a5bd72fd795c03f4534b86369927d857d8595dfb341e927b5bc"
+    },
+    {
+      "file": "app/api/items/query/route.ts",
+      "sha256": "aa6ae0e26ce71fb7f8b811e6f0a50d899b3081411a9490ec3d86fbd8885b449e"
+    },
+    {
+      "file": "app/globals.css",
+      "sha256": "4bb1d77af029a1253df7b2987d95fc1d29d2044dd35ea3fd7e7de13def5dbebe"
+    },
+    {
+      "file": "app/layout.tsx",
+      "sha256": "e2d14cbc89caa325fabb9c37bbd4eb10b1f2236f96dbbc02483e3e5ff062a0cd"
+    },
+    {
+      "file": "app/page.tsx",
+      "sha256": "def364edc7de1c4a096db131738c359fb6bf4f9b3bcbe18c5995d657c66d3d24"
+    },
+    {
+      "file": "lib/catalog.ts",
+      "sha256": "fc9d521e9b9cdf4c3f02d847b98488f15b3058f51dd742c6baf822b0b7b18102"
+    },
+    {
+      "file": "lib/domain.ts",
+      "sha256": "e919d0150cc19550c68f2cac0a5deeafa389dcd16afa5760c845a8d21e7b8685"
+    },
+    {
+      "file": "lib/navigation.ts",
+      "sha256": "0d4e81106925ce1d95b31501c81a624325dd5c6454dcff08f0a886514030c4d6"
+    },
+    {
+      "file": "lib/preview-store.tsx",
+      "sha256": "f9bbfd7296b8320055762b6236b666c299a411f714c132cf5ae078ebbeff59cd"
+    },
+    {
+      "file": "lib/utils.ts",
+      "sha256": "6a5315a13f71f38b20c9d950f4a868d5d2759814a0fa375d0dd42e69e4169667"
+    },
+    {
+      "file": "hooks/use-mobile.ts",
+      "sha256": "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b"
+    },
+    {
+      "file": "i18n/navigation.ts",
+      "sha256": "6cf6d0a17efd5315c1c6f428d42ead86fac90a455b1c3f12cdd227ddcdcfea81"
+    },
+    {
+      "file": "i18n/request.ts",
+      "sha256": "18d64aa5b9c2def30f4e1d728f9e5c9e892efcef9750cdb9400a13f329b0297b"
+    },
+    {
+      "file": "i18n/routing.ts",
+      "sha256": "3945a2172815c3610ccf85c5d5facdcf2b6534aa9c01b3b0a9cc1704185d38ca"
+    },
+    {
+      "file": "tests/api.test.ts",
+      "sha256": "d56e7d65d7f9eaf599d1e3bb0c9b09ec2285610362318d7003f7d79a87563bd4"
+    },
+    {
+      "file": "tests/data-table.test.tsx",
+      "sha256": "348fe85bb1aac11ccd929bf3d22a2dfee8236e7ddd7e9d1c8c1b4ce913081eaf"
+    },
+    {
+      "file": "tests/domain.test.ts",
+      "sha256": "24189ed57855b1665eb03f0e512cbaa769795701d56bb8ee2ba14ff474424af4"
+    },
+    {
+      "file": "tests/navigation.test.ts",
+      "sha256": "9df933ae34113f3f2be4403f9f42cf15be8837d9625544c05a38aa990c61807c"
+    },
+    {
+      "file": "proxy.ts",
+      "sha256": "d42211e482e76dd909a2cb96247d8cd831787f0da252cb753457126b1d68c5c2"
+    },
+    {
+      "file": "next.config.ts",
+      "sha256": "35e7bcc2837e3b32fa09a3768c697f3202a4bacf33460738909aa25c43933f82"
+    },
+    {
+      "file": "eslint.config.mjs",
+      "sha256": "281a8c976478f309b3813a86da33bc6fc11e16301b8d815385bb92e07e5301fb"
+    },
+    {
+      "file": "postcss.config.mjs",
+      "sha256": "7c013693fe1a211c61c8825d2f24a55435a81f48f03dd5affdbdad5679fd17cd"
+    }
+  ],
+  "registryComparison": [
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/alert-dialog.json",
+      "localSha256": "d57a96557b5dc52d245d8f5f53250055ac1b6ca39ec28715ec9e3eb29a223472",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/pagination.json",
+      "localSha256": "364be96b37f321670bd73b625a47df33a76418900c0e31eec0e3a84efa0c8b08",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/tabs.json",
+      "localSha256": "b977274550595594055d850a16775c75761765e1cd76b4827e101c2f432762df",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/button-group.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/button-group.json",
+      "localSha256": "663e269d160856c7f0911d81fcfa9aba6faeab131eaa3ac7668192b53db10613",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/card.json",
+      "localSha256": "8ad3a18d36bda0598dc0e9aa96ea22854944d5443ee4946f1d173815e115375f",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/popover.json",
+      "localSha256": "61be62a441fb6b90e26ceaf93353f57411a4d114f305e0417b8f1122750b9018",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/sheet.json",
+      "localSha256": "f243878a25e4640e055859aadd55e31ebb3b3f5fab94e5fe25c2ebc36f4c0af4",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/field.json",
+      "localSha256": "8e54d2838051eeb741f6925863b690c98928b25bbb26f3cd26a5b75121d06acb",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/scroll-area.json",
+      "localSha256": "436777583f300e9fb0ca9df97ce9d1ca45443b7513273f39d27c6183b99db396",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/label.json",
+      "localSha256": "344bde38b8531615dbf8e14af3895517c24d8ef6ce56ddeda7e2e6fe4b5d0c00",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/sonner.json",
+      "localSha256": "0a620ffc38e8a94668e7009aa3cc36dd98869421db4baa15298606d6e6a33be2",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/empty.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/empty.json",
+      "localSha256": "1280f9207787f9e7c219f7181459387b5e103606b6d91872de33a7a9752ee7a7",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/tooltip.json",
+      "localSha256": "e94530dd6877132d5eda73f6fb0d217f345477232f140f2ca6e024d790177f6a",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/alert.json",
+      "localSha256": "f253568242c1c69b343f12474002fdbe229f603158171c59e21c491ab79f2e6e",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/switch.json",
+      "localSha256": "afd5b6e6b9c2bcd42ee164a39ca18c342b2d7a2dfedd29da3065dc37021090e8",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/toggle-group.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/toggle-group.json",
+      "localSha256": "f0dcdf5d73ec55d4700d530c86611d12dd9071f5cf04d5f2def16757f1381d37",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/dialog.json",
+      "localSha256": "c1913a4b55ff31ae1151c32482bca8c4bcdb644c11a58454a73c0a962b6f7ce8",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/badge.json",
+      "localSha256": "59953420d01d23d172b4e32583426db153ff09226e2d460d53526b9f25282801",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/table.json",
+      "localSha256": "749b0501e97591f8d7c9ef81366d636e4b47857a15a28e6cf3b87841232e74bf",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/separator.json",
+      "localSha256": "b5b5460e5337c2d5f361c1512001615b2e5eacb38c7449a4418bb9ddb47c4bba",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/button.json",
+      "localSha256": "08e5f87833c5db8436e89337ebde0f776bcdbf649d3de69fb89be6441ca2e366",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/toggle.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/toggle.json",
+      "localSha256": "5fb58fc5f5da383322cbad37bfe275eec4a1b035efed9f922b4fb28cd2851040",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/checkbox.json",
+      "localSha256": "ae70023a73fb55e89fd788de8d7d1547b6a23f2b4479a47a0fd70195c3002ba6",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/dropdown-menu.json",
+      "localSha256": "2747af00b1f52b604aaa87697d627071855831867031ffe27c17acc2430f63e2",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/select.json",
+      "localSha256": "e754a1dc0760844e5051350e336c067d43747cc054497390ec1a9d3f44f33d98",
+      "formattedRegistryMatch": false,
+      "differenceClassification": "Only import whitespace or expected generator font/menu/direction/icon transforms; see report"
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/textarea.json",
+      "localSha256": "82601c91ffc6c727d924162c78d7cb853114bcced4e2eb922a68ca12d4239c0f",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/input.json",
+      "localSha256": "75418e030b2a54dd017ac0f4588db4bbdbabca7525e88bbc9d84cb3e18bcb905",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/skeleton.json",
+      "localSha256": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/sidebar.json",
+      "localSha256": "2587c0b6c2daec7c2c8e741903b688767f2a9ca0aa10a19bf09ad270756e3eaf",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/sheet.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/sheet.json",
+      "localSha256": "f27b1897325b516ee37c087493d7b657ff5d01e6e37a3fef97c8760040a597c9",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/tooltip.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/tooltip.json",
+      "localSha256": "f83d5f511812573f4ac98b866d397a46fda0f27eeb0af0ea89af01969eefbc5a",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/separator.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/separator.json",
+      "localSha256": "9a80ff8c110e0c55489509f4f82ebcc929c0174b59544047147b7134f86a54e7",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/button.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/button.json",
+      "localSha256": "313353436d0fcc8e44ab470adb614b9fd013d28626f624328ea0d66d41a6c81b",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/collapsible.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/collapsible.json",
+      "localSha256": "ead4349ff7b01d696ef89294a81d18ee1d3f732321398896462c834ab9b9e065",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/input.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/input.json",
+      "localSha256": "dab990dfefa0ba78854ab6602ad074270dba9d7d1262184d9bfbb62bd990903b",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "components/ui/base/skeleton.tsx",
+      "source": "https://ui.shadcn.com/r/styles/base-nova/skeleton.json",
+      "localSha256": "4c2af7fa9c645358a0fb188779deab6f0b981733b62befc25e18aaebea1350dc",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    },
+    {
+      "file": "hooks/use-mobile.ts",
+      "source": "https://ui.shadcn.com/r/styles/radix-nova/use-mobile.json",
+      "localSha256": "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b",
+      "formattedRegistryMatch": true,
+      "differenceClassification": "Registry match after aliases/icons/formatting"
+    }
+  ],
+  "deviations": [
+    {
+      "id": "01",
+      "file": "components.json",
+      "line": 3,
+      "kind": "Foundation",
+      "description": "Radix Nova is the configured generator foundation, while Sidebar and its isolated dependencies use Base UI Nova. Two sets of Button/Input/Separator/Sheet/Skeleton/Tooltip sources and providers are retained. Future CLI adds still follow radix-nova.",
+      "status": "Sidebar Base UI explicitly requested; mixed-library composition is an implementation decision."
+    },
+    {
+      "id": "02",
+      "file": "components/ui/sidebar.tsx",
+      "line": 274,
+      "kind": "Integration inconsistency",
+      "description": "Sidebar trigger retains the raw registry cn-rtl-flip marker instead of generated direction output. No local CSS implements this marker; current English/Spanish are LTR.",
+      "status": "Unresolved generator marker; not a requested visual customization."
+    },
+    {
+      "id": "03",
+      "file": "components/ui/base/sheet.tsx",
+      "line": 107,
+      "kind": "Integration inconsistency",
+      "description": "Base Sheet title retains raw cn-font-heading instead of generated font-heading. No local utility implements that marker. Geist inheritance currently hides a visible difference.",
+      "status": "Unresolved generator marker; not a requested visual customization."
+    },
+    {
+      "id": "04",
+      "file": "app/globals.css",
+      "line": 130,
+      "kind": "Global extension",
+      "description": "Adds Tailwind Typography and remaps font-sans/font-heading to locally bundled Geist. Core Neutral palette and 0.625rem radius remain stock; there is no active Warm Blue theme.",
+      "status": "Local fonts/typography are app integration; chosen preset is Neutral."
+    },
+    {
+      "id": "05",
+      "file": "app/globals.css",
+      "line": 132,
+      "kind": "Global override",
+      "description": "For reduced-motion users, forces all animation and transition durations to 0.01ms with !important. This affects stock shadcn and third-party controls globally.",
+      "status": "Additional accessibility behavior, beyond primitive defaults."
+    },
+    {
+      "id": "06",
+      "file": "app/globals.css",
+      "line": 135,
+      "kind": "Grid appearance override",
+      "description": "Adds fixed table layout, hidden overflow, nowrap, ellipsis, constrained cell children and left-aligned header buttons. Applies through data-grid to every shared grid; stock Table source is unchanged.",
+      "status": "Explicit single-line/truncation requirement."
+    },
+    {
+      "id": "07",
+      "file": "components/ui/data-table.tsx",
+      "line": 35,
+      "kind": "Local component",
+      "description": "A locally built shared DataTable over stock Table + TanStack v9.3.1, not a single installable stock shadcn DataTable. Adds its own props, wrapper, cell wrapper/title and translated empty row.",
+      "status": "DataTable base requested; application-specific implementation."
+    },
+    {
+      "id": "08",
+      "file": "components/ui/data-table.tsx",
+      "line": 52,
+      "kind": "Grid behavior",
+      "description": "All DataTables use controlled manual sorting/pagination and supplied data order. Features omit client sorted/filtered/paginated row models. Item listing is server-paged; Tags sorts before passing local rows. Team and rounds pass whole local lists.",
+      "status": "Server pagination/sorting requested; same wrapper reused across grids."
+    },
+    {
+      "id": "09",
+      "file": "components/ui/data-table.tsx",
+      "line": 64,
+      "kind": "Grid layout",
+      "description": "Adds colgroup widths and per-table minWidth. Item widths are fixed defaults; actions use 56px Properties / 88px others. Tags minimum is 790px, rounds 1030px. No width resizing or saved widths exists.",
+      "status": "Fixed sizing is app layout; resizing remains deferred."
+    },
+    {
+      "id": "10",
+      "file": "components/item-grid.tsx",
+      "line": 200,
+      "kind": "Grid behavior",
+      "description": "Custom up-to-five priority sorts, click/Shift-click header behavior, always ascending/descending rather than unsorted third state, separate sort toolbar and currency restriction. Uses app query state, not stock example header handlers.",
+      "status": "Requested multi-sort; app-specific query rules."
+    },
+    {
+      "id": "11",
+      "file": "components/item-grid.tsx",
+      "line": 435,
+      "kind": "Menu behavior/layout",
+      "description": "Column menu stays open via preventDefault onSelect, scrolls at max-h-96, prevents hiding the last data column, provides reset and persists visible columns per user/category. Actions column is outside selector.",
+      "status": "Requested user-saved columns; custom interaction/persistence."
+    },
+    {
+      "id": "12",
+      "file": "components/item-grid.tsx",
+      "line": 495,
+      "kind": "Pagination composition",
+      "description": "Stock Pagination container with stock Buttons rather than PaginationPrevious/Next/Link. Custom count and page/total display, page sizes 5/10/25/50/100, server page transitions. No numbered-page links or row-selection summary.",
+      "status": "Requested server pagination/page size; differs from documentation demo."
+    },
+    {
+      "id": "13",
+      "file": "components/item-grid.tsx",
+      "line": 291,
+      "kind": "Grid cell composition",
+      "description": "Colored tags first, category-specific data columns, round cells, notice/reference fields, link-style item title and untitled ghost-icon actions. Properties uses Pencil only; other categories Eye + notice. No row-selection checkboxes.",
+      "status": "Domain requirements; stock Button variants used."
+    },
+    {
+      "id": "14",
+      "file": "components/tag-management.tsx",
+      "line": 205,
+      "kind": "Tags grid behavior",
+      "description": "Local label/count sorting and Shift multi-sort; inline editing in a row, save/cancel icons, create route and confirmation delete. No filter, pagination, column selector or active field. Soft deletion retains assignments.",
+      "status": "Explicit Tags-grid exceptions."
+    },
+    {
+      "id": "15",
+      "file": "components/shared.tsx",
+      "line": 98,
+      "kind": "Badge appearance override",
+      "description": "Defines six hard-coded semantic tag palettes: zinc, blue, emerald, amber, red, purple, each with light/dark styles. TagBadge replaces secondary Badge colors and adds optional shrink/truncation. These colors bypass Neutral theme tokens.",
+      "status": "Explicit colored-tags requirement."
+    },
+    {
+      "id": "16",
+      "file": "components/tag-picker.tsx",
+      "line": 25,
+      "kind": "Custom composite",
+      "description": "Popover + ghost Button + ScrollArea + Toggles containing colored badges. Not a stock shadcn multi-select/Combobox: immediate assignment, no checkmarks, remains open, no Apply/Assign button, no search or select-all, 256px scroll area and left-aligned toggles.",
+      "status": "Popover/Toggle approach explicitly approved."
+    },
+    {
+      "id": "17",
+      "file": "components/tag-picker.tsx",
+      "line": 52,
+      "kind": "Tag layout override",
+      "description": "List picker shows at most two badges and +N, flex-nowrap with clipping and full names in title. Detail picker uses auto height and wrapping. Trigger alignment/width/overflow override default Button sizing/layout.",
+      "status": "Explicit list truncation and detail-header tags requirements."
+    },
+    {
+      "id": "18",
+      "file": "components/shared.tsx",
+      "line": 30,
+      "kind": "Custom wrappers",
+      "description": "Choice wraps stock Select with an options API; LabeledChoice supplies Field/FieldLabel and w-auto. IconAction composes Tooltip + ghost icon Button. Confirm wraps stock destructive AlertDialog. These are local APIs, not additional stock components.",
+      "status": "Normal app composition; no primitive redesign."
+    },
+    {
+      "id": "19",
+      "file": "components/shared.tsx",
+      "line": 129,
+      "kind": "Custom read-only fields",
+      "description": "Read-only Facts renders dl/dt/dd through Field/FieldTitle, role override, two-column layout and explicit 14px regular foreground values. Null/empty values become em dash. Not a stock read-only details component.",
+      "status": "Requested label/value alignment; local presentation."
+    },
+    {
+      "id": "20",
+      "file": "components/shared.tsx",
+      "line": 179,
+      "kind": "Custom typography/layout",
+      "description": "Local responsive PageHeading uses text-2xl font-medium tracking-tight with text-sm muted description. Screen and card spacing is Tailwind composition, not a stock page template.",
+      "status": "App layout choice."
+    },
+    {
+      "id": "21",
+      "file": "components/item-detail.tsx",
+      "line": 385,
+      "kind": "Tabs layout override",
+      "description": "Uses unchanged stock default Tabs (not line variant), but w-full min-w-max stretches the tab list across available content width with horizontal overflow; content space-y-4/5 added. Category-specific tabs, URL notice default and editable/view content are app logic.",
+      "status": "Full-width tabs and unified detail requested."
+    },
+    {
+      "id": "22",
+      "file": "components/item-detail.tsx",
+      "line": 380,
+      "kind": "Detail header composition",
+      "description": "Tags sit below the title on the left, above tabs, with wrapping outside the list. General info, research, rounds/related items, notice, registry, property map and images are composed into Cards.",
+      "status": "Explicit item information architecture."
+    },
+    {
+      "id": "23",
+      "file": "components/item-detail.tsx",
+      "line": 56,
+      "kind": "Form integration",
+      "description": "RHF + Zod is connected manually with register/useWatch/setValue, stock Field/Input/Textarea/Select and custom Save/Cancel/reset logic. Amounts are text Inputs with decimal keyboard plus currency Select, not a specialized stock currency component.",
+      "status": "Approved form foundation; local domain fields."
+    },
+    {
+      "id": "24",
+      "file": "components/item-detail.tsx",
+      "line": 91,
+      "kind": "Validation integration inconsistency",
+      "description": "Research shows FieldError but does not set Field data-invalid or Input/Textarea aria-invalid for notes/appraisal/market errors. Consequently stock invalid-state colors and invalid semantics are not consistently triggered; tag and filter-name forms wire invalid state.",
+      "status": "Potential correction; no code changed during this audit."
+    },
+    {
+      "id": "25",
+      "file": "components/filter-editor.tsx",
+      "line": 57,
+      "kind": "Custom filter builder",
+      "description": "Entire AND/OR group/term editor, operator/field controls, save/load dialog, Apply/Cancel semantics and saved-filter panel are app compositions. No inline free-text table filter as in the documentation example. Includes w-48 value inputs, native date Input and decimal text inputs instead of Calendar/Date Picker.",
+      "status": "Explicit separate-view filters and saved filters."
+    },
+    {
+      "id": "26",
+      "file": "components/item-detail.tsx",
+      "line": 166,
+      "kind": "Custom image interface",
+      "description": "Input type=file, browser object URLs/session storage, custom thumbnail grid and stock Dialog image viewer. Ghost thumbnail buttons use h-auto/w-full, images have aspect-video/object-cover and viewer max-h-70vh/object-contain. No stock gallery/lightbox component is installed.",
+      "status": "Requested attachment tab; image preview behavior is local."
+    },
+    {
+      "id": "27",
+      "file": "components/item-detail.tsx",
+      "line": 672,
+      "kind": "Custom prose styling",
+      "description": "Original notice uses Tailwind Typography prose/prose-sm, max-w-none, whitespace-pre-wrap and dark:prose-invert instead of ordinary shadcn text styles.",
+      "status": "Notice-document presentation choice."
+    },
+    {
+      "id": "28",
+      "file": "components/property-map.tsx",
+      "line": 23,
+      "kind": "External UI",
+      "description": "Leaflet/react-leaflet imports its own CSS, controls, markers, popups and optional tiles. A h-96 rounded bordered map is wrapped in stock Alert. Map controls/popups do not inherit shadcn component styling.",
+      "status": "Leaflet retained by explicit decision."
+    },
+    {
+      "id": "29",
+      "file": "components/app-shell.tsx",
+      "line": 96,
+      "kind": "Sidebar behavior/layout",
+      "description": "Reference-inspired application composition, not an unchanged sidebar-demo block: three/four domain groups default open, nested links with icons, section chevrons, and clicking a group in icon mode expands the whole sidebar. Permissions hide System/Tags.",
+      "status": "Requested section structure and subsequent visible reference layout."
+    },
+    {
+      "id": "30",
+      "file": "components/app-shell.tsx",
+      "line": 194,
+      "kind": "Sidebar composition",
+      "description": "Uses stock Sidebar icon mode/Rail/Sheet; custom gavel tile/brand, organization menu in header, demo account/role controls in footer (or Clerk user controls), separate language/appearance toolbar and preview banner. AppNavLink closes mobile drawer after navigation.",
+      "status": "Requested branding/sections; reference demo adapted to Auctions."
+    },
+    {
+      "id": "31",
+      "file": "components/app-shell.tsx",
+      "line": 220,
+      "kind": "Mixed-library composition",
+      "description": "Base Sidebar buttons host Radix DropdownMenu triggers/content for organization/account; Base tooltip provider coexists with root Radix tooltip provider. This is not the linked all-Base demo dependency composition.",
+      "status": "Implementation decision; source-owned stock primitives from two foundations."
+    },
+    {
+      "id": "32",
+      "file": "components/app-shell.tsx",
+      "line": 423,
+      "kind": "Page layout",
+      "description": "App main content is centered and max-w-screen-2xl with p-4/md:p-6/lg:p-8, space-y-6. Header min-h-16/wrapping and preview banner styles are local. Full-width tabs mean full available content width, not literal entire browser width. Sidebar uses default variant, not inset/floating.",
+      "status": "App shell layout, not provided automatically by shadcn."
+    },
+    {
+      "id": "33",
+      "file": "components/item-grid.tsx",
+      "line": 542,
+      "kind": "Alternative to installed stock component",
+      "description": "Listing empty state is a Card with custom heading/text/action; other empty states use plain paragraphs. Installed components/ui/empty.tsx is not consumed. Skeleton loading shapes/heights and Alert error/retry layouts are also app compositions.",
+      "status": "Could use stock Empty more consistently; no change made."
+    },
+    {
+      "id": "34",
+      "file": "components/other-screens.tsx",
+      "line": 76,
+      "kind": "Screen appearance overrides",
+      "description": "Overview metrics override stock CardTitle to text-3xl; Cards use domain layouts (md:grid-cols-2/3), icon descriptions, flex card actions. Plans, saved-filter alerts, settings, invitation/auth and extraction screens are app content/compositions, not stock blocks.",
+      "status": "Custom screens; standard Card/Field/Button variants underneath."
+    },
+    {
+      "id": "35",
+      "file": "components/other-screens.tsx",
+      "line": 222,
+      "kind": "Form behavior beyond stock",
+      "description": "Settings/invite/system use native form validation + local state; system interval uses native number Input (15–1440). Team role Select lives inside DataTable. Not every form uses RHF/Zod. Local permissions, confirmation and toast behavior are not supplied by shadcn.",
+      "status": "App implementation choice."
+    },
+    {
+      "id": "36",
+      "file": "app/layout.tsx",
+      "line": 44,
+      "kind": "Stock option / integration",
+      "description": "Sonner richColors is enabled, so semantic toast colors can depart from the neutral palette. Theme provider has a plain-D light/dark hotkey and standard next-themes system mode; the hotkey is inherited from the original generated scaffold, not a later primitive edit.",
+      "status": "Stock option plus generated-template behavior; not a custom Sonner source fork."
+    },
+    {
+      "id": "37",
+      "file": "app/[locale]/layout.tsx",
+      "line": 38,
+      "kind": "External UI integration",
+      "description": "Clerk SignIn/UserButton uses Clerk shadcn theme + localization; it remains Clerk UI, not local shadcn source. next-intl locale routing/messages, PreviewProvider, fake API/data and permissions/persistence are app infrastructure with no stock shadcn equivalent.",
+      "status": "Approved auth/i18n foundation; demo state is app code."
+    },
+    {
+      "id": "38",
+      "file": "lib/utils.ts",
+      "line": 3,
+      "kind": "Helper duplication",
+      "description": "Local app helpers use clsx+tailwind-merge cn from lib/utils; generated primitives use the cn package directly. Both exist rather than one project-wide helper path.",
+      "status": "Integration consistency difference; no demonstrated visual regression."
+    },
+    {
+      "id": "39",
+      "file": "eslint.config.mjs",
+      "line": 9,
+      "kind": "Tooling exception",
+      "description": "Disables set-state-in-effect for unchanged stock mobile hook. ItemGrid also has a scoped exhaustive-deps exception for stable cell closures. These are lint-policy adaptations, not component appearance changes.",
+      "status": "Documented implementation decisions."
+    }
+  ],
+  "applicationStyleProps": [
+    {
+      "file": "components/app-shell.tsx",
+      "line": 117,
+      "attribute": "className",
+      "expression": "\"group/navigation-section\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 125,
+      "attribute": "className",
+      "expression": "\"ml-auto transition-transform group-data-open/navigation-section:rotate-90\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 190,
+      "attribute": "className",
+      "expression": "\"sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-3\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 202,
+      "attribute": "className",
+      "expression": "\"inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 208,
+      "attribute": "className",
+      "expression": "\"size-5 invert dark:invert-0\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 211,
+      "attribute": "className",
+      "expression": "\"grid flex-1 text-left text-sm leading-tight\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 212,
+      "attribute": "className",
+      "expression": "\"truncate font-medium\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 226,
+      "attribute": "className",
+      "expression": "\"truncate\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 229,
+      "attribute": "className",
+      "expression": "\"ml-auto\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 276,
+      "attribute": "className",
+      "expression": "\"flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 277,
+      "attribute": "className",
+      "expression": "\"size-4\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 279,
+      "attribute": "className",
+      "expression": "\"grid flex-1 text-left text-sm leading-tight\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 280,
+      "attribute": "className",
+      "expression": "\"truncate font-medium\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 285,
+      "attribute": "className",
+      "expression": "\"truncate text-xs text-muted-foreground\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 289,
+      "attribute": "className",
+      "expression": "\"ml-auto size-4\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 354,
+      "attribute": "className",
+      "expression": "\"min-w-0\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 355,
+      "attribute": "className",
+      "expression": "\"flex min-h-16 flex-wrap items-center gap-3 border-b px-4 md:px-6\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 357,
+      "attribute": "className",
+      "expression": "\"h-4\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 359,
+      "attribute": "className",
+      "expression": "\"ml-auto flex items-center gap-2\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 415,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center gap-2 border-b bg-muted/40 px-4 py-2 text-xs text-muted-foreground md:px-6\""
+    },
+    {
+      "file": "components/app-shell.tsx",
+      "line": 423,
+      "attribute": "className",
+      "expression": "\"mx-auto w-full max-w-screen-2xl min-w-0 space-y-6 p-4 md:p-6 lg:p-8\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 171,
+      "attribute": "className",
+      "expression": "\"flex gap-2\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 185,
+      "attribute": "className",
+      "expression": "\"grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 188,
+      "attribute": "className",
+      "expression": "\"flex justify-between gap-3\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 207,
+      "attribute": "className",
+      "expression": "\"space-y-6\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 208,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap gap-4\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 244,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 249,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center justify-between gap-2\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 253,
+      "attribute": "className",
+      "expression": "\"flex items-center gap-1\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 286,
+      "attribute": "className",
+      "expression": "\"space-y-3\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 328,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center gap-2\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 379,
+      "attribute": "className",
+      "expression": "\"w-48\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 458,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap gap-2\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 483,
+      "attribute": "className",
+      "expression": "\"h-fit\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 488,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 492,
+      "attribute": "className",
+      "expression": "\"space-y-2 rounded-lg border p-3\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 493,
+      "attribute": "className",
+      "expression": "\"font-medium\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 494,
+      "attribute": "className",
+      "expression": "\"text-xs text-muted-foreground\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 518,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/filter-editor.tsx",
+      "line": 530,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 89,
+      "attribute": "className",
+      "expression": "\"space-y-5\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 98,
+      "attribute": "className",
+      "expression": "\"grid gap-5 md:grid-cols-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 115,
+      "attribute": "className",
+      "expression": "\"flex gap-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 147,
+      "attribute": "className",
+      "expression": "\"flex gap-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 183,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 186,
+      "attribute": "className",
+      "expression": "\"size-4\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 221,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 223,
+      "attribute": "className",
+      "expression": "\"grid gap-4 sm:grid-cols-2 lg:grid-cols-3\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 225,
+      "attribute": "className",
+      "expression": "\"space-y-2 rounded-lg border p-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 228,
+      "attribute": "className",
+      "expression": "\"h-auto w-full\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 238,
+      "attribute": "className",
+      "expression": "\"aspect-video w-full rounded-md object-cover\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 241,
+      "attribute": "className",
+      "expression": "\"flex items-center justify-between gap-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 242,
+      "attribute": "className",
+      "expression": "\"text-xs\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 268,
+      "attribute": "className",
+      "expression": "\"max-h-[70vh] w-full object-contain\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 309,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 310,
+      "attribute": "className",
+      "expression": "\"h-12\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 311,
+      "attribute": "className",
+      "expression": "\"h-64\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 354,
+      "attribute": "className",
+      "expression": "\"flex flex-col gap-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 356,
+      "attribute": "className",
+      "expression": "\"justify-start\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 365,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 375,
+      "attribute": "className",
+      "expression": "\"space-y-3\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 380,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center gap-2\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 385,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 386,
+      "attribute": "className",
+      "expression": "\"overflow-x-auto\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 387,
+      "attribute": "className",
+      "expression": "\"w-full min-w-max\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 395,
+      "attribute": "className",
+      "expression": "\"space-y-5\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 450,
+      "attribute": "className",
+      "expression": "\"space-y-5\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 551,
+      "attribute": "className",
+      "expression": "\"mt-3 text-xs text-muted-foreground\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 623,
+      "attribute": "className",
+      "expression": "\"space-y-5\""
+    },
+    {
+      "file": "components/item-detail.tsx",
+      "line": 672,
+      "attribute": "className",
+      "expression": "\"prose prose-sm max-w-none whitespace-pre-wrap dark:prose-invert\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 58,
+      "attribute": "className",
+      "expression": "\"h-96\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 226,
+      "attribute": "className",
+      "expression": "\"truncate\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 275,
+      "attribute": "className",
+      "expression": "\"truncate\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 292,
+      "attribute": "className",
+      "expression": "\"sr-only\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 294,
+      "attribute": "className",
+      "expression": "\"flex gap-1\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 331,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center justify-between gap-3\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 332,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 358,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center gap-3\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 361,
+      "attribute": "className",
+      "expression": "\"flex items-center gap-1\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 362,
+      "attribute": "className",
+      "expression": "\"text-xs text-muted-foreground\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 428,
+      "attribute": "className",
+      "expression": "\"ml-auto\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 435,
+      "attribute": "className",
+      "expression": "\"max-h-96 overflow-y-auto\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 480,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-center gap-4\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 490,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 495,
+      "attribute": "className",
+      "expression": "\"ml-auto w-auto\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 508,
+      "attribute": "className",
+      "expression": "\"px-2 text-sm\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 535,
+      "attribute": "className",
+      "expression": "\"space-y-2\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 537,
+      "attribute": "className",
+      "expression": "\"h-12\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 542,
+      "attribute": "className",
+      "expression": "\"py-10 text-center\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 543,
+      "attribute": "className",
+      "expression": "\"font-medium\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 544,
+      "attribute": "className",
+      "expression": "\"mt-2 text-muted-foreground\""
+    },
+    {
+      "file": "components/item-grid.tsx",
+      "line": 545,
+      "attribute": "className",
+      "expression": "\"mt-4\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 64,
+      "attribute": "className",
+      "expression": "\"grid gap-4 md:grid-cols-3\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 72,
+      "attribute": "className",
+      "expression": "\"flex items-center gap-2\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 73,
+      "attribute": "className",
+      "expression": "\"size-4\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 76,
+      "attribute": "className",
+      "expression": "\"text-3xl\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 89,
+      "attribute": "className",
+      "expression": "\"grid gap-4 md:grid-cols-2\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 93,
+      "attribute": "className",
+      "expression": "\"text-3xl\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 105,
+      "attribute": "className",
+      "expression": "\"text-3xl\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 144,
+      "attribute": "className",
+      "expression": "\"flex items-center gap-2\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 145,
+      "attribute": "className",
+      "expression": "\"size-4\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 157,
+      "attribute": "className",
+      "expression": "\"mt-3 text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 161,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap gap-2\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 235,
+      "attribute": "className",
+      "expression": "\"max-w-lg space-y-4\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 378,
+      "attribute": "className",
+      "expression": "\"space-y-4\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 422,
+      "attribute": "className",
+      "expression": "\"grid gap-5 md:grid-cols-3\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 443,
+      "attribute": "className",
+      "expression": "\"space-y-3 text-sm\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 496,
+      "attribute": "className",
+      "expression": "\"max-w-lg space-y-5\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 551,
+      "attribute": "className",
+      "expression": "\"ml-4 text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 564,
+      "attribute": "className",
+      "expression": "\"max-w-xl\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 573,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/other-screens.tsx",
+      "line": 599,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/property-map.tsx",
+      "line": 17,
+      "attribute": "className",
+      "expression": "\"space-y-3\""
+    },
+    {
+      "file": "components/property-map.tsx",
+      "line": 26,
+      "attribute": "className",
+      "expression": "\"z-0 h-96 w-full rounded-lg border\""
+    },
+    {
+      "file": "components/property-map.tsx",
+      "line": 46,
+      "attribute": "className",
+      "expression": "\"text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 64,
+      "attribute": "className",
+      "expression": "\"w-auto\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 120,
+      "attribute": "className",
+      "expression": "{cn( tagClass[color] ?? tagClass.gray, compact && \"min-w-0 max-w-full shrink\" )}"
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 125,
+      "attribute": "className",
+      "expression": "{compact ? \"truncate\" : undefined}"
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 131,
+      "attribute": "className",
+      "expression": "\"grid gap-x-8 gap-y-5 sm:grid-cols-2\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 137,
+      "attribute": "className",
+      "expression": "\"text-sm leading-normal font-normal text-foreground\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 189,
+      "attribute": "className",
+      "expression": "\"flex flex-wrap items-start justify-between gap-4\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 191,
+      "attribute": "className",
+      "expression": "\"text-2xl font-medium tracking-tight\""
+    },
+    {
+      "file": "components/shared.tsx",
+      "line": 193,
+      "attribute": "className",
+      "expression": "\"mt-2 text-sm text-muted-foreground\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 154,
+      "attribute": "className",
+      "expression": "\"max-w-xl\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 159,
+      "attribute": "className",
+      "expression": "\"space-y-5\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 176,
+      "attribute": "className",
+      "expression": "\"flex gap-2\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 230,
+      "attribute": "className",
+      "expression": "\"flex flex-nowrap gap-2\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 234,
+      "attribute": "className",
+      "expression": "\"text-xs text-destructive\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 241,
+      "attribute": "className",
+      "expression": "\"block truncate\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 271,
+      "attribute": "className",
+      "expression": "\"sr-only\""
+    },
+    {
+      "file": "components/tag-management.tsx",
+      "line": 279,
+      "attribute": "className",
+      "expression": "\"flex gap-1\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 29,
+      "attribute": "className",
+      "expression": "{ compact ? \"w-full min-w-0 justify-start overflow-hidden\" : \"h-auto justify-start\" }"
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 45,
+      "attribute": "className",
+      "expression": "{ compact ? \"flex min-w-0 flex-nowrap items-center gap-1 overflow-hidden\" : \"flex flex-wrap gap-1\" }"
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 64,
+      "attribute": "className",
+      "expression": "\"text-muted-foreground\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 69,
+      "attribute": "className",
+      "expression": "\"shrink-0 text-xs text-muted-foreground\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 77,
+      "attribute": "className",
+      "expression": "\"mb-3 font-medium\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 78,
+      "attribute": "className",
+      "expression": "\"h-64\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 79,
+      "attribute": "className",
+      "expression": "\"flex flex-col gap-1\""
+    },
+    {
+      "file": "components/tag-picker.tsx",
+      "line": 108,
+      "attribute": "className",
+      "expression": "\"justify-start\""
+    },
+    {
+      "file": "app/[locale]/[[...path]]/page.tsx",
+      "line": 65,
+      "attribute": "className",
+      "expression": "\"h-80\""
+    },
+    {
+      "file": "app/layout.tsx",
+      "line": 37,
+      "attribute": "className",
+      "expression": "{`${geist.variable} font-sans antialiased`}"
+    }
+  ]
+}

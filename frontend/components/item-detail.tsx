@@ -10,6 +10,7 @@ import { ArrowLeft, Save, Trash2, ImagePlus, ArrowUpRight } from "lucide-react"
 import dynamic from "next/dynamic"
 import {
   Item,
+  type Round,
   Research,
   Category,
   researchSchema,
@@ -23,7 +24,6 @@ import { Link } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
 import {
   Card,
   CardHeader,
@@ -32,14 +32,7 @@ import {
   CardDescription,
 } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import {
-  Table,
-  TableHeader,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table"
+import { DataTable, type DataTableColumn } from "@/components/ui/data-table"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Dialog,
@@ -48,7 +41,13 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Field, FieldLabel, FieldError } from "@/components/ui/field"
+import {
+  Field,
+  FieldLabel,
+  FieldTitle,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field"
 import { Choice, Facts, IconAction, PageHeading } from "./shared"
 import { TagPicker } from "./tag-picker"
 const PropertyMap = dynamic(() => import("./property-map"), { ssr: false })
@@ -182,39 +181,42 @@ function ImagesPanel({ id }: { id: string }) {
         <CardDescription>{t("imagesLocal")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <Label htmlFor={`images-${id}`} className="flex items-center gap-2">
-          <ImagePlus className="size-4" />
-          {t("attachImages")}
-        </Label>
-        <Input
-          id={`images-${id}`}
-          type="file"
-          accept="image/jpeg,image/png,image/webp"
-          multiple
-          onChange={(event) => {
-            const files = Array.from(event.target.files ?? [])
-            if (
-              images.length + files.length > 20 ||
-              files.some(
-                (f) =>
-                  !["image/jpeg", "image/png", "image/webp"].includes(f.type) ||
-                  f.size > 10 * 1024 * 1024
-              )
-            ) {
-              toast.error(t("imageError"))
-              return
-            }
-            const added = files.map((f) => ({
-              name: f.name,
-              url: URL.createObjectURL(f),
-            }))
-            setImages((current) => [...current, ...added])
-            event.target.value = ""
-          }}
-        />
-        <p className="text-xs text-muted-foreground">
-          JPEG, PNG, WebP · 10 MB · 20 {t("imagesTab")} · {state.user}
-        </p>
+        <Field>
+          <FieldLabel htmlFor={`images-${id}`}>
+            <ImagePlus className="size-4" />
+            {t("attachImages")}
+          </FieldLabel>
+          <Input
+            id={`images-${id}`}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            multiple
+            onChange={(event) => {
+              const files = Array.from(event.target.files ?? [])
+              if (
+                images.length + files.length > 20 ||
+                files.some(
+                  (f) =>
+                    !["image/jpeg", "image/png", "image/webp"].includes(
+                      f.type
+                    ) || f.size > 10 * 1024 * 1024
+                )
+              ) {
+                toast.error(t("imageError"))
+                return
+              }
+              const added = files.map((f) => ({
+                name: f.name,
+                url: URL.createObjectURL(f),
+              }))
+              setImages((current) => [...current, ...added])
+              event.target.value = ""
+            }}
+          />
+          <FieldDescription>
+            JPEG, PNG, WebP · 10 MB · 20 {t("imagesTab")} · {state.user}
+          </FieldDescription>
+        </Field>
         {!images.length && (
           <p className="text-sm text-muted-foreground">{t("noImages")}</p>
         )}
@@ -370,18 +372,19 @@ export function ItemDetail({
           {t("back")}
         </Link>
       </Button>
-      <PageHeading
-        title={title(item, locale)}
-        description={item.registrationNumber ?? item.plate ?? item.id}
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">{t("tags")}</span>
+      <div className="space-y-3">
+        <PageHeading
+          title={title(item, locale)}
+          description={item.registrationNumber ?? item.plate ?? item.id}
+        />
+        <div className="flex flex-wrap items-center gap-2">
+          <FieldTitle>{t("tags")}</FieldTitle>
           <TagPicker id={id} />
         </div>
-      </PageHeading>
+      </div>
       <Tabs defaultValue={defaultTab} className="space-y-4">
         <div className="overflow-x-auto">
-          <TabsList>
+          <TabsList className="w-full min-w-max">
             {tabs.map((tab) => (
               <TabsTrigger key={tab} value={tab}>
                 {t(tab)}
@@ -473,57 +476,77 @@ export function ItemDetail({
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    {[
-                      "auctionRound",
-                      "roundDate",
-                      "roundTime",
-                      "auctionBase",
-                      "participationGuarantee",
-                      "participationFee",
-                    ].map((k) => (
-                      <TableHead key={k}>{t(k)}</TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {item.auctionRounds.map((round) => (
-                    <TableRow key={round.round}>
-                      <TableCell>
-                        {round.round}
-                        {round.round === item.nextAuctionRound
+              <DataTable<Round>
+                data={item.auctionRounds}
+                getRowId={(round) => String(round.round)}
+                columnWidths={{
+                  round: 160,
+                  date: 160,
+                  time: 110,
+                  base: 180,
+                  guarantee: 220,
+                  fee: 200,
+                }}
+                minWidth={1030}
+                columns={[
+                  {
+                    id: "round",
+                    header: t("auctionRound"),
+                    cell: ({ row }) => (
+                      <>
+                        {row.original.round}
+                        {row.original.round === item.nextAuctionRound
                           ? ` · ${t("nextEvent")}`
                           : ""}
-                      </TableCell>
-                      <TableCell>{formatDate(round.date, locale)}</TableCell>
-                      <TableCell>{round.time ?? t("notReported")}</TableCell>
-                      <TableCell>
-                        {formatMoney(round.baseOffer, locale)}
-                      </TableCell>
-                      {(["guarantee", "participationFee"] as const).map(
-                        (key) => {
-                          const cost = roundCost(
-                            round,
-                            item.roundCostRules?.[key]
-                          )
-                          return (
-                            <TableCell
-                              key={key}
-                              title={cost ? t("roundCostSource") : undefined}
-                            >
-                              {cost
-                                ? formatMoney(cost, locale)
-                                : t("unavailable")}
-                            </TableCell>
-                          )
-                        }
-                      )}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                      </>
+                    ),
+                  },
+                  {
+                    id: "date",
+                    header: t("roundDate"),
+                    cell: ({ row }) => formatDate(row.original.date, locale),
+                  },
+                  {
+                    id: "time",
+                    header: t("roundTime"),
+                    cell: ({ row }) => row.original.time ?? t("notReported"),
+                  },
+                  {
+                    id: "base",
+                    header: t("auctionBase"),
+                    cell: ({ row }) =>
+                      formatMoney(row.original.baseOffer, locale),
+                  },
+                  ...(
+                    [
+                      {
+                        id: "guarantee",
+                        key: "guarantee",
+                        label: "participationGuarantee",
+                      },
+                      {
+                        id: "fee",
+                        key: "participationFee",
+                        label: "participationFee",
+                      },
+                    ] as const
+                  ).map(({ id, key, label }): DataTableColumn<Round> => ({
+                    id,
+                    header: t(label),
+                    cell: ({ row }) => {
+                      const cost = roundCost(
+                        row.original,
+                        item.roundCostRules?.[key]
+                      )
+                      return (
+                        <span title={cost ? t("roundCostSource") : undefined}>
+                          {cost ? formatMoney(cost, locale) : t("unavailable")}
+                        </span>
+                      )
+                    },
+                  })),
+                ]}
+              />
               {item.roundCostRules && (
                 <p className="mt-3 text-xs text-muted-foreground">
                   {t("roundCostSource")}

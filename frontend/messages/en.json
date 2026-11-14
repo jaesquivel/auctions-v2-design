@@ -442,5 +442,10 @@
   "toggleSidebar": "Toggle navigation",
   "sourceReference": "Source reference",
   "currencyPlain": "Currency",
-  "previewHelpConnected": "Clerk is connected; catalog and organization operations still use demo data."
+  "previewHelpConnected": "Clerk is connected; catalog and organization operations still use demo data.",
+  "auctionsSection": "Auctions",
+  "extractionSection": "Data Extraction",
+  "configurationSection": "Configuration",
+  "systemSection": "System",
+  "extractionNotConnected": "The extraction queue is not connected yet. Published data can be inspected through catalog filters. System operations remain restricted to SYSADMIN."
 }
