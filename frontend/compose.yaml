@@ -1,21 +1,24 @@
 services:
-  prototype:
-    image: ${AUCTIONS_IMAGE:-auctions-prototype:latest}
+  auctions-frontend:
+    image: auctions-frontend:${FRONTEND_IMAGE_TAG:?FRONTEND_IMAGE_TAG Required}
+    container_name: auctions-frontend
     platform: linux/amd64
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-}
-        NEXT_PUBLIC_MAP_TILE_URL: ${NEXT_PUBLIC_MAP_TILE_URL:-}
-        NEXT_PUBLIC_MAP_ATTRIBUTION: ${NEXT_PUBLIC_MAP_ATTRIBUTION:-}
     init: true
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:${HTTP_PORT:-8080}:3000"
-    environment:
-      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-}
-      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-}
+    env_file:
+      - frontend-env
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/api/health',{signal:AbortSignal.timeout(8000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - traefik
     cap_drop:
       - ALL
     security_opt:
@@ -25,3 +28,7 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+networks:
+  traefik:
+    external: true

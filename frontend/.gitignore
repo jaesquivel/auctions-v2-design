@@ -44,3 +44,6 @@ next-env.d.ts
 # Exported container image archives are local delivery artifacts.
 /deployment/*.tar
 /deployment/*.tar.gz
+
+# Deployment runtime environment (copy frontend-env.example).
+/frontend-env

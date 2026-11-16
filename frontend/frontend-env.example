@@ -1,0 +1,5 @@
+# Copy to frontend-env. Runtime container settings only; do not commit real keys.
+# Leave both empty for the fictional demo.
+# If enabling Clerk, the publishable key must match the value compiled into the image.
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=

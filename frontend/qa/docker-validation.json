@@ -31,5 +31,15 @@
   "containerSmoke": "not run; engine unavailable",
   "normalLocalBuild": "passed",
   "standaloneBuildSwitch": "BUILD_STANDALONE=1 (enabled in Docker builder)",
-  "composeYaml": "compose.yaml parsed; platform, loopback binding and runtime-only secret configuration checked; not validated by a running Compose engine"
+  "composeYaml": "parsed; managed-image service, required FRONTEND_IMAGE_TAG, frontend-env, Node health check and external traefik network checked; runtime engine unavailable",
+  "composeDeployment": {
+    "service": "auctions-frontend",
+    "image": "auctions-frontend:${FRONTEND_IMAGE_TAG:?FRONTEND_IMAGE_TAG Required}",
+    "runtimeEnvFile": "frontend-env",
+    "externalNetwork": "traefik",
+    "buildInCompose": false,
+    "publishedHostPorts": false,
+    "backendAdded": false,
+    "runtimeNetworkTested": false
+  }
 }

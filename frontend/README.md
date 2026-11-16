@@ -100,4 +100,4 @@ Table actions are the rightmost column, pinned to the right during horizontal sc
 
 ## Container deployment
 
-Docker setup targets Linux AMD64: [build and run instructions](deployment/README.md). Dockerfile uses the standalone Next.js server, non-root Node runtime and /api/health. compose.yaml runs the prototype on localhost:8080. Use .env.docker.example for browser build settings and runtime secrets. The image has not been built locally because the Podman VM aborts on startup; standalone output has been tested independently.
+Docker setup targets Linux AMD64: [build and run instructions](deployment/README.md). Compose deploys the prebuilt `auctions-frontend:${FRONTEND_IMAGE_TAG}` image, loads runtime settings from `frontend-env`, and joins the existing external `traefik` network without publishing host ports. `.env.docker.example` supplies the required tag and `frontend-env.example` supplies the runtime template. Dockerfile uses the non-root standalone Next.js server and a Node-based /api/health check. The image has not been built locally because the Podman VM aborts on startup; standalone output has been tested independently.
