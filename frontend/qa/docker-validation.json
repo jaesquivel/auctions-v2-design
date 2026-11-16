@@ -29,8 +29,7 @@
     "archiveCreated": false
   },
   "containerSmoke": "not run; engine unavailable",
-  "publicHttps": "not run; no public hostname/deployment supplied",
   "normalLocalBuild": "passed",
   "standaloneBuildSwitch": "BUILD_STANDALONE=1 (enabled in Docker builder)",
-  "composeYaml": "both files parsed; platform, loopback binding and runtime-only secret configuration checked; not validated by a running Compose engine"
+  "composeYaml": "compose.yaml parsed; platform, loopback binding and runtime-only secret configuration checked; not validated by a running Compose engine"
 }

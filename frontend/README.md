@@ -100,4 +100,4 @@ Table actions are the rightmost column, pinned to the right during horizontal sc
 
 ## Container deployment
 
-Production Docker setup targets Linux AMD64: [deployment instructions](deployment/README.md). Dockerfile uses the standalone Next.js server, non-root Node runtime and /api/health; compose.yaml runs the demo and compose.public.yaml adds an optional Caddy HTTPS proxy. Use .env.docker.example for public build settings and runtime secrets. The local Podman VM currently aborts on startup, so the image itself has not yet been built; standalone output has been tested independently.
+Docker setup targets Linux AMD64: [build and run instructions](deployment/README.md). Dockerfile uses the standalone Next.js server, non-root Node runtime and /api/health. compose.yaml runs the prototype on localhost:8080. Use .env.docker.example for browser build settings and runtime secrets. The image has not been built locally because the Podman VM aborts on startup; standalone output has been tested independently.
