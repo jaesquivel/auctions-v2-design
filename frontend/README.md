@@ -1,6 +1,6 @@
 # Auctions / Remates — React preview
 
-A real Next.js App Router application using official shadcn/ui **Nova** components (Radix foundation with the requested Base UI Sidebar) and the b2fA Neutral/Geist preset. This is the preferred interactive preview. The older offline design package in `../auctions-v2-package` is frozen as read-only historical reference. All future app changes, tests, screenshots and new documentation belong in this `frontend/` directory; do not regenerate or update the old mockups or package.
+A real Next.js App Router application using official shadcn/ui **Nova** components (Base UI foundation) and the b2fA Neutral/Geist preset. This is the preferred interactive preview. The older offline design package in `../auctions-v2-package` is frozen as read-only historical reference. All future app changes, tests, screenshots and new documentation belong in this `frontend/` directory; do not regenerate or update the old mockups or package.
 
 ## Run locally
 
@@ -23,13 +23,13 @@ npm start
 ## Libraries actually used
 
 - Next.js 16.4.6, React/React DOM 19.3.1, TypeScript and Tailwind CSS 4.
-- Official shadcn 4.23.0 source-owned `radix-nova` components under `components/ui`, including **Data Table** for every grid. The shared `components/ui/data-table.tsx` follows the official shadcn Data Table pattern with TanStack Table 9.3.1 over the Nova Table primitives; no v1 grid reuse or AG Grid.
-- Radix primitives, Lucide React icons, Geist through `next/font/local`, class-variance-authority, clsx and tailwind-merge. The current official registry also imports its `cn` helper package.
+- Official shadcn 4.23.0 source-owned `base-nova` components under `components/ui`, including **Data Table** for every grid. The shared `components/ui/data-table.tsx` follows the official shadcn Data Table pattern with TanStack Table 9.3.1 over the Nova Table primitives; no v1 grid reuse or AG Grid.
+- Base UI 1.9.0 primitives, Lucide React icons, Geist through `next/font/local`, class-variance-authority, clsx and tailwind-merge. The current official registry also imports its `cn` helper package.
 - next-themes for light/dark/system, next-intl for `/es` and `/en` routes and messages, React Hook Form with Zod/resolvers, Sonner, Tailwind Typography and tw-animate-css.
 - Leaflet/react-leaflet for the illustrative Properties map, dynamically loaded on the client.
 - Clerk Next.js, UI/shadcn theme and es/en localization integration; credentials optional and absent by default.
 
-`package-lock.json` records the resolved dependency graph. `components.json` records the Radix/Nova foundation. The Sidebar is the explicitly requested Base UI/Nova exception: `components/ui/sidebar.tsx` and its isolated dependencies in `components/ui/base/`, backed by `@base-ui/react` 1.9.0. It uses Base UI `render` composition, its own tooltip provider and mobile Sheet, without replacing other Radix controls. Source: https://ui.shadcn.com/docs/components/base/sidebar. `qa/components.json` records the component file inventory and hashes. Generated component styling/interaction is retained; the registry's original mobile hook has a scoped lint exception for its initialization effect. Application compositions add domain behavior without replacing the primitive components.
+`package-lock.json` records the resolved dependency graph. `components.json` selects Base UI/Nova for every future component installation. All stock components live directly in `components/ui`; the former isolated Sidebar copies were consolidated and Radix packages removed. Components use Base UI `render` composition and one root TooltipProvider. `qa/components.json` records source hashes. Generated component styles remain stock; application compositions preserve the agreed domain behavior. See `qa/base-ui-migration.md` for migration details.
 
 ## Working simulation
 
@@ -71,12 +71,12 @@ npm run build
 PREVIEW_TEST_URL=http://127.0.0.1:3000 npm test
 ```
 
-12 domain tests, 3 Data Table tests, 2 sidebar permission tests, plus 4 opt-in live API/route tests (21 total). Production build and lint/type checks pass. Browser review covers page-size/page transitions, filter save/apply/load, user ownership, column persistence, multi-sort, organization research separation, tag create/edit/delete, draft-preserving assignment, locale/theme switching, actual Leaflet loading, mobile table overflow and mobile sidebar-sheet navigation. It is not a full accessibility audit or test of live Clerk/payments/database/ingestion.
+12 domain tests, 3 Data Table tests, 3 Base UI integration tests, 2 sidebar permission tests, plus 4 opt-in live API/route tests (24 total). Production build and lint/type checks pass. Browser review covers page-size/page transitions, filter save/apply/load, user ownership, column persistence, multi-sort, organization research separation, tag create/edit/delete, draft-preserving assignment, locale/theme switching, actual Leaflet loading, mobile table overflow and mobile sidebar-sheet navigation. It is not a full accessibility audit or test of live Clerk/payments/database/ingestion.
 
 ## Source map
 
 - `app/[locale]/[[...path]]/page.tsx`: localized screen routes.
-- `components/ui/`: official shadcn Nova components; `base/` holds the Base UI Sidebar dependencies.
+- `components/ui/`: official shadcn Base UI Nova components and the shared DataTable composition.
 - `components/item-grid.tsx`, `filter-editor.tsx`, `item-detail.tsx`, `tag-management.tsx`: application workflows.
 - `lib/domain.ts`: schemas, grouping/sorting/paging, exact money and validation.
 - `lib/catalog.ts`: server-only fixture adapter; replace with the future backend adapter.
@@ -95,3 +95,9 @@ The sidebar is divided into Auctions, Data Extraction, Configuration and System 
 All data grids use the shared TanStack-backed DataTable renderer. Item sorting, pagination and filters remain authoritative on the server; the DataTable uses manual sorting/pagination and controlled per-user column visibility without client row models that would re-sort or re-paginate a returned page. Tags/rounds/team use their existing local data and behavior, with no new pagination/filter controls. Single-line clipping, colored non-wrapping tags and untitled action columns remain in force.
 
 Sidebar reference layout: expandable sections with chevrons and nested links, organization dropdown in the header, account menu in the footer, and stock icon-only collapse/rail. The old proposal card was removed from navigation. Sections and SYSADMIN visibility are preserved.
+
+Table actions are the rightmost column, pinned to the right during horizontal scrolling through the shared DataTable. The remaining data columns retain their order. Tables without actions gain no new controls.
+
+## Container deployment
+
+Production Docker setup targets Linux AMD64: [deployment instructions](deployment/README.md). Dockerfile uses the standalone Next.js server, non-root Node runtime and /api/health; compose.yaml runs the demo and compose.public.yaml adds an optional Caddy HTTPS proxy. Use .env.docker.example for public build settings and runtime secrets. The local Podman VM currently aborts on startup, so the image itself has not yet been built; standalone output has been tested independently.

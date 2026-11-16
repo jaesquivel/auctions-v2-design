@@ -23,55 +23,55 @@ export function TagPicker({
   const selected = state.assignments[state.organization]?.[id] ?? []
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant="ghost"
-          className={
-            compact
-              ? "w-full min-w-0 justify-start overflow-hidden"
-              : "h-auto justify-start"
-          }
-          title={
-            selected
-              .map(
-                (tagId) => definitions.find((tag) => tag.id === tagId)?.label
-              )
-              .filter(Boolean)
-              .join(", ") || t("noAssignedTags")
-          }
-          aria-label={`${t("editTags")}: ${id}`}
-        >
-          <span
+      <PopoverTrigger
+        render={
+          <Button
+            variant="ghost"
             className={
               compact
-                ? "flex min-w-0 flex-nowrap items-center gap-1 overflow-hidden"
-                : "flex flex-wrap gap-1"
+                ? "w-full min-w-0 justify-start overflow-hidden"
+                : "h-auto justify-start"
             }
-          >
-            {selected.length ? (
-              (compact ? selected.slice(0, 2) : selected).map((tagId) => {
-                const tag = definitions.find((x) => x.id === tagId)
-                return tag ? (
-                  <TagBadge
-                    key={tag.id}
-                    label={tag.label}
-                    color={tag.color}
-                    compact={compact}
-                  />
-                ) : null
-              })
-            ) : (
-              <span className="text-muted-foreground">
-                {t("noAssignedTags")}
-              </span>
-            )}
-            {compact && selected.length > 2 && (
-              <span className="shrink-0 text-xs text-muted-foreground">
-                +{selected.length - 2}
-              </span>
-            )}
-          </span>
-        </Button>
+            title={
+              selected
+                .map(
+                  (tagId) => definitions.find((tag) => tag.id === tagId)?.label
+                )
+                .filter(Boolean)
+                .join(", ") || t("noAssignedTags")
+            }
+            aria-label={`${t("editTags")}: ${id}`}
+          />
+        }
+      >
+        <span
+          className={
+            compact
+              ? "flex min-w-0 flex-nowrap items-center gap-1 overflow-hidden"
+              : "flex flex-wrap gap-1"
+          }
+        >
+          {selected.length ? (
+            (compact ? selected.slice(0, 2) : selected).map((tagId) => {
+              const tag = definitions.find((x) => x.id === tagId)
+              return tag ? (
+                <TagBadge
+                  key={tag.id}
+                  label={tag.label}
+                  color={tag.color}
+                  compact={compact}
+                />
+              ) : null
+            })
+          ) : (
+            <span className="text-muted-foreground">{t("noAssignedTags")}</span>
+          )}
+          {compact && selected.length > 2 && (
+            <span className="shrink-0 text-xs text-muted-foreground">
+              +{selected.length - 2}
+            </span>
+          )}
+        </span>
       </PopoverTrigger>
       <PopoverContent align="start">
         <h3 className="mb-3 font-medium">{t("tags")}</h3>

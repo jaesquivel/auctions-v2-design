@@ -52,7 +52,11 @@ import { Choice, Facts, IconAction, PageHeading } from "./shared"
 import { TagPicker } from "./tag-picker"
 const PropertyMap = dynamic(() => import("./property-map"), { ssr: false })
 type Related = Pick<Item, "id" | "titleEs" | "titleEn" | "category" | "lotId">
-type Detail = { item: Item; related: Related[]; originalText: string }
+type Detail = {
+  item: Item
+  related: Related[]
+  originalText: string
+}
 function ResearchForm({ item }: { item: Item }) {
   const t = useTranslations()
   const { state, update } = usePreview()
@@ -162,14 +166,23 @@ function ResearchForm({ item }: { item: Item }) {
     </Card>
   )
 }
-const imageSessions = new Map<string, { url: string; name: string }[]>()
+const imageSessions = new Map<
+  string,
+  {
+    url: string
+    name: string
+  }[]
+>()
 function ImagesPanel({ id }: { id: string }) {
   const t = useTranslations()
   const { state } = usePreview()
   const imageKey = `${state.organization}:${id}`
-  const [images, setImages] = useState<{ url: string; name: string }[]>(
-    () => imageSessions.get(imageKey) ?? []
-  )
+  const [images, setImages] = useState<
+    {
+      url: string
+      name: string
+    }[]
+  >(() => imageSessions.get(imageKey) ?? [])
   const [view, setView] = useState<string | null>(null)
   useEffect(() => {
     imageSessions.set(imageKey, images)
@@ -353,11 +366,15 @@ export function ItemDetail({
     list.length ? (
       <div className="flex flex-col gap-2">
         {list.map((i) => (
-          <Button key={i.id} variant="link" asChild className="justify-start">
-            <Link href={`/${i.category}/${i.id}`}>
-              {title(i as Item, locale)}
-              <ArrowUpRight />
-            </Link>
+          <Button
+            key={i.id}
+            variant="link"
+            className="justify-start"
+            render={<Link href={`/${i.category}/${i.id}`} />}
+            nativeButton={false}
+          >
+            {title(i as Item, locale)}
+            <ArrowUpRight />
           </Button>
         ))}
       </div>
@@ -366,11 +383,13 @@ export function ItemDetail({
     )
   return (
     <>
-      <Button variant="ghost" asChild>
-        <Link href={`/${item.category}`}>
-          <ArrowLeft />
-          {t("back")}
-        </Link>
+      <Button
+        variant="ghost"
+        render={<Link href={`/${item.category}`} />}
+        nativeButton={false}
+      >
+        <ArrowLeft />
+        {t("back")}
       </Button>
       <div className="space-y-3">
         <PageHeading

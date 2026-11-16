@@ -41,7 +41,10 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
   const [editing, setEditing] = useState<string | null>(null)
   const [pending, setPending] = useState<string | null>(null)
   const [sorts, setSorts] = useState<
-    { field: "label" | "count"; desc: boolean }[]
+    {
+      field: "label" | "count"
+      desc: boolean
+    }[]
   >([{ field: "label", desc: false }])
   const form = useForm<z.infer<typeof tagSchema>>({
     resolver: zodResolver(tagSchema),
@@ -141,7 +144,6 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
       {colorInput}
     </>
   )
-
   if (create)
     return (
       <>
@@ -175,8 +177,12 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                 </FieldGroup>
                 <div className="flex gap-2">
                   <Button type="submit">{t("save")}</Button>
-                  <Button variant="outline" asChild>
-                    <Link href="/tags">{t("cancel")}</Link>
+                  <Button
+                    variant="outline"
+                    render={<Link href="/tags" />}
+                    nativeButton={false}
+                  >
+                    {t("cancel")}
                   </Button>
                 </div>
               </form>
@@ -189,11 +195,9 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
     <>
       <PageHeading title={t("tagCatalog")} description={t("tagHelp")}>
         {canManage && (
-          <Button asChild>
-            <Link href="/tags/new">
-              <Plus />
-              {t("createTag")}
-            </Link>
+          <Button render={<Link href="/tags/new" />} nativeButton={false}>
+            <Plus />
+            {t("createTag")}
           </Button>
         )}
       </PageHeading>

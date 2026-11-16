@@ -138,3 +138,10 @@
 .data-grid th > button { justify-content: flex-start; }
 .data-grid td > div:not(.grid-cell-value), .grid-cell-value { min-width: 0; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .data-grid .grid-cell-value > button { max-width: 100%; }
+
+/* Actions stay visible at the right edge while data columns scroll. */
+.data-grid [data-pinned-actions] { position: sticky; right: 0; z-index: 1; background-color: var(--background); box-shadow: inset 1px 0 var(--border); text-align: right; }
+.data-grid thead [data-pinned-actions] { z-index: 2; }
+.data-grid tbody tr:hover [data-pinned-actions], .data-grid tbody tr:has([aria-expanded="true"]) [data-pinned-actions] { background-color: color-mix(in oklch, var(--muted) 50%, var(--background)); }
+
+.data-grid [data-pinned-actions] .grid-cell-value > div { justify-content: flex-end; }

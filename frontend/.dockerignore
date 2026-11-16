@@ -1,0 +1,26 @@
+# Only application/build inputs enter the build context.
+# This excludes .env files, credentials, .git, node_modules, .next and QA artifacts.
+**
+!Dockerfile
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!postcss.config.mjs
+!app
+!app/**
+!components
+!components/**
+!data
+!data/**
+!hooks
+!hooks/**
+!i18n
+!i18n/**
+!lib
+!lib/**
+!messages
+!messages/**
+!public
+!public/**

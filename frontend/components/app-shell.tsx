@@ -46,7 +46,6 @@ import {
   SidebarMenuSubButton,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { TooltipProvider as SidebarTooltipProvider } from "@/components/ui/base/tooltip"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -55,6 +54,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuLabel,
+  DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
@@ -65,7 +65,7 @@ import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from "@/components/ui/base/collapsible"
+} from "@/components/ui/collapsible"
 function AppNavLink(props: ComponentProps<typeof Link>) {
   const { setOpenMobile } = useSidebar()
   return (
@@ -78,7 +78,6 @@ function AppNavLink(props: ComponentProps<typeof Link>) {
     />
   )
 }
-
 const icons = {
   properties: Building2,
   vehicles: Car,
@@ -92,7 +91,6 @@ const icons = {
   extraction: Workflow,
   system: Settings,
 }
-
 function SidebarSection({ section }: { section: NavigationSection }) {
   const t = useTranslations()
   const pathname = usePathname()
@@ -148,7 +146,6 @@ function SidebarSection({ section }: { section: NavigationSection }) {
     </Collapsible>
   )
 }
-
 function ClerkControls() {
   const t = useTranslations()
   const { isSignedIn } = useUser()
@@ -181,55 +178,56 @@ export function AppShell({
     canManage,
     !!state.sysadmins?.[state.user]
   )
-
   return (
-    <SidebarTooltipProvider>
-      <SidebarProvider>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-3"
-        >
-          {locale === "es" ? "Saltar al contenido" : "Skip to content"}
-        </a>
-        <Sidebar collapsible="icon">
-          <SidebarHeader>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  size="lg"
-                  render={<AppNavLink href="/properties" />}
-                >
-                  <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                    <Image
-                      width={28}
-                      height={28}
-                      src="/brand/gavel-dark.svg"
-                      alt=""
-                      className="size-5 invert dark:invert-0"
-                    />
-                  </span>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-medium">{t("appName")}</span>
-                  </div>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
+    <SidebarProvider>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-3"
+      >
+        {locale === "es" ? "Saltar al contenido" : "Skip to content"}
+      </a>
+      <Sidebar collapsible="icon">
+        <SidebarHeader>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                size="lg"
+                render={<AppNavLink href="/properties" />}
+              >
+                <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <Image
+                    width={28}
+                    height={28}
+                    src="/brand/gavel-dark.svg"
+                    alt=""
+                    className="size-5 invert dark:invert-0"
+                  />
+                </span>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">{t("appName")}</span>
+                </div>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  render={
                     <SidebarMenuButton
                       tooltip={t("organization")}
                       aria-label={t("organization")}
-                    >
-                      <Building2 />
-                      <span className="truncate">
-                        {state.organizationNames[state.organization]}
-                      </span>
-                      <ChevronsUpDown className="ml-auto" />
-                    </SidebarMenuButton>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent side="right" align="start">
+                    />
+                  }
+                >
+                  <Building2 />
+                  <span className="truncate">
+                    {state.organizationNames[state.organization]}
+                  </span>
+                  <ChevronsUpDown className="ml-auto" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent side="right" align="start">
+                  <DropdownMenuGroup>
                     <DropdownMenuLabel>{t("organization")}</DropdownMenuLabel>
                     <DropdownMenuRadioGroup
                       value={state.organization}
@@ -239,57 +237,63 @@ export function AppShell({
                     >
                       {Object.entries(state.organizationNames).map(
                         ([value, label]) => (
-                          <DropdownMenuRadioItem key={value} value={value}>
+                          <DropdownMenuRadioItem
+                            closeOnClick={true}
+                            key={value}
+                            value={value}
+                          >
                             {label}
                           </DropdownMenuRadioItem>
                         )
                       )}
                     </DropdownMenuRadioGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarHeader>
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarMenu>
-                {sections.map((section) => (
-                  <SidebarSection key={section.key} section={section} />
-                ))}
-              </SidebarMenu>
-            </SidebarGroup>
-          </SidebarContent>
-          <SidebarFooter>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarGroup>
             <SidebarMenu>
-              <SidebarMenuItem>
-                {clerkEnabled ? (
-                  <ClerkControls />
-                ) : (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+              {sections.map((section) => (
+                <SidebarSection key={section.key} section={section} />
+              ))}
+            </SidebarMenu>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              {clerkEnabled ? (
+                <ClerkControls />
+              ) : (
+                <DropdownMenu>
+                  <DropdownMenuTrigger
+                    render={
                       <SidebarMenuButton
                         size="lg"
                         tooltip={
                           state.user === "DEMO-USER-01" ? "Demo 01" : "Demo 02"
                         }
-                      >
-                        <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted">
-                          <FlaskConical className="size-4" />
-                        </span>
-                        <span className="grid flex-1 text-left text-sm leading-tight">
-                          <span className="truncate font-medium">
-                            {state.user === "DEMO-USER-01"
-                              ? "Demo 01"
-                              : "Demo 02"}
-                          </span>
-                          <span className="truncate text-xs text-muted-foreground">
-                            {role}
-                          </span>
-                        </span>
-                        <ChevronsUpDown className="ml-auto size-4" />
-                      </SidebarMenuButton>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent side="right" align="end">
+                      />
+                    }
+                  >
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted">
+                      <FlaskConical className="size-4" />
+                    </span>
+                    <span className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-medium">
+                        {state.user === "DEMO-USER-01" ? "Demo 01" : "Demo 02"}
+                      </span>
+                      <span className="truncate text-xs text-muted-foreground">
+                        {role}
+                      </span>
+                    </span>
+                    <ChevronsUpDown className="ml-auto size-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent side="right" align="end">
+                    <DropdownMenuGroup>
                       <DropdownMenuLabel>
                         {t("demoUserLabel")}
                       </DropdownMenuLabel>
@@ -299,14 +303,22 @@ export function AppShell({
                           update((s) => ({ ...s, user }))
                         }
                       >
-                        <DropdownMenuRadioItem value="DEMO-USER-01">
+                        <DropdownMenuRadioItem
+                          closeOnClick={true}
+                          value="DEMO-USER-01"
+                        >
                           Demo 01
                         </DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="DEMO-USER-02">
+                        <DropdownMenuRadioItem
+                          closeOnClick={true}
+                          value="DEMO-USER-02"
+                        >
                           Demo 02
                         </DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
-                      <DropdownMenuSeparator />
+                    </DropdownMenuGroup>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuGroup>
                       <DropdownMenuLabel>{t("demoRole")}</DropdownMenuLabel>
                       <DropdownMenuRadioGroup
                         value={role}
@@ -322,110 +334,125 @@ export function AppShell({
                         }
                       >
                         {["ADMIN", "MANAGER", "USER"].map((r) => (
-                          <DropdownMenuRadioItem key={r} value={r}>
+                          <DropdownMenuRadioItem
+                            closeOnClick={true}
+                            key={r}
+                            value={r}
+                          >
                             {r}
                           </DropdownMenuRadioItem>
                         ))}
                       </DropdownMenuRadioGroup>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuCheckboxItem
-                        checked={state.sysadmins?.[state.user] ?? false}
-                        onCheckedChange={(sysadmin) =>
-                          update((s) => ({
-                            ...s,
-                            sysadmins: { ...s.sysadmins, [s.user]: sysadmin },
-                          }))
-                        }
-                      >
-                        {t("demoSysadmin")}
-                      </DropdownMenuCheckboxItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem asChild>
-                        <AppNavLink href="/auth">{t("auth")}</AppNavLink>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                )}
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarFooter>
-          <SidebarRail />
-        </Sidebar>
-        <SidebarInset className="min-w-0">
-          <header className="flex min-h-16 flex-wrap items-center gap-3 border-b px-4 md:px-6">
-            <SidebarTrigger aria-label={t("toggleSidebar")} />
-            <Separator orientation="vertical" className="h-4" />
+                    </DropdownMenuGroup>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuCheckboxItem
+                      closeOnClick={true}
+                      checked={state.sysadmins?.[state.user] ?? false}
+                      onCheckedChange={(sysadmin) =>
+                        update((s) => ({
+                          ...s,
+                          sysadmins: { ...s.sysadmins, [s.user]: sysadmin },
+                        }))
+                      }
+                    >
+                      {t("demoSysadmin")}
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem render={<AppNavLink href="/auth" />}>
+                      {t("auth")}
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
+        <SidebarRail />
+      </Sidebar>
+      <SidebarInset className="min-w-0">
+        <header className="flex min-h-16 flex-wrap items-center gap-3 border-b px-4 md:px-6">
+          <SidebarTrigger aria-label={t("toggleSidebar")} />
+          <Separator orientation="vertical" className="h-4" />
 
-            <div className="ml-auto flex items-center gap-2">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
+          <div className="ml-auto flex items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
                   <Button
                     variant="ghost"
                     size="icon"
                     aria-label={t("appearance")}
-                  >
-                    <Monitor />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
+                  />
+                }
+              >
+                <Monitor />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuGroup>
                   <DropdownMenuLabel>{t("appearance")}</DropdownMenuLabel>
                   <DropdownMenuRadioGroup
                     value={theme ?? "system"}
                     onValueChange={setTheme}
                   >
-                    <DropdownMenuRadioItem value="light">
+                    <DropdownMenuRadioItem closeOnClick={true} value="light">
                       <Sun />
                       {t("light")}
                     </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="dark">
+                    <DropdownMenuRadioItem closeOnClick={true} value="dark">
                       <Moon />
                       {t("dark")}
                     </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="system">
+                    <DropdownMenuRadioItem closeOnClick={true} value="system">
                       <Monitor />
                       {t("systemTheme")}
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label={t("locale")}>
-                    <Globe />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuRadioGroup
-                    value={locale}
-                    onValueChange={(value) =>
-                      router.replace(pathname, { locale: value })
-                    }
-                  >
-                    <DropdownMenuRadioItem value="es">
-                      Español
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="en">
-                      English
-                    </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </header>
-          <div className="flex flex-wrap items-center gap-2 border-b bg-muted/40 px-4 py-2 text-xs text-muted-foreground md:px-6">
-            <Badge variant="outline">{t("previewMode")}</Badge>
-            <span>
-              {t(clerkEnabled ? "previewHelpConnected" : "previewHelp")}
-            </span>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label={t("locale")}
+                  />
+                }
+              >
+                <Globe />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuRadioGroup
+                  value={locale}
+                  onValueChange={(value) =>
+                    router.replace(pathname, { locale: value })
+                  }
+                >
+                  <DropdownMenuRadioItem closeOnClick={true} value="es">
+                    Español
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem closeOnClick={true} value="en">
+                    English
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
-          <main
-            id="main"
-            className="mx-auto w-full max-w-screen-2xl min-w-0 space-y-6 p-4 md:p-6 lg:p-8"
-          >
-            {children}
-          </main>
-        </SidebarInset>
-      </SidebarProvider>
-    </SidebarTooltipProvider>
+        </header>
+        <div className="flex flex-wrap items-center gap-2 border-b bg-muted/40 px-4 py-2 text-xs text-muted-foreground md:px-6">
+          <Badge variant="outline">{t("previewMode")}</Badge>
+          <span>
+            {t(clerkEnabled ? "previewHelpConnected" : "previewHelp")}
+          </span>
+        </div>
+        <main
+          id="main"
+          className="mx-auto w-full max-w-screen-2xl min-w-0 space-y-6 p-4 md:p-6 lg:p-8"
+        >
+          {children}
+        </main>
+      </SidebarInset>
+    </SidebarProvider>
   )
 }

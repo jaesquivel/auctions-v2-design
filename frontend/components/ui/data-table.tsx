@@ -1,5 +1,6 @@
 "use client"
 
+import { useMemo } from "react"
 import { useTable, type ColumnDef, type RowData } from "@tanstack/react-table"
 import { useTranslations } from "next-intl"
 import {
@@ -44,10 +45,18 @@ export function DataTable<TData extends RowData>({
   minWidth,
 }: DataTableProps<TData>) {
   const t = useTranslations()
+  // Keep actions last in every grid, independently of its data-column order.
+  const orderedColumns = useMemo(
+    () => [
+      ...columns.filter((column) => column.id !== "actions"),
+      ...columns.filter((column) => column.id === "actions"),
+    ],
+    [columns]
+  )
   const table = useTable({
     features: dataTableFeatures,
     data,
-    columns,
+    columns: orderedColumns,
     getRowId,
     manualSorting: true,
     manualPagination: true,
@@ -72,7 +81,13 @@ export function DataTable<TData extends RowData>({
           {table.getHeaderGroups().map((group) => (
             <TableRow key={group.id}>
               {group.headers.map((header) => (
-                <TableHead key={header.id} colSpan={header.colSpan}>
+                <TableHead
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  data-pinned-actions={
+                    header.column.id === "actions" || undefined
+                  }
+                >
                   {header.isPlaceholder ? null : (
                     <table.FlexRender header={header} />
                   )}
@@ -86,7 +101,12 @@ export function DataTable<TData extends RowData>({
             table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell
+                    key={cell.id}
+                    data-pinned-actions={
+                      cell.column.id === "actions" || undefined
+                    }
+                  >
                     <div
                       className="grid-cell-value"
                       title={

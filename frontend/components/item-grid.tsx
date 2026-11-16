@@ -28,6 +28,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuLabel,
+  DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
@@ -221,10 +222,17 @@ export function ItemGrid({ category }: { category: Category }) {
     if (key === "tags") return <TagPicker id={item.id} compact />
     if (key === "item")
       return (
-        <Button variant="link" asChild>
-          <Link href={`/${category}/${item.id}`} title={title(item, locale)}>
-            <span className="truncate">{title(item, locale)}</span>
-          </Link>
+        <Button
+          variant="link"
+          render={
+            <Link
+              href={`/${category}/${item.id}`}
+              title={title(item, locale)}
+            />
+          }
+          nativeButton={false}
+        >
+          <span className="truncate">{title(item, locale)}</span>
         </Button>
       )
     if (key === "amount") return formatMoney(item, locale)
@@ -317,15 +325,15 @@ export function ItemGrid({ category }: { category: Category }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [category, locale, t, router, query.sorts, query.currency, change]
   )
-
   return (
     <>
       <PageHeading title={t(category)} description={t("listingIntro")}>
-        <Button asChild>
-          <Link href={`/${category}/filters`}>
-            <SlidersHorizontal />
-            {t("openFilters")}
-          </Link>
+        <Button
+          render={<Link href={`/${category}/filters`} />}
+          nativeButton={false}
+        >
+          <SlidersHorizontal />
+          {t("openFilters")}
         </Button>
       </PageHeading>
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -336,9 +344,11 @@ export function ItemGrid({ category }: { category: Category }) {
         </p>
         {category === "properties" && (
           <ToggleGroup
-            type="single"
-            value={view}
-            onValueChange={(v) => v && setView(v)}
+            multiple={false}
+            value={[view]}
+            onValueChange={(values) => {
+              if (values[0]) setView(values[0])
+            }}
             variant="outline"
             aria-label={t("viewMode")}
           >
@@ -424,54 +434,57 @@ export function ItemGrid({ category }: { category: Category }) {
               {t("addSort")}
             </Button>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  <Columns3 />
-                  {t("columns")}
-                </Button>
+              <DropdownMenuTrigger
+                render={<Button variant="outline" className="ml-auto" />}
+              >
+                <Columns3 />
+                {t("columns")}
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
                 className="max-h-96 overflow-y-auto"
               >
-                <DropdownMenuLabel>{t("columns")}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {available.map((key) => (
-                  <DropdownMenuCheckboxItem
-                    key={key}
-                    checked={selected.includes(key)}
-                    disabled={selected.length === 1 && selected.includes(key)}
-                    onSelect={(e) => e.preventDefault()}
-                    onCheckedChange={(checked) =>
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>{t("columns")}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {available.map((key) => (
+                    <DropdownMenuCheckboxItem
+                      key={key}
+                      checked={selected.includes(key)}
+                      disabled={selected.length === 1 && selected.includes(key)}
+                      closeOnClick={false}
+                      onCheckedChange={(checked) =>
+                        update((s) => ({
+                          ...s,
+                          columns: {
+                            ...s.columns,
+                            [queryKey(s.user, category)]: checked
+                              ? [...selected, key]
+                              : selected.filter((x) => x !== key),
+                          },
+                        }))
+                      }
+                    >
+                      {label(key)}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  <Button
+                    variant="ghost"
+                    onClick={() =>
                       update((s) => ({
                         ...s,
                         columns: {
                           ...s.columns,
-                          [queryKey(s.user, category)]: checked
-                            ? [...selected, key]
-                            : selected.filter((x) => x !== key),
+                          [queryKey(s.user, category)]:
+                            defaultColumns(category),
                         },
                       }))
                     }
                   >
-                    {label(key)}
-                  </DropdownMenuCheckboxItem>
-                ))}
-                <DropdownMenuSeparator />
-                <Button
-                  variant="ghost"
-                  onClick={() =>
-                    update((s) => ({
-                      ...s,
-                      columns: {
-                        ...s.columns,
-                        [queryKey(s.user, category)]: defaultColumns(category),
-                      },
-                    }))
-                  }
-                >
-                  {t("resetColumns")}
-                </Button>
+                    {t("resetColumns")}
+                  </Button>
+                </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -542,8 +555,13 @@ export function ItemGrid({ category }: { category: Category }) {
           <CardContent className="py-10 text-center">
             <h2 className="font-medium">{t("empty")}</h2>
             <p className="mt-2 text-muted-foreground">{t("emptyBody")}</p>
-            <Button className="mt-4" variant="outline" asChild>
-              <Link href={`/${category}/filters`}>{t("openFilters")}</Link>
+            <Button
+              className="mt-4"
+              variant="outline"
+              render={<Link href={`/${category}/filters`} />}
+              nativeButton={false}
+            >
+              {t("openFilters")}
             </Button>
           </CardContent>
         </Card>

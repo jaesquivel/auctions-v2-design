@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-16",
   "build": "Next.js production build passed",
   "lint": "passed",
   "typecheck": "passed",
@@ -8,7 +8,8 @@
     "dataTable": 3,
     "navigation": 2,
     "http": 4,
-    "total": 21
+    "total": 24,
+    "baseUiIntegration": 3
   },
   "runtimeAudit": {
     "knownVulnerabilities": 0,
@@ -36,7 +37,22 @@
     "Reference Sidebar layout: expandable sections hide/reveal links",
     "Icon collapse retains a 48px rail; clicking section icon expands navigation",
     "Organization header and account footer retained; mobile route selection closes drawer",
-    "SYSADMIN-only System section verified after reference-layout update"
+    "SYSADMIN-only System section verified after reference-layout update",
+    "Base UI columns menu remains open and restores visibility",
+    "Base UI colored tag Toggle assignment remains open, no checkmarks",
+    "Base UI page-size selection returns 10 rows, restored to 5",
+    "Base UI List/Map switching loads Leaflet",
+    "Base UI theme changes and menu grouping",
+    "Base UI saved-filter dialog validates and closes with Escape",
+    "Base UI Auction tabs show 3 rounds; Images input present",
+    "Base UI tag create and soft-delete confirmation close correctly",
+    "Base UI organization menu closes on selection; settings submit triggers saved toast",
+    "Base UI SYSADMIN section remains role-gated",
+    "Base UI English/Spanish switch and 390px mobile Sheet navigation",
+    "Base UI icon collapse and restore; no browser warnings or errors",
+    "Team retains existing columns without added actions",
+    "Actions last and pinned right in Properties, Vehicles, Other and Tags",
+    "Right edge 1247 matches action-cell right 1247 at scrollLeft 0 and 738.5; position sticky"
   ],
   "limits": [
     "No live Clerk credentials tested",
@@ -71,5 +87,15 @@
       "System link removed and direct page guarded after SYSADMIN revocation"
     ],
     "screenshot": "react-data-table-sections.png"
+  },
+  "foundation": "shadcn Base UI Nova throughout",
+  "baseUiMigration": {
+    "stockComponents": 30,
+    "directOrTransitiveRadixPackages": 0,
+    "duplicateSidebarComponents": 0,
+    "oldAsChildCalls": 0,
+    "unresolvedGeneratorMarkers": 0,
+    "historicalAudit": "shadcn-audit.md records pre-migration commit fb6820d; see base-ui-migration.md",
+    "credentialedClerkTested": false
   }
 }

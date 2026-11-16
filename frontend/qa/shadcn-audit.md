@@ -1,5 +1,7 @@
 # shadcn deviation audit
 
+> Historical snapshot before the full Base UI migration (commit fb6820d). The mixed foundation, duplicate Sidebar components and unresolved generator-marker findings have since been resolved. File links/line numbers below refer to the audited snapshot; see base-ui-migration.md and current components.json for the active foundation. Other domain compositions remain.
+
 Reviewed 13 November 2026. Scope: current frontend only. No application code was changed. This is a static source comparison, not an accessibility audit or a fresh browser/build validation.
 
 Compared all 36 installed registry UI modules plus the mobile hook against the current official Radix Nova/Base Nova registry (37 files). The two DataTable files are local compositions and were reviewed separately. Reviewed 72 application/source/test/config files, configuration, theme CSS and dependency declarations. Old mockups are excluded by the frontend-only instruction.

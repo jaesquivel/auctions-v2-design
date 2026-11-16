@@ -53,11 +53,9 @@ export function Overview() {
           <CardDescription>{t("featureBody")}</CardDescription>
         </CardHeader>
         <CardFooter>
-          <Button asChild>
-            <Link href="/properties">
-              {t("start")}
-              <ArrowUpRight />
-            </Link>
+          <Button render={<Link href="/properties" />} nativeButton={false}>
+            {t("start")}
+            <ArrowUpRight />
           </Button>
         </CardFooter>
       </Card>
@@ -76,11 +74,13 @@ export function Overview() {
               <CardTitle className="text-3xl">50</CardTitle>
             </CardHeader>
             <CardFooter>
-              <Button variant="outline" asChild>
-                <Link href={`/${category}`}>
-                  {t("explore")}
-                  <ArrowUpRight />
-                </Link>
+              <Button
+                variant="outline"
+                render={<Link href={`/${category}`} />}
+                nativeButton={false}
+              >
+                {t("explore")}
+                <ArrowUpRight />
               </Button>
             </CardFooter>
           </Card>
@@ -107,8 +107,12 @@ export function Overview() {
             </CardTitle>
           </CardHeader>
           <CardFooter>
-            <Button variant="outline" asChild>
-              <Link href="/alerts">{t("manageFilters")}</Link>
+            <Button
+              variant="outline"
+              render={<Link href="/alerts" />}
+              nativeButton={false}
+            >
+              {t("manageFilters")}
             </Button>
           </CardFooter>
         </Card>
@@ -132,8 +136,11 @@ export function AlertsScreen() {
             <CardDescription>{t("emptyAlertsBody")}</CardDescription>
           </CardHeader>
           <CardFooter>
-            <Button asChild>
-              <Link href="/properties/filters">{t("openFilters")}</Link>
+            <Button
+              render={<Link href="/properties/filters" />}
+              nativeButton={false}
+            >
+              {t("openFilters")}
             </Button>
           </CardFooter>
         </Card>
@@ -259,7 +266,9 @@ function SettingsBody() {
                 maxLength={100}
               />
             </Field>
-            <Button disabled={role !== "ADMIN"}>{t("saveSettings")}</Button>
+            <Button type="submit" disabled={role !== "ADMIN"}>
+              {t("saveSettings")}
+            </Button>
           </form>
         </CardContent>
       </Card>
@@ -270,11 +279,13 @@ function SettingsBody() {
             <CardDescription>{t("tagHelp")}</CardDescription>
           </CardHeader>
           <CardFooter>
-            <Button variant="outline" asChild>
-              <Link href="/tags">
-                {t("organizationTags")}
-                <ArrowUpRight />
-              </Link>
+            <Button
+              variant="outline"
+              render={<Link href="/tags" />}
+              nativeButton={false}
+            >
+              {t("organizationTags")}
+              <ArrowUpRight />
             </Button>
           </CardFooter>
         </Card>
@@ -285,8 +296,12 @@ function SettingsBody() {
           <CardDescription>{t("billingDemo")}</CardDescription>
         </CardHeader>
         <CardFooter>
-          <Button variant="outline" asChild>
-            <Link href="/plans">{t("plans")}</Link>
+          <Button
+            variant="outline"
+            render={<Link href="/plans" />}
+            nativeButton={false}
+          >
+            {t("plans")}
           </Button>
         </CardFooter>
       </Card>
@@ -403,7 +418,7 @@ export function TeamScreen() {
               >
                 {t("cancel")}
               </Button>
-              <Button>{t("invite")}</Button>
+              <Button type="submit">{t("invite")}</Button>
             </DialogFooter>
           </form>
         </DialogContent>
@@ -530,7 +545,7 @@ function SystemBody() {
                 onChange={(e) => setInterval(e.target.value)}
               />
             </Field>
-            <Button>{t("save")}</Button>
+            <Button type="submit">{t("save")}</Button>
           </form>
         </CardContent>
         <CardFooter>
@@ -573,15 +588,14 @@ export function AuthScreen({ enabled = false }: { enabled?: boolean }) {
           <p className="text-sm text-muted-foreground">{t("previewHelp")}</p>
         </CardContent>
         <CardFooter>
-          <Button asChild>
-            <Link href="/properties">{t("explore")}</Link>
+          <Button render={<Link href="/properties" />} nativeButton={false}>
+            {t("explore")}
           </Button>
         </CardFooter>
       </Card>
     </>
   )
 }
-
 export function ExtractionScreen() {
   const t = useTranslations()
   return (
@@ -599,8 +613,12 @@ export function ExtractionScreen() {
           <p className="text-sm text-muted-foreground">{t("sourceCaution")}</p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" asChild>
-            <Link href="/properties/filters">{t("openFilters")}</Link>
+          <Button
+            variant="outline"
+            render={<Link href="/properties/filters" />}
+            nativeButton={false}
+          >
+            {t("openFilters")}
           </Button>
         </CardFooter>
       </Card>

@@ -830,7 +830,7 @@
       "file": "components/other-screens.tsx",
       "line": 222,
       "kind": "Form behavior beyond stock",
-      "description": "Settings/invite/system use native form validation + local state; system interval uses native number Input (15–1440). Team role Select lives inside DataTable. Not every form uses RHF/Zod. Local permissions, confirmation and toast behavior are not supplied by shadcn.",
+      "description": "Settings/invite/system use native form validation + local state; system interval uses native number Input (15\u20131440). Team role Select lives inside DataTable. Not every form uses RHF/Zod. Local permissions, confirmation and toast behavior are not supplied by shadcn.",
       "status": "App implementation choice."
     },
     {
@@ -1713,5 +1713,16 @@
       "attribute": "className",
       "expression": "{`${geist.variable} font-sans antialiased`}"
     }
-  ]
+  ],
+  "historicalSnapshot": {
+    "commit": "fb6820d",
+    "supersededBy": "base-ui-migration.md",
+    "resolvedEntries": [
+      "01",
+      "02",
+      "03",
+      "31"
+    ],
+    "note": "Source hashes and line references below describe the pre-migration snapshot, not the active Base UI implementation."
+  }
 }

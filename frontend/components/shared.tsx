@@ -37,13 +37,23 @@ export function Choice({
 }: {
   value: string
   onChange: (v: string) => void
-  options: { value: string; label: string }[]
+  options: {
+    value: string
+    label: string
+  }[]
   label: string
   id?: string
   disabled?: boolean
 }) {
   return (
-    <Select value={value} onValueChange={onChange} disabled={disabled}>
+    <Select
+      items={options}
+      value={value}
+      onValueChange={(next) => {
+        if (next !== null) onChange(next)
+      }}
+      disabled={disabled}
+    >
       <SelectTrigger aria-label={label} id={id}>
         <SelectValue />
       </SelectTrigger>
@@ -80,16 +90,18 @@ export function IconAction({
 }) {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          aria-label={label}
-          onClick={onClick}
-          disabled={disabled}
-        >
-          {children}
-        </Button>
+      <TooltipTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label={label}
+            onClick={onClick}
+            disabled={disabled}
+          />
+        }
+      >
+        {children}
       </TooltipTrigger>
       <TooltipContent>{label}</TooltipContent>
     </Tooltip>
@@ -119,7 +131,7 @@ export function TagBadge({
       variant="secondary"
       className={cn(
         tagClass[color] ?? tagClass.gray,
-        compact && "min-w-0 max-w-full shrink"
+        compact && "max-w-full min-w-0 shrink"
       )}
     >
       <span className={compact ? "truncate" : undefined}>{label}</span>
@@ -144,7 +156,6 @@ export function Facts({ values }: { values: [string, ReactNode][] }) {
     </dl>
   )
 }
-
 export function Confirm({
   open,
   onOpenChange,
@@ -168,7 +179,13 @@ export function Confirm({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
-          <AlertDialogAction variant="destructive" onClick={onConfirm}>
+          <AlertDialogAction
+            variant="destructive"
+            onClick={() => {
+              onConfirm()
+              onOpenChange(false)
+            }}
+          >
             {t("delete")}
           </AlertDialogAction>
         </AlertDialogFooter>

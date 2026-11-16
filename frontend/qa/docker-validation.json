@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-16",
+  "targetPlatform": "linux/amd64",
+  "nodeImage": "node:24-bookworm-slim",
+  "nextStandaloneBuild": "passed",
+  "lint": "passed",
+  "existingTests": {
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0
+  },
+  "standaloneSmoke": {
+    "status": "passed",
+    "hostPlatform": "darwin/arm64",
+    "port": 3100,
+    "checks": [
+      "health endpoint",
+      "English and Spanish pages",
+      "built CSS and JavaScript",
+      "logo and local fonts",
+      "50 fictional records per category with page size 5",
+      "detail/original notice in all categories"
+    ]
+  },
+  "dockerImage": {
+    "status": "blocked",
+    "built": false,
+    "reason": "Installed Podman 6.1.4 libkrun VM failed to start: krunkit terminated by abort trap",
+    "archiveCreated": false
+  },
+  "containerSmoke": "not run; engine unavailable",
+  "publicHttps": "not run; no public hostname/deployment supplied",
+  "normalLocalBuild": "passed",
+  "standaloneBuildSwitch": "BUILD_STANDALONE=1 (enabled in Docker builder)",
+  "composeYaml": "both files parsed; platform, loopback binding and runtime-only secret configuration checked; not validated by a running Compose engine"
+}
