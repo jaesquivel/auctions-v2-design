@@ -8,6 +8,7 @@ import {
   Plus,
   X,
   Columns3,
+  ChevronDown,
   Pencil,
   Eye,
   FileText,
@@ -53,6 +54,7 @@ import { usePreview, storedQuery, queryKey } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Choice, IconAction, PageHeading } from "./shared"
 import { BulkTagActions } from "./bulk-tag-actions"
+import { PageJump } from "./page-jump"
 import { TagPicker } from "./tag-picker"
 import dynamic from "next/dynamic"
 const PropertyMap = dynamic(() => import("./property-map"), {
@@ -440,6 +442,7 @@ export function ItemGrid({ category }: { category: Category }) {
               >
                 <Columns3 />
                 {t("columns")}
+                <ChevronDown aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
@@ -507,7 +510,7 @@ export function ItemGrid({ category }: { category: Category }) {
             : ""}
         </span>
         <Pagination className="ml-auto w-auto">
-          <PaginationContent>
+          <PaginationContent className="flex-wrap justify-center">
             <PaginationItem>
               <Button
                 variant="outline"
@@ -519,9 +522,13 @@ export function ItemGrid({ category }: { category: Category }) {
               </Button>
             </PaginationItem>
             <PaginationItem>
-              <span className="px-2 text-sm">
-                {data ? `${data.page} / ${data.pageCount}` : "…"}
-              </span>
+              <PageJump
+                key={`${state.user}:${state.organization}:${category}:${data?.page}:${data?.pageCount}`}
+                page={data?.page ?? query.page}
+                pageCount={data?.total ? data.pageCount : 0}
+                disabled={!data || !data.total}
+                onGo={(page) => change({ page })}
+              />
             </PaginationItem>
             <PaginationItem>
               <Button

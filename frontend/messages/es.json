@@ -167,8 +167,6 @@
   "unknownArea": "Incluir área no indicada",
   "reviewedOnly": "Solo extracciones revisadas",
   "apply": "Aplicar filtros",
-  "result": "bien de ejemplo",
-  "results": "bienes de ejemplo",
   "list": "Lista",
   "map": "Mapa",
   "saveSearch": "Guardar filtros",
@@ -492,5 +490,7 @@
   "bulkRemoveTag": "Quitar etiqueta",
   "bulkTagScope": "{count, plural, =0 {No hay elementos en esta página} one {Se aplica a # elemento de esta página} other {Se aplica a # elementos de esta página}}",
   "bulkTagAdded": "{count, plural, =0 {Todos los elementos mostrados ya tienen esta etiqueta.} one {Etiqueta agregada a # elemento.} other {Etiqueta agregada a # elementos.}}",
-  "bulkTagRemoved": "{count, plural, =0 {Ningún elemento mostrado tenía esta etiqueta.} one {Etiqueta quitada de # elemento.} other {Etiqueta quitada de # elementos.}}"
+  "bulkTagRemoved": "{count, plural, =0 {Ningún elemento mostrado tenía esta etiqueta.} one {Etiqueta quitada de # elemento.} other {Etiqueta quitada de # elementos.}}",
+  "goToPage": "Ir a la página",
+  "goToPageButton": "Ir"
 }
