@@ -13,6 +13,7 @@ export type NavigationItem = {
     | "tags"
     | "extraction"
     | "system"
+    | "territorialDivisions"
 }
 export type NavigationSection = { key: string; items: NavigationItem[] }
 export function navigationSections(
@@ -38,6 +39,11 @@ export function navigationSections(
       key: "configurationSection",
       items: [
         { href: "/settings", key: "settings", icon: "settings" },
+        {
+          href: "/territorial-divisions",
+          key: "territorialDivisions",
+          icon: "territorialDivisions",
+        },
         { href: "/team", key: "team", icon: "team" },
         { href: "/plans", key: "plans", icon: "plans" },
         ...(canManageTags

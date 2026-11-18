@@ -8,6 +8,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button"
+import { normalizeTagColor, tagTextColor } from "@/lib/tag-colors"
 import { Badge } from "@/components/ui/badge"
 import { Field, FieldLabel, FieldTitle } from "@/components/ui/field"
 import {
@@ -126,9 +127,15 @@ export function TagBadge({
   color: string
   compact?: boolean
 }) {
+  const customColor = !tagClass[color] ? normalizeTagColor(color) : null
   return (
     <Badge
       variant="secondary"
+      style={
+        customColor
+          ? { backgroundColor: customColor, color: tagTextColor(customColor) }
+          : undefined
+      }
       className={cn(
         tagClass[color] ?? tagClass.gray,
         compact && "max-w-full min-w-0 shrink"

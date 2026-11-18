@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-16",
+  "feature": "Territorial Divisions",
+  "checks": {
+    "productionBuild": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "automatedTests": {
+      "passed": 36,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "browser": {
+    "allUserNavigation": "passed",
+    "userReadOnly": "passed",
+    "adminWithoutSysadminReadOnly": "passed",
+    "sysadminCreateEditDelete": "passed",
+    "duplicateCodeRejected": "passed",
+    "parentDeletionBlocked": "passed",
+    "reloadPersistence": "passed",
+    "expandCollapseAll": "passed",
+    "spanishLabels": "passed",
+    "mobile390pxDocumentOverflow": false,
+    "finalConsoleErrors": 0
+  },
+  "catalog": {
+    "source": "Instituto Geogr\u00e1fico Nacional / Registro Nacional",
+    "snapshotYear": 2024,
+    "provinces": 7,
+    "cantons": 84,
+    "districts": 492
+  },
+  "screenshots": [
+    "react-territorial-desktop.png",
+    "react-territorial-form.png",
+    "react-territorial-measurements-form.png",
+    "react-territorial-measurements-list.png"
+  ],
+  "limitations": [
+    "Browser-local prototype storage and simulated permissions; backend catalog API/auth/audit pending.",
+    "Fictional property location strings are not yet linked to territorial catalog IDs.",
+    "2024 reference snapshot; not asserted current legal catalog."
+  ],
+  "measurements": {
+    "areaUnit": "km\u00b2",
+    "altitudeUnit": "m above sea level",
+    "seedAreasPopulated": 583,
+    "seedAltitudesKnown": 0,
+    "unknownValue": null,
+    "normalizedName": "Generated, read-only, SYSADMIN detail form only",
+    "checks": [
+      "Area must be positive and finite",
+      "Zero/negative finite altitudes accepted",
+      "Unknown values can be cleared",
+      "Old catalogs backfill fields without discarding edits",
+      "Normalization updates with name",
+      "No normalized_name column or regular-user field",
+      "Create/edit forms share the new fields",
+      "Browser save/reload/clear passed",
+      "English/Spanish labels passed",
+      "No browser console errors"
+    ]
+  }
+}

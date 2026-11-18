@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation"
 import { ItemGrid } from "@/components/item-grid"
 import { FilterView } from "@/components/filter-editor"
 import { ItemDetail } from "@/components/item-detail"
+import { TerritorialDivisions } from "@/components/territorial-divisions"
 import { TagManagement } from "@/components/tag-management"
 import {
   Overview,
@@ -44,6 +45,7 @@ export default async function Page({
   else if (path.length === 1)
     content = (
       {
+        "territorial-divisions": <TerritorialDivisions />,
         overview: <Overview />,
         alerts: <AlertsScreen />,
         settings: <SettingsScreen />,

@@ -8,8 +8,9 @@
     "dataTable": 3,
     "navigation": 2,
     "http": 4,
-    "total": 24,
-    "baseUiIntegration": 3
+    "total": 28,
+    "baseUiIntegration": 3,
+    "tagColors": 4
   },
   "runtimeAudit": {
     "knownVulnerabilities": 0,
@@ -52,7 +53,20 @@
     "Base UI icon collapse and restore; no browser warnings or errors",
     "Team retains existing columns without added actions",
     "Actions last and pinned right in Properties, Vehicles, Other and Tags",
-    "Right edge 1247 matches action-cell right 1247 at scrollLeft 0 and 738.5; position sticky"
+    "Right edge 1247 matches action-cell right 1247 at scrollLeft 0 and 738.5; position sticky",
+    "Optional tag description in create form and stock edit Dialog",
+    "Legacy tags without descriptions open with an empty value",
+    "Description persists after reload, edits, cancel and clearing verified",
+    "Tag description labels verified in English/Spanish; USER cannot create/edit tags",
+    "New and edit tags share one Dialog/form with matching visible field classes, width and Save/Cancel controls",
+    "Both modes show the same required-name validation; create resets fields after edit cancellation",
+    "Direct /tags/new opens shared create dialog over list; Cancel and Save return to /tags",
+    "Create and edit persist descriptions after reload; temporary QA tags removed",
+    "Tag descriptions shown in a single-line Description column with ellipsis and full title",
+    "Color selector shows colored swatches for six presets and custom color",
+    "Preset selection synchronizes HTML hex field; invalid hex blocks saving",
+    "Custom #001B66 persists with white badge text after reload; #abc normalizes to #AABBCC",
+    "Custom colors render in assignment picker and selection remains immediate"
   ],
   "limits": [
     "No live Clerk credentials tested",

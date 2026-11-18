@@ -6,17 +6,13 @@ import {
   type ReactNode,
 } from "react"
 import { Query, Category, Role, Research, defaultQuery } from "./domain"
-export const colors = [
-  "gray",
-  "blue",
-  "green",
-  "amber",
-  "red",
-  "purple",
-] as const
+import { tagColorNames as colors } from "./tag-colors"
+import type { TerritorialDivision } from "./territorial-divisions"
+export { colors }
 export type Tag = {
   id: string
   label: string
+  description?: string
   color: string
   deleted?: boolean
 }
@@ -43,6 +39,7 @@ export type PreviewState = {
   queries: Record<string, Query>
   columns: Record<string, string[]>
   members: { id: string; name: string; role: Role; organization: string }[]
+  territorialDivisions?: TerritorialDivision[]
   system: { enabled: boolean; interval: number; runs: number }
 }
 export const initialState: PreviewState = {

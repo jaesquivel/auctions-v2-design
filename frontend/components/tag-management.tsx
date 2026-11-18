@@ -5,30 +5,56 @@ import { useForm, useWatch } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { toast } from "sonner"
-import { Plus, Pencil, Trash2, Save, X, ArrowUpDown } from "lucide-react"
+import { Plus, Pencil, Trash2, ArrowUpDown } from "lucide-react"
 import { usePreview, colors, type Tag } from "@/lib/preview-store"
-import { Link, useRouter } from "@/i18n/navigation"
+import { useRouter } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog"
 import {
   Field,
   FieldGroup,
   FieldLabel,
   FieldError,
+  FieldDescription,
 } from "@/components/ui/field"
+import { normalizeTagColor, tagPalette } from "@/lib/tag-colors"
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select"
 import { DataTable } from "@/components/ui/data-table"
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Choice, Confirm, PageHeading, TagBadge, IconAction } from "./shared"
+import { Confirm, PageHeading, TagBadge, IconAction } from "./shared"
 const tagSchema = z.object({
   label: z.string().trim().min(1).max(40),
-  color: z.enum(colors),
+  color: z
+    .string()
+    .trim()
+    .refine((value) => normalizeTagColor(value) !== null)
+    .transform((value) =>
+      colors.includes(value as (typeof colors)[number])
+        ? value
+        : normalizeTagColor(value)!
+    ),
+  description: z.string().trim().max(2000),
 })
 export function TagManagement({ create = false }: { create?: boolean }) {
   const { state } = usePreview()
   return (
     <TagManagementBody
-      key={`${state.user}:${state.organization}`}
+      key={`${state.user}:${state.organization}:${create}`}
       create={create}
     />
   )
@@ -38,6 +64,7 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
   const locale = useLocale()
   const router = useRouter()
   const { state, update, canManage } = usePreview()
+  const [creating, setCreating] = useState(create)
   const [editing, setEditing] = useState<string | null>(null)
   const [pending, setPending] = useState<string | null>(null)
   const [sorts, setSorts] = useState<
@@ -48,8 +75,14 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
   >([{ field: "label", desc: false }])
   const form = useForm<z.infer<typeof tagSchema>>({
     resolver: zodResolver(tagSchema),
-    defaultValues: { label: "", color: "gray" },
+    defaultValues: { label: "", color: "gray", description: "" },
   })
+  const closeForm = () => {
+    setEditing(null)
+    setCreating(false)
+    form.reset({ label: "", color: "gray", description: "" })
+    if (create) router.replace("/tags")
+  }
   const selectedColor = useWatch({ control: form.control, name: "color" })
   const tags = state.tags[state.organization] ?? []
   const count = (id: string) =>
@@ -100,10 +133,8 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
             ],
       },
     }))
-    setEditing(null)
-    form.reset()
+    closeForm()
     toast.success(t("changesSaved"))
-    if (create) router.push("/tags")
   })
   const nameInput = (
     <Input
@@ -114,88 +145,143 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
       maxLength={40}
     />
   )
-  const colorInput = (
-    <Choice
-      id="tag-color"
-      value={selectedColor}
-      onChange={(color) =>
-        form.setValue("color", color as (typeof colors)[number])
-      }
-      label={t("color")}
-      options={colors.map((value) => ({
-        value,
-        label:
-          locale === "es"
-            ? {
-                gray: "Gris",
-                blue: "Azul",
-                green: "Verde",
-                amber: "Ámbar",
-                red: "Rojo",
-                purple: "Morado",
-              }[value]
-            : value,
-      }))}
+  const isPreset = colors.includes(selectedColor as (typeof colors)[number])
+  const colorValue = isPreset ? selectedColor : "custom"
+  const colorHex = normalizeTagColor(selectedColor) ?? tagPalette.gray
+  const presetLabels =
+    locale === "es"
+      ? {
+          gray: "Gris",
+          blue: "Azul",
+          green: "Verde",
+          amber: "Ámbar",
+          red: "Rojo",
+          purple: "Morado",
+        }
+      : {
+          gray: "Gray",
+          blue: "Blue",
+          green: "Green",
+          amber: "Amber",
+          red: "Red",
+          purple: "Purple",
+        }
+  const colorOptions = [
+    ...colors.map((value) => ({
+      value,
+      label: presetLabels[value],
+      hex: tagPalette[value],
+    })),
+    { value: "custom", label: t("customColor"), hex: colorHex },
+  ]
+  const swatch = (hex: string) => (
+    <span
+      aria-hidden="true"
+      className="size-3 shrink-0 rounded-full border"
+      style={{ backgroundColor: hex }}
     />
   )
-  const fields = (
-    <>
-      {nameInput}
-      {colorInput}
-    </>
+  const colorInput = (
+    <Select
+      items={colorOptions}
+      value={colorValue}
+      onValueChange={(value) => {
+        if (value !== null)
+          form.setValue("color", value === "custom" ? colorHex : value, {
+            shouldDirty: true,
+            shouldValidate: true,
+          })
+      }}
+    >
+      <SelectTrigger id="tag-color" aria-label={t("color")}>
+        <SelectValue>
+          <span className="flex items-center gap-2">
+            {swatch(colorHex)}
+            {colorOptions.find((option) => option.value === colorValue)?.label}
+          </span>
+        </SelectValue>
+      </SelectTrigger>
+      <SelectContent>
+        {colorOptions.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {swatch(option.hex)}
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
-  if (create)
-    return (
-      <>
-        <PageHeading title={t("createTag")} />
-        {!canManage ? (
-          <Alert>
-            <AlertDescription>{t("roleReadOnly")}</AlertDescription>
-          </Alert>
-        ) : (
-          <Card className="max-w-xl">
-            <CardHeader>
-              <CardTitle>{t("tagCatalog")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={save} className="space-y-5">
-                <FieldGroup>
-                  <Field data-invalid={!!form.formState.errors.label}>
-                    <FieldLabel htmlFor="tag-name">{t("tagLabel")}</FieldLabel>
-                    {nameInput}
-                    {form.formState.errors.label && (
-                      <FieldError>
-                        {form.formState.errors.label.message ??
-                          t("tagNameError")}
-                      </FieldError>
-                    )}
-                  </Field>
-                  <Field>
-                    <FieldLabel htmlFor="tag-color">{t("color")}</FieldLabel>
-                    {colorInput}
-                  </Field>
-                </FieldGroup>
-                <div className="flex gap-2">
-                  <Button type="submit">{t("save")}</Button>
-                  <Button
-                    variant="outline"
-                    render={<Link href="/tags" />}
-                    nativeButton={false}
-                  >
-                    {t("cancel")}
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+  const fields = (
+    <FieldGroup>
+      <Field data-invalid={!!form.formState.errors.label}>
+        <FieldLabel htmlFor="tag-name">{t("tagLabel")}</FieldLabel>
+        {nameInput}
+        {form.formState.errors.label && (
+          <FieldError>
+            {form.formState.errors.label.message ?? t("tagNameError")}
+          </FieldError>
         )}
-      </>
-    )
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="tag-color">{t("color")}</FieldLabel>
+        {colorInput}
+      </Field>
+      <Field data-invalid={!!form.formState.errors.color}>
+        <FieldLabel htmlFor="tag-html-color">{t("htmlColor")}</FieldLabel>
+        <Input
+          id="tag-html-color"
+          value={isPreset ? colorHex : selectedColor}
+          onChange={(event) =>
+            form.setValue("color", event.target.value, {
+              shouldDirty: true,
+              shouldValidate: true,
+            })
+          }
+          maxLength={7}
+          placeholder="#2563EB"
+          autoComplete="off"
+          spellCheck={false}
+          aria-invalid={!!form.formState.errors.color}
+          aria-describedby="tag-html-color-help"
+        />
+        <FieldDescription id="tag-html-color-help">
+          {t("htmlColorHelp")}
+        </FieldDescription>
+        {form.formState.errors.color && (
+          <FieldError>{t("htmlColorError")}</FieldError>
+        )}
+      </Field>
+      <Field data-invalid={!!form.formState.errors.description}>
+        <FieldLabel htmlFor="tag-description">{t("description")}</FieldLabel>
+        <Textarea
+          id="tag-description"
+          rows={3}
+          maxLength={2000}
+          className="max-h-48"
+          aria-invalid={!!form.formState.errors.description}
+          aria-describedby="tag-description-help"
+          {...form.register("description")}
+        />
+        <FieldDescription id="tag-description-help">
+          {t("tagDescriptionHelp")}
+        </FieldDescription>
+        {form.formState.errors.description && (
+          <FieldError>{t("tagDescriptionError")}</FieldError>
+        )}
+      </Field>
+    </FieldGroup>
+  )
   return (
     <>
       <PageHeading title={t("tagCatalog")} description={t("tagHelp")}>
         {canManage && (
-          <Button render={<Link href="/tags/new" />} nativeButton={false}>
+          <Button
+            onClick={() => {
+              form.reset({ label: "", color: "gray", description: "" })
+              setEditing(null)
+              setCreating(true)
+            }}
+          >
             <Plus />
             {t("createTag")}
           </Button>
@@ -223,32 +309,28 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                 </Button>
               </>
             ),
-            cell: ({ row }) => {
-              const tag = row.original
-              return (
-                <>
-                  {editing === tag.id ? (
-                    <form
-                      id="tag-inline"
-                      onSubmit={save}
-                      className="flex flex-nowrap gap-2"
-                    >
-                      {fields}
-                      {form.formState.errors.label && (
-                        <span className="text-xs text-destructive">
-                          {form.formState.errors.label.message ??
-                            t("tagNameError")}
-                        </span>
-                      )}
-                    </form>
-                  ) : (
-                    <span className="block truncate" title={tag.label}>
-                      <TagBadge label={tag.label} color={tag.color} compact />
-                    </span>
-                  )}
-                </>
-              )
-            },
+            cell: ({ row }) => (
+              <span className="block truncate" title={row.original.label}>
+                <TagBadge
+                  label={row.original.label}
+                  color={row.original.color}
+                  compact
+                />
+              </span>
+            ),
+          },
+          {
+            id: "description",
+            accessorFn: (tag) => tag.description ?? "",
+            header: t("description"),
+            cell: ({ row }) => (
+              <span
+                className="block truncate"
+                title={row.original.description || undefined}
+              >
+                {row.original.description || "—"}
+              </span>
+            ),
           },
           {
             id: "count",
@@ -281,46 +363,25 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
                 <>
                   {canManage && (
                     <div className="flex gap-1">
-                      {editing === tag.id ? (
-                        <>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            type="submit"
-                            form="tag-inline"
-                            aria-label={t("save")}
-                          >
-                            <Save />
-                          </Button>
-                          <IconAction
-                            label={t("cancel")}
-                            onClick={() => setEditing(null)}
-                          >
-                            <X />
-                          </IconAction>
-                        </>
-                      ) : (
-                        <>
-                          <IconAction
-                            label={`${t("edit")}: ${tag.label}`}
-                            onClick={() => {
-                              setEditing(tag.id)
-                              form.reset({
-                                label: tag.label,
-                                color: tag.color as (typeof colors)[number],
-                              })
-                            }}
-                          >
-                            <Pencil />
-                          </IconAction>
-                          <IconAction
-                            label={`${t("delete")}: ${tag.label}`}
-                            onClick={() => setPending(tag.id)}
-                          >
-                            <Trash2 />
-                          </IconAction>
-                        </>
-                      )}
+                      <IconAction
+                        label={`${t("edit")}: ${tag.label}`}
+                        onClick={() => {
+                          setEditing(tag.id)
+                          form.reset({
+                            label: tag.label,
+                            color: tag.color,
+                            description: tag.description ?? "",
+                          })
+                        }}
+                      >
+                        <Pencil />
+                      </IconAction>
+                      <IconAction
+                        label={`${t("delete")}: ${tag.label}`}
+                        onClick={() => setPending(tag.id)}
+                      >
+                        <Trash2 />
+                      </IconAction>
                     </div>
                   )}
                 </>
@@ -328,10 +389,37 @@ function TagManagementBody({ create = false }: { create?: boolean }) {
             },
           },
         ]}
-        columnWidths={{ label: 520, count: 170, actions: 100 }}
-        minWidth={790}
+        columnWidths={{
+          label: 280,
+          description: 420,
+          count: 170,
+          actions: 100,
+        }}
+        minWidth={970}
         sorting={sorts.map((sort) => ({ id: sort.field, desc: sort.desc }))}
       />
+      <Dialog
+        open={(creating || editing !== null) && canManage}
+        onOpenChange={(open) => {
+          if (!open) closeForm()
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{t(creating ? "createTag" : "editTag")}</DialogTitle>
+            <DialogDescription>{t("tagFormHelp")}</DialogDescription>
+          </DialogHeader>
+          <form onSubmit={save} className="space-y-5">
+            {fields}
+            <DialogFooter>
+              <Button type="button" variant="outline" onClick={closeForm}>
+                {t("cancel")}
+              </Button>
+              <Button type="submit">{t("save")}</Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
       <Confirm
         open={!!pending}
         onOpenChange={(open) => !open && setPending(null)}

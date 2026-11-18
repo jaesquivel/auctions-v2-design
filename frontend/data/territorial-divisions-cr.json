@@ -1,0 +1,5832 @@
+[
+  {
+    "id": "CR-1",
+    "name": "San José",
+    "code": "1",
+    "level": 0,
+    "parentId": null,
+    "area": 4969.73,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-2",
+    "name": "Alajuela",
+    "code": "2",
+    "level": 0,
+    "parentId": null,
+    "area": 9772.27,
+    "altitude": null,
+    "normalized_name": "alajuela"
+  },
+  {
+    "id": "CR-3",
+    "name": "Cartago",
+    "code": "3",
+    "level": 0,
+    "parentId": null,
+    "area": 3093.23,
+    "altitude": null,
+    "normalized_name": "cartago"
+  },
+  {
+    "id": "CR-4",
+    "name": "Heredia",
+    "code": "4",
+    "level": 0,
+    "parentId": null,
+    "area": 2663.46,
+    "altitude": null,
+    "normalized_name": "heredia"
+  },
+  {
+    "id": "CR-5",
+    "name": "Guanacaste",
+    "code": "5",
+    "level": 0,
+    "parentId": null,
+    "area": 10196.32,
+    "altitude": null,
+    "normalized_name": "guanacaste"
+  },
+  {
+    "id": "CR-6",
+    "name": "Puntarenas",
+    "code": "6",
+    "level": 0,
+    "parentId": null,
+    "area": 11298.51,
+    "altitude": null,
+    "normalized_name": "puntarenas"
+  },
+  {
+    "id": "CR-7",
+    "name": "Limón",
+    "code": "7",
+    "level": 0,
+    "parentId": null,
+    "area": 9176.96,
+    "altitude": null,
+    "normalized_name": "limon"
+  },
+  {
+    "id": "CR-101",
+    "name": "San José",
+    "code": "101",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 44.62,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-102",
+    "name": "Escazú",
+    "code": "102",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 34.53,
+    "altitude": null,
+    "normalized_name": "escazu"
+  },
+  {
+    "id": "CR-103",
+    "name": "Desamparados",
+    "code": "103",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 118.89,
+    "altitude": null,
+    "normalized_name": "desamparados"
+  },
+  {
+    "id": "CR-104",
+    "name": "Puriscal",
+    "code": "104",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 555.02,
+    "altitude": null,
+    "normalized_name": "puriscal"
+  },
+  {
+    "id": "CR-105",
+    "name": "Tarrazú",
+    "code": "105",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 291.27,
+    "altitude": null,
+    "normalized_name": "tarrazu"
+  },
+  {
+    "id": "CR-106",
+    "name": "Aserrí",
+    "code": "106",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 168.26,
+    "altitude": null,
+    "normalized_name": "aserri"
+  },
+  {
+    "id": "CR-107",
+    "name": "Mora",
+    "code": "107",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 163.47,
+    "altitude": null,
+    "normalized_name": "mora"
+  },
+  {
+    "id": "CR-108",
+    "name": "Goicoechea",
+    "code": "108",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 31.7,
+    "altitude": null,
+    "normalized_name": "goicoechea"
+  },
+  {
+    "id": "CR-109",
+    "name": "Santa Ana",
+    "code": "109",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 61.42,
+    "altitude": null,
+    "normalized_name": "santa ana"
+  },
+  {
+    "id": "CR-110",
+    "name": "Alajuelita",
+    "code": "110",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 21.47,
+    "altitude": null,
+    "normalized_name": "alajuelita"
+  },
+  {
+    "id": "CR-111",
+    "name": "Vázquez de Coronado",
+    "code": "111",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 223.93,
+    "altitude": null,
+    "normalized_name": "vazquez de coronado"
+  },
+  {
+    "id": "CR-112",
+    "name": "Acosta",
+    "code": "112",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 342.56,
+    "altitude": null,
+    "normalized_name": "acosta"
+  },
+  {
+    "id": "CR-113",
+    "name": "Tibás",
+    "code": "113",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 8.27,
+    "altitude": null,
+    "normalized_name": "tibas"
+  },
+  {
+    "id": "CR-114",
+    "name": "Moravia",
+    "code": "114",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 28.82,
+    "altitude": null,
+    "normalized_name": "moravia"
+  },
+  {
+    "id": "CR-115",
+    "name": "Montes de Oca",
+    "code": "115",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 15.78,
+    "altitude": null,
+    "normalized_name": "montes de oca"
+  },
+  {
+    "id": "CR-116",
+    "name": "Turrubares",
+    "code": "116",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 416.25,
+    "altitude": null,
+    "normalized_name": "turrubares"
+  },
+  {
+    "id": "CR-117",
+    "name": "Dota",
+    "code": "117",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 404.44,
+    "altitude": null,
+    "normalized_name": "dota"
+  },
+  {
+    "id": "CR-118",
+    "name": "Curridabat",
+    "code": "118",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 16.06,
+    "altitude": null,
+    "normalized_name": "curridabat"
+  },
+  {
+    "id": "CR-119",
+    "name": "Pérez Zeledón",
+    "code": "119",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 1901.08,
+    "altitude": null,
+    "normalized_name": "perez zeledon"
+  },
+  {
+    "id": "CR-120",
+    "name": "León Cortés Castro",
+    "code": "120",
+    "level": 1,
+    "parentId": "CR-1",
+    "area": 121.89,
+    "altitude": null,
+    "normalized_name": "leon cortes castro"
+  },
+  {
+    "id": "CR-201",
+    "name": "Alajuela",
+    "code": "201",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 391.62,
+    "altitude": null,
+    "normalized_name": "alajuela"
+  },
+  {
+    "id": "CR-202",
+    "name": "San Ramón",
+    "code": "202",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 1021.74,
+    "altitude": null,
+    "normalized_name": "san ramon"
+  },
+  {
+    "id": "CR-203",
+    "name": "Grecia",
+    "code": "203",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 142.47,
+    "altitude": null,
+    "normalized_name": "grecia"
+  },
+  {
+    "id": "CR-204",
+    "name": "San Mateo",
+    "code": "204",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 125.03,
+    "altitude": null,
+    "normalized_name": "san mateo"
+  },
+  {
+    "id": "CR-205",
+    "name": "Atenas",
+    "code": "205",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 126.31,
+    "altitude": null,
+    "normalized_name": "atenas"
+  },
+  {
+    "id": "CR-206",
+    "name": "Naranjo",
+    "code": "206",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 127.01,
+    "altitude": null,
+    "normalized_name": "naranjo"
+  },
+  {
+    "id": "CR-207",
+    "name": "Palmares",
+    "code": "207",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 38.94,
+    "altitude": null,
+    "normalized_name": "palmares"
+  },
+  {
+    "id": "CR-208",
+    "name": "Poás",
+    "code": "208",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 74.48,
+    "altitude": null,
+    "normalized_name": "poas"
+  },
+  {
+    "id": "CR-209",
+    "name": "Orotina",
+    "code": "209",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 145.11,
+    "altitude": null,
+    "normalized_name": "orotina"
+  },
+  {
+    "id": "CR-210",
+    "name": "San Carlos",
+    "code": "210",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 3352.33,
+    "altitude": null,
+    "normalized_name": "san carlos"
+  },
+  {
+    "id": "CR-211",
+    "name": "Zarcero",
+    "code": "211",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 157.36,
+    "altitude": null,
+    "normalized_name": "zarcero"
+  },
+  {
+    "id": "CR-212",
+    "name": "Sarchí",
+    "code": "212",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 136.76,
+    "altitude": null,
+    "normalized_name": "sarchi"
+  },
+  {
+    "id": "CR-213",
+    "name": "Upala",
+    "code": "213",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 1592.67,
+    "altitude": null,
+    "normalized_name": "upala"
+  },
+  {
+    "id": "CR-214",
+    "name": "Los Chiles",
+    "code": "214",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 1332.71,
+    "altitude": null,
+    "normalized_name": "los chiles"
+  },
+  {
+    "id": "CR-215",
+    "name": "Guatuso",
+    "code": "215",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 752.83,
+    "altitude": null,
+    "normalized_name": "guatuso"
+  },
+  {
+    "id": "CR-216",
+    "name": "Río Cuarto",
+    "code": "216",
+    "level": 1,
+    "parentId": "CR-2",
+    "area": 254.89,
+    "altitude": null,
+    "normalized_name": "rio cuarto"
+  },
+  {
+    "id": "CR-301",
+    "name": "Cartago",
+    "code": "301",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 278.66,
+    "altitude": null,
+    "normalized_name": "cartago"
+  },
+  {
+    "id": "CR-302",
+    "name": "Paraíso",
+    "code": "302",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 476.99,
+    "altitude": null,
+    "normalized_name": "paraiso"
+  },
+  {
+    "id": "CR-303",
+    "name": "La Unión",
+    "code": "303",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 44.18,
+    "altitude": null,
+    "normalized_name": "la union"
+  },
+  {
+    "id": "CR-304",
+    "name": "Jiménez",
+    "code": "304",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 250.07,
+    "altitude": null,
+    "normalized_name": "jimenez"
+  },
+  {
+    "id": "CR-305",
+    "name": "Turrialba",
+    "code": "305",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 1589.25,
+    "altitude": null,
+    "normalized_name": "turrialba"
+  },
+  {
+    "id": "CR-306",
+    "name": "Alvarado",
+    "code": "306",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 79.18,
+    "altitude": null,
+    "normalized_name": "alvarado"
+  },
+  {
+    "id": "CR-307",
+    "name": "Oreamuno",
+    "code": "307",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 202.9,
+    "altitude": null,
+    "normalized_name": "oreamuno"
+  },
+  {
+    "id": "CR-308",
+    "name": "El Guarco",
+    "code": "308",
+    "level": 1,
+    "parentId": "CR-3",
+    "area": 172.0,
+    "altitude": null,
+    "normalized_name": "el guarco"
+  },
+  {
+    "id": "CR-401",
+    "name": "Heredia",
+    "code": "401",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 283.11,
+    "altitude": null,
+    "normalized_name": "heredia"
+  },
+  {
+    "id": "CR-402",
+    "name": "Barva",
+    "code": "402",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 56.01,
+    "altitude": null,
+    "normalized_name": "barva"
+  },
+  {
+    "id": "CR-403",
+    "name": "Santo Domingo",
+    "code": "403",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 25.4,
+    "altitude": null,
+    "normalized_name": "santo domingo"
+  },
+  {
+    "id": "CR-404",
+    "name": "Santa Bárbara",
+    "code": "404",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 52.1,
+    "altitude": null,
+    "normalized_name": "santa barbara"
+  },
+  {
+    "id": "CR-405",
+    "name": "San Rafael",
+    "code": "405",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 48.31,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-406",
+    "name": "San Isidro",
+    "code": "406",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 26.67,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-407",
+    "name": "Belén",
+    "code": "407",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 12.38,
+    "altitude": null,
+    "normalized_name": "belen"
+  },
+  {
+    "id": "CR-408",
+    "name": "Flores",
+    "code": "408",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 6.75,
+    "altitude": null,
+    "normalized_name": "flores"
+  },
+  {
+    "id": "CR-409",
+    "name": "San Pablo",
+    "code": "409",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 8.34,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-410",
+    "name": "Sarapiquí",
+    "code": "410",
+    "level": 1,
+    "parentId": "CR-4",
+    "area": 2144.38,
+    "altitude": null,
+    "normalized_name": "sarapiqui"
+  },
+  {
+    "id": "CR-501",
+    "name": "Liberia",
+    "code": "501",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 1442.17,
+    "altitude": null,
+    "normalized_name": "liberia"
+  },
+  {
+    "id": "CR-502",
+    "name": "Nicoya",
+    "code": "502",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 1337.57,
+    "altitude": null,
+    "normalized_name": "nicoya"
+  },
+  {
+    "id": "CR-503",
+    "name": "Santa Cruz",
+    "code": "503",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 1320.81,
+    "altitude": null,
+    "normalized_name": "santa cruz"
+  },
+  {
+    "id": "CR-504",
+    "name": "Bagaces",
+    "code": "504",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 1277.93,
+    "altitude": null,
+    "normalized_name": "bagaces"
+  },
+  {
+    "id": "CR-505",
+    "name": "Carrillo",
+    "code": "505",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 599.01,
+    "altitude": null,
+    "normalized_name": "carrillo"
+  },
+  {
+    "id": "CR-506",
+    "name": "Cañas",
+    "code": "506",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 687.05,
+    "altitude": null,
+    "normalized_name": "canas"
+  },
+  {
+    "id": "CR-507",
+    "name": "Abangares",
+    "code": "507",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 646.02,
+    "altitude": null,
+    "normalized_name": "abangares"
+  },
+  {
+    "id": "CR-508",
+    "name": "Tilarán",
+    "code": "508",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 669.23,
+    "altitude": null,
+    "normalized_name": "tilaran"
+  },
+  {
+    "id": "CR-509",
+    "name": "Nandayure",
+    "code": "509",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 568.14,
+    "altitude": null,
+    "normalized_name": "nandayure"
+  },
+  {
+    "id": "CR-510",
+    "name": "La Cruz",
+    "code": "510",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 1385.38,
+    "altitude": null,
+    "normalized_name": "la cruz"
+  },
+  {
+    "id": "CR-511",
+    "name": "Hojancha",
+    "code": "511",
+    "level": 1,
+    "parentId": "CR-5",
+    "area": 262.99,
+    "altitude": null,
+    "normalized_name": "hojancha"
+  },
+  {
+    "id": "CR-601",
+    "name": "Puntarenas",
+    "code": "601",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 1786.9,
+    "altitude": null,
+    "normalized_name": "puntarenas"
+  },
+  {
+    "id": "CR-602",
+    "name": "Esparza",
+    "code": "602",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 217.23,
+    "altitude": null,
+    "normalized_name": "esparza"
+  },
+  {
+    "id": "CR-603",
+    "name": "Buenos Aires",
+    "code": "603",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 2382.94,
+    "altitude": null,
+    "normalized_name": "buenos aires"
+  },
+  {
+    "id": "CR-604",
+    "name": "Montes de Oro",
+    "code": "604",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 247.59,
+    "altitude": null,
+    "normalized_name": "montes de oro"
+  },
+  {
+    "id": "CR-605",
+    "name": "Osa",
+    "code": "605",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 1932.7,
+    "altitude": null,
+    "normalized_name": "osa"
+  },
+  {
+    "id": "CR-606",
+    "name": "Quepos",
+    "code": "606",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 557.85,
+    "altitude": null,
+    "normalized_name": "quepos"
+  },
+  {
+    "id": "CR-607",
+    "name": "Golfito",
+    "code": "607",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 1032.32,
+    "altitude": null,
+    "normalized_name": "golfito"
+  },
+  {
+    "id": "CR-608",
+    "name": "Coto Brus",
+    "code": "608",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 944.24,
+    "altitude": null,
+    "normalized_name": "coto brus"
+  },
+  {
+    "id": "CR-609",
+    "name": "Parrita",
+    "code": "609",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 483.22,
+    "altitude": null,
+    "normalized_name": "parrita"
+  },
+  {
+    "id": "CR-610",
+    "name": "Corredores",
+    "code": "610",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 623.61,
+    "altitude": null,
+    "normalized_name": "corredores"
+  },
+  {
+    "id": "CR-611",
+    "name": "Garabito",
+    "code": "611",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 316.01,
+    "altitude": null,
+    "normalized_name": "garabito"
+  },
+  {
+    "id": "CR-612",
+    "name": "Monteverde",
+    "code": "612",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 53.47,
+    "altitude": null,
+    "normalized_name": "monteverde"
+  },
+  {
+    "id": "CR-613",
+    "name": "Puerto Jimenez",
+    "code": "613",
+    "level": 1,
+    "parentId": "CR-6",
+    "area": 720.43,
+    "altitude": null,
+    "normalized_name": "puerto jimenez"
+  },
+  {
+    "id": "CR-701",
+    "name": "Limón",
+    "code": "701",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 1769.38,
+    "altitude": null,
+    "normalized_name": "limon"
+  },
+  {
+    "id": "CR-702",
+    "name": "Pococí",
+    "code": "702",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 2188.25,
+    "altitude": null,
+    "normalized_name": "pococi"
+  },
+  {
+    "id": "CR-703",
+    "name": "Siquirres",
+    "code": "703",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 855.15,
+    "altitude": null,
+    "normalized_name": "siquirres"
+  },
+  {
+    "id": "CR-704",
+    "name": "Talamanca",
+    "code": "704",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 2792.23,
+    "altitude": null,
+    "normalized_name": "talamanca"
+  },
+  {
+    "id": "CR-705",
+    "name": "Matina",
+    "code": "705",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 770.4,
+    "altitude": null,
+    "normalized_name": "matina"
+  },
+  {
+    "id": "CR-706",
+    "name": "Guácimo",
+    "code": "706",
+    "level": 1,
+    "parentId": "CR-7",
+    "area": 801.56,
+    "altitude": null,
+    "normalized_name": "guacimo"
+  },
+  {
+    "id": "CR-10101",
+    "name": "Carmen",
+    "code": "10101",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 1.49,
+    "altitude": null,
+    "normalized_name": "carmen"
+  },
+  {
+    "id": "CR-10102",
+    "name": "Merced",
+    "code": "10102",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 2.2,
+    "altitude": null,
+    "normalized_name": "merced"
+  },
+  {
+    "id": "CR-10103",
+    "name": "Hospital",
+    "code": "10103",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 3.32,
+    "altitude": null,
+    "normalized_name": "hospital"
+  },
+  {
+    "id": "CR-10104",
+    "name": "Catedral",
+    "code": "10104",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 2.37,
+    "altitude": null,
+    "normalized_name": "catedral"
+  },
+  {
+    "id": "CR-10105",
+    "name": "Zapote",
+    "code": "10105",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 2.86,
+    "altitude": null,
+    "normalized_name": "zapote"
+  },
+  {
+    "id": "CR-10106",
+    "name": "San Francisco de Dos Ríos",
+    "code": "10106",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 2.64,
+    "altitude": null,
+    "normalized_name": "san francisco de dos rios"
+  },
+  {
+    "id": "CR-10107",
+    "name": "Uruca",
+    "code": "10107",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 8.39,
+    "altitude": null,
+    "normalized_name": "uruca"
+  },
+  {
+    "id": "CR-10108",
+    "name": "Mata Redonda",
+    "code": "10108",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 3.66,
+    "altitude": null,
+    "normalized_name": "mata redonda"
+  },
+  {
+    "id": "CR-10109",
+    "name": "Pavas",
+    "code": "10109",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 9.35,
+    "altitude": null,
+    "normalized_name": "pavas"
+  },
+  {
+    "id": "CR-10110",
+    "name": "Hatillo",
+    "code": "10110",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 4.37,
+    "altitude": null,
+    "normalized_name": "hatillo"
+  },
+  {
+    "id": "CR-10111",
+    "name": "San Sebastián",
+    "code": "10111",
+    "level": 2,
+    "parentId": "CR-101",
+    "area": 3.97,
+    "altitude": null,
+    "normalized_name": "san sebastian"
+  },
+  {
+    "id": "CR-10201",
+    "name": "Escazú",
+    "code": "10201",
+    "level": 2,
+    "parentId": "CR-102",
+    "area": 4.53,
+    "altitude": null,
+    "normalized_name": "escazu"
+  },
+  {
+    "id": "CR-10202",
+    "name": "San Antonio",
+    "code": "10202",
+    "level": 2,
+    "parentId": "CR-102",
+    "area": 16.96,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-10203",
+    "name": "San Rafael",
+    "code": "10203",
+    "level": 2,
+    "parentId": "CR-102",
+    "area": 13.04,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-10301",
+    "name": "Desamparados",
+    "code": "10301",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 3.32,
+    "altitude": null,
+    "normalized_name": "desamparados"
+  },
+  {
+    "id": "CR-10302",
+    "name": "San Miguel",
+    "code": "10302",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 21.34,
+    "altitude": null,
+    "normalized_name": "san miguel"
+  },
+  {
+    "id": "CR-10303",
+    "name": "San Juan de Dios",
+    "code": "10303",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 2.85,
+    "altitude": null,
+    "normalized_name": "san juan de dios"
+  },
+  {
+    "id": "CR-10304",
+    "name": "San Rafael Arriba",
+    "code": "10304",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 3.23,
+    "altitude": null,
+    "normalized_name": "san rafael arriba"
+  },
+  {
+    "id": "CR-10305",
+    "name": "San Antonio",
+    "code": "10305",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 2.07,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-10306",
+    "name": "Frailes",
+    "code": "10306",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 19.67,
+    "altitude": null,
+    "normalized_name": "frailes"
+  },
+  {
+    "id": "CR-10307",
+    "name": "Patarrá",
+    "code": "10307",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 15.88,
+    "altitude": null,
+    "normalized_name": "patarra"
+  },
+  {
+    "id": "CR-10308",
+    "name": "San Cristobal",
+    "code": "10308",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 25.03,
+    "altitude": null,
+    "normalized_name": "san cristobal"
+  },
+  {
+    "id": "CR-10309",
+    "name": "Rosario",
+    "code": "10309",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 14.85,
+    "altitude": null,
+    "normalized_name": "rosario"
+  },
+  {
+    "id": "CR-10310",
+    "name": "Damas",
+    "code": "10310",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 2.65,
+    "altitude": null,
+    "normalized_name": "damas"
+  },
+  {
+    "id": "CR-10311",
+    "name": "San Rafael Abajo",
+    "code": "10311",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 2.02,
+    "altitude": null,
+    "normalized_name": "san rafael abajo"
+  },
+  {
+    "id": "CR-10312",
+    "name": "Gravilias",
+    "code": "10312",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 2.94,
+    "altitude": null,
+    "normalized_name": "gravilias"
+  },
+  {
+    "id": "CR-10313",
+    "name": "Los Guido",
+    "code": "10313",
+    "level": 2,
+    "parentId": "CR-103",
+    "area": 3.06,
+    "altitude": null,
+    "normalized_name": "los guido"
+  },
+  {
+    "id": "CR-10401",
+    "name": "Santiago",
+    "code": "10401",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 34.52,
+    "altitude": null,
+    "normalized_name": "santiago"
+  },
+  {
+    "id": "CR-10402",
+    "name": "Mercedes Sur",
+    "code": "10402",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 181.77,
+    "altitude": null,
+    "normalized_name": "mercedes sur"
+  },
+  {
+    "id": "CR-10403",
+    "name": "Barbacoas",
+    "code": "10403",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 18.62,
+    "altitude": null,
+    "normalized_name": "barbacoas"
+  },
+  {
+    "id": "CR-10404",
+    "name": "Grifo Alto",
+    "code": "10404",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 26.4,
+    "altitude": null,
+    "normalized_name": "grifo alto"
+  },
+  {
+    "id": "CR-10405",
+    "name": "San Rafael",
+    "code": "10405",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 15.5,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-10406",
+    "name": "Candelarita",
+    "code": "10406",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 26.73,
+    "altitude": null,
+    "normalized_name": "candelarita"
+  },
+  {
+    "id": "CR-10407",
+    "name": "Desamparaditos",
+    "code": "10407",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 7.22,
+    "altitude": null,
+    "normalized_name": "desamparaditos"
+  },
+  {
+    "id": "CR-10408",
+    "name": "San Antonio",
+    "code": "10408",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 14.62,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-10409",
+    "name": "Chires",
+    "code": "10409",
+    "level": 2,
+    "parentId": "CR-104",
+    "area": 229.66,
+    "altitude": null,
+    "normalized_name": "chires"
+  },
+  {
+    "id": "CR-10501",
+    "name": "San Marcos",
+    "code": "10501",
+    "level": 2,
+    "parentId": "CR-105",
+    "area": 46.02,
+    "altitude": null,
+    "normalized_name": "san marcos"
+  },
+  {
+    "id": "CR-10502",
+    "name": "San Lorenzo",
+    "code": "10502",
+    "level": 2,
+    "parentId": "CR-105",
+    "area": 186.29,
+    "altitude": null,
+    "normalized_name": "san lorenzo"
+  },
+  {
+    "id": "CR-10503",
+    "name": "San Carlos",
+    "code": "10503",
+    "level": 2,
+    "parentId": "CR-105",
+    "area": 58.96,
+    "altitude": null,
+    "normalized_name": "san carlos"
+  },
+  {
+    "id": "CR-10601",
+    "name": "Aserrí",
+    "code": "10601",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 15.26,
+    "altitude": null,
+    "normalized_name": "aserri"
+  },
+  {
+    "id": "CR-10602",
+    "name": "Tarbaca",
+    "code": "10602",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 15.34,
+    "altitude": null,
+    "normalized_name": "tarbaca"
+  },
+  {
+    "id": "CR-10603",
+    "name": "Vuelta de Jorco",
+    "code": "10603",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 22.05,
+    "altitude": null,
+    "normalized_name": "vuelta de jorco"
+  },
+  {
+    "id": "CR-10604",
+    "name": "San Gabriel",
+    "code": "10604",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 11.73,
+    "altitude": null,
+    "normalized_name": "san gabriel"
+  },
+  {
+    "id": "CR-10605",
+    "name": "Legua",
+    "code": "10605",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 81.26,
+    "altitude": null,
+    "normalized_name": "legua"
+  },
+  {
+    "id": "CR-10606",
+    "name": "Monterrey",
+    "code": "10606",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 8.28,
+    "altitude": null,
+    "normalized_name": "monterrey"
+  },
+  {
+    "id": "CR-10607",
+    "name": "Salitrillos",
+    "code": "10607",
+    "level": 2,
+    "parentId": "CR-106",
+    "area": 14.34,
+    "altitude": null,
+    "normalized_name": "salitrillos"
+  },
+  {
+    "id": "CR-10701",
+    "name": "Colón",
+    "code": "10701",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 39.89,
+    "altitude": null,
+    "normalized_name": "colon"
+  },
+  {
+    "id": "CR-10702",
+    "name": "Guayabo",
+    "code": "10702",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 9.01,
+    "altitude": null,
+    "normalized_name": "guayabo"
+  },
+  {
+    "id": "CR-10703",
+    "name": "Tabarcia",
+    "code": "10703",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 40.43,
+    "altitude": null,
+    "normalized_name": "tabarcia"
+  },
+  {
+    "id": "CR-10704",
+    "name": "Piedras Negras",
+    "code": "10704",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 14.88,
+    "altitude": null,
+    "normalized_name": "piedras negras"
+  },
+  {
+    "id": "CR-10705",
+    "name": "Picagres",
+    "code": "10705",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 27.16,
+    "altitude": null,
+    "normalized_name": "picagres"
+  },
+  {
+    "id": "CR-10706",
+    "name": "Jaris",
+    "code": "10706",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 5.49,
+    "altitude": null,
+    "normalized_name": "jaris"
+  },
+  {
+    "id": "CR-10707",
+    "name": "Quitirrisí",
+    "code": "10707",
+    "level": 2,
+    "parentId": "CR-107",
+    "area": 26.62,
+    "altitude": null,
+    "normalized_name": "quitirrisi"
+  },
+  {
+    "id": "CR-10801",
+    "name": "Guadalupe",
+    "code": "10801",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 2.39,
+    "altitude": null,
+    "normalized_name": "guadalupe"
+  },
+  {
+    "id": "CR-10802",
+    "name": "San Francisco",
+    "code": "10802",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 0.58,
+    "altitude": null,
+    "normalized_name": "san francisco"
+  },
+  {
+    "id": "CR-10803",
+    "name": "Calle Blancos",
+    "code": "10803",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 2.36,
+    "altitude": null,
+    "normalized_name": "calle blancos"
+  },
+  {
+    "id": "CR-10804",
+    "name": "Mata de Plátano",
+    "code": "10804",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 7.79,
+    "altitude": null,
+    "normalized_name": "mata de platano"
+  },
+  {
+    "id": "CR-10805",
+    "name": "Ipís",
+    "code": "10805",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 2.5,
+    "altitude": null,
+    "normalized_name": "ipis"
+  },
+  {
+    "id": "CR-10806",
+    "name": "Rancho Redondo",
+    "code": "10806",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 13.08,
+    "altitude": null,
+    "normalized_name": "rancho redondo"
+  },
+  {
+    "id": "CR-10807",
+    "name": "Purral",
+    "code": "10807",
+    "level": 2,
+    "parentId": "CR-108",
+    "area": 3.0,
+    "altitude": null,
+    "normalized_name": "purral"
+  },
+  {
+    "id": "CR-10901",
+    "name": "Santa Ana",
+    "code": "10901",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 5.44,
+    "altitude": null,
+    "normalized_name": "santa ana"
+  },
+  {
+    "id": "CR-10902",
+    "name": "Salitral",
+    "code": "10902",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 20.29,
+    "altitude": null,
+    "normalized_name": "salitral"
+  },
+  {
+    "id": "CR-10903",
+    "name": "Pozos",
+    "code": "10903",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 13.35,
+    "altitude": null,
+    "normalized_name": "pozos"
+  },
+  {
+    "id": "CR-10904",
+    "name": "Uruca",
+    "code": "10904",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 7.03,
+    "altitude": null,
+    "normalized_name": "uruca"
+  },
+  {
+    "id": "CR-10905",
+    "name": "Piedades",
+    "code": "10905",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 12.07,
+    "altitude": null,
+    "normalized_name": "piedades"
+  },
+  {
+    "id": "CR-10906",
+    "name": "Brasil",
+    "code": "10906",
+    "level": 2,
+    "parentId": "CR-109",
+    "area": 3.24,
+    "altitude": null,
+    "normalized_name": "brasil"
+  },
+  {
+    "id": "CR-11001",
+    "name": "Alajuelita",
+    "code": "11001",
+    "level": 2,
+    "parentId": "CR-110",
+    "area": 1.27,
+    "altitude": null,
+    "normalized_name": "alajuelita"
+  },
+  {
+    "id": "CR-11002",
+    "name": "San Josecito",
+    "code": "11002",
+    "level": 2,
+    "parentId": "CR-110",
+    "area": 2.37,
+    "altitude": null,
+    "normalized_name": "san josecito"
+  },
+  {
+    "id": "CR-11003",
+    "name": "San Antonio",
+    "code": "11003",
+    "level": 2,
+    "parentId": "CR-110",
+    "area": 10.26,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-11004",
+    "name": "Concepción",
+    "code": "11004",
+    "level": 2,
+    "parentId": "CR-110",
+    "area": 2.43,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-11005",
+    "name": "San Felipe",
+    "code": "11005",
+    "level": 2,
+    "parentId": "CR-110",
+    "area": 5.13,
+    "altitude": null,
+    "normalized_name": "san felipe"
+  },
+  {
+    "id": "CR-11101",
+    "name": "San Isidro",
+    "code": "11101",
+    "level": 2,
+    "parentId": "CR-111",
+    "area": 5.16,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-11102",
+    "name": "San Rafael",
+    "code": "11102",
+    "level": 2,
+    "parentId": "CR-111",
+    "area": 16.91,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-11103",
+    "name": "Dulce Nombre de Jesús",
+    "code": "11103",
+    "level": 2,
+    "parentId": "CR-111",
+    "area": 67.92,
+    "altitude": null,
+    "normalized_name": "dulce nombre de jesus"
+  },
+  {
+    "id": "CR-11104",
+    "name": "Patalillo",
+    "code": "11104",
+    "level": 2,
+    "parentId": "CR-111",
+    "area": 1.92,
+    "altitude": null,
+    "normalized_name": "patalillo"
+  },
+  {
+    "id": "CR-11105",
+    "name": "Cascajal",
+    "code": "11105",
+    "level": 2,
+    "parentId": "CR-111",
+    "area": 132.02,
+    "altitude": null,
+    "normalized_name": "cascajal"
+  },
+  {
+    "id": "CR-11201",
+    "name": "San Ignacio",
+    "code": "11201",
+    "level": 2,
+    "parentId": "CR-112",
+    "area": 22.74,
+    "altitude": null,
+    "normalized_name": "san ignacio"
+  },
+  {
+    "id": "CR-11202",
+    "name": "Guaitil",
+    "code": "11202",
+    "level": 2,
+    "parentId": "CR-112",
+    "area": 43.99,
+    "altitude": null,
+    "normalized_name": "guaitil"
+  },
+  {
+    "id": "CR-11203",
+    "name": "Palmichal",
+    "code": "11203",
+    "level": 2,
+    "parentId": "CR-112",
+    "area": 34.14,
+    "altitude": null,
+    "normalized_name": "palmichal"
+  },
+  {
+    "id": "CR-11204",
+    "name": "Cangrejal",
+    "code": "11204",
+    "level": 2,
+    "parentId": "CR-112",
+    "area": 64.33,
+    "altitude": null,
+    "normalized_name": "cangrejal"
+  },
+  {
+    "id": "CR-11205",
+    "name": "Sabanillas",
+    "code": "11205",
+    "level": 2,
+    "parentId": "CR-112",
+    "area": 177.36,
+    "altitude": null,
+    "normalized_name": "sabanillas"
+  },
+  {
+    "id": "CR-11301",
+    "name": "San Juan",
+    "code": "11301",
+    "level": 2,
+    "parentId": "CR-113",
+    "area": 3.51,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-11302",
+    "name": "Cinco Esquinas",
+    "code": "11302",
+    "level": 2,
+    "parentId": "CR-113",
+    "area": 0.65,
+    "altitude": null,
+    "normalized_name": "cinco esquinas"
+  },
+  {
+    "id": "CR-11303",
+    "name": "Anselmo Llorente",
+    "code": "11303",
+    "level": 2,
+    "parentId": "CR-113",
+    "area": 1.37,
+    "altitude": null,
+    "normalized_name": "anselmo llorente"
+  },
+  {
+    "id": "CR-11304",
+    "name": "León XIII",
+    "code": "11304",
+    "level": 2,
+    "parentId": "CR-113",
+    "area": 0.72,
+    "altitude": null,
+    "normalized_name": "leon xiii"
+  },
+  {
+    "id": "CR-11305",
+    "name": "Colima",
+    "code": "11305",
+    "level": 2,
+    "parentId": "CR-113",
+    "area": 2.01,
+    "altitude": null,
+    "normalized_name": "colima"
+  },
+  {
+    "id": "CR-11401",
+    "name": "San Vicente",
+    "code": "11401",
+    "level": 2,
+    "parentId": "CR-114",
+    "area": 5.4,
+    "altitude": null,
+    "normalized_name": "san vicente"
+  },
+  {
+    "id": "CR-11402",
+    "name": "San Jerónimo",
+    "code": "11402",
+    "level": 2,
+    "parentId": "CR-114",
+    "area": 18.53,
+    "altitude": null,
+    "normalized_name": "san jeronimo"
+  },
+  {
+    "id": "CR-11403",
+    "name": "La Trinidad",
+    "code": "11403",
+    "level": 2,
+    "parentId": "CR-114",
+    "area": 4.9,
+    "altitude": null,
+    "normalized_name": "la trinidad"
+  },
+  {
+    "id": "CR-11501",
+    "name": "San Pedro",
+    "code": "11501",
+    "level": 2,
+    "parentId": "CR-115",
+    "area": 4.74,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-11502",
+    "name": "Sabanilla",
+    "code": "11502",
+    "level": 2,
+    "parentId": "CR-115",
+    "area": 1.79,
+    "altitude": null,
+    "normalized_name": "sabanilla"
+  },
+  {
+    "id": "CR-11503",
+    "name": "Mercedes",
+    "code": "11503",
+    "level": 2,
+    "parentId": "CR-115",
+    "area": 1.43,
+    "altitude": null,
+    "normalized_name": "mercedes"
+  },
+  {
+    "id": "CR-11504",
+    "name": "San Rafael",
+    "code": "11504",
+    "level": 2,
+    "parentId": "CR-115",
+    "area": 7.82,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-11601",
+    "name": "San Pablo",
+    "code": "11601",
+    "level": 2,
+    "parentId": "CR-116",
+    "area": 26.41,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-11602",
+    "name": "San Pedro",
+    "code": "11602",
+    "level": 2,
+    "parentId": "CR-116",
+    "area": 39.2,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-11603",
+    "name": "San Juan de Mata",
+    "code": "11603",
+    "level": 2,
+    "parentId": "CR-116",
+    "area": 86.25,
+    "altitude": null,
+    "normalized_name": "san juan de mata"
+  },
+  {
+    "id": "CR-11604",
+    "name": "San Luis",
+    "code": "11604",
+    "level": 2,
+    "parentId": "CR-116",
+    "area": 43.84,
+    "altitude": null,
+    "normalized_name": "san luis"
+  },
+  {
+    "id": "CR-11605",
+    "name": "Carara",
+    "code": "11605",
+    "level": 2,
+    "parentId": "CR-116",
+    "area": 220.55,
+    "altitude": null,
+    "normalized_name": "carara"
+  },
+  {
+    "id": "CR-11701",
+    "name": "Santa María",
+    "code": "11701",
+    "level": 2,
+    "parentId": "CR-117",
+    "area": 93.6,
+    "altitude": null,
+    "normalized_name": "santa maria"
+  },
+  {
+    "id": "CR-11702",
+    "name": "Jardín",
+    "code": "11702",
+    "level": 2,
+    "parentId": "CR-117",
+    "area": 33.27,
+    "altitude": null,
+    "normalized_name": "jardin"
+  },
+  {
+    "id": "CR-11703",
+    "name": "Copey",
+    "code": "11703",
+    "level": 2,
+    "parentId": "CR-117",
+    "area": 277.58,
+    "altitude": null,
+    "normalized_name": "copey"
+  },
+  {
+    "id": "CR-11801",
+    "name": "Curridabat",
+    "code": "11801",
+    "level": 2,
+    "parentId": "CR-118",
+    "area": 6.17,
+    "altitude": null,
+    "normalized_name": "curridabat"
+  },
+  {
+    "id": "CR-11802",
+    "name": "Granadilla",
+    "code": "11802",
+    "level": 2,
+    "parentId": "CR-118",
+    "area": 3.51,
+    "altitude": null,
+    "normalized_name": "granadilla"
+  },
+  {
+    "id": "CR-11803",
+    "name": "Sánchez",
+    "code": "11803",
+    "level": 2,
+    "parentId": "CR-118",
+    "area": 4.51,
+    "altitude": null,
+    "normalized_name": "sanchez"
+  },
+  {
+    "id": "CR-11804",
+    "name": "Tirrases",
+    "code": "11804",
+    "level": 2,
+    "parentId": "CR-118",
+    "area": 1.88,
+    "altitude": null,
+    "normalized_name": "tirrases"
+  },
+  {
+    "id": "CR-11901",
+    "name": "San Isidro de El General",
+    "code": "11901",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 191.82,
+    "altitude": null,
+    "normalized_name": "san isidro de el general"
+  },
+  {
+    "id": "CR-11902",
+    "name": "El General",
+    "code": "11902",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 76.88,
+    "altitude": null,
+    "normalized_name": "el general"
+  },
+  {
+    "id": "CR-11903",
+    "name": "Daniel Flores",
+    "code": "11903",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 64.06,
+    "altitude": null,
+    "normalized_name": "daniel flores"
+  },
+  {
+    "id": "CR-11904",
+    "name": "Rivas",
+    "code": "11904",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 310.0,
+    "altitude": null,
+    "normalized_name": "rivas"
+  },
+  {
+    "id": "CR-11905",
+    "name": "San Pedro",
+    "code": "11905",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 206.12,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-11906",
+    "name": "Platanares",
+    "code": "11906",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 80.92,
+    "altitude": null,
+    "normalized_name": "platanares"
+  },
+  {
+    "id": "CR-11907",
+    "name": "Pejibaye",
+    "code": "11907",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 141.18,
+    "altitude": null,
+    "normalized_name": "pejibaye"
+  },
+  {
+    "id": "CR-11908",
+    "name": "Cajón",
+    "code": "11908",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 118.63,
+    "altitude": null,
+    "normalized_name": "cajon"
+  },
+  {
+    "id": "CR-11909",
+    "name": "Barú",
+    "code": "11909",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 189.66,
+    "altitude": null,
+    "normalized_name": "baru"
+  },
+  {
+    "id": "CR-11910",
+    "name": "Río Nuevo",
+    "code": "11910",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 242.19,
+    "altitude": null,
+    "normalized_name": "rio nuevo"
+  },
+  {
+    "id": "CR-11911",
+    "name": "Páramo",
+    "code": "11911",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 203.33,
+    "altitude": null,
+    "normalized_name": "paramo"
+  },
+  {
+    "id": "CR-11912",
+    "name": "La  Amistad",
+    "code": "11912",
+    "level": 2,
+    "parentId": "CR-119",
+    "area": 76.29,
+    "altitude": null,
+    "normalized_name": "la amistad"
+  },
+  {
+    "id": "CR-12001",
+    "name": "San Pablo",
+    "code": "12001",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 20.76,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-12002",
+    "name": "San Andrés",
+    "code": "12002",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 16.1,
+    "altitude": null,
+    "normalized_name": "san andres"
+  },
+  {
+    "id": "CR-12003",
+    "name": "Llano Bonito",
+    "code": "12003",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 34.1,
+    "altitude": null,
+    "normalized_name": "llano bonito"
+  },
+  {
+    "id": "CR-12004",
+    "name": "San Isidro",
+    "code": "12004",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 19.02,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-12005",
+    "name": "Santa Cruz",
+    "code": "12005",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 21.78,
+    "altitude": null,
+    "normalized_name": "santa cruz"
+  },
+  {
+    "id": "CR-12006",
+    "name": "San Antonio",
+    "code": "12006",
+    "level": 2,
+    "parentId": "CR-120",
+    "area": 10.14,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-20101",
+    "name": "Alajuela",
+    "code": "20101",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 10.61,
+    "altitude": null,
+    "normalized_name": "alajuela"
+  },
+  {
+    "id": "CR-20102",
+    "name": "San José",
+    "code": "20102",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 14.87,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-20103",
+    "name": "Carrizal",
+    "code": "20103",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 16.22,
+    "altitude": null,
+    "normalized_name": "carrizal"
+  },
+  {
+    "id": "CR-20104",
+    "name": "San Antonio",
+    "code": "20104",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 8.76,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-20105",
+    "name": "Guácima",
+    "code": "20105",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 28.07,
+    "altitude": null,
+    "normalized_name": "guacima"
+  },
+  {
+    "id": "CR-20106",
+    "name": "San Isidro",
+    "code": "20106",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 34.69,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-20107",
+    "name": "Sabanilla",
+    "code": "20107",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 43.18,
+    "altitude": null,
+    "normalized_name": "sabanilla"
+  },
+  {
+    "id": "CR-20108",
+    "name": "San Rafael",
+    "code": "20108",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 19.33,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-20109",
+    "name": "Río Segundo",
+    "code": "20109",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 5.46,
+    "altitude": null,
+    "normalized_name": "rio segundo"
+  },
+  {
+    "id": "CR-20110",
+    "name": "Desamparados",
+    "code": "20110",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 12.95,
+    "altitude": null,
+    "normalized_name": "desamparados"
+  },
+  {
+    "id": "CR-20111",
+    "name": "Turrúcares",
+    "code": "20111",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 35.89,
+    "altitude": null,
+    "normalized_name": "turrucares"
+  },
+  {
+    "id": "CR-20112",
+    "name": "Tambor",
+    "code": "20112",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 13.89,
+    "altitude": null,
+    "normalized_name": "tambor"
+  },
+  {
+    "id": "CR-20113",
+    "name": "Garita",
+    "code": "20113",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 33.9,
+    "altitude": null,
+    "normalized_name": "garita"
+  },
+  {
+    "id": "CR-20114",
+    "name": "Sarapiquí",
+    "code": "20114",
+    "level": 2,
+    "parentId": "CR-201",
+    "area": 113.79,
+    "altitude": null,
+    "normalized_name": "sarapiqui"
+  },
+  {
+    "id": "CR-20201",
+    "name": "San Ramón",
+    "code": "20201",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 1.28,
+    "altitude": null,
+    "normalized_name": "san ramon"
+  },
+  {
+    "id": "CR-20202",
+    "name": "Santiago",
+    "code": "20202",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 61.06,
+    "altitude": null,
+    "normalized_name": "santiago"
+  },
+  {
+    "id": "CR-20203",
+    "name": "San Juan",
+    "code": "20203",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 5.12,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-20204",
+    "name": "Piedades Norte",
+    "code": "20204",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 47.68,
+    "altitude": null,
+    "normalized_name": "piedades norte"
+  },
+  {
+    "id": "CR-20205",
+    "name": "Piedades Sur",
+    "code": "20205",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 115.63,
+    "altitude": null,
+    "normalized_name": "piedades sur"
+  },
+  {
+    "id": "CR-20206",
+    "name": "San Rafael",
+    "code": "20206",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 30.69,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-20207",
+    "name": "San Isidro",
+    "code": "20207",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 8.69,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-20208",
+    "name": "Ángeles",
+    "code": "20208",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 84.91,
+    "altitude": null,
+    "normalized_name": "angeles"
+  },
+  {
+    "id": "CR-20209",
+    "name": "Alfaro",
+    "code": "20209",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 17.84,
+    "altitude": null,
+    "normalized_name": "alfaro"
+  },
+  {
+    "id": "CR-20210",
+    "name": "Volio",
+    "code": "20210",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 20.67,
+    "altitude": null,
+    "normalized_name": "volio"
+  },
+  {
+    "id": "CR-20211",
+    "name": "Concepción",
+    "code": "20211",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 9.51,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-20212",
+    "name": "Zapotal",
+    "code": "20212",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 67.13,
+    "altitude": null,
+    "normalized_name": "zapotal"
+  },
+  {
+    "id": "CR-20213",
+    "name": "Peñas Blancas",
+    "code": "20213",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 246.8,
+    "altitude": null,
+    "normalized_name": "penas blancas"
+  },
+  {
+    "id": "CR-20214",
+    "name": "San Lorenzo",
+    "code": "20214",
+    "level": 2,
+    "parentId": "CR-202",
+    "area": 304.74,
+    "altitude": null,
+    "normalized_name": "san lorenzo"
+  },
+  {
+    "id": "CR-20301",
+    "name": "Grecia",
+    "code": "20301",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 7.57,
+    "altitude": null,
+    "normalized_name": "grecia"
+  },
+  {
+    "id": "CR-20302",
+    "name": "San Isidro",
+    "code": "20302",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 16.83,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-20303",
+    "name": "San José",
+    "code": "20303",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 12.41,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-20304",
+    "name": "San Roque",
+    "code": "20304",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 26.95,
+    "altitude": null,
+    "normalized_name": "san roque"
+  },
+  {
+    "id": "CR-20305",
+    "name": "Tacares",
+    "code": "20305",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 24.9,
+    "altitude": null,
+    "normalized_name": "tacares"
+  },
+  {
+    "id": "CR-20307",
+    "name": "Puente de Piedra",
+    "code": "20307",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 23.03,
+    "altitude": null,
+    "normalized_name": "puente de piedra"
+  },
+  {
+    "id": "CR-20308",
+    "name": "Bolivar",
+    "code": "20308",
+    "level": 2,
+    "parentId": "CR-203",
+    "area": 30.78,
+    "altitude": null,
+    "normalized_name": "bolivar"
+  },
+  {
+    "id": "CR-20401",
+    "name": "San Mateo",
+    "code": "20401",
+    "level": 2,
+    "parentId": "CR-204",
+    "area": 64.89,
+    "altitude": null,
+    "normalized_name": "san mateo"
+  },
+  {
+    "id": "CR-20402",
+    "name": "Desmonte",
+    "code": "20402",
+    "level": 2,
+    "parentId": "CR-204",
+    "area": 20.22,
+    "altitude": null,
+    "normalized_name": "desmonte"
+  },
+  {
+    "id": "CR-20403",
+    "name": "Jesús María",
+    "code": "20403",
+    "level": 2,
+    "parentId": "CR-204",
+    "area": 18.66,
+    "altitude": null,
+    "normalized_name": "jesus maria"
+  },
+  {
+    "id": "CR-20404",
+    "name": "Labrador",
+    "code": "20404",
+    "level": 2,
+    "parentId": "CR-204",
+    "area": 21.26,
+    "altitude": null,
+    "normalized_name": "labrador"
+  },
+  {
+    "id": "CR-20501",
+    "name": "Atenas",
+    "code": "20501",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 9.76,
+    "altitude": null,
+    "normalized_name": "atenas"
+  },
+  {
+    "id": "CR-20502",
+    "name": "Jesús",
+    "code": "20502",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 18.11,
+    "altitude": null,
+    "normalized_name": "jesus"
+  },
+  {
+    "id": "CR-20503",
+    "name": "Mercedes",
+    "code": "20503",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 7.84,
+    "altitude": null,
+    "normalized_name": "mercedes"
+  },
+  {
+    "id": "CR-20504",
+    "name": "San Isidro",
+    "code": "20504",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 14.39,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-20505",
+    "name": "Concepción",
+    "code": "20505",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 21.91,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-20506",
+    "name": "San José",
+    "code": "20506",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 13.47,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-20507",
+    "name": "Santa Eulalia",
+    "code": "20507",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 14.56,
+    "altitude": null,
+    "normalized_name": "santa eulalia"
+  },
+  {
+    "id": "CR-20508",
+    "name": "Escobal",
+    "code": "20508",
+    "level": 2,
+    "parentId": "CR-205",
+    "area": 26.28,
+    "altitude": null,
+    "normalized_name": "escobal"
+  },
+  {
+    "id": "CR-20601",
+    "name": "Naranjo",
+    "code": "20601",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 14.98,
+    "altitude": null,
+    "normalized_name": "naranjo"
+  },
+  {
+    "id": "CR-20602",
+    "name": "San Miguel",
+    "code": "20602",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 15.59,
+    "altitude": null,
+    "normalized_name": "san miguel"
+  },
+  {
+    "id": "CR-20603",
+    "name": "San José",
+    "code": "20603",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 20.9,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-20604",
+    "name": "Cirrí Sur",
+    "code": "20604",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 32.11,
+    "altitude": null,
+    "normalized_name": "cirri sur"
+  },
+  {
+    "id": "CR-20605",
+    "name": "San Jerónimo",
+    "code": "20605",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 9.05,
+    "altitude": null,
+    "normalized_name": "san jeronimo"
+  },
+  {
+    "id": "CR-20606",
+    "name": "San Juan",
+    "code": "20606",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 7.45,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-20607",
+    "name": "El Rosario",
+    "code": "20607",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 17.15,
+    "altitude": null,
+    "normalized_name": "el rosario"
+  },
+  {
+    "id": "CR-20608",
+    "name": "Palmitos",
+    "code": "20608",
+    "level": 2,
+    "parentId": "CR-206",
+    "area": 10.47,
+    "altitude": null,
+    "normalized_name": "palmitos"
+  },
+  {
+    "id": "CR-20701",
+    "name": "Palmares",
+    "code": "20701",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 1.19,
+    "altitude": null,
+    "normalized_name": "palmares"
+  },
+  {
+    "id": "CR-20702",
+    "name": "Zaragoza",
+    "code": "20702",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 8.43,
+    "altitude": null,
+    "normalized_name": "zaragoza"
+  },
+  {
+    "id": "CR-20703",
+    "name": "Buenos Aires",
+    "code": "20703",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 6.84,
+    "altitude": null,
+    "normalized_name": "buenos aires"
+  },
+  {
+    "id": "CR-20704",
+    "name": "Santiago",
+    "code": "20704",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 7.96,
+    "altitude": null,
+    "normalized_name": "santiago"
+  },
+  {
+    "id": "CR-20705",
+    "name": "Candelaria",
+    "code": "20705",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 4.72,
+    "altitude": null,
+    "normalized_name": "candelaria"
+  },
+  {
+    "id": "CR-20706",
+    "name": "Esquipulas",
+    "code": "20706",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 5.4,
+    "altitude": null,
+    "normalized_name": "esquipulas"
+  },
+  {
+    "id": "CR-20707",
+    "name": "La Granja",
+    "code": "20707",
+    "level": 2,
+    "parentId": "CR-207",
+    "area": 4.39,
+    "altitude": null,
+    "normalized_name": "la granja"
+  },
+  {
+    "id": "CR-20801",
+    "name": "San Pedro",
+    "code": "20801",
+    "level": 2,
+    "parentId": "CR-208",
+    "area": 13.58,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-20802",
+    "name": "San Juan",
+    "code": "20802",
+    "level": 2,
+    "parentId": "CR-208",
+    "area": 16.38,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-20803",
+    "name": "San Rafael",
+    "code": "20803",
+    "level": 2,
+    "parentId": "CR-208",
+    "area": 14.18,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-20804",
+    "name": "Carrillos",
+    "code": "20804",
+    "level": 2,
+    "parentId": "CR-208",
+    "area": 10.13,
+    "altitude": null,
+    "normalized_name": "carrillos"
+  },
+  {
+    "id": "CR-20805",
+    "name": "Sabana Redonda",
+    "code": "20805",
+    "level": 2,
+    "parentId": "CR-208",
+    "area": 20.21,
+    "altitude": null,
+    "normalized_name": "sabana redonda"
+  },
+  {
+    "id": "CR-20901",
+    "name": "Orotina",
+    "code": "20901",
+    "level": 2,
+    "parentId": "CR-209",
+    "area": 21.56,
+    "altitude": null,
+    "normalized_name": "orotina"
+  },
+  {
+    "id": "CR-20902",
+    "name": "El Mastate",
+    "code": "20902",
+    "level": 2,
+    "parentId": "CR-209",
+    "area": 9.5,
+    "altitude": null,
+    "normalized_name": "el mastate"
+  },
+  {
+    "id": "CR-20903",
+    "name": "Hacienda Vieja",
+    "code": "20903",
+    "level": 2,
+    "parentId": "CR-209",
+    "area": 16.91,
+    "altitude": null,
+    "normalized_name": "hacienda vieja"
+  },
+  {
+    "id": "CR-20904",
+    "name": "Coyolar",
+    "code": "20904",
+    "level": 2,
+    "parentId": "CR-209",
+    "area": 36.48,
+    "altitude": null,
+    "normalized_name": "coyolar"
+  },
+  {
+    "id": "CR-20905",
+    "name": "La Ceiba",
+    "code": "20905",
+    "level": 2,
+    "parentId": "CR-209",
+    "area": 60.66,
+    "altitude": null,
+    "normalized_name": "la ceiba"
+  },
+  {
+    "id": "CR-21001",
+    "name": "Quesada",
+    "code": "21001",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 143.48,
+    "altitude": null,
+    "normalized_name": "quesada"
+  },
+  {
+    "id": "CR-21002",
+    "name": "Florencia",
+    "code": "21002",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 199.66,
+    "altitude": null,
+    "normalized_name": "florencia"
+  },
+  {
+    "id": "CR-21003",
+    "name": "Buenavista",
+    "code": "21003",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 25.97,
+    "altitude": null,
+    "normalized_name": "buenavista"
+  },
+  {
+    "id": "CR-21004",
+    "name": "Aguas Zarcas",
+    "code": "21004",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 185.7,
+    "altitude": null,
+    "normalized_name": "aguas zarcas"
+  },
+  {
+    "id": "CR-21005",
+    "name": "Venecia",
+    "code": "21005",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 132.53,
+    "altitude": null,
+    "normalized_name": "venecia"
+  },
+  {
+    "id": "CR-21006",
+    "name": "Pital",
+    "code": "21006",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 379.27,
+    "altitude": null,
+    "normalized_name": "pital"
+  },
+  {
+    "id": "CR-21007",
+    "name": "La Fortuna",
+    "code": "21007",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 229.59,
+    "altitude": null,
+    "normalized_name": "la fortuna"
+  },
+  {
+    "id": "CR-21008",
+    "name": "La Tigra",
+    "code": "21008",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 56.21,
+    "altitude": null,
+    "normalized_name": "la tigra"
+  },
+  {
+    "id": "CR-21009",
+    "name": "La Palmera",
+    "code": "21009",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 100.36,
+    "altitude": null,
+    "normalized_name": "la palmera"
+  },
+  {
+    "id": "CR-21010",
+    "name": "Venado",
+    "code": "21010",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 169.19,
+    "altitude": null,
+    "normalized_name": "venado"
+  },
+  {
+    "id": "CR-21011",
+    "name": "Cutris",
+    "code": "21011",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 849.19,
+    "altitude": null,
+    "normalized_name": "cutris"
+  },
+  {
+    "id": "CR-21012",
+    "name": "Monterrey",
+    "code": "21012",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 220.59,
+    "altitude": null,
+    "normalized_name": "monterrey"
+  },
+  {
+    "id": "CR-21013",
+    "name": "Pocosol",
+    "code": "21013",
+    "level": 2,
+    "parentId": "CR-210",
+    "area": 660.59,
+    "altitude": null,
+    "normalized_name": "pocosol"
+  },
+  {
+    "id": "CR-21101",
+    "name": "Zarcero",
+    "code": "21101",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 11.83,
+    "altitude": null,
+    "normalized_name": "zarcero"
+  },
+  {
+    "id": "CR-21102",
+    "name": "Laguna",
+    "code": "21102",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 23.28,
+    "altitude": null,
+    "normalized_name": "laguna"
+  },
+  {
+    "id": "CR-21103",
+    "name": "Tapesco",
+    "code": "21103",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 6.39,
+    "altitude": null,
+    "normalized_name": "tapesco"
+  },
+  {
+    "id": "CR-21104",
+    "name": "Guadalupe",
+    "code": "21104",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 22.58,
+    "altitude": null,
+    "normalized_name": "guadalupe"
+  },
+  {
+    "id": "CR-21105",
+    "name": "Palmira",
+    "code": "21105",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 30.67,
+    "altitude": null,
+    "normalized_name": "palmira"
+  },
+  {
+    "id": "CR-21106",
+    "name": "Zapote",
+    "code": "21106",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 44.76,
+    "altitude": null,
+    "normalized_name": "zapote"
+  },
+  {
+    "id": "CR-21107",
+    "name": "Brisas",
+    "code": "21107",
+    "level": 2,
+    "parentId": "CR-211",
+    "area": 17.85,
+    "altitude": null,
+    "normalized_name": "brisas"
+  },
+  {
+    "id": "CR-21201",
+    "name": "Sarchí Norte",
+    "code": "21201",
+    "level": 2,
+    "parentId": "CR-212",
+    "area": 21.14,
+    "altitude": null,
+    "normalized_name": "sarchi norte"
+  },
+  {
+    "id": "CR-21202",
+    "name": "Sarchí Sur",
+    "code": "21202",
+    "level": 2,
+    "parentId": "CR-212",
+    "area": 6.35,
+    "altitude": null,
+    "normalized_name": "sarchi sur"
+  },
+  {
+    "id": "CR-21203",
+    "name": "Toro Amarillo",
+    "code": "21203",
+    "level": 2,
+    "parentId": "CR-212",
+    "area": 91.13,
+    "altitude": null,
+    "normalized_name": "toro amarillo"
+  },
+  {
+    "id": "CR-21204",
+    "name": "San Pedro",
+    "code": "21204",
+    "level": 2,
+    "parentId": "CR-212",
+    "area": 10.87,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-21205",
+    "name": "Rodríguez",
+    "code": "21205",
+    "level": 2,
+    "parentId": "CR-212",
+    "area": 7.28,
+    "altitude": null,
+    "normalized_name": "rodriguez"
+  },
+  {
+    "id": "CR-21301",
+    "name": "Upala",
+    "code": "21301",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 148.65,
+    "altitude": null,
+    "normalized_name": "upala"
+  },
+  {
+    "id": "CR-21302",
+    "name": "Aguas Claras",
+    "code": "21302",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 408.54,
+    "altitude": null,
+    "normalized_name": "aguas claras"
+  },
+  {
+    "id": "CR-21303",
+    "name": "San José O Pizote",
+    "code": "21303",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 285.43,
+    "altitude": null,
+    "normalized_name": "san jose o pizote"
+  },
+  {
+    "id": "CR-21304",
+    "name": "Bijagua",
+    "code": "21304",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 186.8,
+    "altitude": null,
+    "normalized_name": "bijagua"
+  },
+  {
+    "id": "CR-21305",
+    "name": "Delicias",
+    "code": "21305",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 98.52,
+    "altitude": null,
+    "normalized_name": "delicias"
+  },
+  {
+    "id": "CR-21306",
+    "name": "Dos Ríos",
+    "code": "21306",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 218.67,
+    "altitude": null,
+    "normalized_name": "dos rios"
+  },
+  {
+    "id": "CR-21307",
+    "name": "Yolillal",
+    "code": "21307",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 139.62,
+    "altitude": null,
+    "normalized_name": "yolillal"
+  },
+  {
+    "id": "CR-21308",
+    "name": "Canalete",
+    "code": "21308",
+    "level": 2,
+    "parentId": "CR-213",
+    "area": 106.45,
+    "altitude": null,
+    "normalized_name": "canalete"
+  },
+  {
+    "id": "CR-21401",
+    "name": "Los Chiles",
+    "code": "21401",
+    "level": 2,
+    "parentId": "CR-214",
+    "area": 503.61,
+    "altitude": null,
+    "normalized_name": "los chiles"
+  },
+  {
+    "id": "CR-21402",
+    "name": "Caño Negro",
+    "code": "21402",
+    "level": 2,
+    "parentId": "CR-214",
+    "area": 301.27,
+    "altitude": null,
+    "normalized_name": "cano negro"
+  },
+  {
+    "id": "CR-21403",
+    "name": "El Amparo",
+    "code": "21403",
+    "level": 2,
+    "parentId": "CR-214",
+    "area": 312.89,
+    "altitude": null,
+    "normalized_name": "el amparo"
+  },
+  {
+    "id": "CR-21404",
+    "name": "San Jorge",
+    "code": "21404",
+    "level": 2,
+    "parentId": "CR-214",
+    "area": 214.95,
+    "altitude": null,
+    "normalized_name": "san jorge"
+  },
+  {
+    "id": "CR-21501",
+    "name": "San Rafael",
+    "code": "21501",
+    "level": 2,
+    "parentId": "CR-215",
+    "area": 303.99,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-21502",
+    "name": "Buenavista",
+    "code": "21502",
+    "level": 2,
+    "parentId": "CR-215",
+    "area": 150.86,
+    "altitude": null,
+    "normalized_name": "buenavista"
+  },
+  {
+    "id": "CR-21503",
+    "name": "Cote",
+    "code": "21503",
+    "level": 2,
+    "parentId": "CR-215",
+    "area": 183.58,
+    "altitude": null,
+    "normalized_name": "cote"
+  },
+  {
+    "id": "CR-21504",
+    "name": "Katira",
+    "code": "21504",
+    "level": 2,
+    "parentId": "CR-215",
+    "area": 114.4,
+    "altitude": null,
+    "normalized_name": "katira"
+  },
+  {
+    "id": "CR-21601",
+    "name": "Río Cuarto",
+    "code": "21601",
+    "level": 2,
+    "parentId": "CR-216",
+    "area": 97.62,
+    "altitude": null,
+    "normalized_name": "rio cuarto"
+  },
+  {
+    "id": "CR-21602",
+    "name": "Santa Rita",
+    "code": "21602",
+    "level": 2,
+    "parentId": "CR-216",
+    "area": 53.19,
+    "altitude": null,
+    "normalized_name": "santa rita"
+  },
+  {
+    "id": "CR-21603",
+    "name": "Santa Isabel",
+    "code": "21603",
+    "level": 2,
+    "parentId": "CR-216",
+    "area": 104.09,
+    "altitude": null,
+    "normalized_name": "santa isabel"
+  },
+  {
+    "id": "CR-30101",
+    "name": "Oriental",
+    "code": "30101",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 2.04,
+    "altitude": null,
+    "normalized_name": "oriental"
+  },
+  {
+    "id": "CR-30102",
+    "name": "Occidental",
+    "code": "30102",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 2.01,
+    "altitude": null,
+    "normalized_name": "occidental"
+  },
+  {
+    "id": "CR-30103",
+    "name": "Carmen",
+    "code": "30103",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 4.33,
+    "altitude": null,
+    "normalized_name": "carmen"
+  },
+  {
+    "id": "CR-30104",
+    "name": "San Nicolás",
+    "code": "30104",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 29.23,
+    "altitude": null,
+    "normalized_name": "san nicolas"
+  },
+  {
+    "id": "CR-30105",
+    "name": "Aguacaliente o San Francisco",
+    "code": "30105",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 99.26,
+    "altitude": null,
+    "normalized_name": "aguacaliente o san francisco"
+  },
+  {
+    "id": "CR-30106",
+    "name": "Guadalupe o Arenilla",
+    "code": "30106",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 13.16,
+    "altitude": null,
+    "normalized_name": "guadalupe o arenilla"
+  },
+  {
+    "id": "CR-30107",
+    "name": "Corralillo",
+    "code": "30107",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 32.69,
+    "altitude": null,
+    "normalized_name": "corralillo"
+  },
+  {
+    "id": "CR-30108",
+    "name": "Tierra Blanca",
+    "code": "30108",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 12.8,
+    "altitude": null,
+    "normalized_name": "tierra blanca"
+  },
+  {
+    "id": "CR-30109",
+    "name": "Dulce Nombre",
+    "code": "30109",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 33.64,
+    "altitude": null,
+    "normalized_name": "dulce nombre"
+  },
+  {
+    "id": "CR-30110",
+    "name": "Llano Grande",
+    "code": "30110",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 30.35,
+    "altitude": null,
+    "normalized_name": "llano grande"
+  },
+  {
+    "id": "CR-30111",
+    "name": "Quebradilla",
+    "code": "30111",
+    "level": 2,
+    "parentId": "CR-301",
+    "area": 19.15,
+    "altitude": null,
+    "normalized_name": "quebradilla"
+  },
+  {
+    "id": "CR-30201",
+    "name": "Paraíso",
+    "code": "30201",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 18.29,
+    "altitude": null,
+    "normalized_name": "paraiso"
+  },
+  {
+    "id": "CR-30202",
+    "name": "Santiago",
+    "code": "30202",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 25.64,
+    "altitude": null,
+    "normalized_name": "santiago"
+  },
+  {
+    "id": "CR-30203",
+    "name": "Orosi",
+    "code": "30203",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 376.54,
+    "altitude": null,
+    "normalized_name": "orosi"
+  },
+  {
+    "id": "CR-30204",
+    "name": "Cachí",
+    "code": "30204",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 41.11,
+    "altitude": null,
+    "normalized_name": "cachi"
+  },
+  {
+    "id": "CR-30205",
+    "name": "Llanos de Santa Lucía",
+    "code": "30205",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 6.54,
+    "altitude": null,
+    "normalized_name": "llanos de santa lucia"
+  },
+  {
+    "id": "CR-30206",
+    "name": "Birrisito",
+    "code": "30206",
+    "level": 2,
+    "parentId": "CR-302",
+    "area": 8.88,
+    "altitude": null,
+    "normalized_name": "birrisito"
+  },
+  {
+    "id": "CR-30301",
+    "name": "Tres Ríos",
+    "code": "30301",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 2.28,
+    "altitude": null,
+    "normalized_name": "tres rios"
+  },
+  {
+    "id": "CR-30302",
+    "name": "San Diego",
+    "code": "30302",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 8.08,
+    "altitude": null,
+    "normalized_name": "san diego"
+  },
+  {
+    "id": "CR-30303",
+    "name": "San Juan",
+    "code": "30303",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 3.95,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-30304",
+    "name": "San Rafael",
+    "code": "30304",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 9.51,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-30305",
+    "name": "Concepción",
+    "code": "30305",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 3.79,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-30306",
+    "name": "Dulce Nombre",
+    "code": "30306",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 8.26,
+    "altitude": null,
+    "normalized_name": "dulce nombre"
+  },
+  {
+    "id": "CR-30307",
+    "name": "San Ramón",
+    "code": "30307",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 3.47,
+    "altitude": null,
+    "normalized_name": "san ramon"
+  },
+  {
+    "id": "CR-30308",
+    "name": "Río Azul",
+    "code": "30308",
+    "level": 2,
+    "parentId": "CR-303",
+    "area": 4.85,
+    "altitude": null,
+    "normalized_name": "rio azul"
+  },
+  {
+    "id": "CR-30401",
+    "name": "Juan Viñas",
+    "code": "30401",
+    "level": 2,
+    "parentId": "CR-304",
+    "area": 28.25,
+    "altitude": null,
+    "normalized_name": "juan vinas"
+  },
+  {
+    "id": "CR-30402",
+    "name": "Tucurrique",
+    "code": "30402",
+    "level": 2,
+    "parentId": "CR-304",
+    "area": 33.5,
+    "altitude": null,
+    "normalized_name": "tucurrique"
+  },
+  {
+    "id": "CR-30403",
+    "name": "Pejibaye",
+    "code": "30403",
+    "level": 2,
+    "parentId": "CR-304",
+    "area": 173.2,
+    "altitude": null,
+    "normalized_name": "pejibaye"
+  },
+  {
+    "id": "CR-30404",
+    "name": "La Victoria",
+    "code": "30404",
+    "level": 2,
+    "parentId": "CR-304",
+    "area": 15.12,
+    "altitude": null,
+    "normalized_name": "la victoria"
+  },
+  {
+    "id": "CR-30501",
+    "name": "Turrialba",
+    "code": "30501",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 56.63,
+    "altitude": null,
+    "normalized_name": "turrialba"
+  },
+  {
+    "id": "CR-30502",
+    "name": "La Suiza",
+    "code": "30502",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 160.93,
+    "altitude": null,
+    "normalized_name": "la suiza"
+  },
+  {
+    "id": "CR-30503",
+    "name": "Peralta",
+    "code": "30503",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 9.69,
+    "altitude": null,
+    "normalized_name": "peralta"
+  },
+  {
+    "id": "CR-30504",
+    "name": "Santa Cruz",
+    "code": "30504",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 129.57,
+    "altitude": null,
+    "normalized_name": "santa cruz"
+  },
+  {
+    "id": "CR-30505",
+    "name": "Santa Teresita",
+    "code": "30505",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 60.14,
+    "altitude": null,
+    "normalized_name": "santa teresita"
+  },
+  {
+    "id": "CR-30506",
+    "name": "Pavones",
+    "code": "30506",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 42.05,
+    "altitude": null,
+    "normalized_name": "pavones"
+  },
+  {
+    "id": "CR-30507",
+    "name": "Tuis",
+    "code": "30507",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 39.2,
+    "altitude": null,
+    "normalized_name": "tuis"
+  },
+  {
+    "id": "CR-30508",
+    "name": "Tayutic",
+    "code": "30508",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 74.77,
+    "altitude": null,
+    "normalized_name": "tayutic"
+  },
+  {
+    "id": "CR-30509",
+    "name": "Santa Rosa",
+    "code": "30509",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 18.62,
+    "altitude": null,
+    "normalized_name": "santa rosa"
+  },
+  {
+    "id": "CR-30510",
+    "name": "Tres Equis",
+    "code": "30510",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 36.95,
+    "altitude": null,
+    "normalized_name": "tres equis"
+  },
+  {
+    "id": "CR-30511",
+    "name": "La Isabel",
+    "code": "30511",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 19.79,
+    "altitude": null,
+    "normalized_name": "la isabel"
+  },
+  {
+    "id": "CR-30512",
+    "name": "Chirripó",
+    "code": "30512",
+    "level": 2,
+    "parentId": "CR-305",
+    "area": 940.9,
+    "altitude": null,
+    "normalized_name": "chirripo"
+  },
+  {
+    "id": "CR-30601",
+    "name": "Pacayas",
+    "code": "30601",
+    "level": 2,
+    "parentId": "CR-306",
+    "area": 29.62,
+    "altitude": null,
+    "normalized_name": "pacayas"
+  },
+  {
+    "id": "CR-30602",
+    "name": "Cervantes",
+    "code": "30602",
+    "level": 2,
+    "parentId": "CR-306",
+    "area": 15.18,
+    "altitude": null,
+    "normalized_name": "cervantes"
+  },
+  {
+    "id": "CR-30603",
+    "name": "Capellades",
+    "code": "30603",
+    "level": 2,
+    "parentId": "CR-306",
+    "area": 34.39,
+    "altitude": null,
+    "normalized_name": "capellades"
+  },
+  {
+    "id": "CR-30701",
+    "name": "San Rafael",
+    "code": "30701",
+    "level": 2,
+    "parentId": "CR-307",
+    "area": 10.28,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-30702",
+    "name": "Cot",
+    "code": "30702",
+    "level": 2,
+    "parentId": "CR-307",
+    "area": 14.86,
+    "altitude": null,
+    "normalized_name": "cot"
+  },
+  {
+    "id": "CR-30703",
+    "name": "Potrero Cerrado",
+    "code": "30703",
+    "level": 2,
+    "parentId": "CR-307",
+    "area": 18.11,
+    "altitude": null,
+    "normalized_name": "potrero cerrado"
+  },
+  {
+    "id": "CR-30704",
+    "name": "Cipreses",
+    "code": "30704",
+    "level": 2,
+    "parentId": "CR-307",
+    "area": 9.37,
+    "altitude": null,
+    "normalized_name": "cipreses"
+  },
+  {
+    "id": "CR-30705",
+    "name": "Santa Rosa",
+    "code": "30705",
+    "level": 2,
+    "parentId": "CR-307",
+    "area": 150.27,
+    "altitude": null,
+    "normalized_name": "santa rosa"
+  },
+  {
+    "id": "CR-30801",
+    "name": "El Tejar",
+    "code": "30801",
+    "level": 2,
+    "parentId": "CR-308",
+    "area": 6.12,
+    "altitude": null,
+    "normalized_name": "el tejar"
+  },
+  {
+    "id": "CR-30802",
+    "name": "San Isidro",
+    "code": "30802",
+    "level": 2,
+    "parentId": "CR-308",
+    "area": 134.88,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-30803",
+    "name": "Tobosi",
+    "code": "30803",
+    "level": 2,
+    "parentId": "CR-308",
+    "area": 20.06,
+    "altitude": null,
+    "normalized_name": "tobosi"
+  },
+  {
+    "id": "CR-30804",
+    "name": "Patio de Agua",
+    "code": "30804",
+    "level": 2,
+    "parentId": "CR-308",
+    "area": 10.94,
+    "altitude": null,
+    "normalized_name": "patio de agua"
+  },
+  {
+    "id": "CR-40101",
+    "name": "Heredia",
+    "code": "40101",
+    "level": 2,
+    "parentId": "CR-401",
+    "area": 2.86,
+    "altitude": null,
+    "normalized_name": "heredia"
+  },
+  {
+    "id": "CR-40102",
+    "name": "Mercedes",
+    "code": "40102",
+    "level": 2,
+    "parentId": "CR-401",
+    "area": 4.15,
+    "altitude": null,
+    "normalized_name": "mercedes"
+  },
+  {
+    "id": "CR-40103",
+    "name": "San Francisco",
+    "code": "40103",
+    "level": 2,
+    "parentId": "CR-401",
+    "area": 6.56,
+    "altitude": null,
+    "normalized_name": "san francisco"
+  },
+  {
+    "id": "CR-40104",
+    "name": "Ulloa",
+    "code": "40104",
+    "level": 2,
+    "parentId": "CR-401",
+    "area": 11.38,
+    "altitude": null,
+    "normalized_name": "ulloa"
+  },
+  {
+    "id": "CR-40105",
+    "name": "Varablanca",
+    "code": "40105",
+    "level": 2,
+    "parentId": "CR-401",
+    "area": 258.17,
+    "altitude": null,
+    "normalized_name": "varablanca"
+  },
+  {
+    "id": "CR-40201",
+    "name": "Barva",
+    "code": "40201",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 0.84,
+    "altitude": null,
+    "normalized_name": "barva"
+  },
+  {
+    "id": "CR-40202",
+    "name": "San Pedro",
+    "code": "40202",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 2.47,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-40203",
+    "name": "San Pablo",
+    "code": "40203",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 6.83,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-40204",
+    "name": "San Roque",
+    "code": "40204",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 1.28,
+    "altitude": null,
+    "normalized_name": "san roque"
+  },
+  {
+    "id": "CR-40205",
+    "name": "Santa Lucía",
+    "code": "40205",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 2.86,
+    "altitude": null,
+    "normalized_name": "santa lucia"
+  },
+  {
+    "id": "CR-40206",
+    "name": "San José de la Montaña",
+    "code": "40206",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 37.04,
+    "altitude": null,
+    "normalized_name": "san jose de la montana"
+  },
+  {
+    "id": "CR-40207",
+    "name": "Puente Salas",
+    "code": "40207",
+    "level": 2,
+    "parentId": "CR-402",
+    "area": 4.7,
+    "altitude": null,
+    "normalized_name": "puente salas"
+  },
+  {
+    "id": "CR-40301",
+    "name": "Santo Domingo",
+    "code": "40301",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 0.78,
+    "altitude": null,
+    "normalized_name": "santo domingo"
+  },
+  {
+    "id": "CR-40302",
+    "name": "San Vicente",
+    "code": "40302",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 2.88,
+    "altitude": null,
+    "normalized_name": "san vicente"
+  },
+  {
+    "id": "CR-40303",
+    "name": "San Miguel",
+    "code": "40303",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 5.9,
+    "altitude": null,
+    "normalized_name": "san miguel"
+  },
+  {
+    "id": "CR-40304",
+    "name": "Paracito",
+    "code": "40304",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 1.27,
+    "altitude": null,
+    "normalized_name": "paracito"
+  },
+  {
+    "id": "CR-40305",
+    "name": "Santo Tomás",
+    "code": "40305",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 3.54,
+    "altitude": null,
+    "normalized_name": "santo tomas"
+  },
+  {
+    "id": "CR-40306",
+    "name": "Santa Rosa",
+    "code": "40306",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 4.27,
+    "altitude": null,
+    "normalized_name": "santa rosa"
+  },
+  {
+    "id": "CR-40307",
+    "name": "Tures",
+    "code": "40307",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 3.88,
+    "altitude": null,
+    "normalized_name": "tures"
+  },
+  {
+    "id": "CR-40308",
+    "name": "Pará",
+    "code": "40308",
+    "level": 2,
+    "parentId": "CR-403",
+    "area": 2.87,
+    "altitude": null,
+    "normalized_name": "para"
+  },
+  {
+    "id": "CR-40401",
+    "name": "Santa Bárbara",
+    "code": "40401",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 1.28,
+    "altitude": null,
+    "normalized_name": "santa barbara"
+  },
+  {
+    "id": "CR-40402",
+    "name": "San Pedro",
+    "code": "40402",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 2.56,
+    "altitude": null,
+    "normalized_name": "san pedro"
+  },
+  {
+    "id": "CR-40403",
+    "name": "San Juan",
+    "code": "40403",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 4.48,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-40404",
+    "name": "Jesús",
+    "code": "40404",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 11.15,
+    "altitude": null,
+    "normalized_name": "jesus"
+  },
+  {
+    "id": "CR-40405",
+    "name": "Santo Domingo",
+    "code": "40405",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 26.49,
+    "altitude": null,
+    "normalized_name": "santo domingo"
+  },
+  {
+    "id": "CR-40406",
+    "name": "Purabá",
+    "code": "40406",
+    "level": 2,
+    "parentId": "CR-404",
+    "area": 6.14,
+    "altitude": null,
+    "normalized_name": "puraba"
+  },
+  {
+    "id": "CR-40501",
+    "name": "San Rafael",
+    "code": "40501",
+    "level": 2,
+    "parentId": "CR-405",
+    "area": 1.33,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-40502",
+    "name": "San Josecito",
+    "code": "40502",
+    "level": 2,
+    "parentId": "CR-405",
+    "area": 1.35,
+    "altitude": null,
+    "normalized_name": "san josecito"
+  },
+  {
+    "id": "CR-40503",
+    "name": "Santiago",
+    "code": "40503",
+    "level": 2,
+    "parentId": "CR-405",
+    "area": 1.57,
+    "altitude": null,
+    "normalized_name": "santiago"
+  },
+  {
+    "id": "CR-40504",
+    "name": "Ángeles",
+    "code": "40504",
+    "level": 2,
+    "parentId": "CR-405",
+    "area": 21.24,
+    "altitude": null,
+    "normalized_name": "angeles"
+  },
+  {
+    "id": "CR-40505",
+    "name": "Concepción",
+    "code": "40505",
+    "level": 2,
+    "parentId": "CR-405",
+    "area": 22.81,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-40601",
+    "name": "San Isidro",
+    "code": "40601",
+    "level": 2,
+    "parentId": "CR-406",
+    "area": 2.67,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-40602",
+    "name": "San José",
+    "code": "40602",
+    "level": 2,
+    "parentId": "CR-406",
+    "area": 11.37,
+    "altitude": null,
+    "normalized_name": "san jose"
+  },
+  {
+    "id": "CR-40603",
+    "name": "Concepción",
+    "code": "40603",
+    "level": 2,
+    "parentId": "CR-406",
+    "area": 8.07,
+    "altitude": null,
+    "normalized_name": "concepcion"
+  },
+  {
+    "id": "CR-40604",
+    "name": "San Francisco",
+    "code": "40604",
+    "level": 2,
+    "parentId": "CR-406",
+    "area": 4.56,
+    "altitude": null,
+    "normalized_name": "san francisco"
+  },
+  {
+    "id": "CR-40701",
+    "name": "San Antonio",
+    "code": "40701",
+    "level": 2,
+    "parentId": "CR-407",
+    "area": 3.56,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-40702",
+    "name": "La Ribera",
+    "code": "40702",
+    "level": 2,
+    "parentId": "CR-407",
+    "area": 4.26,
+    "altitude": null,
+    "normalized_name": "la ribera"
+  },
+  {
+    "id": "CR-40703",
+    "name": "La Asunción",
+    "code": "40703",
+    "level": 2,
+    "parentId": "CR-407",
+    "area": 4.57,
+    "altitude": null,
+    "normalized_name": "la asuncion"
+  },
+  {
+    "id": "CR-40801",
+    "name": "San Joaquín",
+    "code": "40801",
+    "level": 2,
+    "parentId": "CR-408",
+    "area": 2.75,
+    "altitude": null,
+    "normalized_name": "san joaquin"
+  },
+  {
+    "id": "CR-40802",
+    "name": "Barrantes",
+    "code": "40802",
+    "level": 2,
+    "parentId": "CR-408",
+    "area": 2.14,
+    "altitude": null,
+    "normalized_name": "barrantes"
+  },
+  {
+    "id": "CR-40803",
+    "name": "Llorente",
+    "code": "40803",
+    "level": 2,
+    "parentId": "CR-408",
+    "area": 1.86,
+    "altitude": null,
+    "normalized_name": "llorente"
+  },
+  {
+    "id": "CR-40901",
+    "name": "San Pablo",
+    "code": "40901",
+    "level": 2,
+    "parentId": "CR-409",
+    "area": 5.93,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-40902",
+    "name": "Rincón de Sabanilla",
+    "code": "40902",
+    "level": 2,
+    "parentId": "CR-409",
+    "area": 2.41,
+    "altitude": null,
+    "normalized_name": "rincon de sabanilla"
+  },
+  {
+    "id": "CR-41001",
+    "name": "Puerto Viejo",
+    "code": "41001",
+    "level": 2,
+    "parentId": "CR-410",
+    "area": 428.52,
+    "altitude": null,
+    "normalized_name": "puerto viejo"
+  },
+  {
+    "id": "CR-41002",
+    "name": "La Virgen",
+    "code": "41002",
+    "level": 2,
+    "parentId": "CR-410",
+    "area": 514.19,
+    "altitude": null,
+    "normalized_name": "la virgen"
+  },
+  {
+    "id": "CR-41003",
+    "name": "Las Horquetas",
+    "code": "41003",
+    "level": 2,
+    "parentId": "CR-410",
+    "area": 564.59,
+    "altitude": null,
+    "normalized_name": "las horquetas"
+  },
+  {
+    "id": "CR-41004",
+    "name": "Llanuras del Gaspar",
+    "code": "41004",
+    "level": 2,
+    "parentId": "CR-410",
+    "area": 267.34,
+    "altitude": null,
+    "normalized_name": "llanuras del gaspar"
+  },
+  {
+    "id": "CR-41005",
+    "name": "Cureña",
+    "code": "41005",
+    "level": 2,
+    "parentId": "CR-410",
+    "area": 369.73,
+    "altitude": null,
+    "normalized_name": "curena"
+  },
+  {
+    "id": "CR-50101",
+    "name": "Liberia",
+    "code": "50101",
+    "level": 2,
+    "parentId": "CR-501",
+    "area": 563.02,
+    "altitude": null,
+    "normalized_name": "liberia"
+  },
+  {
+    "id": "CR-50102",
+    "name": "Cañas Dulces",
+    "code": "50102",
+    "level": 2,
+    "parentId": "CR-501",
+    "area": 243.41,
+    "altitude": null,
+    "normalized_name": "canas dulces"
+  },
+  {
+    "id": "CR-50103",
+    "name": "Mayorga",
+    "code": "50103",
+    "level": 2,
+    "parentId": "CR-501",
+    "area": 227.51,
+    "altitude": null,
+    "normalized_name": "mayorga"
+  },
+  {
+    "id": "CR-50104",
+    "name": "Nacascolo",
+    "code": "50104",
+    "level": 2,
+    "parentId": "CR-501",
+    "area": 326.91,
+    "altitude": null,
+    "normalized_name": "nacascolo"
+  },
+  {
+    "id": "CR-50105",
+    "name": "Curubandé",
+    "code": "50105",
+    "level": 2,
+    "parentId": "CR-501",
+    "area": 81.32,
+    "altitude": null,
+    "normalized_name": "curubande"
+  },
+  {
+    "id": "CR-50201",
+    "name": "Nicoya",
+    "code": "50201",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 310.66,
+    "altitude": null,
+    "normalized_name": "nicoya"
+  },
+  {
+    "id": "CR-50202",
+    "name": "Mansión",
+    "code": "50202",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 212.15,
+    "altitude": null,
+    "normalized_name": "mansion"
+  },
+  {
+    "id": "CR-50203",
+    "name": "San Antonio",
+    "code": "50203",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 339.5,
+    "altitude": null,
+    "normalized_name": "san antonio"
+  },
+  {
+    "id": "CR-50204",
+    "name": "Quebrada Honda",
+    "code": "50204",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 109.17,
+    "altitude": null,
+    "normalized_name": "quebrada honda"
+  },
+  {
+    "id": "CR-50205",
+    "name": "Sámara",
+    "code": "50205",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 109.36,
+    "altitude": null,
+    "normalized_name": "samara"
+  },
+  {
+    "id": "CR-50206",
+    "name": "Nosara",
+    "code": "50206",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 133.65,
+    "altitude": null,
+    "normalized_name": "nosara"
+  },
+  {
+    "id": "CR-50207",
+    "name": "Belén de Nosarita",
+    "code": "50207",
+    "level": 2,
+    "parentId": "CR-502",
+    "area": 123.07,
+    "altitude": null,
+    "normalized_name": "belen de nosarita"
+  },
+  {
+    "id": "CR-50301",
+    "name": "Santa Cruz",
+    "code": "50301",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 288.92,
+    "altitude": null,
+    "normalized_name": "santa cruz"
+  },
+  {
+    "id": "CR-50302",
+    "name": "Bolsón",
+    "code": "50302",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 32.28,
+    "altitude": null,
+    "normalized_name": "bolson"
+  },
+  {
+    "id": "CR-50303",
+    "name": "Veintisiete de Abril",
+    "code": "50303",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 303.0,
+    "altitude": null,
+    "normalized_name": "veintisiete de abril"
+  },
+  {
+    "id": "CR-50304",
+    "name": "Tempate",
+    "code": "50304",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 139.69,
+    "altitude": null,
+    "normalized_name": "tempate"
+  },
+  {
+    "id": "CR-50305",
+    "name": "Cartagena",
+    "code": "50305",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 72.9,
+    "altitude": null,
+    "normalized_name": "cartagena"
+  },
+  {
+    "id": "CR-50306",
+    "name": "Cuajiniquil",
+    "code": "50306",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 218.0,
+    "altitude": null,
+    "normalized_name": "cuajiniquil"
+  },
+  {
+    "id": "CR-50307",
+    "name": "Diriá",
+    "code": "50307",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 66.22,
+    "altitude": null,
+    "normalized_name": "diria"
+  },
+  {
+    "id": "CR-50308",
+    "name": "Cabo Velas",
+    "code": "50308",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 73.7,
+    "altitude": null,
+    "normalized_name": "cabo velas"
+  },
+  {
+    "id": "CR-50309",
+    "name": "Tamarindo",
+    "code": "50309",
+    "level": 2,
+    "parentId": "CR-503",
+    "area": 126.09,
+    "altitude": null,
+    "normalized_name": "tamarindo"
+  },
+  {
+    "id": "CR-50401",
+    "name": "Bagaces",
+    "code": "50401",
+    "level": 2,
+    "parentId": "CR-504",
+    "area": 889.07,
+    "altitude": null,
+    "normalized_name": "bagaces"
+  },
+  {
+    "id": "CR-50402",
+    "name": "La Fortuna",
+    "code": "50402",
+    "level": 2,
+    "parentId": "CR-504",
+    "area": 163.47,
+    "altitude": null,
+    "normalized_name": "la fortuna"
+  },
+  {
+    "id": "CR-50403",
+    "name": "Mogote",
+    "code": "50403",
+    "level": 2,
+    "parentId": "CR-504",
+    "area": 181.77,
+    "altitude": null,
+    "normalized_name": "mogote"
+  },
+  {
+    "id": "CR-50404",
+    "name": "Río Naranjo",
+    "code": "50404",
+    "level": 2,
+    "parentId": "CR-504",
+    "area": 43.62,
+    "altitude": null,
+    "normalized_name": "rio naranjo"
+  },
+  {
+    "id": "CR-50501",
+    "name": "Filadelfia",
+    "code": "50501",
+    "level": 2,
+    "parentId": "CR-505",
+    "area": 125.24,
+    "altitude": null,
+    "normalized_name": "filadelfia"
+  },
+  {
+    "id": "CR-50502",
+    "name": "Palmira",
+    "code": "50502",
+    "level": 2,
+    "parentId": "CR-505",
+    "area": 31.46,
+    "altitude": null,
+    "normalized_name": "palmira"
+  },
+  {
+    "id": "CR-50503",
+    "name": "Sardinal",
+    "code": "50503",
+    "level": 2,
+    "parentId": "CR-505",
+    "area": 260.17,
+    "altitude": null,
+    "normalized_name": "sardinal"
+  },
+  {
+    "id": "CR-50504",
+    "name": "Belén",
+    "code": "50504",
+    "level": 2,
+    "parentId": "CR-505",
+    "area": 182.14,
+    "altitude": null,
+    "normalized_name": "belen"
+  },
+  {
+    "id": "CR-50601",
+    "name": "Cañas",
+    "code": "50601",
+    "level": 2,
+    "parentId": "CR-506",
+    "area": 193.09,
+    "altitude": null,
+    "normalized_name": "canas"
+  },
+  {
+    "id": "CR-50602",
+    "name": "Palmira",
+    "code": "50602",
+    "level": 2,
+    "parentId": "CR-506",
+    "area": 204.03,
+    "altitude": null,
+    "normalized_name": "palmira"
+  },
+  {
+    "id": "CR-50603",
+    "name": "San Miguel",
+    "code": "50603",
+    "level": 2,
+    "parentId": "CR-506",
+    "area": 120.95,
+    "altitude": null,
+    "normalized_name": "san miguel"
+  },
+  {
+    "id": "CR-50604",
+    "name": "Bebedero",
+    "code": "50604",
+    "level": 2,
+    "parentId": "CR-506",
+    "area": 58.06,
+    "altitude": null,
+    "normalized_name": "bebedero"
+  },
+  {
+    "id": "CR-50605",
+    "name": "Porozal",
+    "code": "50605",
+    "level": 2,
+    "parentId": "CR-506",
+    "area": 110.91,
+    "altitude": null,
+    "normalized_name": "porozal"
+  },
+  {
+    "id": "CR-50701",
+    "name": "Las Juntas",
+    "code": "50701",
+    "level": 2,
+    "parentId": "CR-507",
+    "area": 228.71,
+    "altitude": null,
+    "normalized_name": "las juntas"
+  },
+  {
+    "id": "CR-50702",
+    "name": "Sierra",
+    "code": "50702",
+    "level": 2,
+    "parentId": "CR-507",
+    "area": 112.0,
+    "altitude": null,
+    "normalized_name": "sierra"
+  },
+  {
+    "id": "CR-50703",
+    "name": "San Juan",
+    "code": "50703",
+    "level": 2,
+    "parentId": "CR-507",
+    "area": 107.47,
+    "altitude": null,
+    "normalized_name": "san juan"
+  },
+  {
+    "id": "CR-50704",
+    "name": "Colorado",
+    "code": "50704",
+    "level": 2,
+    "parentId": "CR-507",
+    "area": 197.84,
+    "altitude": null,
+    "normalized_name": "colorado"
+  },
+  {
+    "id": "CR-50801",
+    "name": "Tilarán",
+    "code": "50801",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 144.75,
+    "altitude": null,
+    "normalized_name": "tilaran"
+  },
+  {
+    "id": "CR-50802",
+    "name": "Quebrada Grande",
+    "code": "50802",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 34.45,
+    "altitude": null,
+    "normalized_name": "quebrada grande"
+  },
+  {
+    "id": "CR-50803",
+    "name": "Tronadora",
+    "code": "50803",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 139.93,
+    "altitude": null,
+    "normalized_name": "tronadora"
+  },
+  {
+    "id": "CR-50804",
+    "name": "Santa Rosa",
+    "code": "50804",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 71.06,
+    "altitude": null,
+    "normalized_name": "santa rosa"
+  },
+  {
+    "id": "CR-50805",
+    "name": "Líbano",
+    "code": "50805",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 72.13,
+    "altitude": null,
+    "normalized_name": "libano"
+  },
+  {
+    "id": "CR-50806",
+    "name": "Tierras Morenas",
+    "code": "50806",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 83.32,
+    "altitude": null,
+    "normalized_name": "tierras morenas"
+  },
+  {
+    "id": "CR-50807",
+    "name": "Arenal",
+    "code": "50807",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 72.67,
+    "altitude": null,
+    "normalized_name": "arenal"
+  },
+  {
+    "id": "CR-50808",
+    "name": "Cabeceras",
+    "code": "50808",
+    "level": 2,
+    "parentId": "CR-508",
+    "area": 50.93,
+    "altitude": null,
+    "normalized_name": "cabeceras"
+  },
+  {
+    "id": "CR-50901",
+    "name": "Carmona",
+    "code": "50901",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 31.66,
+    "altitude": null,
+    "normalized_name": "carmona"
+  },
+  {
+    "id": "CR-50902",
+    "name": "Santa Rita",
+    "code": "50902",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 51.38,
+    "altitude": null,
+    "normalized_name": "santa rita"
+  },
+  {
+    "id": "CR-50903",
+    "name": "Zapotal",
+    "code": "50903",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 105.08,
+    "altitude": null,
+    "normalized_name": "zapotal"
+  },
+  {
+    "id": "CR-50904",
+    "name": "San Pablo",
+    "code": "50904",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 78.08,
+    "altitude": null,
+    "normalized_name": "san pablo"
+  },
+  {
+    "id": "CR-50905",
+    "name": "Porvenir",
+    "code": "50905",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 40.15,
+    "altitude": null,
+    "normalized_name": "porvenir"
+  },
+  {
+    "id": "CR-50906",
+    "name": "Bejuco",
+    "code": "50906",
+    "level": 2,
+    "parentId": "CR-509",
+    "area": 261.78,
+    "altitude": null,
+    "normalized_name": "bejuco"
+  },
+  {
+    "id": "CR-51001",
+    "name": "La Cruz",
+    "code": "51001",
+    "level": 2,
+    "parentId": "CR-510",
+    "area": 344.39,
+    "altitude": null,
+    "normalized_name": "la cruz"
+  },
+  {
+    "id": "CR-51002",
+    "name": "Santa Cecilia",
+    "code": "51002",
+    "level": 2,
+    "parentId": "CR-510",
+    "area": 258.01,
+    "altitude": null,
+    "normalized_name": "santa cecilia"
+  },
+  {
+    "id": "CR-51003",
+    "name": "La Garita",
+    "code": "51003",
+    "level": 2,
+    "parentId": "CR-510",
+    "area": 273.39,
+    "altitude": null,
+    "normalized_name": "la garita"
+  },
+  {
+    "id": "CR-51004",
+    "name": "Santa Elena",
+    "code": "51004",
+    "level": 2,
+    "parentId": "CR-510",
+    "area": 509.59,
+    "altitude": null,
+    "normalized_name": "santa elena"
+  },
+  {
+    "id": "CR-51101",
+    "name": "Hojancha",
+    "code": "51101",
+    "level": 2,
+    "parentId": "CR-511",
+    "area": 70.4,
+    "altitude": null,
+    "normalized_name": "hojancha"
+  },
+  {
+    "id": "CR-51102",
+    "name": "Monte Romo",
+    "code": "51102",
+    "level": 2,
+    "parentId": "CR-511",
+    "area": 75.27,
+    "altitude": null,
+    "normalized_name": "monte romo"
+  },
+  {
+    "id": "CR-51103",
+    "name": "Puerto Carrillo",
+    "code": "51103",
+    "level": 2,
+    "parentId": "CR-511",
+    "area": 76.87,
+    "altitude": null,
+    "normalized_name": "puerto carrillo"
+  },
+  {
+    "id": "CR-51104",
+    "name": "Huacas",
+    "code": "51104",
+    "level": 2,
+    "parentId": "CR-511",
+    "area": 31.74,
+    "altitude": null,
+    "normalized_name": "huacas"
+  },
+  {
+    "id": "CR-51105",
+    "name": "Matambú",
+    "code": "51105",
+    "level": 2,
+    "parentId": "CR-511",
+    "area": 8.71,
+    "altitude": null,
+    "normalized_name": "matambu"
+  },
+  {
+    "id": "CR-60101",
+    "name": "Puntarenas",
+    "code": "60101",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 34.03,
+    "altitude": null,
+    "normalized_name": "puntarenas"
+  },
+  {
+    "id": "CR-60102",
+    "name": "Pitahaya",
+    "code": "60102",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 109.55,
+    "altitude": null,
+    "normalized_name": "pitahaya"
+  },
+  {
+    "id": "CR-60103",
+    "name": "Chomes",
+    "code": "60103",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 118.95,
+    "altitude": null,
+    "normalized_name": "chomes"
+  },
+  {
+    "id": "CR-60104",
+    "name": "Lepanto",
+    "code": "60104",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 424.31,
+    "altitude": null,
+    "normalized_name": "lepanto"
+  },
+  {
+    "id": "CR-60105",
+    "name": "Paquera",
+    "code": "60105",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 335.63,
+    "altitude": null,
+    "normalized_name": "paquera"
+  },
+  {
+    "id": "CR-60106",
+    "name": "Manzanillo",
+    "code": "60106",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 59.86,
+    "altitude": null,
+    "normalized_name": "manzanillo"
+  },
+  {
+    "id": "CR-60107",
+    "name": "Guacimal",
+    "code": "60107",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 114.94,
+    "altitude": null,
+    "normalized_name": "guacimal"
+  },
+  {
+    "id": "CR-60108",
+    "name": "Barranca",
+    "code": "60108",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 36.21,
+    "altitude": null,
+    "normalized_name": "barranca"
+  },
+  {
+    "id": "CR-60110",
+    "name": "Isla del Coco",
+    "code": "60110",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 23.52,
+    "altitude": null,
+    "normalized_name": "isla del coco"
+  },
+  {
+    "id": "CR-60111",
+    "name": "Cóbano",
+    "code": "60111",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 319.27,
+    "altitude": null,
+    "normalized_name": "cobano"
+  },
+  {
+    "id": "CR-60112",
+    "name": "Chacarita",
+    "code": "60112",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 4.92,
+    "altitude": null,
+    "normalized_name": "chacarita"
+  },
+  {
+    "id": "CR-60113",
+    "name": "Chira",
+    "code": "60113",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 42.02,
+    "altitude": null,
+    "normalized_name": "chira"
+  },
+  {
+    "id": "CR-60114",
+    "name": "Acapulco",
+    "code": "60114",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 110.91,
+    "altitude": null,
+    "normalized_name": "acapulco"
+  },
+  {
+    "id": "CR-60115",
+    "name": "El Roble",
+    "code": "60115",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 7.93,
+    "altitude": null,
+    "normalized_name": "el roble"
+  },
+  {
+    "id": "CR-60116",
+    "name": "Arancibia",
+    "code": "60116",
+    "level": 2,
+    "parentId": "CR-601",
+    "area": 44.86,
+    "altitude": null,
+    "normalized_name": "arancibia"
+  },
+  {
+    "id": "CR-60201",
+    "name": "Espíritu Santo",
+    "code": "60201",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 18.91,
+    "altitude": null,
+    "normalized_name": "espiritu santo"
+  },
+  {
+    "id": "CR-60202",
+    "name": "San Juan Grande",
+    "code": "60202",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 18.71,
+    "altitude": null,
+    "normalized_name": "san juan grande"
+  },
+  {
+    "id": "CR-60203",
+    "name": "Macacona",
+    "code": "60203",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 34.13,
+    "altitude": null,
+    "normalized_name": "macacona"
+  },
+  {
+    "id": "CR-60204",
+    "name": "San Rafael",
+    "code": "60204",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 34.32,
+    "altitude": null,
+    "normalized_name": "san rafael"
+  },
+  {
+    "id": "CR-60205",
+    "name": "San Jerónimo",
+    "code": "60205",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 49.14,
+    "altitude": null,
+    "normalized_name": "san jeronimo"
+  },
+  {
+    "id": "CR-60206",
+    "name": "Caldera",
+    "code": "60206",
+    "level": 2,
+    "parentId": "CR-602",
+    "area": 62.02,
+    "altitude": null,
+    "normalized_name": "caldera"
+  },
+  {
+    "id": "CR-60301",
+    "name": "Buenos Aires",
+    "code": "60301",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 554.83,
+    "altitude": null,
+    "normalized_name": "buenos aires"
+  },
+  {
+    "id": "CR-60302",
+    "name": "Volcán",
+    "code": "60302",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 187.41,
+    "altitude": null,
+    "normalized_name": "volcan"
+  },
+  {
+    "id": "CR-60303",
+    "name": "Potrero Grande",
+    "code": "60303",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 626.7,
+    "altitude": null,
+    "normalized_name": "potrero grande"
+  },
+  {
+    "id": "CR-60304",
+    "name": "Boruca",
+    "code": "60304",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 125.79,
+    "altitude": null,
+    "normalized_name": "boruca"
+  },
+  {
+    "id": "CR-60305",
+    "name": "Pilas",
+    "code": "60305",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 114.34,
+    "altitude": null,
+    "normalized_name": "pilas"
+  },
+  {
+    "id": "CR-60306",
+    "name": "Colinas",
+    "code": "60306",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 128.8,
+    "altitude": null,
+    "normalized_name": "colinas"
+  },
+  {
+    "id": "CR-60307",
+    "name": "Chánguena",
+    "code": "60307",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 273.04,
+    "altitude": null,
+    "normalized_name": "changuena"
+  },
+  {
+    "id": "CR-60308",
+    "name": "Biolley",
+    "code": "60308",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 208.27,
+    "altitude": null,
+    "normalized_name": "biolley"
+  },
+  {
+    "id": "CR-60309",
+    "name": "Brunka",
+    "code": "60309",
+    "level": 2,
+    "parentId": "CR-603",
+    "area": 163.77,
+    "altitude": null,
+    "normalized_name": "brunka"
+  },
+  {
+    "id": "CR-60401",
+    "name": "Miramar",
+    "code": "60401",
+    "level": 2,
+    "parentId": "CR-604",
+    "area": 110.96,
+    "altitude": null,
+    "normalized_name": "miramar"
+  },
+  {
+    "id": "CR-60402",
+    "name": "La Unión",
+    "code": "60402",
+    "level": 2,
+    "parentId": "CR-604",
+    "area": 78.93,
+    "altitude": null,
+    "normalized_name": "la union"
+  },
+  {
+    "id": "CR-60403",
+    "name": "San Isidro",
+    "code": "60403",
+    "level": 2,
+    "parentId": "CR-604",
+    "area": 57.71,
+    "altitude": null,
+    "normalized_name": "san isidro"
+  },
+  {
+    "id": "CR-60501",
+    "name": "Puerto Cortés",
+    "code": "60501",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 234.39,
+    "altitude": null,
+    "normalized_name": "puerto cortes"
+  },
+  {
+    "id": "CR-60502",
+    "name": "Palmar",
+    "code": "60502",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 250.8,
+    "altitude": null,
+    "normalized_name": "palmar"
+  },
+  {
+    "id": "CR-60503",
+    "name": "Sierpe",
+    "code": "60503",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 634.18,
+    "altitude": null,
+    "normalized_name": "sierpe"
+  },
+  {
+    "id": "CR-60504",
+    "name": "Bahía Ballena",
+    "code": "60504",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 158.33,
+    "altitude": null,
+    "normalized_name": "bahia ballena"
+  },
+  {
+    "id": "CR-60505",
+    "name": "Piedras Blancas",
+    "code": "60505",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 262.58,
+    "altitude": null,
+    "normalized_name": "piedras blancas"
+  },
+  {
+    "id": "CR-60506",
+    "name": "Bahía Drake",
+    "code": "60506",
+    "level": 2,
+    "parentId": "CR-605",
+    "area": 392.41,
+    "altitude": null,
+    "normalized_name": "bahia drake"
+  },
+  {
+    "id": "CR-60601",
+    "name": "Quepos",
+    "code": "60601",
+    "level": 2,
+    "parentId": "CR-606",
+    "area": 236.05,
+    "altitude": null,
+    "normalized_name": "quepos"
+  },
+  {
+    "id": "CR-60602",
+    "name": "Savegre",
+    "code": "60602",
+    "level": 2,
+    "parentId": "CR-606",
+    "area": 216.47,
+    "altitude": null,
+    "normalized_name": "savegre"
+  },
+  {
+    "id": "CR-60603",
+    "name": "Naranjito",
+    "code": "60603",
+    "level": 2,
+    "parentId": "CR-606",
+    "area": 105.33,
+    "altitude": null,
+    "normalized_name": "naranjito"
+  },
+  {
+    "id": "CR-60701",
+    "name": "Golfito",
+    "code": "60701",
+    "level": 2,
+    "parentId": "CR-607",
+    "area": 355.9,
+    "altitude": null,
+    "normalized_name": "golfito"
+  },
+  {
+    "id": "CR-60703",
+    "name": "Guaycará",
+    "code": "60703",
+    "level": 2,
+    "parentId": "CR-607",
+    "area": 323.1,
+    "altitude": null,
+    "normalized_name": "guaycara"
+  },
+  {
+    "id": "CR-60704",
+    "name": "Pavón",
+    "code": "60704",
+    "level": 2,
+    "parentId": "CR-607",
+    "area": 353.32,
+    "altitude": null,
+    "normalized_name": "pavon"
+  },
+  {
+    "id": "CR-60801",
+    "name": "San Vito",
+    "code": "60801",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 74.59,
+    "altitude": null,
+    "normalized_name": "san vito"
+  },
+  {
+    "id": "CR-60802",
+    "name": "Sabalito",
+    "code": "60802",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 186.86,
+    "altitude": null,
+    "normalized_name": "sabalito"
+  },
+  {
+    "id": "CR-60803",
+    "name": "Aguabuena",
+    "code": "60803",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 63.89,
+    "altitude": null,
+    "normalized_name": "aguabuena"
+  },
+  {
+    "id": "CR-60804",
+    "name": "Limoncito",
+    "code": "60804",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 123.64,
+    "altitude": null,
+    "normalized_name": "limoncito"
+  },
+  {
+    "id": "CR-60805",
+    "name": "Pittier",
+    "code": "60805",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 257.05,
+    "altitude": null,
+    "normalized_name": "pittier"
+  },
+  {
+    "id": "CR-60806",
+    "name": "Gutiérrez Braun",
+    "code": "60806",
+    "level": 2,
+    "parentId": "CR-608",
+    "area": 238.19,
+    "altitude": null,
+    "normalized_name": "gutierrez braun"
+  },
+  {
+    "id": "CR-60901",
+    "name": "Parrita",
+    "code": "60901",
+    "level": 2,
+    "parentId": "CR-609",
+    "area": 483.22,
+    "altitude": null,
+    "normalized_name": "parrita"
+  },
+  {
+    "id": "CR-61001",
+    "name": "Corredor",
+    "code": "61001",
+    "level": 2,
+    "parentId": "CR-610",
+    "area": 275.67,
+    "altitude": null,
+    "normalized_name": "corredor"
+  },
+  {
+    "id": "CR-61002",
+    "name": "La Cuesta",
+    "code": "61002",
+    "level": 2,
+    "parentId": "CR-610",
+    "area": 37.08,
+    "altitude": null,
+    "normalized_name": "la cuesta"
+  },
+  {
+    "id": "CR-61003",
+    "name": "Canoas",
+    "code": "61003",
+    "level": 2,
+    "parentId": "CR-610",
+    "area": 122.02,
+    "altitude": null,
+    "normalized_name": "canoas"
+  },
+  {
+    "id": "CR-61004",
+    "name": "Laurel",
+    "code": "61004",
+    "level": 2,
+    "parentId": "CR-610",
+    "area": 188.85,
+    "altitude": null,
+    "normalized_name": "laurel"
+  },
+  {
+    "id": "CR-61101",
+    "name": "Jacó",
+    "code": "61101",
+    "level": 2,
+    "parentId": "CR-611",
+    "area": 141.37,
+    "altitude": null,
+    "normalized_name": "jaco"
+  },
+  {
+    "id": "CR-61102",
+    "name": "Tárcoles",
+    "code": "61102",
+    "level": 2,
+    "parentId": "CR-611",
+    "area": 93.64,
+    "altitude": null,
+    "normalized_name": "tarcoles"
+  },
+  {
+    "id": "CR-61103",
+    "name": "Lagunillas",
+    "code": "61103",
+    "level": 2,
+    "parentId": "CR-611",
+    "area": 81.0,
+    "altitude": null,
+    "normalized_name": "lagunillas"
+  },
+  {
+    "id": "CR-61201",
+    "name": "Monteverde",
+    "code": "61201",
+    "level": 2,
+    "parentId": "CR-612",
+    "area": 53.47,
+    "altitude": null,
+    "normalized_name": "monteverde"
+  },
+  {
+    "id": "CR-61301",
+    "name": "Puerto Jiménez",
+    "code": "61301",
+    "level": 2,
+    "parentId": "CR-613",
+    "area": 720.43,
+    "altitude": null,
+    "normalized_name": "puerto jimenez"
+  },
+  {
+    "id": "CR-70101",
+    "name": "Limón",
+    "code": "70101",
+    "level": 2,
+    "parentId": "CR-701",
+    "area": 59.18,
+    "altitude": null,
+    "normalized_name": "limon"
+  },
+  {
+    "id": "CR-70102",
+    "name": "Valle La Estrella",
+    "code": "70102",
+    "level": 2,
+    "parentId": "CR-701",
+    "area": 1238.42,
+    "altitude": null,
+    "normalized_name": "valle la estrella"
+  },
+  {
+    "id": "CR-70103",
+    "name": "Río Blanco",
+    "code": "70103",
+    "level": 2,
+    "parentId": "CR-701",
+    "area": 131.31,
+    "altitude": null,
+    "normalized_name": "rio blanco"
+  },
+  {
+    "id": "CR-70104",
+    "name": "Matama",
+    "code": "70104",
+    "level": 2,
+    "parentId": "CR-701",
+    "area": 340.47,
+    "altitude": null,
+    "normalized_name": "matama"
+  },
+  {
+    "id": "CR-70201",
+    "name": "Guápiles",
+    "code": "70201",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 221.74,
+    "altitude": null,
+    "normalized_name": "guapiles"
+  },
+  {
+    "id": "CR-70202",
+    "name": "Jiménez",
+    "code": "70202",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 108.23,
+    "altitude": null,
+    "normalized_name": "jimenez"
+  },
+  {
+    "id": "CR-70203",
+    "name": "Rita",
+    "code": "70203",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 503.74,
+    "altitude": null,
+    "normalized_name": "rita"
+  },
+  {
+    "id": "CR-70204",
+    "name": "Roxana",
+    "code": "70204",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 166.21,
+    "altitude": null,
+    "normalized_name": "roxana"
+  },
+  {
+    "id": "CR-70205",
+    "name": "Cariari",
+    "code": "70205",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 201.03,
+    "altitude": null,
+    "normalized_name": "cariari"
+  },
+  {
+    "id": "CR-70206",
+    "name": "Colorado",
+    "code": "70206",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 948.51,
+    "altitude": null,
+    "normalized_name": "colorado"
+  },
+  {
+    "id": "CR-70207",
+    "name": "La Colonia",
+    "code": "70207",
+    "level": 2,
+    "parentId": "CR-702",
+    "area": 38.79,
+    "altitude": null,
+    "normalized_name": "la colonia"
+  },
+  {
+    "id": "CR-70301",
+    "name": "Siquirres",
+    "code": "70301",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 184.21,
+    "altitude": null,
+    "normalized_name": "siquirres"
+  },
+  {
+    "id": "CR-70302",
+    "name": "Pacuarito",
+    "code": "70302",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 220.02,
+    "altitude": null,
+    "normalized_name": "pacuarito"
+  },
+  {
+    "id": "CR-70303",
+    "name": "Florida",
+    "code": "70303",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 81.93,
+    "altitude": null,
+    "normalized_name": "florida"
+  },
+  {
+    "id": "CR-70304",
+    "name": "Germania",
+    "code": "70304",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 33.96,
+    "altitude": null,
+    "normalized_name": "germania"
+  },
+  {
+    "id": "CR-70305",
+    "name": "El Cairo",
+    "code": "70305",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 106.96,
+    "altitude": null,
+    "normalized_name": "el cairo"
+  },
+  {
+    "id": "CR-70306",
+    "name": "Alegría",
+    "code": "70306",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 38.05,
+    "altitude": null,
+    "normalized_name": "alegria"
+  },
+  {
+    "id": "CR-70307",
+    "name": "Reventazón",
+    "code": "70307",
+    "level": 2,
+    "parentId": "CR-703",
+    "area": 190.01,
+    "altitude": null,
+    "normalized_name": "reventazon"
+  },
+  {
+    "id": "CR-70401",
+    "name": "Bratsi",
+    "code": "70401",
+    "level": 2,
+    "parentId": "CR-704",
+    "area": 180.85,
+    "altitude": null,
+    "normalized_name": "bratsi"
+  },
+  {
+    "id": "CR-70402",
+    "name": "Sixaola",
+    "code": "70402",
+    "level": 2,
+    "parentId": "CR-704",
+    "area": 169.01,
+    "altitude": null,
+    "normalized_name": "sixaola"
+  },
+  {
+    "id": "CR-70403",
+    "name": "Cahuita",
+    "code": "70403",
+    "level": 2,
+    "parentId": "CR-704",
+    "area": 234.07,
+    "altitude": null,
+    "normalized_name": "cahuita"
+  },
+  {
+    "id": "CR-70404",
+    "name": "Telire",
+    "code": "70404",
+    "level": 2,
+    "parentId": "CR-704",
+    "area": 2208.3,
+    "altitude": null,
+    "normalized_name": "telire"
+  },
+  {
+    "id": "CR-70501",
+    "name": "Matina",
+    "code": "70501",
+    "level": 2,
+    "parentId": "CR-705",
+    "area": 351.45,
+    "altitude": null,
+    "normalized_name": "matina"
+  },
+  {
+    "id": "CR-70502",
+    "name": "Batán",
+    "code": "70502",
+    "level": 2,
+    "parentId": "CR-705",
+    "area": 213.41,
+    "altitude": null,
+    "normalized_name": "batan"
+  },
+  {
+    "id": "CR-70503",
+    "name": "Carrandí",
+    "code": "70503",
+    "level": 2,
+    "parentId": "CR-705",
+    "area": 205.54,
+    "altitude": null,
+    "normalized_name": "carrandi"
+  },
+  {
+    "id": "CR-70601",
+    "name": "Guácimo",
+    "code": "70601",
+    "level": 2,
+    "parentId": "CR-706",
+    "area": 223.79,
+    "altitude": null,
+    "normalized_name": "guacimo"
+  },
+  {
+    "id": "CR-70602",
+    "name": "Mercedes",
+    "code": "70602",
+    "level": 2,
+    "parentId": "CR-706",
+    "area": 90.06,
+    "altitude": null,
+    "normalized_name": "mercedes"
+  },
+  {
+    "id": "CR-70603",
+    "name": "Pocora",
+    "code": "70603",
+    "level": 2,
+    "parentId": "CR-706",
+    "area": 72.88,
+    "altitude": null,
+    "normalized_name": "pocora"
+  },
+  {
+    "id": "CR-70604",
+    "name": "Río Jiménez",
+    "code": "70604",
+    "level": 2,
+    "parentId": "CR-706",
+    "area": 333.71,
+    "altitude": null,
+    "normalized_name": "rio jimenez"
+  },
+  {
+    "id": "CR-70605",
+    "name": "Duacarí",
+    "code": "70605",
+    "level": 2,
+    "parentId": "CR-706",
+    "area": 81.12,
+    "altitude": null,
+    "normalized_name": "duacari"
+  }
+]

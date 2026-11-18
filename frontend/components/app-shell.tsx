@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl"
 import { useTheme } from "next-themes"
 import { useUser, UserButton, SignInButton } from "@clerk/nextjs"
 import {
+  MapPinned,
   ChevronRight,
   ChevronsUpDown,
   Gavel,
@@ -79,6 +80,7 @@ function AppNavLink(props: ComponentProps<typeof Link>) {
   )
 }
 const icons = {
+  territorialDivisions: MapPinned,
   properties: Building2,
   vehicles: Car,
   other: Package,
