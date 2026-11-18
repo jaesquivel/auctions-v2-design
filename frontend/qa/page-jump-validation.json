@@ -5,18 +5,18 @@
     "lint": "passed",
     "existingTestsPassed": 39,
     "browser": [
-      "Properties jump to page 3 with Go",
-      "Jump to final page 10 with Enter",
-      "Out-of-range value 11 disabled",
-      "Spanish Vehicles jump to page 2 and back",
-      "Other exposes the same page control",
-      "390px controls remain on one line"
+      "Page input navigates on blur",
+      "Enter navigates without a Go button",
+      "No native number spinner arrows",
+      "First/Last navigate and disable at boundaries",
+      "Out-of-range input resets on blur",
+      "Spanish blur navigation passes",
+      "390px paging controls fit without document overflow"
     ],
-    "screenshot": "react-page-jump.jpg"
+    "screenshot": "react-paging-style.jpg"
   },
   "notes": [
-    "Used the user-started development server without starting or stopping it.",
-    "Preserved pending user edits removing unused result/results translation keys.",
-    "Existing Base UI sidebar animation warning observed; unrelated to pagination."
+    "User-started server remained running.",
+    "Page size options remain 25/50/100 with a separate label."
   ]
 }

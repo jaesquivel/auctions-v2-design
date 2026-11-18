@@ -488,9 +488,16 @@
   "divisionNormalizedHelp": "Se genera a partir del nombre, sin tildes y en minúsculas. Solo SYSADMIN puede verlo en este formulario.",
   "bulkAddTag": "Agregar etiqueta",
   "bulkRemoveTag": "Quitar etiqueta",
-  "bulkTagScope": "{count, plural, =0 {No hay elementos en esta página} one {Se aplica a # elemento de esta página} other {Se aplica a # elementos de esta página}}",
-  "bulkTagAdded": "{count, plural, =0 {Todos los elementos mostrados ya tienen esta etiqueta.} one {Etiqueta agregada a # elemento.} other {Etiqueta agregada a # elementos.}}",
-  "bulkTagRemoved": "{count, plural, =0 {Ningún elemento mostrado tenía esta etiqueta.} one {Etiqueta quitada de # elemento.} other {Etiqueta quitada de # elementos.}}",
+  "bulkTagScope": "{count, plural, one {Se aplica a # elemento} other {Se aplica a # elementos}}",
+  "bulkTagAdded": "{count, plural, =0 {Todos los elementos coincidentes ya tienen esta etiqueta.} one {Etiqueta agregada a # elemento.} other {Etiqueta agregada a # elementos.}}",
+  "bulkTagRemoved": "{count, plural, =0 {Ningún elemento coincidente tenía esta etiqueta.} one {Etiqueta quitada de # elemento.} other {Etiqueta quitada de # elementos.}}",
   "goToPage": "Ir a la página",
-  "goToPageButton": "Ir"
+  "firstPage": "Primera página",
+  "lastPage": "Última página",
+  "listingItemCount": "{count, plural, one {# bien en total} other {# bienes en total}}",
+  "bulkTagLoadError": "No se pudieron cargar todos los elementos coincidentes. Cierre y vuelva a abrir este menú para reintentar.",
+  "bulkTagConfirmAddTitle": "¿Agregar etiqueta a los elementos coincidentes?",
+  "bulkTagConfirmRemoveTitle": "¿Quitar etiqueta de los elementos coincidentes?",
+  "bulkTagConfirmAdd": "{count, plural, one {Se agregará «{tag}» a # elemento que coincide con los filtros actuales.} other {Se agregará «{tag}» a # elementos que coinciden con los filtros actuales.}}",
+  "bulkTagConfirmRemove": "{count, plural, one {Se quitará «{tag}» de # elemento que coincide con los filtros actuales.} other {Se quitará «{tag}» de # elementos que coinciden con los filtros actuales.}}"
 }

@@ -1,14 +1,21 @@
 {
   "date": "2026-11-18",
-  "scope": "Current displayed server page only; no automatic rules",
+  "scope": "All items matching the current filters, across server pages",
   "browserChecks": [
-    "Colored tag menu without checkmarks",
-    "Five displayed properties tagged; next page unchanged",
-    "Bulk removal preserves other existing tags",
-    "Empty filtered results disable both actions",
-    "USER can add/remove tags on 25 displayed vehicles",
-    "Other listing exposes bulk controls",
-    "No browser console warnings/errors"
+    "Legend shows Applies to 50 items while page contains 25",
+    "Remove menu includes tags across full result set",
+    "Adding test tag updates all 25 items on both pages",
+    "Removing test tag clears both pages and preserves existing tags"
   ],
-  "screenshot": "react-bulk-tags.png"
+  "screenshot": "react-total-tag-scope.jpg",
+  "testsPassed": 42,
+  "confirmationChecks": [
+    "Add confirmation excludes already assigned items: 48 of 50",
+    "Remove confirmation excludes missing assignments: 2 of 50",
+    "Cancel and Escape do not modify assignments",
+    "Confirming Add applies the batch",
+    "Canceling Remove retains assignments",
+    "Confirming Remove applies the batch"
+  ],
+  "confirmationScreenshot": "react-bulk-tag-confirmation.jpg"
 }

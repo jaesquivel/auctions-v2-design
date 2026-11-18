@@ -488,9 +488,16 @@
   "divisionNormalizedHelp": "Generated from the name without accents, in lowercase. Visible only to SYSADMIN in this form.",
   "bulkAddTag": "Add tag",
   "bulkRemoveTag": "Remove tag",
-  "bulkTagScope": "{count, plural, =0 {No items on this page} one {Applies to # item on this page} other {Applies to # items on this page}}",
-  "bulkTagAdded": "{count, plural, =0 {All displayed items already have this tag.} one {Tag added to # item.} other {Tag added to # items.}}",
-  "bulkTagRemoved": "{count, plural, =0 {No displayed items had this tag.} one {Tag removed from # item.} other {Tag removed from # items.}}",
+  "bulkTagScope": "{count, plural, one {Applies to # item} other {Applies to # items}}",
+  "bulkTagAdded": "{count, plural, =0 {All matching items already have this tag.} one {Tag added to # item.} other {Tag added to # items.}}",
+  "bulkTagRemoved": "{count, plural, =0 {No matching items had this tag.} one {Tag removed from # item.} other {Tag removed from # items.}}",
   "goToPage": "Go to page",
-  "goToPageButton": "Go"
+  "firstPage": "First page",
+  "lastPage": "Last page",
+  "listingItemCount": "{count, plural, one {# Total item} other {# Total items}}",
+  "bulkTagLoadError": "Could not load all matching items. Close and reopen this menu to retry.",
+  "bulkTagConfirmAddTitle": "Add tag to matching items?",
+  "bulkTagConfirmRemoveTitle": "Remove tag from matching items?",
+  "bulkTagConfirmAdd": "{count, plural, one {This will add “{tag}” to # item matching the current filters.} other {This will add “{tag}” to # items matching the current filters.}}",
+  "bulkTagConfirmRemove": "{count, plural, one {This will remove “{tag}” from # item matching the current filters.} other {This will remove “{tag}” from # items matching the current filters.}}"
 }

@@ -1,5 +1,12 @@
 "use client"
-import { useState, useEffect, useMemo, useCallback } from "react"
+import {
+  Fragment,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useId,
+} from "react"
 import { useTranslations, useLocale } from "next-intl"
 import {
   ArrowUp,
@@ -15,10 +22,13 @@ import {
   List,
   Map,
   SlidersHorizontal,
+  ChevronFirst,
+  ChevronLast,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
 import { FieldTitle } from "@/components/ui/field"
 import { DataTable, type DataTableColumn } from "@/components/ui/data-table"
 import { Card, CardContent } from "@/components/ui/card"
@@ -107,7 +117,16 @@ export function ItemGrid({ category }: { category: Category }) {
   const router = useRouter()
   const { state, update } = usePreview()
   const fallbackQuery = useMemo(() => defaultQuery(category), [category])
-  const query = state.queries[queryKey(state.user, category)] ?? fallbackQuery
+  const pageSizeId = useId()
+  const savedQuery =
+    state.queries[queryKey(state.user, category)] ?? fallbackQuery
+  const query = useMemo(
+    () =>
+      [25, 50, 100].includes(savedQuery.pageSize)
+        ? savedQuery
+        : { ...savedQuery, pageSize: 25, page: 1 },
+    [savedQuery]
+  )
   const assignments = state.assignments[state.organization]
   const [response, setResponse] = useState<{
     key: string
@@ -158,7 +177,13 @@ export function ItemGrid({ category }: { category: Category }) {
           ...s,
           queries: {
             ...s.queries,
-            [queryKey(s.user, category)]: { ...current, ...patch },
+            [queryKey(s.user, category)]: {
+              ...current,
+              ...(![25, 50, 100].includes(current.pageSize)
+                ? { pageSize: 25, page: 1 }
+                : {}),
+              ...patch,
+            },
           },
         }
       }),
@@ -342,7 +367,8 @@ export function ItemGrid({ category }: { category: Category }) {
           </Button>
           <BulkTagActions
             key={`${state.user}:${state.organization}:${category}:${requestKey}`}
-            itemIds={data?.items.map((item) => item.id) ?? []}
+            query={payload}
+            total={data?.total ?? 0}
           />
         </div>
         {category === "properties" && (
@@ -494,55 +520,7 @@ export function ItemGrid({ category }: { category: Category }) {
           </div>
         </CardContent>
       </Card>
-      <div className="flex flex-wrap items-center gap-4">
-        <Choice
-          value={String(query.pageSize)}
-          onChange={(v) => change({ pageSize: Number(v), page: 1 })}
-          label={t("pageSize")}
-          options={[5, 10, 25, 50, 100].map((n) => ({
-            value: String(n),
-            label: `${n} · ${t("pageSize")}`,
-          }))}
-        />
-        <span className="text-sm text-muted-foreground">
-          {data
-            ? `${t("showingCount")} ${data.total ? (data.page - 1) * data.pageSize + 1 : 0}–${Math.min(data.page * data.pageSize, data.total)} ${t("pageOf")} ${data.total}`
-            : ""}
-        </span>
-        <Pagination className="ml-auto w-auto">
-          <PaginationContent className="flex-wrap justify-center">
-            <PaginationItem>
-              <Button
-                variant="outline"
-                disabled={!data || data.page <= 1}
-                onClick={() => change({ page: data!.page - 1 })}
-              >
-                <ChevronLeft />
-                {t("previousPage")}
-              </Button>
-            </PaginationItem>
-            <PaginationItem>
-              <PageJump
-                key={`${state.user}:${state.organization}:${category}:${data?.page}:${data?.pageCount}`}
-                page={data?.page ?? query.page}
-                pageCount={data?.total ? data.pageCount : 0}
-                disabled={!data || !data.total}
-                onGo={(page) => change({ page })}
-              />
-            </PaginationItem>
-            <PaginationItem>
-              <Button
-                variant="outline"
-                disabled={!data || data.page >= data.pageCount}
-                onClick={() => change({ page: data!.page + 1 })}
-              >
-                {t("nextPage")}
-                <ChevronRight />
-              </Button>
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      </div>
+
       {error ? (
         <Alert variant="destructive">
           <AlertDescription>
@@ -601,6 +579,90 @@ export function ItemGrid({ category }: { category: Category }) {
           )}
         />
       )}
+      <footer
+        className="grid grid-cols-1 items-center gap-4 xl:grid-cols-[1fr_auto_1fr]"
+        data-slot="listing-footer"
+      >
+        <div className="flex items-center gap-2">
+          <Label htmlFor={pageSizeId}>{t("pageSize")}</Label>
+          <Choice
+            id={pageSizeId}
+            value={String(query.pageSize)}
+            onChange={(v) => change({ pageSize: Number(v), page: 1 })}
+            label={t("pageSize")}
+            options={[25, 50, 100].map((n) => ({
+              value: String(n),
+              label: String(n),
+            }))}
+          />
+        </div>
+        <span
+          className="justify-self-center text-sm whitespace-nowrap"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {data ? t("listingItemCount", { count: data.total }) : "…"}
+        </span>
+        <div className="flex flex-wrap items-center justify-center gap-4 xl:justify-end xl:justify-self-end">
+          <Pagination className="mx-0 w-auto">
+            <PaginationContent className="gap-2">
+              {[
+                {
+                  label: "firstPage",
+                  icon: ChevronFirst,
+                  target: 1,
+                  disabled: !data || data.page <= 1,
+                },
+                {
+                  label: "previousPage",
+                  icon: ChevronLeft,
+                  target: (data?.page ?? 1) - 1,
+                  disabled: !data || data.page <= 1,
+                },
+                {
+                  label: "nextPage",
+                  icon: ChevronRight,
+                  target: (data?.page ?? 1) + 1,
+                  disabled: !data || data.page >= data.pageCount,
+                },
+                {
+                  label: "lastPage",
+                  icon: ChevronLast,
+                  target: data?.pageCount ?? 1,
+                  disabled: !data || data.page >= data.pageCount,
+                },
+              ].map(({ label, icon: Icon, target, disabled }) => (
+                <Fragment key={label}>
+                  <PaginationItem>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      aria-label={t(label)}
+                      title={t(label)}
+                      data-page-navigation
+                      disabled={disabled}
+                      onClick={() => change({ page: target })}
+                    >
+                      <Icon aria-hidden="true" />
+                    </Button>
+                  </PaginationItem>
+                  {label === "previousPage" && (
+                    <PaginationItem className="px-2">
+                      <PageJump
+                        key={`${state.user}:${state.organization}:${category}:${data?.page}:${data?.pageCount}`}
+                        page={data?.page ?? query.page}
+                        pageCount={data?.total ? data.pageCount : 0}
+                        disabled={!data || !data.total}
+                        onGo={(page) => change({ page })}
+                      />
+                    </PaginationItem>
+                  )}
+                </Fragment>
+              ))}
+            </PaginationContent>
+          </Pagination>
+        </div>
+      </footer>
     </>
   )
 }

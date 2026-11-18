@@ -133,6 +133,7 @@
 
 /* Confirmed grid behavior: single-line rows and clipped cell content. */
 .data-grid { table-layout: fixed; }
+.data-grid tbody td { height: 2.5rem; padding-top: 0.25rem; padding-bottom: 0.25rem; }
 .data-grid th, .data-grid td { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .data-grid th > button, .grid-cell-value > a { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 .data-grid th > button { justify-content: flex-start; }
