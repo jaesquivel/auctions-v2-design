@@ -328,21 +328,21 @@ export function ItemGrid({ category }: { category: Category }) {
   )
   return (
     <>
-      <PageHeading title={t(category)} description={t("listingIntro")}>
-        <Button
-          render={<Link href={`/${category}/filters`} />}
-          nativeButton={false}
-        >
-          <SlidersHorizontal />
-          {t("openFilters")}
-        </Button>
-      </PageHeading>
+      <PageHeading title={t(category)} description={t("listingIntro")} />
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-muted-foreground" aria-live="polite">
-          {data
-            ? `${data.total} ${t(data.total === 1 ? "result" : "results")}`
-            : t("loadingItems")}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button
+            render={<Link href={`/${category}/filters`} />}
+            nativeButton={false}
+          >
+            <SlidersHorizontal />
+            {t("openFilters")}
+          </Button>
+          <BulkTagActions
+            key={`${state.user}:${state.organization}:${category}:${requestKey}`}
+            itemIds={data?.items.map((item) => item.id) ?? []}
+          />
+        </div>
         {category === "properties" && (
           <ToggleGroup
             multiple={false}
@@ -364,10 +364,6 @@ export function ItemGrid({ category }: { category: Category }) {
           </ToggleGroup>
         )}
       </div>
-      <BulkTagActions
-        key={`${state.user}:${state.organization}:${category}:${requestKey}`}
-        itemIds={data?.items.map((item) => item.id) ?? []}
-      />
       <Card>
         <CardContent>
           <div className="flex flex-wrap items-center gap-3">
