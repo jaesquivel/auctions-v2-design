@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-18",
+  "scope": "Current displayed server page only; no automatic rules",
+  "browserChecks": [
+    "Colored tag menu without checkmarks",
+    "Five displayed properties tagged; next page unchanged",
+    "Bulk removal preserves other existing tags",
+    "Empty filtered results disable both actions",
+    "USER can add/remove tags on 25 displayed vehicles",
+    "Other listing exposes bulk controls",
+    "No browser console warnings/errors"
+  ],
+  "screenshot": "react-bulk-tags.png"
+}

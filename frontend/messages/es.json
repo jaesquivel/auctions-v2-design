@@ -487,5 +487,10 @@
   "actions": "Acciones",
   "divisionArea": "Área (km²)",
   "divisionAltitude": "Altitud (m)",
-  "divisionNormalizedHelp": "Se genera a partir del nombre, sin tildes y en minúsculas. Solo SYSADMIN puede verlo en este formulario."
+  "divisionNormalizedHelp": "Se genera a partir del nombre, sin tildes y en minúsculas. Solo SYSADMIN puede verlo en este formulario.",
+  "bulkAddTag": "Agregar etiqueta",
+  "bulkRemoveTag": "Quitar etiqueta",
+  "bulkTagScope": "{count, plural, =0 {No hay elementos en esta página} one {Se aplica a # elemento de esta página} other {Se aplica a # elementos de esta página}}",
+  "bulkTagAdded": "{count, plural, =0 {Todos los elementos mostrados ya tienen esta etiqueta.} one {Etiqueta agregada a # elemento.} other {Etiqueta agregada a # elementos.}}",
+  "bulkTagRemoved": "{count, plural, =0 {Ningún elemento mostrado tenía esta etiqueta.} one {Etiqueta quitada de # elemento.} other {Etiqueta quitada de # elementos.}}"
 }

@@ -52,6 +52,7 @@ import {
 import { usePreview, storedQuery, queryKey } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Choice, IconAction, PageHeading } from "./shared"
+import { BulkTagActions } from "./bulk-tag-actions"
 import { TagPicker } from "./tag-picker"
 import dynamic from "next/dynamic"
 const PropertyMap = dynamic(() => import("./property-map"), {
@@ -363,6 +364,10 @@ export function ItemGrid({ category }: { category: Category }) {
           </ToggleGroup>
         )}
       </div>
+      <BulkTagActions
+        key={`${state.user}:${state.organization}:${category}:${requestKey}`}
+        itemIds={data?.items.map((item) => item.id) ?? []}
+      />
       <Card>
         <CardContent>
           <div className="flex flex-wrap items-center gap-3">

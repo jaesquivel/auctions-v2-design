@@ -487,5 +487,10 @@
   "actions": "Actions",
   "divisionArea": "Area (km²)",
   "divisionAltitude": "Altitude (m)",
-  "divisionNormalizedHelp": "Generated from the name without accents, in lowercase. Visible only to SYSADMIN in this form."
+  "divisionNormalizedHelp": "Generated from the name without accents, in lowercase. Visible only to SYSADMIN in this form.",
+  "bulkAddTag": "Add tag",
+  "bulkRemoveTag": "Remove tag",
+  "bulkTagScope": "{count, plural, =0 {No items on this page} one {Applies to # item on this page} other {Applies to # items on this page}}",
+  "bulkTagAdded": "{count, plural, =0 {All displayed items already have this tag.} one {Tag added to # item.} other {Tag added to # items.}}",
+  "bulkTagRemoved": "{count, plural, =0 {No displayed items had this tag.} one {Tag removed from # item.} other {Tag removed from # items.}}"
 }
