@@ -196,13 +196,13 @@ export function AppShell({
                 size="lg"
                 render={<AppNavLink href="/properties" />}
               >
-                <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-accent text-sidebar-accent-foreground">
                   <Image
                     width={28}
                     height={28}
                     src="/brand/gavel-dark.svg"
                     alt=""
-                    className="size-5 invert dark:invert-0"
+                    className="size-5 dark:invert"
                   />
                 </span>
                 <div className="grid flex-1 text-left text-sm leading-tight">
