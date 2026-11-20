@@ -249,15 +249,15 @@ function FilterEditor({ initial }: { initial: Query }) {
                     }))
                   }
                   options={[
-                    { value: "AND", label: t("allAndReadable") },
-                    { value: "OR", label: t("anyOrReadable") },
+                    { value: "AND", label: t("allGroupsReadable") },
+                    { value: "OR", label: t("anyGroupReadable") },
                   ]}
                 />
               </div>
               {draft.expression.groups.map((group, gi) => (
                 <Card key={gi}>
                   <CardHeader>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-col items-start gap-3">
                       <div className="flex items-center gap-1">
                         <CardTitle>
                           {t("group")} {gi + 1}
@@ -282,21 +282,19 @@ function FilterEditor({ initial }: { initial: Query }) {
                           <X />
                         </IconAction>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Choice
-                          label={`${t("combineTerms")} ${gi + 1}`}
-                          value={group.operator}
-                          onChange={(operator) =>
-                            updateGroup(gi, {
-                              operator: operator as "AND" | "OR",
-                            })
-                          }
-                          options={[
-                            { value: "AND", label: t("allAndReadable") },
-                            { value: "OR", label: t("anyOrReadable") },
-                          ]}
-                        />
-                      </div>
+                      <LabeledChoice
+                        label={t("matchTerms")}
+                        value={group.operator}
+                        onChange={(operator) =>
+                          updateGroup(gi, {
+                            operator: operator as "AND" | "OR",
+                          })
+                        }
+                        options={[
+                          { value: "AND", label: t("allTerms") },
+                          { value: "OR", label: t("anyTerm") },
+                        ]}
+                      />
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-3">
