@@ -12,8 +12,6 @@ import {
   ArrowUp,
   ArrowDown,
   ArrowUpDown,
-  Columns3,
-  ChevronDown,
   Pencil,
   Eye,
   FileText,
@@ -29,15 +27,7 @@ import { DataTable, type DataTableColumn } from "@/components/ui/data-table"
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuGroup,
-  DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
-} from "@/components/ui/dropdown-menu"
+
 import {
   Pagination,
   PaginationContent,
@@ -59,35 +49,9 @@ import { usePreview, storedQuery, queryKey } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Choice, IconAction, PageHeading } from "./shared"
 import { BulkTagActions } from "./bulk-tag-actions"
-import { SortMenu } from "./sort-menu"
+import { columnKeys, defaultColumns } from "@/lib/listing-view"
 import { PageJump } from "./page-jump"
 import { TagPicker } from "./tag-picker"
-export const columnKeys = (category: Category) => [
-  "tags",
-  ...(category === "properties"
-    ? ["registrationNumber", "locality"]
-    : category === "vehicles"
-      ? ["plate"]
-      : []),
-  "item",
-  "type",
-  ...(category === "properties" ? ["area"] : []),
-  "amount",
-  "date",
-  "firstRoundDate",
-  "firstRoundTime",
-  "firstRoundBase",
-  "secondRoundDate",
-  "secondRoundTime",
-  "secondRoundBase",
-  "thirdRoundDate",
-  "thirdRoundTime",
-  "thirdRoundBase",
-  "caseNumber",
-  "reference",
-]
-export const defaultColumns = (category: Category) =>
-  columnKeys(category).filter((k) => !/(first|second|third)Round/.test(k))
 const columnWidth = (key: string) =>
   ({
     tags: 220,
@@ -359,77 +323,6 @@ export function ItemGrid({ category }: { category: Category }) {
             query={payload}
             total={data?.total ?? 0}
           />
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <SortMenu
-            sorts={query.sorts}
-            options={sortOptions.map((value) => ({
-              value,
-              label: label(value),
-            }))}
-            onChange={(sorts) => {
-              if (
-                sorts.some((sort) => sort.field === "amount") &&
-                !amountSortCurrency(query)
-              ) {
-                router.push(`/${category}/filters`)
-                return
-              }
-              change({ sorts, page: 1 })
-            }}
-          />
-          <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" />}>
-              <Columns3 />
-              {t("columns")}
-              <ChevronDown aria-hidden="true" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="max-h-96 overflow-y-auto"
-            >
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>{t("columns")}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {available.map((key) => (
-                  <DropdownMenuCheckboxItem
-                    key={key}
-                    checked={selected.includes(key)}
-                    disabled={selected.length === 1 && selected.includes(key)}
-                    closeOnClick={false}
-                    onCheckedChange={(checked) =>
-                      update((s) => ({
-                        ...s,
-                        columns: {
-                          ...s.columns,
-                          [queryKey(s.user, category)]: checked
-                            ? [...selected, key]
-                            : selected.filter((x) => x !== key),
-                        },
-                      }))
-                    }
-                  >
-                    {label(key)}
-                  </DropdownMenuCheckboxItem>
-                ))}
-                <DropdownMenuSeparator />
-                <Button
-                  variant="ghost"
-                  onClick={() =>
-                    update((s) => ({
-                      ...s,
-                      columns: {
-                        ...s.columns,
-                        [queryKey(s.user, category)]: defaultColumns(category),
-                      },
-                    }))
-                  }
-                >
-                  {t("resetColumns")}
-                </Button>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
 

@@ -16,13 +16,14 @@ export type Tag = {
   color: string
   deleted?: boolean
 }
-export type SavedFilter = {
+export type SavedView = {
   id: string
   owner: string
   name: string
   organization: string
   query: Query
   enabled: boolean
+  columns?: string[] // Absent on legacy saved filters.
 }
 export type PreviewState = {
   version: 1
@@ -35,7 +36,7 @@ export type PreviewState = {
   tags: Record<string, Tag[]>
   assignments: Record<string, Record<string, string[]>>
   research: Record<string, Research>
-  savedFilters: SavedFilter[]
+  savedFilters: SavedView[] // Retain storage key for existing browser data.
   queries: Record<string, Query>
   columns: Record<string, string[]>
   members: { id: string; name: string; role: Role; organization: string }[]
