@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-20",
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "existingTestsPassed": 42,
+    "browser": [
+      "Saved filters menu lists existing user-owned filters",
+      "Inline name field rejects an empty name",
+      "Save persists current draft and closes only the menu",
+      "Choosing a saved filter loads its draft and closes menu",
+      "Apply updates results after retrieval",
+      "Other users saved filters remain hidden",
+      "Empty state and save form remain available",
+      "Escape closes only the saved-filter menu",
+      "390px menu fits without horizontal overflow",
+      "Temporary QA filter deleted and original context restored"
+    ]
+  },
+  "screenshot": "react-saved-filters-menu.jpg"
+}

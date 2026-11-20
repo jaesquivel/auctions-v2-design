@@ -74,11 +74,37 @@ export const fields = [
   "area",
   "quality",
   "tag",
+  "round1Amount",
+  "round2Amount",
+  "round3Amount",
+  "round1Date",
+  "round2Date",
+  "round3Date",
 ] as const
+export const isDateField = (field: string) =>
+  field === "date" || /^round[123]Date$/.test(field)
+export const isAmountField = (field: string) =>
+  field === "amount" || /^round[123]Amount$/.test(field)
 export const termSchema = z.object({
   field: z.enum(fields),
-  operator: z.enum(["contains", "eq", "gte", "lte", "isUnknown"]),
+  operator: z.enum([
+    "contains",
+    "eq",
+    "gte",
+    "lte",
+    "isUnknown",
+    "anyOf",
+    "allOf",
+    "noneOf",
+    "exactly",
+    "at",
+    "before",
+    "after",
+  ]),
   value: z.string().max(200),
+  tagIds: z.array(z.string().min(1).max(80)).min(1).max(100).optional(),
+  dateMode: z.enum(["specific", "relative"]).optional(),
+  currency: z.enum(["CRC", "USD"]).optional(),
 })
 export const expressionSchema = z.object({
   operator: z.enum(["AND", "OR"]),
@@ -93,6 +119,29 @@ export const expressionSchema = z.object({
 })
 export type Expression = z.infer<typeof expressionSchema>
 export type Term = z.infer<typeof termSchema>
+// Amount sorting is valid only when the expression guarantees one listing currency.
+export function amountSortCurrency(query: {
+  currency: string | null
+  expression: Expression
+}): string | null {
+  if (query.currency) return query.currency // persisted legacy scope
+  const bound = (term: Term) =>
+    term.field === "amount" && term.operator !== "isUnknown"
+      ? (term.currency ?? null)
+      : null
+  const groups = query.expression.groups.map((group) => {
+    const currencies = group.terms.map(bound)
+    if (group.operator === "AND") return currencies.find(Boolean) ?? null
+    return currencies.length &&
+      currencies.every((c) => c && c === currencies[0])
+      ? currencies[0]
+      : null
+  })
+  if (query.expression.operator === "AND") return groups.find(Boolean) ?? null
+  return groups.length && groups.every((c) => c && c === groups[0])
+    ? groups[0]
+    : null
+}
 export const sortFields = [
   "date",
   "amount",
@@ -132,11 +181,13 @@ export const querySchema = z
     const issue = (message: string) => ctx.addIssue({ code: "custom", message })
     if (terms.length > 100) issue("Too many terms")
     if (
-      (q.sorts.some((s) => s.field === "amount") ||
-        terms.some(
-          (t) => t.field === "amount" && t.operator !== "isUnknown"
-        )) &&
-      !q.currency
+      (q.sorts.some((s) => s.field === "amount") && !amountSortCurrency(q)) ||
+      terms.some(
+        (t) =>
+          isAmountField(t.field) &&
+          t.operator !== "isUnknown" &&
+          !(t.currency ?? q.currency)
+      )
     )
       issue("amountCurrencyRequired")
     if (new Set(q.sorts.map((s) => s.field)).size !== q.sorts.length)
@@ -148,22 +199,44 @@ export const querySchema = z
     )
       issue("Incompatible category field")
     for (const t of terms) {
-      if (t.operator !== "isUnknown" && !t.value.trim()) issue("Empty term")
+      if (
+        t.tagIds &&
+        (t.field !== "tag" || new Set(t.tagIds).size !== t.tagIds.length)
+      )
+        issue("Invalid tag selection")
+      if (t.dateMode && !isDateField(t.field)) issue("Invalid date operand")
+      if (t.currency && !isAmountField(t.field))
+        issue("Invalid amount currency")
+      if (
+        t.operator !== "isUnknown" &&
+        !t.value.trim() &&
+        !(t.field === "tag" && t.tagIds?.length)
+      )
+        issue("Empty term")
       if (t.operator === "isUnknown") continue
-      if (["amount", "area"].includes(t.field)) {
+      if (isAmountField(t.field) || t.field === "area") {
         if (
           !/^(0|[1-9]\d{0,13})(\.\d{1,2})?$/.test(t.value) ||
           !["eq", "gte", "lte"].includes(t.operator)
         )
           issue("Invalid numeric term")
-      } else if (t.field === "date") {
+      } else if (isDateField(t.field)) {
+        const validOperand =
+          t.dateMode === "relative"
+            ? /^[+-]?\d{1,5}$/.test(t.value) &&
+              Math.abs(Number(t.value)) <= 36500
+            : /^\d{4}-\d{2}-\d{2}$/.test(t.value) &&
+              !Number.isNaN(Date.parse(t.value)) &&
+              new Date(t.value).toISOString().slice(0, 10) === t.value
         if (
-          !/^\d{4}-\d{2}-\d{2}$/.test(t.value) ||
-          Number.isNaN(Date.parse(t.value)) ||
-          new Date(t.value).toISOString().slice(0, 10) !== t.value ||
-          !["eq", "gte", "lte"].includes(t.operator)
+          !validOperand ||
+          !["at", "before", "after", "eq", "gte", "lte"].includes(t.operator)
         )
           issue("Invalid date")
+      } else if (t.field === "tag") {
+        if (!["anyOf", "allOf", "noneOf", "exactly", "eq"].includes(t.operator))
+          issue("Invalid tag operator")
+        if (t.operator !== "eq" && !t.tagIds?.length) issue("Select tags")
       } else if (
         !["eq", "contains"].includes(t.operator) ||
         (["tag", "type", "region", "quality"].includes(t.field) &&
@@ -202,11 +275,33 @@ export const minorUnits = (s: string) => {
   const [a, b = ""] = s.split(".")
   return BigInt(a) * 100n + BigInt(b.padEnd(2, "0"))
 }
+// Instance-local calendar dates; relative offsets are resolved once per query.
+export const FILTER_TIME_ZONE = "America/Costa_Rica"
+export function relativeDate(offset: number, now = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: FILTER_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now)
+  const part = (type: string) => parts.find((p) => p.type === type)!.value
+  const date = new Date(
+    `${part("year")}-${part("month")}-${part("day")}T00:00:00Z`
+  )
+  date.setUTCDate(date.getUTCDate() + offset)
+  return date.toISOString().slice(0, 10)
+}
 export function matchesTerm(
   item: Item,
   t: Term,
-  assignments: Query["tagAssignments"]
+  assignments: Query["tagAssignments"],
+  now = new Date(),
+  currency?: string | null
 ) {
+  const roundMatch = /^round([123])(Amount|Date)$/.exec(t.field)
+  const round = roundMatch
+    ? item.auctionRounds.find((round) => round.round === Number(roundMatch[1]))
+    : undefined
   let value: unknown =
     t.field === "text"
       ? [
@@ -219,12 +314,32 @@ export function matchesTerm(
         ].join(" ")
       : t.field === "tag"
         ? assignments?.[item.id]
-        : item[t.field]
+        : roundMatch
+          ? roundMatch[2] === "Date"
+            ? round?.date
+            : round?.baseOffer?.amount
+          : item[t.field as keyof Item]
   if (t.operator === "isUnknown")
     return value === null || value === undefined || value === ""
+  if (t.field === "tag") {
+    const actual = new Set(Array.isArray(value) ? value : [])
+    const selected = t.tagIds ?? [t.value]
+    if (t.operator === "noneOf") return selected.every((id) => !actual.has(id))
+    if (t.operator === "allOf") return selected.every((id) => actual.has(id))
+    if (t.operator === "exactly")
+      return (
+        actual.size === selected.length &&
+        selected.every((id) => actual.has(id))
+      )
+    return selected.some((id) => actual.has(id))
+  }
   if (value === null || value === undefined || value === "") return false
-  if (t.field === "tag") return Array.isArray(value) && value.includes(t.value)
-  if (t.field === "amount") {
+  if (isAmountField(t.field)) {
+    const expectedCurrency = t.currency ?? currency
+    const actualCurrency = roundMatch
+      ? round?.baseOffer?.currency
+      : item.currency
+    if (expectedCurrency && actualCurrency !== expectedCurrency) return false
     const a = minorUnits(String(value)),
       b = minorUnits(t.value)
     return t.operator === "gte"
@@ -242,17 +357,28 @@ export function matchesTerm(
         ? Number(value) <= b
         : value === b
   }
-  if (t.field === "date")
-    return t.operator === "gte"
-      ? String(value) >= t.value
-      : t.operator === "lte"
-        ? String(value) <= t.value
-        : value === t.value
+  if (isDateField(t.field)) {
+    const target =
+      t.dateMode === "relative" ? relativeDate(Number(t.value), now) : t.value
+    return t.operator === "before"
+      ? String(value) < target
+      : t.operator === "after"
+        ? String(value) > target
+        : t.operator === "gte"
+          ? String(value) >= target
+          : t.operator === "lte"
+            ? String(value) <= target
+            : value === target
+  }
   return t.operator === "contains"
     ? normalize(value).includes(normalize(t.value))
     : normalize(value) === normalize(t.value)
 }
-export function queryItems(items: Item[], input: unknown): ItemPage {
+export function queryItems(
+  items: Item[],
+  input: unknown,
+  now = new Date()
+): ItemPage {
   const q = querySchema.parse(input)
   const combine = (xs: boolean[], op: string) =>
     op === "AND" ? xs.every(Boolean) : xs.some(Boolean)
@@ -264,7 +390,9 @@ export function queryItems(items: Item[], input: unknown): ItemPage {
         combine(
           q.expression.groups.map((g) =>
             combine(
-              g.terms.map((t) => matchesTerm(i, t, q.tagAssignments)),
+              g.terms.map((t) =>
+                matchesTerm(i, t, q.tagAssignments, now, q.currency)
+              ),
               g.operator
             )
           ),

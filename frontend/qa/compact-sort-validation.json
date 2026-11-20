@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-18",
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "existingTestsPassed": 42,
+    "browser": [
+      "Direction toggle persists without closing popup",
+      "Move up/down changes priority",
+      "Add stops at five criteria",
+      "Removing criteria updates badge",
+      "Duplicate field choices excluded",
+      "Clear all shows empty state",
+      "390px popup has no document overflow",
+      "Original Next Auction/Type ascending criteria restored after checks"
+    ]
+  },
+  "screenshots": [
+    "react-sort-popup.jpg",
+    "react-sort-toolbar.jpg"
+  ]
+}

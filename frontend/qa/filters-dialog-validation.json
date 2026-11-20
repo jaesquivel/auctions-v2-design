@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-18",
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "testsPassed": 42,
+    "browser": [
+      "Filter editor opens over listing",
+      "Cancel discards draft edits and preserves result set",
+      "Escape closes editor without applying",
+      "Save nested dialog retains main dialog",
+      "Escape on Save closes only nested dialog",
+      "Saved filter Load restores draft",
+      "Apply closes and updates matching results",
+      "Direct links work for Properties, Vehicles and Other",
+      "Spanish dialog labels verified",
+      "390px dialog fits viewport with scrollable body and fixed actions",
+      "Temporary saved QA filter removed after testing"
+    ]
+  },
+  "screenshot": "react-filters-dialog.jpg"
+}
