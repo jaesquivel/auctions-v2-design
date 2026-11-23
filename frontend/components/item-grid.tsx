@@ -48,6 +48,7 @@ import {
 import { usePreview, storedQuery, queryKey } from "@/lib/preview-store"
 import { Link, useRouter } from "@/i18n/navigation"
 import { Choice, IconAction, PageHeading } from "./shared"
+import { AppliedViewMenu } from "./applied-view-menu"
 import { BulkTagActions } from "./bulk-tag-actions"
 import { columnKeys, defaultColumns } from "@/lib/listing-view"
 import { PageJump } from "./page-jump"
@@ -309,7 +310,7 @@ export function ItemGrid({ category }: { category: Category }) {
   return (
     <>
       <PageHeading title={t(category)} description={t("listingIntro")} />
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
           <Button
             render={<Link href={`/${category}/filters`} />}
@@ -318,6 +319,13 @@ export function ItemGrid({ category }: { category: Category }) {
             <SlidersHorizontal />
             {t("openFilters")}
           </Button>
+          <AppliedViewMenu
+            category={category}
+            query={query}
+            columns={visible}
+          />
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
           <BulkTagActions
             key={`${state.user}:${state.organization}:${category}:${requestKey}`}
             query={payload}

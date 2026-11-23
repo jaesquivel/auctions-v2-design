@@ -547,5 +547,10 @@
   "viewOptionsHelp": "Configure filters, sorting and visible columns for this listing.",
   "columnsViewHelp": "Choose the columns to display. Keep at least one selected.",
   "clearFilters": "Clear filters",
-  "clearSorting": "Clear sort"
+  "clearSorting": "Clear sort",
+  "currentView": "Current view",
+  "customView": "Custom view",
+  "noSavedViewsListing": "No saved views for this listing. Save one in View options.",
+  "defaultView": "Default view",
+  "defaultViewNoFilters": "Default view (no filters)"
 }

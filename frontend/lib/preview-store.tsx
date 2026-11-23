@@ -38,6 +38,7 @@ export type PreviewState = {
   research: Record<string, Research>
   savedFilters: SavedView[] // Retain storage key for existing browser data.
   queries: Record<string, Query>
+  appliedViewIds?: Record<string, string>
   columns: Record<string, string[]>
   members: { id: string; name: string; role: Role; organization: string }[]
   territorialDivisions?: TerritorialDivision[]

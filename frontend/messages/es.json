@@ -547,5 +547,10 @@
   "viewOptionsHelp": "Configura los filtros, el orden y las columnas visibles de este listado.",
   "columnsViewHelp": "Elige las columnas que se mostrarán. Mantén al menos una seleccionada.",
   "clearFilters": "Limpiar filtros",
-  "clearSorting": "Limpiar orden"
+  "clearSorting": "Limpiar orden",
+  "currentView": "Vista actual",
+  "customView": "Vista personalizada",
+  "noSavedViewsListing": "No hay vistas guardadas para este listado. Guarde una en Opciones de vista.",
+  "defaultView": "Vista predeterminada",
+  "defaultViewNoFilters": "Vista predeterminada (sin filtros)"
 }
