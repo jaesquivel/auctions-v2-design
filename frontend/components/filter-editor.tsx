@@ -280,9 +280,12 @@ function FilterEditor({
           className="min-h-0 space-y-4 overflow-y-auto p-1"
         >
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <p className="max-w-2xl text-sm text-muted-foreground">
-              {t("expressionHelp")}
-            </p>
+            <div className="space-y-1">
+              <h3 className="font-medium">{t("filters")}</h3>
+              <p className="max-w-2xl text-sm text-muted-foreground">
+                {t("expressionHelp")}
+              </p>
+            </div>
             <Button
               variant="outline"
               size="sm"

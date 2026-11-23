@@ -1,15 +1,16 @@
 "use client"
 import { useTranslations } from "next-intl"
-import { ArrowUp, ArrowDown, EllipsisVertical, Plus, X } from "lucide-react"
+import {
+  ArrowUp,
+  ArrowDown,
+  ChevronUp,
+  ChevronDown,
+  Plus,
+  Trash2,
+} from "lucide-react"
 import type { Sort } from "@/lib/domain"
 import { Button } from "@/components/ui/button"
 
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
 import { Choice } from "./shared"
 
 export function SortControls({
@@ -95,43 +96,37 @@ export function SortControls({
               >
                 <Direction aria-hidden="true" />
               </Button>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      aria-label={t("sortRuleActions", { name })}
-                    />
-                  }
+              <div className="flex shrink-0 items-center gap-1">
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label={`${t("sortMoveUp")}: ${name}`}
+                  title={t("sortMoveUp")}
+                  disabled={index === 0}
+                  onClick={() => move(index, -1)}
                 >
-                  <EllipsisVertical aria-hidden="true" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem
-                    disabled={index === 0}
-                    onClick={() => move(index, -1)}
-                  >
-                    <ArrowUp />
-                    {t("sortMoveUp")}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    disabled={index === sorts.length - 1}
-                    onClick={() => move(index, 1)}
-                  >
-                    <ArrowDown />
-                    {t("sortMoveDown")}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() =>
-                      onChange(sorts.filter((_, i) => i !== index))
-                    }
-                  >
-                    <X />
-                    {t("clearSort")}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  <ChevronUp aria-hidden="true" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label={`${t("sortMoveDown")}: ${name}`}
+                  title={t("sortMoveDown")}
+                  disabled={index === sorts.length - 1}
+                  onClick={() => move(index, 1)}
+                >
+                  <ChevronDown aria-hidden="true" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label={`${t("clearSort")}: ${name}`}
+                  title={t("clearSort")}
+                  onClick={() => onChange(sorts.filter((_, i) => i !== index))}
+                >
+                  <Trash2 aria-hidden="true" />
+                </Button>
+              </div>
             </div>
           )
         })}
